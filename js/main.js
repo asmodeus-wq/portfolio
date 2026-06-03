@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Scroll - Improved Mobile + Last Panel
+// Horizontal Scroll - Better Mobile Desktop View Support
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -10,16 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const wrapper = document.getElementById('horizontal-wrapper');
     if (!wrapper) return;
 
-    const isMobile = window.innerWidth < 768;
+    // Run horizontal logic if screen is reasonably wide (helps with desktop view on mobile Chrome)
+    const runHorizontal = window.innerWidth >= 600;
 
-    if (!isMobile) {
+    if (runHorizontal) {
         const panels = wrapper.querySelectorAll('.panel');
         
         setTimeout(() => {
             let totalWidth = 0;
             panels.forEach(p => totalWidth += p.offsetWidth);
 
-            const scrollDistance = totalWidth - window.innerWidth + 120;
+            // Extra distance so last panel is fully visible
+            const scrollDistance = totalWidth - window.innerWidth + 200;
 
             gsap.to(wrapper, {
                 x: -scrollDistance,
@@ -62,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             });
-        }, 350);
+        }, 400);
     }
 
-    // Inner horizontal in Work
+    // Inner horizontal in Work section
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
     if (hContainer && hInner) {
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
-        }, 450);
+        }, 500);
     }
 
     // Mobile menu
@@ -101,14 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowLeft') window.scrollBy({ left: -500, behavior: 'smooth' });
     });
 
-    // Refresh ScrollTrigger on resize (helps with desktop view on mobile Chrome)
+    // Refresh on resize (helps desktop view on mobile Chrome)
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             ScrollTrigger.refresh();
-        }, 250);
+        }, 300);
     });
 
-    console.log('%c[Portfolio] Video hero + improved last panel visibility', 'color:#10b981');
+    console.log('%c[Portfolio] Improved last panel visibility + placeholder hero visual', 'color:#10b981');
 });

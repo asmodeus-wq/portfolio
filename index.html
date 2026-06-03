@@ -42,21 +42,12 @@
     <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex">
         
-        <!-- HERO PANEL with VIDEO BACKGROUND -->
+        <!-- HERO PANEL with PLACEHOLDER VISUAL -->
         <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-            <!-- Video Background -->
-            <video 
-                autoplay 
-                muted 
-                loop 
-                playsinline
-                class="absolute inset-0 w-full h-full object-cover z-0"
-                style="filter: brightness(0.55);">
-                <source src="https://assets.mixkit.co/videos/preview/1572/1572-small.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <!-- Beautiful placeholder background (replace with your video later) -->
+            <div class="absolute inset-0 bg-cover bg-center z-0" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1018/2000/1200');">
+            </div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
                 <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
