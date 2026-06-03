@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="bg-zinc-950 text-white overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
@@ -37,122 +37,114 @@
         </div>
     </nav>
 
-    <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex">
-        
-        <!-- HERO PANEL -->
+
+        <!-- Section 1 — Hero Banner -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://picsum.photos/id/1015/2000/1200');"></div>
-            <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
+            <div class="absolute inset-0 bg-cover bg-center z-0" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200');"></div>
+            <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm mb-6">CHAPTER 03 • FREELANCE APPROACH</span>
-                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6">Adaptive Design Process</h1>
-                <p class="max-w-2xl mx-auto text-2xl text-white/90 tracking-tight mb-10">How I turn complex challenges into meaningful digital experiences as a freelance UX designer.</p>
-                <div class="flex justify-center">
-                    <div class="inline-flex items-center gap-x-2 text-sm text-white/70">
-                        <span>Scroll horizontally to explore →</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
+                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-none mb-6">Adaptive Design Process</h1>
+                <p class="max-w-2xl mx-auto text-2xl text-white/90 tracking-tight mb-10">How I turn complex challenges into meaningful digital experiences.</p>
             </div>
         </section>
 
-        <!-- INTRO PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative">
+        <!-- Section 2 — Introduction / Approach -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
             <div class="max-w-5xl mx-auto px-6">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-5 mb-12 md:mb-0">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5">
                         <span class="text-emerald-400 text-sm font-medium tracking-widest">THE APPROACH</span>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-3 leading-none">Flexible.<br>Human-centered.<br>Results-driven.</h2>
                     </div>
                     <div class="md:col-span-7 text-[17px] leading-relaxed text-white/80 space-y-6">
-                        <p>As a freelance UX designer, I follow an adaptable framework based on proven design thinking principles. It flexes with every project's scope, stakeholders, and goals while maintaining rigor and empathy.</p>
-                        <p>The process is organized around three core phases — <strong>Understand</strong>, <strong>Explore</strong>, and <strong>Materialize</strong> — with supporting artifacts shown below.</p>
+                        <p>As a freelance UX designer, I follow an adaptable framework based on proven design thinking principles.</p>
+                        <p>The process is organized around three core phases — <strong>Understand</strong>, <strong>Explore</strong>, and <strong>Materialize</strong>.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DESIGN PLAN -->
-        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="1">
+        <!-- Section 3 — Phase 01: Understand -->
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900" data-phase="1">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="text-center mb-12">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">FOUNDATION</span>
-                    <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter">My Design Process Framework</h2>
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">PHASE 01</span>
+                    <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter">Understand</h2>
                 </div>
-                <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-800">
-                    <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/design-plan.png" class="w-full" alt="Design Plan Framework">
+                
+                <div class="space-y-16">
+                    <!-- Subsection A — Design Process Framework -->
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-6 text-center">My Design Process Framework</h3>
+                        <div class="rounded-3xl overflow-hidden border border-white/10">
+                            <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/design-plan.png" 
+                                 class="w-full h-auto object-contain" 
+                                 alt="Design Plan">
+                        </div>
+                    </div>
+
+                    <!-- Subsection B — Research & Discovery -->
+                    <div class="grid md:grid-cols-12 gap-12 items-center">
+                        <div class="md:col-span-7">
+                            <p class="text-xl text-white/80">I deeply immerse in the context — mapping stakeholders, developing personas, and understanding user needs.</p>
+                        </div>
+                        <div class="md:col-span-5 space-y-8">
+                            <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/stakeholder-mapping.png" 
+                                 class="rounded-3xl border border-white/10 w-full h-auto object-contain" 
+                                 alt="Stakeholder Mapping">
+                            <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/personas.png" 
+                                 class="rounded-3xl border border-white/10 w-full h-auto object-contain" 
+                                 alt="User Personas">
+                        </div>
+                    </div>
+
+                    <!-- Subsection C — Synthesis -->
+                    <div class="grid md:grid-cols-12 gap-12 items-center">
+                        <div class="md:col-span-7">
+                            <div class="flex items-center gap-x-4 mb-6">
+                                <span class="text-emerald-400 text-sm font-medium tracking-widest">SYNTHESIS</span>
+                            </div>
+                            <h3 class="text-5xl font-semibold tracking-tighter mb-6">Define Problems & Goals</h3>
+                            <p class="text-xl text-white/80">Turning research into clear, prioritized problem statements and measurable objectives.</p>
+                        </div>
+                        <div class="md:col-span-5">
+                            <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/problem-statement.png" 
+                                 class="rounded-3xl border border-white/10 w-full h-auto object-contain" 
+                                 alt="Problem Statement">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- UNDERSTAND PHASE -->
-        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="2">
+        <!-- Section 4 — Phase 02: Explore -->
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950" data-phase="2">
             <div class="max-w-6xl mx-auto px-6 py-12">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
                     <div class="md:col-span-7">
-                        <div class="flex items-center gap-x-4 mb-6">
-                            <div class="text-emerald-400 text-sm font-medium tracking-[3px]">PHASE 01</div>
-                        </div>
-                        <h2 class="text-6xl font-semibold tracking-tighter mb-6">Understand</h2>
-                        <p class="text-xl text-white/80 max-w-xl mb-8">I deeply immerse in the context — mapping stakeholders, developing personas, and understanding user needs.</p>
-                    </div>
-                    <div class="md:col-span-5 space-y-6">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/stakeholder-mapping.png" class="rounded-3xl border border-white/10" alt="Stakeholder Mapping">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/personas.png" class="rounded-3xl border border-white/10" alt="User Personas">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROBLEM & GOALS -->
-        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="3">
-            <div class="max-w-6xl mx-auto px-6 py-12">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7">
-                        <div class="flex items-center gap-x-4 mb-6">
-                            <div class="text-emerald-400 text-sm font-medium tracking-[3px]">SYNTHESIS</div>
-                        </div>
-                        <h2 class="text-6xl font-semibold tracking-tighter mb-6">Define Problems & Goals</h2>
-                        <p class="text-xl text-white/80">Turning research into clear, prioritized problem statements and measurable objectives.</p>
+                        <span class="text-emerald-400 text-sm font-medium tracking-widest">PHASE 02</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Explore</h2>
+                        <p class="text-xl text-white/80 mt-6">Ideation, user scenarios, and creative exploration to generate strong solution directions.</p>
                     </div>
                     <div class="md:col-span-5">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/problem-statement.png" class="rounded-3xl border border-white/10" alt="Problems and Goals">
+                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/user-scenarios.png" 
+                             class="rounded-3xl border border-white/10 w-full h-auto object-contain" 
+                             alt="User Scenarios">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPLORE PHASE -->
-        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="4">
+        <!-- Section 5 — Phase 03: Materialize -->
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900" data-phase="3">
             <div class="max-w-6xl mx-auto px-6 py-12">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
                     <div class="md:col-span-7">
-                        <div class="flex items-center gap-x-4 mb-6">
-                            <div class="text-emerald-400 text-sm font-medium tracking-[3px]">PHASE 02</div>
-                        </div>
-                        <h2 class="text-6xl font-semibold tracking-tighter mb-6">Explore</h2>
-                        <p class="text-xl text-white/80 max-w-xl mb-8">Ideation, user scenarios, and creative exploration to generate strong solution directions.</p>
-                    </div>
-                    <div class="md:col-span-5">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/user-scenarios.png" class="rounded-3xl border border-white/10" alt="User Scenarios">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MATERIALIZE + CLOSING -->
-        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="5">
-            <div class="max-w-6xl mx-auto px-6 py-12">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7">
-                        <div class="flex items-center gap-x-4 mb-6">
-                            <div class="text-emerald-400 text-sm font-medium tracking-[3px]">PHASE 03</div>
-                        </div>
-                        <h2 class="text-6xl font-semibold tracking-tighter mb-6">Materialize</h2>
-                        <p class="text-xl text-white/80">From wireframes to polished prototypes — turning ideas into tangible, testable designs.</p>
-                        <div class="mt-10 p-8 bg-zinc-800/50 rounded-3xl border border-white/10">
-                            <p class="text-white/70">The result is always a clear, high-quality deliverable ready for development and launch.</p>
-                        </div>
+                        <span class="text-emerald-400 text-sm font-medium tracking-widest">PHASE 03</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Materialize</h2>
+                        <p class="text-xl text-white/80 mt-6">From wireframes to polished prototypes — turning ideas into tangible, testable designs.</p>
                     </div>
                     <div class="md:col-span-5 text-center">
                         <a href="contact.html" class="inline-block px-12 py-6 bg-white text-zinc-950 text-xl font-semibold rounded-3xl hover:bg-emerald-400 transition-all">Start a Project With Me</a>
@@ -161,62 +153,47 @@
             </div>
         </section>
 
-        <!-- FINAL CLOSING -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter mb-8">Let's create something exceptional together.</h2>
-                <p class="text-xl text-white/70 mb-12">Every project benefits from this thoughtful, collaborative approach.</p>
-                <a href="contact.html" class="inline-flex items-center gap-x-4 px-10 py-5 bg-emerald-400 text-zinc-950 rounded-2xl text-lg font-semibold hover:bg-white transition-colors">
-                    Get in Touch <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-
     </div>
 
-<!-- Journey Progress -->
-<div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
-    <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-500" style="width:0%"></div>
-    <div class="journey-marker absolute -top-5 left-[18%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold" data-stage="1">01</div>
-    <div class="journey-marker absolute -top-5 left-[36%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="2">02</div>
-    <div class="journey-marker absolute -top-5 left-[54%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="3">03</div>
-    <div class="journey-marker absolute -top-5 left-[72%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="4">04</div>
-    <div class="journey-marker absolute -top-5 left-[90%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="5">05</div>
-</div>
+    <!-- Journey Tracker -->
+    <div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
+        <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-700" style="width:0%"></div>
+        <div class="journey-marker absolute -top-5 left-[18%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-phase="1">01</div>
+        <div class="journey-marker absolute -top-5 left-[50%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-phase="2">02</div>
+        <div class="journey-marker absolute -top-5 left-[82%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-phase="3">03</div>
+    </div>
 
     <script src="js/main.js"></script>
     <script>
-    function initJourneyHighlight() {
-        const panels = document.querySelectorAll('.journey-panel');
-        const markers = document.querySelectorAll('.journey-marker');
-        const progress = document.getElementById('journey-progress');
+        function initJourneyHighlight() {
+            const panels = document.querySelectorAll('.journey-panel');
+            const markers = document.querySelectorAll('.journey-marker');
+            const progressBar = document.getElementById('journey-progress');
 
-        const widths = {1:'22%', 2:'40%', 3:'58%', 4:'76%', 5:'94%'};
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const phase = parseInt(entry.target.dataset.phase);
+                        progressBar.style.width = phase === 1 ? '33%' : phase === 2 ? '66%' : '100%';
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const stage = parseInt(entry.target.dataset.stage);
-                    progress.style.width = widths[stage];
+                        markers.forEach(m => {
+                            const mPhase = parseInt(m.dataset.phase);
+                            if (mPhase <= phase) {
+                                m.classList.add('border-emerald-400', 'text-emerald-400');
+                                m.classList.remove('border-white/30', 'text-white/50');
+                            } else {
+                                m.classList.remove('border-emerald-400', 'text-emerald-400');
+                                m.classList.add('border-white/30', 'text-white/50');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
 
-                    markers.forEach(m => {
-                        const num = parseInt(m.dataset.stage);
-                        if (num <= stage) {
-                            m.classList.add('border-emerald-400','text-emerald-400');
-                            m.classList.remove('border-white/30','text-white/50');
-                        } else {
-                            m.classList.remove('border-emerald-400','text-emerald-400');
-                            m.classList.add('border-white/30','text-white/50');
-                        }
-                    });
-                }
-            });
-        }, {threshold: 0.6});
+            panels.forEach(panel => observer.observe(panel));
+        }
 
-        panels.forEach(panel => observer.observe(panel));
-    }
-
-    window.addEventListener('load', initJourneyHighlight);
+        window.addEventListener('load', initJourneyHighlight);
     </script>
 </body>
 </html>
