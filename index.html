@@ -16,14 +16,12 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-x-3">
+            <a href="index.html" class="flex items-center gap-x-3 no-underline">
                 <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
                     <span class="text-zinc-950 font-bold text-xl">FQ</span>
                 </div>
-                <div>
-                    <h1 class="font-semibold text-xl tracking-tight">Faizan Quazi</h1>
-                </div>
-            </div>
+                <h1 class="font-semibold text-xl tracking-tight">Faizan Quazi</h1>
+            </a>
             
             <div class="hidden md:flex items-center gap-x-8 text-sm">
                 <a href="about.html" class="nav-link">About</a>
@@ -40,10 +38,10 @@
     </nav>
 
     <!-- HORIZONTAL SCROLL WRAPPER -->
-    <div id="horizontal-wrapper" class="flex">
+    <div id="horizontal-wrapper" class="flex flex-nowrap">
         
-        <!-- HERO PANEL -->
-        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+        <!-- HERO / LANDING PANEL -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             <div class="absolute inset-0 bg-cover bg-center z-0" 
                  style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
             </div>
@@ -71,117 +69,308 @@
             </div>
         </section>
 
-        <!-- ABOUT PANEL -->
-        <section id="about" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
-            <div class="max-w-5xl mx-auto px-6 py-20">
+        <!-- ABOUT PANEL (Smart Preview) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-5xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-12 md:mb-0">
-                        <span class="text-emerald-400 text-sm font-medium tracking-widest">01</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">About me</h2>
+                        <span class="text-emerald-400 text-sm font-medium tracking-widest">01 — ABOUT</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Who I am</h2>
+                        <p class="mt-4 text-white/70">A quick look into my journey as a User Experience Analyst.</p>
+                        
+                        <a href="about.html" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 border border-white/30 rounded-2xl font-medium hover:bg-white/5 transition-all">
+                            Read full story <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
                     <div class="md:col-span-7 text-[17px] leading-relaxed text-white/80 space-y-6">
                         <p>I'm a User Experience Analyst with over 8 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-white">HCL Software (Commerce)</span>, I focus on improving B2B usability across complex enterprise platforms.</p>
                         <p>My approach blends deep user research, information architecture, and collaborative design. I believe great experiences emerge when we truly understand the people we're designing for.</p>
-                        
-                        <div class="pt-6 flex items-center gap-x-4 text-sm">
-                            <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center gap-x-2 px-5 py-2.5 border border-white/20 rounded-full hover:bg-white/5">
-                                <i class="fa-brands fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="mailto:faizanquazi123@gmail.com" class="inline-flex items-center gap-x-2 px-5 py-2.5 border border-white/20 rounded-full hover:bg-white/5">
-                                <i class="fa-solid fa-envelope"></i> Email
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERTISE PANEL -->
-        <section id="expertise" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900">
-            <div class="max-w-6xl mx-auto px-6 py-20">
+        <!-- WHAT I DO PANEL (Standalone - Enhanced) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
                 <div class="mb-14">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">02</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter">What I do</h2>
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">02 — WHAT I DO</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-3">How I work</h2>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl hover:border-emerald-400/30 transition-all">
                         <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
                             <i class="fa-solid fa-search text-3xl text-emerald-400"></i>
                         </div>
                         <h3 class="text-3xl font-semibold mb-4 tracking-tight">User Research & Insights</h3>
-                        <p class="text-white/70">Interviews, usability testing, card sorting, personas, and data-driven synthesis.</p>
+                        <p class="text-white/70">In-depth interviews, usability testing, card sorting, persona development, and data-driven synthesis to uncover real user needs.</p>
                     </div>
-                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl hover:border-emerald-400/30 transition-all">
                         <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
                             <i class="fa-solid fa-sitemap text-3xl text-emerald-400"></i>
                         </div>
                         <h3 class="text-3xl font-semibold mb-4 tracking-tight">Information Architecture</h3>
-                        <p class="text-white/70">Mind mapping, flowcharts, wireframes, and prototypes for complex systems.</p>
+                        <p class="text-white/70">Mind mapping, flowcharts, wireframes, and high-fidelity prototypes for complex enterprise systems.</p>
                     </div>
-                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl hover:border-emerald-400/30 transition-all">
                         <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
                             <i class="fa-solid fa-palette text-3xl text-emerald-400"></i>
                         </div>
                         <h3 class="text-3xl font-semibold mb-4 tracking-tight">Interaction & Visual Design</h3>
-                        <p class="text-white/70">High-fidelity prototypes and pixel-perfect interfaces.</p>
+                        <p class="text-white/70">Crafting high-fidelity prototypes and pixel-perfect interfaces that feel intuitive and delightful.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- WORK PANEL -->
-        <section id="work" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900">
-            <div class="w-full max-w-6xl mx-auto px-6">
-                <div class="mb-10">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">03</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter">Selected Work</h2>
+        <!-- EXPERTISE PANEL (Standalone - Tools) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-7xl w-full">
+                <div class="mb-12 text-center">
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">03 — EXPERTISE</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-3">Tools I work with</h2>
+                    <p class="mt-3 text-white/70 max-w-md mx-auto">A selection of industry-leading tools I use daily to research, design, and deliver great experiences.</p>
                 </div>
-                
-                <div class="horizontal-scroll-container overflow-hidden">
-                    <div class="horizontal-scroll-inner flex gap-6 pb-8">
-                        <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
-                            <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover"></div>
-                            <div class="p-8">
-                                <h3 class="text-3xl font-semibold tracking-tight mb-3">HCL Commerce — B2B Usability</h3>
-                                <p class="text-white/70">Leading comprehensive usability improvements across the enterprise platform.</p>
-                            </div>
-                        </div>
-                        <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
-                            <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover"></div>
-                            <div class="p-8">
-                                <h3 class="text-3xl font-semibold tracking-tight mb-3">Unica Marketing Automation</h3>
-                                <p class="text-white/70">Core workflows, personas, card sorting and high-fidelity prototypes.</p>
-                            </div>
-                        </div>
+
+                <!-- Tools Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                    
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-brands fa-figma text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Figma</span>
                     </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-brands fa-adobe text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Adobe XD</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-palette text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Sketch</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-layer-group text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Framer</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-globe text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Webflow</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-play text-3xl text-emerald-400"></i>
+                        <span class="font-medium">ProtoPie</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Principle</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-users text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Miro</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-sticky-note text-3xl text-emerald-400"></i>
+                        <span class="font-medium">FigJam</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-book text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Notion</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-vial text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Maze</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-user-check text-3xl text-emerald-400"></i>
+                        <span class="font-medium">UserTesting</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-chart-line text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Hotjar</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-chart-bar text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Amplitude</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-chart-pie text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Mixpanel</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-brands fa-google text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Google Analytics</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-layer-group text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Zeplin</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Abstract</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-globe text-3xl text-emerald-400"></i>
+                        <span class="font-medium">InVision</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-stream text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Overflow</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-pencil-ruler text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Balsamiq</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Axure RP</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-vial text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Optimal Workshop</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-video text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Lookback</span>
+                    </div>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4">
+                        <i class="fa-solid fa-comments text-3xl text-emerald-400"></i>
+                        <span class="font-medium">Dovetail</span>
+                    </div>
+
                 </div>
-                
-                <div class="mt-8 text-center">
+            </div>
+        </section>
+
+        <!-- MY WORK PANEL (Smart Preview) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <span class="text-emerald-400 text-sm font-medium tracking-widest">04 — WORK</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-1">Selected Work</h2>
+                    </div>
+                    <a href="work.html" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group">
+                        VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/30 transition-all">
+                        <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold tracking-tight mb-2">HCL Commerce — B2B Usability Overhaul</h3>
+                            <p class="text-white/70">Leading comprehensive usability improvements across a complex enterprise platform.</p>
+                        </div>
+                    </a>
+                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/30 transition-all">
+                        <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold tracking-tight mb-2">Unica Marketing Automation</h3>
+                            <p class="text-white/70">Core workflows, personas, and high-fidelity prototypes for a leading marketing platform.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-8 text-center md:hidden">
                     <a href="work.html" class="inline-flex items-center gap-x-2 text-sm font-medium group">
-                        VIEW ALL PROJECTS 
-                        <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                        VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT PANEL -->
-        <section id="contact" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
-            <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="text-emerald-400 text-sm font-medium tracking-widest">04</span>
+        <!-- PROCESS PANEL (Smart Preview) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-5xl w-full">
+                <div class="mb-10">
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">05 — PROCESS</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1">How I work</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
+                        <div class="text-emerald-400 text-4xl font-semibold mb-4">01</div>
+                        <h4 class="font-semibold text-xl mb-2">Discover</h4>
+                        <p class="text-white/70 text-sm">Deep research, stakeholder mapping, and understanding user needs.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
+                        <div class="text-emerald-400 text-4xl font-semibold mb-4">02</div>
+                        <h4 class="font-semibold text-xl mb-2">Define</h4>
+                        <p class="text-white/70 text-sm">Synthesizing insights into clear problems and opportunities.</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
+                        <div class="text-emerald-400 text-4xl font-semibold mb-4">03</div>
+                        <h4 class="font-semibold text-xl mb-2">Design</h4>
+                        <p class="text-white/70 text-sm">Wireframing, prototyping, and iterative design solutions.</p>
+                    </div>
+                </div>
+
+                <a href="process.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-white/30 rounded-2xl font-medium hover:bg-white/5 transition-all">
+                    See the full process <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CAREER PANEL (Smart Preview) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
+            <div class="max-w-5xl w-full">
+                <div class="mb-10">
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">06 — CAREER</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1">Experience</h2>
+                </div>
+
+                <div class="space-y-6 mb-10">
+                    <div class="flex gap-6">
+                        <div class="w-24 flex-shrink-0 text-right">
+                            <div class="text-emerald-400 font-medium">2022 — Present</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">HCL Software (Commerce)</div>
+                            <div class="text-white/70">User Experience Analyst — B2B Enterprise Platform</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-24 flex-shrink-0 text-right">
+                            <div class="text-emerald-400 font-medium">2021 — 2022</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Cybage Softwares</div>
+                            <div class="text-white/70">Senior Product Designer & Researcher</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-24 flex-shrink-0 text-right">
+                            <div class="text-emerald-400 font-medium">2018 — 2021</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold">HCL Software (Unica)</div>
+                            <div class="text-white/70">User Experience Designer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="experience.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-white/30 rounded-2xl font-medium hover:bg-white/5 transition-all">
+                    View full career journey <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT PANEL (Smart Preview) -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-3xl w-full text-center">
+                <span class="text-emerald-400 text-sm font-medium tracking-widest">07 — CONTACT</span>
                 <h2 class="text-6xl font-semibold tracking-tighter mt-3 mb-6">Let's build something<br>meaningful together.</h2>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                    <a href="mailto:faizanquazi123@gmail.com" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-white text-zinc-950 text-lg font-semibold rounded-2xl hover:bg-white/90 transition-all">
-                        <i class="fa-solid fa-envelope"></i> Send me an email
+                <p class="text-white/70 mb-10 max-w-md mx-auto">Based in Pune, India. Always open to exciting projects and conversations.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-white text-zinc-950 font-semibold text-lg rounded-3xl hover:bg-emerald-400 hover:text-white transition-all">
+                        Get in touch
                     </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-white/30 rounded-2xl text-lg font-medium hover:bg-white/5 transition-all">
-                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-white/30 rounded-3xl font-medium hover:bg-white/5 transition-all">
+                        Connect on LinkedIn
                     </a>
                 </div>
-                
-                <div class="text-sm text-white/50">Pune, Maharashtra, India • +91 84465 56866</div>
             </div>
         </section>
 
