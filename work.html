@@ -48,11 +48,10 @@
             </div>
         </section>
 
-        <!-- Project 1: Raintree 2021 (Now with clickable image flow) -->
+        <!-- Project 1: Raintree 2021 -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <!-- Left: Info -->
                     <div class="md:col-span-5 mb-10 md:mb-0">
                         <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">2021 • DESIGN SYSTEM</span>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-3">Raintree 2021</h2>
@@ -63,20 +62,11 @@
                             Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
                         </a>
 
-                        <p class="mt-6 text-xs text-white/50">Click the images on the right to step through the flow (4 screens)</p>
+                        <p class="mt-6 text-xs text-white/50">Click the image to step through the flow</p>
                     </div>
-
-                    <!-- Right: Clickable Image Flow (Fake Prototype) -->
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <!-- Current Image -->
-                            <img id="raintree-image" 
-                                 src="images/rt1.png" 
-                                 class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" 
-                                 alt="Raintree 2021 - Screen 1"
-                                 onclick="nextRaintreeScreen()">
-                            
-                            <!-- Screen Indicator -->
+                            <img id="raintree-image" src="images/rt1.png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="Raintree 2021 - Screen 1" onclick="nextRaintreeScreen()">
                             <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
                                 <span id="raintree-counter">1 / 4</span>
                             </div>
@@ -87,35 +77,30 @@
             </div>
         </section>
 
-        <!-- Project 2: AI ML (kept with loader for now) -->
+        <!-- Project 2: AI/ML Interfaces -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
                         <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">AI & MACHINE LEARNING</span>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-3">AI/ML Interfaces</h2>
-                        <p class="mt-6 text-lg text-white/80">Exploration of intelligent interfaces, data visualization, and AI-driven user experiences with high-fidelity prototypes.</p>
+                        <p class="mt-6 text-lg text-white/80">Exploration of intelligent interfaces, data visualization, and AI-driven user experiences.</p>
                         
                         <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&p=f&t=pv5930EcTwCjE5Jp-0&scaling=min-zoom&content-scaling=fixed&page-id=108%3A19" target="_blank" 
                            class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
-                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
                         </a>
+
+                        <p class="mt-6 text-xs text-white/50">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <div id="loader-aiml" class="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950 z-10">
-                                <div class="animate-spin rounded-full h-10 w-10 border-4 border-emerald-400 border-t-transparent mb-4"></div>
-                                <p class="text-sm text-white/70">Loading interactive prototype...</p>
+                            <img id="aiml-image" src="images/am(1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="AI/ML - Screen 1" onclick="nextAIMLScreen()">
+                            <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
+                                <span id="aiml-counter">1 / 4</span>
                             </div>
-                            <iframe 
-                                style="border: none; width: 100%; display: block;" 
-                                width="100%" 
-                                height="520" 
-                                src="https://embed.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&starting-point-node-id=113%3A27212&embed-host=portfolio-6xkf.onrender.com" 
-                                allowfullscreen
-                                onload="document.getElementById('loader-aiml').style.opacity='0'; setTimeout(() => document.getElementById('loader-aiml').style.display='none', 300)">
-                            </iframe>
                         </div>
+                        <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
                     </div>
                 </div>
             </div>
@@ -132,24 +117,19 @@
                         
                         <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&p=f&t=mOLmMthXovFAXrPE-0&scaling=min-zoom&content-scaling=fixed&page-id=2139%3A19516" target="_blank" 
                            class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
-                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
                         </a>
+
+                        <p class="mt-6 text-xs text-white/50">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <div id="loader-identity" class="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950 z-10">
-                                <div class="animate-spin rounded-full h-10 w-10 border-4 border-emerald-400 border-t-transparent mb-4"></div>
-                                <p class="text-sm text-white/70">Loading interactive prototype...</p>
+                            <img id="identity-image" src="images/IS1.png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="Identity Service - Screen 1" onclick="nextIdentityScreen()">
+                            <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
+                                <span id="identity-counter">1 / 4</span>
                             </div>
-                            <iframe 
-                                style="border: none; width: 100%; display: block;" 
-                                width="100%" 
-                                height="520" 
-                                src="https://embed.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&starting-point-node-id=2139%3A203832&embed-host=portfolio-6xkf.onrender.com" 
-                                allowfullscreen
-                                onload="document.getElementById('loader-identity').style.opacity='0'; setTimeout(() => document.getElementById('loader-identity').style.display='none', 300)">
-                            </iframe>
                         </div>
+                        <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
                     </div>
                 </div>
             </div>
@@ -162,28 +142,23 @@
                     <div class="md:col-span-5 mb-10 md:mb-0">
                         <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">HCL SOFTWARE • COMMERCE</span>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-3">HCL Software - UI Shell & Navigation</h2>
-                        <p class="mt-6 text-lg text-white/80">Improving b2b usability issues on HCL Commerce software suite, including UI shell architecture and navigation systems for enterprise applications.</p>
+                        <p class="mt-6 text-lg text-white/80">Improving b2b usability issues on HCL Commerce software suite, including UI shell architecture and navigation systems.</p>
                         
                         <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&p=f&t=lUbli3rnDd8lVOdU-0&scaling=min-zoom&content-scaling=fixed&page-id=2103%3A130728" target="_blank" 
                            class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
-                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
                         </a>
+
+                        <p class="mt-6 text-xs text-white/50">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <div id="loader-hcl" class="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950 z-10">
-                                <div class="animate-spin rounded-full h-10 w-10 border-4 border-emerald-400 border-t-transparent mb-4"></div>
-                                <p class="text-sm text-white/70">Loading interactive prototype...</p>
+                            <img id="hcl-image" src="images/hs(1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="HCL Software - Screen 1" onclick="nextHCLScreen()">
+                            <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
+                                <span id="hcl-counter">1 / 4</span>
                             </div>
-                            <iframe 
-                                style="border: none; width: 100%; display: block;" 
-                                width="100%" 
-                                height="520" 
-                                src="https://embed.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&starting-point-node-id=2133%3A87687&embed-host=portfolio-6xkf.onrender.com" 
-                                allowfullscreen
-                                onload="document.getElementById('loader-hcl').style.opacity='0'; setTimeout(() => document.getElementById('loader-hcl').style.display='none', 300)">
-                            </iframe>
                         </div>
+                        <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
                     </div>
                 </div>
             </div>
@@ -193,42 +168,81 @@
 
     <script src="js/main.js"></script>
     
-    <!-- Raintree Image Flow Script -->
+    <!-- Carousel Scripts for all projects -->
     <script>
-        const raintreeImages = [
-            'images/rt1.png',
-            'images/rt2.png',
-            'images/rt3.png',
-            'images/rt4.png'
-        ];
-        let currentRaintreeIndex = 0;
-
-        function updateRaintreeImage() {
+        // Raintree
+        const raintreeImages = ['images/rt1.png', 'images/rt2.png', 'images/rt3.png', 'images/rt4.png'];
+        let currentRaintree = 0;
+        function updateRaintree() {
             const img = document.getElementById('raintree-image');
             const counter = document.getElementById('raintree-counter');
-            
-            img.src = raintreeImages[currentRaintreeIndex];
-            counter.textContent = `${currentRaintreeIndex + 1} / 4`;
-            
-            // Optional: subtle scale animation on change
-            img.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                img.style.transform = 'scale(1)';
-            }, 150);
+            img.src = raintreeImages[currentRaintree];
+            counter.textContent = `${currentRaintree + 1} / ${raintreeImages.length}`;
         }
-
         function nextRaintreeScreen() {
-            currentRaintreeIndex = (currentRaintreeIndex + 1) % raintreeImages.length;
-            updateRaintreeImage();
+            currentRaintree = (currentRaintree + 1) % raintreeImages.length;
+            updateRaintree();
         }
 
-        // Initialize on load
+        // AI/ML
+        const aimlImages = ['images/am(1).png', 'images/am(2).png', 'images/am(3).png', 'images/am(4).png'];
+        let currentAIML = 0;
+        function updateAIML() {
+            const img = document.getElementById('aiml-image');
+            const counter = document.getElementById('aiml-counter');
+            img.src = aimlImages[currentAIML];
+            counter.textContent = `${currentAIML + 1} / ${aimlImages.length}`;
+        }
+        function nextAIMLScreen() {
+            currentAIML = (currentAIML + 1) % aimlImages.length;
+            updateAIML();
+        }
+
+        // Identity Service
+        const identityImages = ['images/IS1.png', 'images/IS2.png', 'images/IS3.png', 'images/IS4.png'];
+        let currentIdentity = 0;
+        function updateIdentity() {
+            const img = document.getElementById('identity-image');
+            const counter = document.getElementById('identity-counter');
+            img.src = identityImages[currentIdentity];
+            counter.textContent = `${currentIdentity + 1} / ${identityImages.length}`;
+        }
+        function nextIdentityScreen() {
+            currentIdentity = (currentIdentity + 1) % identityImages.length;
+            updateIdentity();
+        }
+
+        // HCL Software
+        const hclImages = ['images/hs(1).png', 'images/hs(2).png', 'images/hs(3).png', 'images/hs(4).png'];
+        let currentHCL = 0;
+        function updateHCL() {
+            const img = document.getElementById('hcl-image');
+            const counter = document.getElementById('hcl-counter');
+            img.src = hclImages[currentHCL];
+            counter.textContent = `${currentHCL + 1} / ${hclImages.length}`;
+        }
+        function nextHCLScreen() {
+            currentHCL = (currentHCL + 1) % hclImages.length;
+            updateHCL();
+        }
+
+        // Initialize all on load
         document.addEventListener('DOMContentLoaded', () => {
-            const img = document.getElementById('raintree-image');
-            if (img) {
-                img.src = raintreeImages[0];
-                document.getElementById('raintree-counter').textContent = '1 / 4';
-            }
+            // Raintree
+            const rImg = document.getElementById('raintree-image');
+            if (rImg) { rImg.src = raintreeImages[0]; document.getElementById('raintree-counter').textContent = '1 / 4'; }
+
+            // AI/ML
+            const aImg = document.getElementById('aiml-image');
+            if (aImg) { aImg.src = aimlImages[0]; document.getElementById('aiml-counter').textContent = '1 / 4'; }
+
+            // Identity
+            const iImg = document.getElementById('identity-image');
+            if (iImg) { iImg.src = identityImages[0]; document.getElementById('identity-counter').textContent = '1 / 4'; }
+
+            // HCL
+            const hImg = document.getElementById('hcl-image');
+            if (hImg) { hImg.src = hclImages[0]; document.getElementById('hcl-counter').textContent = '1 / 4'; }
         });
     </script>
 </body>
