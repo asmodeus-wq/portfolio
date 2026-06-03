@@ -10,6 +10,7 @@
 </head>
 <body class="bg-zinc-950 text-white">
 
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3">
@@ -27,33 +28,80 @@
         </div>
     </nav>
 
-    <div class="max-w-5xl mx-auto px-6 pt-24 pb-20">
-        <div class="mb-16">
-            <span class="text-emerald-400 text-sm font-medium tracking-widest">ABOUT</span>
-            <h1 class="text-6xl font-semibold tracking-tighter mt-3">Hi, I'm Faizan</h1>
+    <!-- Hero with Background Image -->
+    <section class="relative h-[75vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" 
+             style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
         </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <span class="text-emerald-400 text-sm font-medium tracking-[3px]">CHAPTER 01</span>
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-4 mb-6">I turn complexity<br>into clarity.</h1>
+            <p class="text-xl text-white/80 max-w-lg mx-auto">8+ years of crafting digital experiences that feel simple, intuitive, and human.</p>
+        </div>
+    </section>
 
-        <div class="prose prose-invert max-w-none text-lg text-white/80 space-y-6">
-            <p>I'm a User Experience Analyst with over 8 years of experience in research-driven design. I currently work at HCL Software (Commerce), where I lead usability improvements for complex B2B enterprise platforms.</p>
+    <!-- Main Content -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-x-16">
             
-            <p>My strength lies in combining deep user research with clean information architecture and thoughtful interaction design.</p>
-
-            <h2 class="text-3xl font-semibold tracking-tight text-white mt-12 mb-6">My Process</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 not-prose">
-                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
-                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-search text-2xl"></i></div>
-                    <h3 class="font-semibold text-xl mb-3">Research &amp; Discovery</h3>
-                    <p class="text-white/70">User interviews, usability testing, card sorting, and behavioral analysis.</p>
+            <!-- Left -->
+            <div class="md:col-span-5 mb-12 md:mb-0">
+                <div class="sticky top-24">
+                    <h2 class="text-5xl font-semibold tracking-tighter">Hi, I'm Faizan.</h2>
+                    <p class="mt-4 text-lg text-white/70">User Experience Analyst based in Pune, India.</p>
+                    
+                    <div class="mt-8 space-y-3 text-sm">
+                        <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-linkedin w-5"></i> 
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:faizanquazi123@gmail.com" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
+                            <i class="fa-solid fa-envelope w-5"></i> 
+                            <span>faizanquazi123@gmail.com</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
-                    <div class="text-emerald-400 mb-4"><i class="fa-solid fa-sitemap text-2xl"></i></div>
-                    <h3 class="font-semibold text-xl mb-3">Information Architecture</h3>
-                    <p class="text-white/70">Mind mapping, flowcharts, wireframes, and prototypes.</p>
+            </div>
+
+            <!-- Right - Bio -->
+            <div class="md:col-span-7 text-[17px] leading-relaxed text-white/80 space-y-6">
+                <p>I’m a User Experience Analyst with over 8 years of experience helping teams build digital products that actually work for people. Currently at <span class="text-white font-medium">HCL Software (Commerce)</span>, I focus on improving usability across complex B2B enterprise platforms.</p>
+                
+                <p>Before this, I worked on marketing automation platforms at HCL Unica, led product design initiatives at Cybage Softwares, and spent time as a UI/UX designer at BrightBrain Technologies. I started my career as a freelance graphic designer — which taught me how to communicate clearly and solve real problems through design.</p>
+                
+                <p>I believe great design isn’t about decoration. It’s about removing friction, building trust, and making complex systems feel simple and human.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="bg-zinc-900 py-20 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-14">
+                <span class="text-emerald-400 text-sm font-medium tracking-widest">HOW I WORK</span>
+                <h2 class="text-5xl font-semibold tracking-tighter mt-3">My Approach</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-search text-3xl"></i></div>
+                    <h3 class="text-2xl font-semibold mb-4">Research First</h3>
+                    <p class="text-white/70">I start with people — not assumptions. Through interviews, testing, and observation, I uncover what users actually need.</p>
+                </div>
+                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-sitemap text-3xl"></i></div>
+                    <h3 class="text-2xl font-semibold mb-4">Structure & Clarity</h3>
+                    <p class="text-white/70">I turn messy information into clear flows using card sorting, wireframes, and information architecture.</p>
+                </div>
+                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-palette text-3xl"></i></div>
+                    <h3 class="text-2xl font-semibold mb-4">Design & Validate</h3>
+                    <p class="text-white/70">I design intuitive interfaces and continuously test them to ensure they solve real problems effectively.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
         © 2026 Faizan Quazi
