@@ -1,41 +1,23 @@
 /* ============================================
-   Faizan Quazi Portfolio - Clean Lewis-style Piling
+   Clean Lewis-style Piling (Previous content hides)
    ============================================ */
 
 :root { --accent: #10b981; }
 
 body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-html { scroll-behavior: smooth; }
 
 .nav-link { position: relative; }
-.nav-link:after {
-  content: '';
-  position: absolute;
-  width: 0; height: 1px; bottom: -2px; left: 0;
-  background: white;
-  transition: width .3s ease;
-}
+.nav-link:after { content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0; background: white; transition: width .3s ease; }
 .nav-link:hover:after, .nav-link.active:after { width: 100%; }
 
-/* PILING */
-.piling-wrapper {
-  position: relative;
-  z-index: 10;
-}
+.piling-wrapper { position: relative; z-index: 10; }
 
-/* HORIZONTAL WORK */
 .horizontal-scroll-container { overflow: hidden; cursor: grab; }
 .horizontal-scroll-container:active { cursor: grabbing; }
 .horizontal-scroll-inner { display: flex; gap: 24px; will-change: transform; }
 
-.horizontal-card {
-  transition: transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1);
-}
-.horizontal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
-}
+.horizontal-card { transition: transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease; box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1); }
+.horizontal-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1); }
 
 @media (max-width: 768px) {
   h1 { font-size: 3.25rem !important; line-height: 1 !important; }
@@ -44,6 +26,4 @@ html { scroll-behavior: smooth; }
   .horizontal-card { width: 300px !important; }
 }
 
-@media print {
-  nav, footer, .fixed { display: none !important; }
-}
+@media print { nav, footer, .fixed { display: none !important; } }

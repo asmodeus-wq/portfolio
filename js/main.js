@@ -1,15 +1,11 @@
 // ============================================
-// Faizan Quazi Portfolio - Clean Vertical PILING (Lewis style)
-// Each chapter is a big card that piles on top of the previous one
-// Previous content gets pushed up and covered as you scroll
+// Faizan Quazi Portfolio - AGGRESSIVE CLEAN PILING
+// Previous section completely hides when next one piles on
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-        console.warn('GSAP not loaded');
-        return;
-    }
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
     // Mobile menu
@@ -21,11 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Active nav + smooth scroll (kept simple)
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
-            const id = a.getAttribute('href').slice(1);
-            const el = document.getElementById(id);
+            const el = document.getElementById(a.getAttribute('href').slice(1));
             if (el) {
                 e.preventDefault();
                 window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
@@ -34,92 +29,86 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
-    // PROPER VERTICAL PILING EFFECT (like Lewis Pilling demo)
+    // AGGRESSIVE VERTICAL PILING - Previous content gets HIDDEN
     // ============================================
 
     const chapters = ['#about', '#expertise', '#experience', '#testimonials', '#contact'];
 
-    chapters.forEach((sel, i) => {
-        const section = document.querySelector(sel);
+    chapters.forEach((selector) => {
+        const section = document.querySelector(selector);
         if (!section) return;
 
-        // Create piling wrapper
         const wrapper = document.createElement('div');
         wrapper.className = 'piling-wrapper';
         section.parentNode.insertBefore(wrapper, section);
         wrapper.appendChild(section);
 
-        // Main piling ScrollTrigger
+        // Pin + strong piling
         ScrollTrigger.create({
             trigger: wrapper,
             start: 'top top',
             end: 'bottom top',
             pin: true,
             pinSpacing: false,
-            scrub: 2,                    // slower, smoother scrub
-            invalidateOnRefresh: true,
+            scrub: 2.5,
 
-            onUpdate: function(self) {
+            onUpdate: (self) => {
                 const p = self.progress;
 
-                // Stronger piling motion: push previous section up and fade it out
-                // so it gets properly covered by the next card
-                const yMove = p * -120;           // push up more
-                const scaleVal = 1 - (p * 0.12);  // subtle shrink
-                const fade = Math.max(1 - (p * 0.35), 0.65);
+                // Very aggressive: push way up + fade out completely
+                const y = p * -200;
+                const scale = 1 - (p * 0.15);
+                const opacity = Math.max(1 - (p * 0.6), 0.3);
 
                 gsap.to(section, {
-                    y: yMove,
-                    scale: Math.max(scaleVal, 0.88),
-                    opacity: fade,
-                    duration: 0.05,
+                    y: y,
+                    scale: Math.max(scale, 0.85),
+                    opacity: opacity,
+                    duration: 0.1,
                     overwrite: 'auto',
                     ease: 'none'
                 });
             }
         });
 
-        // When the NEXT section starts entering, quickly restore the current one
-        // so the piling feels clean (previous card gets covered properly)
+        // When next section enters, quickly hide current one completely
         ScrollTrigger.create({
             trigger: wrapper,
-            start: 'bottom 55%',
+            start: 'bottom 50%',
             end: 'bottom top',
             scrub: true,
-            onUpdate: function(self) {
+            onUpdate: (self) => {
                 const p = self.progress;
+
                 gsap.to(section, {
-                    y: -120 + (p * 120),
-                    scale: 0.88 + (p * 0.12),
-                    opacity: 0.65 + (p * 0.35),
-                    duration: 0.05,
+                    y: -200 + (p * 200),
+                    scale: 0.85 + (p * 0.15),
+                    opacity: 0.3 + (p * 0.7),
+                    duration: 0.1,
                     overwrite: 'auto'
                 });
             }
         });
     });
 
-    // ============================================
-    // HORIZONTAL SCROLL WORK (kept as is - it's good)
-    // ============================================
+    // Horizontal work section (unchanged)
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
 
     if (hContainer && hInner) {
         const dist = hInner.scrollWidth - hContainer.clientWidth;
-
         gsap.to(hInner, {
             x: -dist,
             ease: 'none',
             scrollTrigger: {
                 trigger: hContainer,
                 pin: true,
-                scrub: 1.8,
+                scrub: 2,
                 start: 'center center',
                 end: () => '+=' + dist
             }
         });
     }
 
-    console.log('%c[Portfolio] Clean vertical PILING effect active (Lewis style)', 'color:#10b981');
+    console.log('%c[Portfolio] Aggressive clean piling active - previous content hides', 'color:#10b981');
 });
