@@ -1,7 +1,10 @@
 /* ============================================
    Horizontal Portfolio Styles
    ============================================ */
-
+html,
+body {
+    overflow-x: hidden;
+}
 :root {
   --accent: #10b981;
 }
