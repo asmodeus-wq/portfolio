@@ -1,90 +1,77 @@
 /* ============================================
-   Faizan Quazi Portfolio - Custom Styles
-   Clean + Advanced motion (Lewis template inspired)
+   Faizan Quazi Portfolio - Vertical Flip + Piling Effects
    ============================================ */
 
-:root {
-  --accent: #10b981;
+:root { --accent: #10b981; }
+
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+html { scroll-behavior: smooth; }
+
+.nav-link { position: relative; }
+.nav-link:after { content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0; background-color: white; transition: width 0.3s ease; }
+.nav-link:hover:after, .nav-link.active:after { width: 100%; }
+
+.chapter-section { position: relative; }
+
+/* ========== VERTICAL CARD FLIPPING + PILING ========== */
+.vertical-flip-stack {
+  perspective: 2000px;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Navigation */
-.nav-link {
-  position: relative;
-}
-.nav-link:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-.nav-link:hover:after,
-.nav-link.active:after {
+.flip-card {
   width: 100%;
+  height: 420px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* HORIZONTAL SCROLL SECTION - Advanced Effect */
-.horizontal-scroll-container {
-  overflow: hidden;
-  cursor: grab;
-  -webkit-overflow-scrolling: touch;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
 }
 
-.horizontal-scroll-container:active {
-  cursor: grabbing;
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 24px;
 }
 
-.horizontal-scroll-inner {
-  display: flex;
-  gap: 24px;
-  will-change: transform;
-  padding-bottom: 40px;
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: #27251f;
 }
 
-.horizontal-card {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.horizontal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+/* Piling effect when scrolling (subtle scale + shadow) */
+.flip-card {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.4s ease;
 }
 
-/* Section animations base */
-#about, #expertise, #experience, #testimonials {
-  opacity: 1; /* GSAP will handle initial state */
+.flip-card.piling {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 3.25rem !important; line-height: 1 !important; }
+  .flip-card { height: 380px; }
+  h1 { font-size: 3.25rem !important; }
   .text-6xl { font-size: 2.75rem !important; }
-  .horizontal-scroll-inner { gap: 16px; }
-  .horizontal-card { width: 300px !important; }
 }
 
 /* Accessibility */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid #10b981;
-  outline-offset: 3px;
-  border-radius: 8px;
-}
+a:focus-visible, button:focus-visible { outline: 2px solid #10b981; outline-offset: 3px; border-radius: 8px; }
 
-/* Print */
-@media print {
-  nav, footer, .fixed { display: none !important; }
-  body { background: white; color: black; }
-}
+@media print { nav, footer, .fixed { display: none !important; } }
