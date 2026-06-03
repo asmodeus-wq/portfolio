@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Scroll - Fixed Last Panel + Mobile
+// Horizontal Scroll - Improved Mobile + Last Panel
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,13 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isMobile) {
         const panels = wrapper.querySelectorAll('.panel');
         
-        // Wait for layout to settle then calculate
         setTimeout(() => {
             let totalWidth = 0;
             panels.forEach(p => totalWidth += p.offsetWidth);
 
-            // Make sure last panel is fully visible
-            const scrollDistance = totalWidth - window.innerWidth + 80;
+            const scrollDistance = totalWidth - window.innerWidth + 120;
 
             gsap.to(wrapper, {
                 x: -scrollDistance,
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Active nav
             const navLinks = document.querySelectorAll('.nav-link');
             panels.forEach(panel => {
                 ScrollTrigger.create({
@@ -53,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            // Panel entrance animation
             panels.forEach((panel, i) => {
                 if (i === 0) return;
-                gsap.fromTo(panel, { opacity: 0.7, scale: 0.97 }, {
+                gsap.fromTo(panel, { opacity: 0.65, scale: 0.97 }, {
                     opacity: 1, scale: 1, duration: 0.6,
                     ease: 'power2.out',
                     scrollTrigger: {
@@ -66,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             });
-        }, 300);
+        }, 350);
     }
 
-    // Inner horizontal in Work section
+    // Inner horizontal in Work
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
     if (hContainer && hInner) {
@@ -81,13 +77,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     ease: 'none',
                     scrollTrigger: {
                         trigger: hContainer,
-                        scrub: 1.2,
+                        scrub: 1.3,
                         start: 'left left',
                         end: () => '+=' + dist
                     }
                 });
             }
-        }, 400);
+        }, 450);
     }
 
     // Mobile menu
@@ -105,5 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowLeft') window.scrollBy({ left: -500, behavior: 'smooth' });
     });
 
-    console.log('%c[Portfolio] Horizontal scroll fixed - last panel now visible', 'color:#10b981');
+    // Refresh ScrollTrigger on resize (helps with desktop view on mobile Chrome)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 250);
+    });
+
+    console.log('%c[Portfolio] Video hero + improved last panel visibility', 'color:#10b981');
 });
