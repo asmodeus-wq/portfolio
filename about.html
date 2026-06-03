@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-zinc-950 text-white">
 
@@ -28,83 +30,126 @@
         </div>
     </nav>
 
-    <!-- Hero with Background Image -->
-    <section class="relative h-[75vh] flex items-center justify-center overflow-hidden">
+    <!-- Hero Section with Background -->
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center" 
-             style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
+             style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1018/2000/1200');">
         </div>
         
         <div class="relative z-10 text-center px-6 max-w-4xl">
-            <span class="text-emerald-400 text-sm font-medium tracking-[3px]">CHAPTER 01</span>
-            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-4 mb-6">I turn complexity<br>into clarity.</h1>
-            <p class="text-xl text-white/80 max-w-lg mx-auto">8+ years of crafting digital experiences that feel simple, intuitive, and human.</p>
+            <span class="text-emerald-400 text-sm font-medium tracking-[4px]">CHAPTER 01</span>
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-4 mb-6">I design clarity<br>in complexity.</h1>
+            <p class="text-xl text-white/80 max-w-lg mx-auto">User Experience Analyst with 8+ years of turning messy systems into intuitive experiences.</p>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Intro -->
     <section class="max-w-5xl mx-auto px-6 py-20">
         <div class="grid md:grid-cols-12 gap-x-16">
-            
-            <!-- Left -->
             <div class="md:col-span-5 mb-12 md:mb-0">
                 <div class="sticky top-24">
                     <h2 class="text-5xl font-semibold tracking-tighter">Hi, I'm Faizan.</h2>
-                    <p class="mt-4 text-lg text-white/70">User Experience Analyst based in Pune, India.</p>
-                    
-                    <div class="mt-8 space-y-3 text-sm">
-                        <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
-                            <i class="fa-brands fa-linkedin w-5"></i> 
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="mailto:faizanquazi123@gmail.com" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
-                            <i class="fa-solid fa-envelope w-5"></i> 
-                            <span>faizanquazi123@gmail.com</span>
-                        </a>
-                    </div>
+                    <p class="mt-4 text-lg text-white/70">Based in Pune, India.</p>
                 </div>
             </div>
-
-            <!-- Right - Bio -->
             <div class="md:col-span-7 text-[17px] leading-relaxed text-white/80 space-y-6">
-                <p>I’m a User Experience Analyst with over 8 years of experience helping teams build digital products that actually work for people. Currently at <span class="text-white font-medium">HCL Software (Commerce)</span>, I focus on improving usability across complex B2B enterprise platforms.</p>
-                
-                <p>Before this, I worked on marketing automation platforms at HCL Unica, led product design initiatives at Cybage Softwares, and spent time as a UI/UX designer at BrightBrain Technologies. I started my career as a freelance graphic designer — which taught me how to communicate clearly and solve real problems through design.</p>
-                
-                <p>I believe great design isn’t about decoration. It’s about removing friction, building trust, and making complex systems feel simple and human.</p>
+                <p>I’m a User Experience Analyst who believes great design starts with deep understanding. For the past 8+ years, I’ve helped teams build digital products that feel obvious to use — especially in complex B2B environments.</p>
+                <p>Currently at <span class="text-white font-medium">HCL Software (Commerce)</span>, I lead usability improvements across enterprise platforms. Before this, I worked on marketing automation at HCL Unica, led product design at Cybage, and started my journey as a freelance graphic designer.</p>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="bg-zinc-900 py-20 border-t border-white/10">
+    <!-- Highlights -->
+    <section class="bg-zinc-900 py-16 border-t border-white/10">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="mb-14">
-                <span class="text-emerald-400 text-sm font-medium tracking-widest">HOW I WORK</span>
-                <h2 class="text-5xl font-semibold tracking-tighter mt-3">My Approach</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-semibold tracking-tighter text-emerald-400">8+</div>
+                    <p class="mt-2 text-white/70">Years of Experience</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-semibold tracking-tighter text-emerald-400">50+</div>
+                    <p class="mt-2 text-white/70">Projects Shaped</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-semibold tracking-tighter text-emerald-400">∞</div>
+                    <p class="mt-2 text-white/70">Problems Solved</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
-                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-search text-3xl"></i></div>
-                    <h3 class="text-2xl font-semibold mb-4">Research First</h3>
-                    <p class="text-white/70">I start with people — not assumptions. Through interviews, testing, and observation, I uncover what users actually need.</p>
-                </div>
-                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
-                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-sitemap text-3xl"></i></div>
-                    <h3 class="text-2xl font-semibold mb-4">Structure & Clarity</h3>
-                    <p class="text-white/70">I turn messy information into clear flows using card sorting, wireframes, and information architecture.</p>
-                </div>
-                <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
-                    <div class="text-emerald-400 mb-6"><i class="fa-solid fa-palette text-3xl"></i></div>
-                    <h3 class="text-2xl font-semibold mb-4">Design & Validate</h3>
-                    <p class="text-white/70">I design intuitive interfaces and continuously test them to ensure they solve real problems effectively.</p>
+    <!-- Journey -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="mb-12">
+            <span class="text-emerald-400 text-sm font-medium tracking-widest">JOURNEY</span>
+            <h2 class="text-5xl font-semibold tracking-tighter mt-3">Where I've Been</h2>
+        </div>
+
+        <div class="space-y-10">
+            <div class="flex gap-8">
+                <div class="w-40 flex-shrink-0 text-emerald-400 font-mono text-sm pt-1">DEC 2022 — PRESENT</div>
+                <div>
+                    <h3 class="text-2xl font-semibold">HCL Software (Commerce)</h3>
+                    <p class="text-white/80">User Experience Analyst — Leading B2B usability improvements across enterprise platforms.</p>
                 </div>
             </div>
+            <div class="flex gap-8">
+                <div class="w-40 flex-shrink-0 text-white/50 font-mono text-sm pt-1">MAY 2021 — DEC 2022</div>
+                <div>
+                    <h3 class="text-2xl font-semibold">Cybage Softwares</h3>
+                    <p class="text-white/80">Senior Product Designer / Researcher — End-to-end product design and user research.</p>
+                </div>
+            </div>
+            <div class="flex gap-8">
+                <div class="w-40 flex-shrink-0 text-white/50 font-mono text-sm pt-1">DEC 2018 — APR 2021</div>
+                <div>
+                    <h3 class="text-2xl font-semibold">HCL Software (UNICA)</h3>
+                    <p class="text-white/80">User Experience Designer — Marketing automation platform design and information architecture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="border-t border-white/10 py-20">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <p class="text-2xl leading-snug">I don’t just design interfaces.<br>I design clarity.</p>
+            <a href="contact.html" class="mt-8 inline-block px-8 py-4 border border-white/30 rounded-2xl hover:bg-white hover:text-zinc-950 transition-all">
+                Let’s talk
+            </a>
         </div>
     </section>
 
     <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
         © 2026 Faizan Quazi
     </footer>
+
+    <script>
+        // Simple scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.utils.toArray('.prose, .space-y-10 > div').forEach((el, i) => {
+                    gsap.fromTo(el, 
+                        { opacity: 0, y: 40 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            delay: i * 0.1,
+                            ease: 'power2.out',
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 85%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                });
+            }
+        });
+    </script>
 </body>
 </html>
