@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Career Timeline with Scroll Reveal -->
+    <!-- Career Timeline - Click to Expand Accordion -->
     <section class="py-20 bg-zinc-950">
         <div class="max-w-5xl mx-auto px-6">
 
@@ -52,131 +52,176 @@
                 <div class="absolute left-[90px] md:left-[150px] top-0 bottom-0 w-[2px] bg-white/15"></div>
 
                 <!-- Entry 1 -->
-                <div class="career-item relative flex gap-8 pb-16 md:pb-20">
-                    <div class="w-[80px] md:w-[130px] shrink-0 text-right">
+                <div class="career-item relative flex gap-8 pb-10 md:pb-14">
+                    <div class="w-[80px] md:w-[130px] shrink-0 text-right pt-1">
                         <span class="text-emerald-400 font-mono text-sm tracking-widest">DEC 2022 — PRESENT</span>
                         <div class="text-xs text-white/50 mt-1">Current Role</div>
                     </div>
 
-                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                    <div class="absolute left-[81px] md:left-[141px] top-3">
                         <div class="timeline-dot w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 transition-all duration-300"></div>
                     </div>
 
                     <div class="pl-10 flex-1">
-                        <h3 class="text-2xl font-semibold">User Experience Analyst</h3>
-                        <p class="text-emerald-400 font-medium mt-1">HCL Software (Commerce)</p>
-                        
-                        <div class="career-content mt-4 space-y-3 text-white/80 text-[15px] opacity-0 translate-y-6 transition-all duration-700 ease-out">
-                            <p>Leading comprehensive usability improvements across the HCL Commerce B2B enterprise platform. Focused on simplifying complex workflows and enhancing user experience for enterprise clients.</p>
-                            <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                                <li>Driving end-to-end usability strategy for the commerce suite</li>
-                                <li>Collaborating with product, engineering, and stakeholder teams</li>
-                                <li>Identifying friction points through research and testing</li>
-                            </ul>
+                        <div class="career-header flex items-center justify-between cursor-pointer group" onclick="toggleCareer(this)">
+                            <div>
+                                <h3 class="text-2xl font-semibold group-hover:text-emerald-400 transition-colors">User Experience Analyst</h3>
+                                <p class="text-emerald-400 font-medium mt-1">HCL Software (Commerce)</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300 ml-4"></i>
+                        </div>
+
+                        <div class="career-content-wrapper grid grid-rows-[0fr] transition-all duration-500 ease-out mt-4">
+                            <div class="overflow-hidden">
+                                <div class="career-content space-y-3 text-white/80 text-[15px] pr-2">
+                                    <p>Leading comprehensive usability improvements across the HCL Commerce B2B enterprise platform. Focused on simplifying complex workflows and enhancing user experience for enterprise clients.</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                                        <li>Driving end-to-end usability strategy for the commerce suite</li>
+                                        <li>Collaborating with product, engineering, and stakeholder teams</li>
+                                        <li>Identifying friction points through research and testing</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Entry 2 -->
-                <div class="career-item relative flex gap-8 pb-16 md:pb-20">
-                    <div class="w-[80px] md:w-[130px] shrink-0 text-right">
+                <div class="career-item relative flex gap-8 pb-10 md:pb-14">
+                    <div class="w-[80px] md:w-[130px] shrink-0 text-right pt-1">
                         <span class="text-emerald-400 font-mono text-sm tracking-widest">MAY 2021 — DEC 2022</span>
                     </div>
 
-                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                    <div class="absolute left-[81px] md:left-[141px] top-3">
                         <div class="timeline-dot w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 transition-all duration-300"></div>
                     </div>
 
                     <div class="pl-10 flex-1">
-                        <h3 class="text-2xl font-semibold">Senior Product Designer / Researcher</h3>
-                        <p class="text-emerald-400 font-medium mt-1">Cybage Softwares</p>
-                        
-                        <div class="career-content mt-4 space-y-3 text-white/80 text-[15px] opacity-0 translate-y-6 transition-all duration-700 ease-out">
-                            <p>Responsible for end-to-end product design and research. Conducted user interviews, synthesized insights, and delivered data-driven designs and prototypes using UCD methodology.</p>
-                            <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                                <li>Performed user interviews, research & segmented data analysis</li>
-                                <li>Created personas, wireframes, prototypes & conducted usability testing</li>
-                                <li>Mind mapping, flowcharts & card sorting for Information Architecture</li>
-                                <li>Worked closely with PMs, Designers, Developers & Clients</li>
-                            </ul>
+                        <div class="career-header flex items-center justify-between cursor-pointer group" onclick="toggleCareer(this)">
+                            <div>
+                                <h3 class="text-2xl font-semibold group-hover:text-emerald-400 transition-colors">Senior Product Designer / Researcher</h3>
+                                <p class="text-emerald-400 font-medium mt-1">Cybage Softwares</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300 ml-4"></i>
+                        </div>
+
+                        <div class="career-content-wrapper grid grid-rows-[0fr] transition-all duration-500 ease-out mt-4">
+                            <div class="overflow-hidden">
+                                <div class="career-content space-y-3 text-white/80 text-[15px] pr-2">
+                                    <p>Responsible for end-to-end product design and research. Conducted user interviews, synthesized insights, and delivered data-driven designs and prototypes using UCD methodology.</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                                        <li>Performed user interviews, research & segmented data analysis</li>
+                                        <li>Created personas, wireframes, prototypes & conducted usability testing</li>
+                                        <li>Mind mapping, flowcharts & card sorting for Information Architecture</li>
+                                        <li>Worked closely with PMs, Designers, Developers & Clients</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Entry 3 -->
-                <div class="career-item relative flex gap-8 pb-16 md:pb-20">
-                    <div class="w-[80px] md:w-[130px] shrink-0 text-right">
+                <div class="career-item relative flex gap-8 pb-10 md:pb-14">
+                    <div class="w-[80px] md:w-[130px] shrink-0 text-right pt-1">
                         <span class="text-emerald-400 font-mono text-sm tracking-widest">DEC 2018 — APR 2021</span>
                         <div class="text-xs text-white/50 mt-1">(3.5 Years)</div>
                     </div>
 
-                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                    <div class="absolute left-[81px] md:left-[141px] top-3">
                         <div class="timeline-dot w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 transition-all duration-300"></div>
                     </div>
 
                     <div class="pl-10 flex-1">
-                        <h3 class="text-2xl font-semibold">User Experience Designer</h3>
-                        <p class="text-emerald-400 font-medium mt-1">HCL Software (UNICA)</p>
-                        
-                        <div class="career-content mt-4 space-y-3 text-white/80 text-[15px] opacity-0 translate-y-6 transition-all duration-700 ease-out">
-                            <p>Designed user experiences for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
-                            <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                                <li>Core UX design for marketing automation features</li>
-                                <li>Conducted user research and improved task flows</li>
-                                <li>Collaborated with cross-functional teams to deliver polished interfaces</li>
-                            </ul>
+                        <div class="career-header flex items-center justify-between cursor-pointer group" onclick="toggleCareer(this)">
+                            <div>
+                                <h3 class="text-2xl font-semibold group-hover:text-emerald-400 transition-colors">User Experience Designer</h3>
+                                <p class="text-emerald-400 font-medium mt-1">HCL Software (UNICA)</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300 ml-4"></i>
+                        </div>
+
+                        <div class="career-content-wrapper grid grid-rows-[0fr] transition-all duration-500 ease-out mt-4">
+                            <div class="overflow-hidden">
+                                <div class="career-content space-y-3 text-white/80 text-[15px] pr-2">
+                                    <p>Designed user experiences for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                                        <li>Core UX design for marketing automation features</li>
+                                        <li>Conducted user research and improved task flows</li>
+                                        <li>Collaborated with cross-functional teams to deliver polished interfaces</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Entry 4 -->
-                <div class="career-item relative flex gap-8 pb-16 md:pb-20">
-                    <div class="w-[80px] md:w-[130px] shrink-0 text-right">
+                <div class="career-item relative flex gap-8 pb-10 md:pb-14">
+                    <div class="w-[80px] md:w-[130px] shrink-0 text-right pt-1">
                         <span class="text-emerald-400 font-mono text-sm tracking-widest">APR 2018 — DEC 2018</span>
                         <div class="text-xs text-white/50 mt-1">(9 Months)</div>
                     </div>
 
-                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                    <div class="absolute left-[81px] md:left-[141px] top-3">
                         <div class="timeline-dot w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 transition-all duration-300"></div>
                     </div>
 
                     <div class="pl-10 flex-1">
-                        <h3 class="text-2xl font-semibold">UI/UX Designer</h3>
-                        <p class="text-emerald-400 font-medium mt-1">BrightBrain Technologies</p>
-                        
-                        <div class="career-content mt-4 space-y-3 text-white/80 text-[15px] opacity-0 translate-y-6 transition-all duration-700 ease-out">
-                            <p>Conducted user research and testing while developing wireframes and task flows. Focused on understanding user psychology and solving UX problems creatively.</p>
-                            <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                                <li>Developed wireframes and task flows based on user needs</li>
-                                <li>Conducted concept and usability testing + gathered feedback</li>
-                                <li>Pitched design solutions to potential clients</li>
-                            </ul>
+                        <div class="career-header flex items-center justify-between cursor-pointer group" onclick="toggleCareer(this)">
+                            <div>
+                                <h3 class="text-2xl font-semibold group-hover:text-emerald-400 transition-colors">UI/UX Designer</h3>
+                                <p class="text-emerald-400 font-medium mt-1">BrightBrain Technologies</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300 ml-4"></i>
+                        </div>
+
+                        <div class="career-content-wrapper grid grid-rows-[0fr] transition-all duration-500 ease-out mt-4">
+                            <div class="overflow-hidden">
+                                <div class="career-content space-y-3 text-white/80 text-[15px] pr-2">
+                                    <p>Conducted user research and testing while developing wireframes and task flows. Focused on understanding user psychology and solving UX problems creatively.</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                                        <li>Developed wireframes and task flows based on user needs</li>
+                                        <li>Conducted concept and usability testing + gathered feedback</li>
+                                        <li>Pitched design solutions to potential clients</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Entry 5 -->
                 <div class="career-item relative flex gap-8">
-                    <div class="w-[80px] md:w-[130px] shrink-0 text-right">
+                    <div class="w-[80px] md:w-[130px] shrink-0 text-right pt-1">
                         <span class="text-emerald-400 font-mono text-sm tracking-widest">FEB 2016 — APR 2018</span>
                         <div class="text-xs text-white/50 mt-1">(2.2 Years)</div>
                     </div>
 
-                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                    <div class="absolute left-[81px] md:left-[141px] top-3">
                         <div class="timeline-dot w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 transition-all duration-300"></div>
                     </div>
 
                     <div class="pl-10 flex-1">
-                        <h3 class="text-2xl font-semibold">Freelance Graphic Designer</h3>
-                        <p class="text-emerald-400 font-medium mt-1">Self-employed</p>
-                        
-                        <div class="career-content mt-4 space-y-3 text-white/80 text-[15px] opacity-0 translate-y-6 transition-all duration-700 ease-out">
-                            <p>Helped small local businesses with their visual identity and marketing collateral. Created everything from menu cards and coasters to social media posts and brochures.</p>
-                            <ul class="list-disc pl-5 space-y-1.5 text-sm">
-                                <li>Designed creative menu cards, coasters, posters & brochures</li>
-                                <li>Managed end-to-end design needs for multiple small businesses</li>
-                                <li>Built strong client communication and requirement gathering skills</li>
-                            </ul>
+                        <div class="career-header flex items-center justify-between cursor-pointer group" onclick="toggleCareer(this)">
+                            <div>
+                                <h3 class="text-2xl font-semibold group-hover:text-emerald-400 transition-colors">Freelance Graphic Designer</h3>
+                                <p class="text-emerald-400 font-medium mt-1">Self-employed</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-emerald-400 transition-transform duration-300 ml-4"></i>
+                        </div>
+
+                        <div class="career-content-wrapper grid grid-rows-[0fr] transition-all duration-500 ease-out mt-4">
+                            <div class="overflow-hidden">
+                                <div class="career-content space-y-3 text-white/80 text-[15px] pr-2">
+                                    <p>Helped small local businesses with their visual identity and marketing collateral. Created everything from menu cards and coasters to social media posts and brochures.</p>
+                                    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+                                        <li>Designed creative menu cards, coasters, posters & brochures</li>
+                                        <li>Managed end-to-end design needs for multiple small businesses</li>
+                                        <li>Built strong client communication and requirement gathering skills</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,34 +249,37 @@
     </footer>
 
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelectorAll(".career-item");
+    function toggleCareer(header) {
+        const wrapper = header.parentElement.querySelector('.career-content-wrapper');
+        const chevron = header.querySelector('.fa-chevron-down');
+        const isOpen = wrapper.classList.contains('open');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                const dot = entry.target.querySelector(".timeline-dot");
-                const content = entry.target.querySelector(".career-content");
-
-                if (!dot || !content) return;
-
-                if (entry.isIntersecting) {
-                    // Reveal content smoothly
-                    dot.classList.add("bg-emerald-400", "scale-125");
-                    content.classList.remove("opacity-0", "translate-y-6");
-                    content.classList.add("opacity-100", "translate-y-0");
-                } else {
-                    // Collapse again when scrolling away (works both up and down)
-                    dot.classList.remove("bg-emerald-400", "scale-125");
-                    content.classList.remove("opacity-100", "translate-y-0");
-                    content.classList.add("opacity-0", "translate-y-6");
-                }
-            });
-        }, {
-            threshold: 0.35
+        // Close all other items first (accordion behavior)
+        document.querySelectorAll('.career-content-wrapper').forEach(w => {
+            if (w !== wrapper) {
+                w.classList.remove('open');
+                const otherChevron = w.parentElement.querySelector('.fa-chevron-down');
+                if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
+            }
         });
 
-        items.forEach(item => observer.observe(item));
-    });
+        if (!isOpen) {
+            wrapper.classList.add('open');
+            chevron.style.transform = 'rotate(180deg)';
+        } else {
+            wrapper.classList.remove('open');
+            chevron.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    // Optional: Open the first item by default on page load
+    window.onload = function() {
+        const firstHeader = document.querySelector('.career-header');
+        if (firstHeader) {
+            // Uncomment the next line if you want the first one open by default
+            // toggleCareer(firstHeader);
+        }
+    }
     </script>
 
 </body>
