@@ -7,24 +7,27 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-zinc-950 text-white">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
+    <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-x-3">
+            <a href="index.html" class="flex items-center gap-x-3 no-underline">
                 <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
                     <span class="text-zinc-950 font-bold text-xl">FQ</span>
                 </div>
                 <h1 class="font-semibold text-xl tracking-tight">Faizan Quazi</h1>
             </a>
+            
             <div class="hidden md:flex items-center gap-x-8 text-sm">
-                <a href="about.html" class="nav-link">About</a>
-                <a href="work.html" class="nav-link active">Work</a>
-                <a href="process.html" class="nav-link">Process</a>
-                <a href="experience.html" class="nav-link">Career</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="about.html" class="nav-link no-underline">About</a>
+                <a href="work.html" class="nav-link active no-underline">Work</a>
+                <a href="process.html" class="nav-link no-underline">Process</a>
+                <a href="experience.html" class="nav-link no-underline">Career</a>
+                <a href="contact.html" class="nav-link no-underline">Contact</a>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden text-2xl bg-transparent border-none cursor-pointer">
@@ -33,102 +36,135 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <div class="max-w-6xl mx-auto px-6 pt-24 pb-12">
-        <div>
-            <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">SELECTED WORK</span>
-            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-2">Projects & Case Studies</h1>
-            <p class="mt-4 max-w-xl text-xl text-white/70">A selection of work spanning enterprise SaaS, marketing automation, and design systems.</p>
-        </div>
-    </div>
+    <!-- Horizontal Wrapper -->
+    <div id="horizontal-wrapper" class="flex flex-nowrap h-screen w-max">
 
-    <!-- Project Cards -->
-    <div class="max-w-6xl mx-auto px-6 pb-16">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <!-- HCL Commerce -->
-            <a href="hcl-commerce.html" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
-                <div class="aspect-video bg-zinc-800 overflow-hidden">
-                    <img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="HCL Commerce">
-                </div>
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">ENTERPRISE SAAS</span>
-                        <span class="text-white/50 text-sm">2023 — Present</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold tracking-tight">HCL Commerce — B2B Usability Overhaul</h3>
-                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Led end-to-end UX improvements for a complex B2B commerce platform used by global enterprises.</p>
-                </div>
-            </a>
-
-            <!-- Unica Marketing Automation -->
-            <a href="#" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
-                <div class="aspect-video bg-zinc-800 overflow-hidden">
-                    <img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Unica Marketing Automation">
-                </div>
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">MARKETING AUTOMATION</span>
-                        <span class="text-white/50 text-sm">2018 — 2021</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold tracking-tight">Unica Marketing Automation</h3>
-                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Designed workflows, personas, and high-fidelity prototypes for a leading marketing automation platform.</p>
-                </div>
-            </a>
-
-            <!-- Raintree 2021 -->
-            <a href="#raintree" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
-                <div class="aspect-video bg-zinc-800 overflow-hidden">
-                    <img src="https://picsum.photos/id/160/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Raintree 2021">
-                </div>
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">DESIGN SYSTEM</span>
-                        <span class="text-white/50 text-sm">2021</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold tracking-tight">Raintree 2021</h3>
-                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Design system and component library exploration with interactive prototypes.</p>
-                    <div class="mt-4 inline-flex items-center text-emerald-400 text-sm font-medium">
-                        View interactive prototype <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-    <!-- Interactive Figma Prototype Section for Raintree 2021 -->
-    <div id="raintree" class="bg-zinc-900 border-t border-white/10 py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-8">
-                <div>
-                    <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">LIVE INTERACTIVE PROTOTYPE</span>
-                    <h2 class="text-5xl font-semibold tracking-tighter mt-1">Raintree 2021</h2>
-                </div>
-                <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&t=DVjb7KCfwwZgQnZM-1&starting-point-node-id=1%3A28&scaling-contain=" target="_blank" 
-                   class="inline-flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition">
-                    Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
-                </a>
+        <!-- Hero Panel -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 bg-zinc-950">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <span class="inline-block px-5 py-1.5 rounded-full bg-white/10 border border-white/20 text-sm mb-6 tracking-[2px]">SELECTED WORK</span>
+                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-none mb-6">Featured<br>Projects</h1>
+                <p class="max-w-2xl mx-auto text-2xl text-white/80 tracking-tight">A collection of design systems, prototypes, and interactive experiences I’ve crafted.</p>
             </div>
+        </section>
 
-            <!-- Clean & Reliable Figma Prototype Embed -->
-            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
-                <iframe 
-                    style="border: none; display: block; width: 100%;" 
-                    width="100%" 
-                    height="650" 
-                    src="https://embed.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&starting-point-node-id=1%3A28&embed-host=portfolio-6xkf.onrender.com" 
-                    allowfullscreen>
-                </iframe>
+        <!-- Project 1: Raintree 2021 -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                    <div class="md:col-span-5 mb-10 md:mb-0">
+                        <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">2021 • DESIGN SYSTEM</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Raintree 2021</h2>
+                        <p class="mt-6 text-lg text-white/80">A comprehensive design system and component library with interactive prototypes for consistent product experiences.</p>
+                        
+                        <a href="https://www.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id-0-1&t=02ETY1eFV0BPR1eI-1" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
+                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                            <iframe 
+                                style="border: none; width: 100%; display: block;" 
+                                width="100%" 
+                                height="520" 
+                                src="https://embed.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id=0-1&starting-point-node-id=0%3A1&embed-host=portfolio-6xkf.onrender.com" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <p class="mt-4 text-center text-white/60 text-sm">Click inside the frame above to interact with the live prototype</p>
-        </div>
+        <!-- Project 2: AI ML -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                    <div class="md:col-span-5 mb-10 md:mb-0">
+                        <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">AI & MACHINE LEARNING</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">AI/ML Interfaces</h2>
+                        <p class="mt-6 text-lg text-white/80">Exploration of intelligent interfaces, data visualization, and AI-driven user experiences with high-fidelity prototypes.</p>
+                        
+                        <a href="https://www.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id-108-19&t=02ETY1eFV0BPR1eI-1" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
+                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                            <iframe 
+                                style="border: none; width: 100%; display: block;" 
+                                width="100%" 
+                                height="520" 
+                                src="https://embed.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id=108-19&starting-point-node-id=108%3A19&embed-host=portfolio-6xkf.onrender.com" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 3: Identity Service -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                    <div class="md:col-span-5 mb-10 md:mb-0">
+                        <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">SECURITY • IDENTITY</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Identity Service</h2>
+                        <p class="mt-6 text-lg text-white/80">Secure identity management flows, authentication experiences, and enterprise-grade user journeys.</p>
+                        
+                        <a href="https://www.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id-2139-19516&t=02ETY1eFV0BPR1e1-1" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
+                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                            <iframe 
+                                style="border: none; width: 100%; display: block;" 
+                                width="100%" 
+                                height="520" 
+                                src="https://embed.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-19516&starting-point-node-id=2139%3A19516&embed-host=portfolio-6xkf.onrender.com" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project 4: UI Shell & Navigation -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
+            <div class="max-w-6xl w-full">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                    <div class="md:col-span-5 mb-10 md:mb-0">
+                        <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">PRODUCT • NAVIGATION</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">UI Shell & Navigation</h2>
+                        <p class="mt-6 text-lg text-white/80">Complete UI shell architecture and navigation systems for complex enterprise applications.</p>
+                        
+                        <a href="https://www.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id-2103-130728&t=02ETY1eFV0BPR1e1-1" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-emerald-400 hover:text-white transition-all">
+                            Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                            <iframe 
+                                style="border: none; width: 100%; display: block;" 
+                                width="100%" 
+                                height="520" 
+                                src="https://embed.figma.com/proto/pQ0XXN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2103-130728&starting-point-node-id=2103%3A130728&embed-host=portfolio-6xkf.onrender.com" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
-
-    <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
-        © 2026 Faizan Quazi
-    </footer>
 
     <script src="js/main.js"></script>
 </body>
