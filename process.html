@@ -63,15 +63,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Journey Path Indicator -->
-            <div class="absolute bottom-12 left-0 right-0 flex justify-center">
-                <div class="flex items-center gap-x-3 text-xs tracking-[2px] text-white/50">
-                    <div class="h-px w-8 bg-white/30"></div>
-                    <span>JOURNEY BEGINS</span>
-                    <div class="h-px w-8 bg-white/30"></div>
-                </div>
-            </div>
         </section>
 
         <!-- INTRO PANEL -->
@@ -88,18 +79,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Connecting Journey Line -->
-            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent"></div>
         </section>
 
         <!-- STEP 1: DISCOVER -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative">
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="1">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0">
+                    <!-- Journey Line -->
+                    <div class="hidden md:block absolute left-12 top-0 bottom-0 w-1 bg-white/10">
+                        <div class="journey-circle absolute top-1/2 -translate-y-1/2 -left-[11px] w-7 h-7 rounded-full border-4 border-emerald-400 bg-zinc-900 flex items-center justify-center text-xs font-mono text-emerald-400 transition-all duration-300" data-circle="1">01</div>
+                    </div>
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-12">
                         <div class="flex items-center gap-x-4 mb-6">
-                            <div class="w-9 h-9 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 font-mono text-sm">01</div>
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE ONE</div>
                         </div>
                         <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-6">Discover</h2>
@@ -132,26 +124,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Journey Connection -->
-            <div class="absolute bottom-8 left-12 right-12 flex items-center">
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-                <div class="mx-4 flex items-center gap-x-2 text-xs text-emerald-400/70">
-                    <span>01</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>02</span>
-                </div>
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-            </div>
         </section>
 
         <!-- STEP 2: DEFINE -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative">
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="2">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0">
+                    <!-- Journey Line -->
+                    <div class="hidden md:block absolute left-12 top-0 bottom-0 w-1 bg-white/10">
+                        <div class="journey-circle absolute top-1/2 -translate-y-1/2 -left-[11px] w-7 h-7 rounded-full border-4 border-white/40 bg-zinc-950 flex items-center justify-center text-xs font-mono text-white/60 transition-all duration-300" data-circle="2">02</div>
+                    </div>
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-12">
                         <div class="flex items-center gap-x-4 mb-6">
-                            <div class="w-9 h-9 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 font-mono text-sm">02</div>
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE TWO</div>
                         </div>
                         <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-6">Define</h2>
@@ -184,26 +169,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Journey Connection -->
-            <div class="absolute bottom-8 left-12 right-12 flex items-center">
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-                <div class="mx-4 flex items-center gap-x-2 text-xs text-emerald-400/70">
-                    <span>02</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>03</span>
-                </div>
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-            </div>
         </section>
 
         <!-- STEP 3: EXPLORE -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative">
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="3">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0">
+                    <!-- Journey Line -->
+                    <div class="hidden md:block absolute left-12 top-0 bottom-0 w-1 bg-white/10">
+                        <div class="journey-circle absolute top-1/2 -translate-y-1/2 -left-[11px] w-7 h-7 rounded-full border-4 border-white/40 bg-zinc-950 flex items-center justify-center text-xs font-mono text-white/60 transition-all duration-300" data-circle="3">03</div>
+                    </div>
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-12">
                         <div class="flex items-center gap-x-4 mb-6">
-                            <div class="w-9 h-9 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 font-mono text-sm">03</div>
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE THREE</div>
                         </div>
                         <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-6">Explore</h2>
@@ -236,26 +214,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Journey Connection -->
-            <div class="absolute bottom-8 left-12 right-12 flex items-center">
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-                <div class="mx-4 flex items-center gap-x-2 text-xs text-emerald-400/70">
-                    <span>03</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>04</span>
-                </div>
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-            </div>
         </section>
 
         <!-- STEP 4: CRAFT -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative">
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="4">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0">
+                    <!-- Journey Line -->
+                    <div class="hidden md:block absolute left-12 top-0 bottom-0 w-1 bg-white/10">
+                        <div class="journey-circle absolute top-1/2 -translate-y-1/2 -left-[11px] w-7 h-7 rounded-full border-4 border-white/40 bg-zinc-950 flex items-center justify-center text-xs font-mono text-white/60 transition-all duration-300" data-circle="4">04</div>
+                    </div>
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-12">
                         <div class="flex items-center gap-x-4 mb-6">
-                            <div class="w-9 h-9 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 font-mono text-sm">04</div>
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE FOUR</div>
                         </div>
                         <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-6">Craft</h2>
@@ -288,26 +259,19 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Journey Connection -->
-            <div class="absolute bottom-8 left-12 right-12 flex items-center">
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-                <div class="mx-4 flex items-center gap-x-2 text-xs text-emerald-400/70">
-                    <span>04</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>05</span>
-                </div>
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-            </div>
         </section>
 
         <!-- STEP 5: EVOLVE -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative">
+        <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="5">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0">
+                    <!-- Journey Line -->
+                    <div class="hidden md:block absolute left-12 top-0 bottom-0 w-1 bg-white/10">
+                        <div class="journey-circle absolute top-1/2 -translate-y-1/2 -left-[11px] w-7 h-7 rounded-full border-4 border-white/40 bg-zinc-950 flex items-center justify-center text-xs font-mono text-white/60 transition-all duration-300" data-circle="5">05</div>
+                    </div>
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-12">
                         <div class="flex items-center gap-x-4 mb-6">
-                            <div class="w-9 h-9 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 font-mono text-sm">05</div>
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE FIVE</div>
                         </div>
                         <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-6">Evolve</h2>
@@ -340,17 +304,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Final Journey Connection -->
-            <div class="absolute bottom-8 left-12 right-12 flex items-center">
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-                <div class="mx-4 text-xs text-emerald-400/70 flex items-center gap-x-2">
-                    <span>05</span>
-                    <i class="fa-solid fa-check"></i>
-                    <span>JOURNEY COMPLETE</span>
-                </div>
-                <div class="flex-1 h-px bg-emerald-400/20"></div>
-            </div>
         </section>
 
         <!-- CLOSING PANEL -->
@@ -368,5 +321,44 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+    // Highlight active journey circle on scroll
+    function initJourneyHighlight() {
+        const panels = document.querySelectorAll('.journey-panel');
+        const circles = document.querySelectorAll('.journey-circle');
+
+        if (!panels.length || !circles.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stage = entry.target.dataset.stage;
+                    
+                    circles.forEach(circle => {
+                        if (circle.dataset.circle === stage) {
+                            circle.classList.add('!border-emerald-400', '!bg-zinc-900', '!text-emerald-400');
+                            circle.classList.remove('border-white/40', 'bg-zinc-950', 'text-white/60');
+                        } else {
+                            circle.classList.remove('!border-emerald-400', '!bg-zinc-900', '!text-emerald-400');
+                            circle.classList.add('border-white/40', 'bg-zinc-950', 'text-white/60');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.6
+        });
+
+        panels.forEach(panel => observer.observe(panel));
+    }
+
+    window.onload = function() {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+        initJourneyHighlight();
+    }
+    </script>
+
 </body>
 </html>
