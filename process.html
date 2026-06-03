@@ -10,15 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <style>
-html,
-body {
-    overflow-x: hidden;
-    max-width: 100vw;
-}
-</style>
 </head>
-<body class="bg-zinc-950 text-white overflow-x-hidden">
+<body class="bg-zinc-950 text-white">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
@@ -87,7 +80,7 @@ body {
                     <h2 class="text-6xl md:text-7xl font-semibold tracking-tighter">My Design Process Framework</h2>
                 </div>
                 <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-800">
-                    <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/design-plan.png" class="w-full" alt="Design Plan Framework">
+                    <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/attachments/Design%20Plan.png" class="w-full" alt="Design Plan Framework">
                 </div>
             </div>
         </section>
@@ -104,8 +97,8 @@ body {
                         <p class="text-xl text-white/80 max-w-xl mb-8">I deeply immerse in the context — mapping stakeholders, developing personas, and understanding user needs.</p>
                     </div>
                     <div class="md:col-span-5 space-y-6">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/stakeholder-mapping.png" class="rounded-3xl border border-white/10" alt="Stakeholder Mapping">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/personas.png" class="rounded-3xl border border-white/10" alt="User Personas">
+                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/attachments/Stakeholder%20Mapping.png" class="rounded-3xl border border-white/10" alt="Stakeholder Mapping">
+                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/attachments/Personas.png" class="rounded-3xl border border-white/10" alt="User Personas">
                     </div>
                 </div>
             </div>
@@ -123,7 +116,7 @@ body {
                         <p class="text-xl text-white/80">Turning research into clear, prioritized problem statements and measurable objectives.</p>
                     </div>
                     <div class="md:col-span-5">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/problem-statement.png" class="rounded-3xl border border-white/10" alt="Problems and Goals">
+                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/attachments/Problem%20Statement.png" class="rounded-3xl border border-white/10" alt="Problems and Goals">
                     </div>
                 </div>
             </div>
@@ -141,7 +134,7 @@ body {
                         <p class="text-xl text-white/80 max-w-xl mb-8">Ideation, user scenarios, and creative exploration to generate strong solution directions.</p>
                     </div>
                     <div class="md:col-span-5">
-                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/user-scenarios.png" class="rounded-3xl border border-white/10" alt="User Scenarios">
+                        <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/attachments/User%20Scenarios.png" class="rounded-3xl border border-white/10" alt="User Scenarios">
                     </div>
                 </div>
             </div>
@@ -181,53 +174,49 @@ body {
 
     </div>
 
-<!-- Journey Progress - 3 Phases Only -->
-<div id="journey-track" class="hidden md:block fixed left-12 right-12 bottom-12 h-2 bg-white/20 z-50">
+<!-- Journey Progress -->
+<div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
     <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-500" style="width:0%"></div>
-    
-    <!-- 3 Phase Circles -->
-    <div class="journey-marker absolute -top-5 left-[18%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-stage="1">01</div>
-    <div class="journey-marker absolute -top-5 left-[50%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-stage="2">02</div>
-    <div class="journey-marker absolute -top-5 left-[78%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-stage="3">03</div>
+    <div class="journey-marker absolute -top-5 left-[18%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold" data-stage="1">01</div>
+    <div class="journey-marker absolute -top-5 left-[36%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="2">02</div>
+    <div class="journey-marker absolute -top-5 left-[54%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="3">03</div>
+    <div class="journey-marker absolute -top-5 left-[72%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="4">04</div>
+    <div class="journey-marker absolute -top-5 left-[90%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold" data-stage="5">05</div>
 </div>
 
+    <script src="js/main.js"></script>
     <script>
-function initJourneyHighlight() {
-    const panels = document.querySelectorAll('.journey-panel');
-    const markers = document.querySelectorAll('.journey-marker');
-    const progress = document.getElementById('journey-progress');
+    function initJourneyHighlight() {
+        const panels = document.querySelectorAll('.journey-panel');
+        const markers = document.querySelectorAll('.journey-marker');
+        const progress = document.getElementById('journey-progress');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                let stage = parseInt(entry.target.dataset.stage || 1);
-                
-                // Map to 3 phases only
-                let phase = 1;
-                if (stage >= 4) phase = 3;
-                else if (stage >= 2) phase = 2;
+        const widths = {1:'22%', 2:'40%', 3:'58%', 4:'76%', 5:'94%'};
 
-                progress.style.width = phase === 1 ? '33%' : phase === 2 ? '66%' : '94%';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stage = parseInt(entry.target.dataset.stage);
+                    progress.style.width = widths[stage];
 
-                markers.forEach(m => {
-                    const num = parseInt(m.dataset.stage);
-                    if (num <= phase) {
-                        m.classList.add('border-emerald-400', 'text-emerald-400');
-                        m.classList.remove('border-white/30', 'text-white/50');
-                    } else {
-                        m.classList.remove('border-emerald-400', 'text-emerald-400');
-                        m.classList.add('border-white/30', 'text-white/50');
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.5 });
+                    markers.forEach(m => {
+                        const num = parseInt(m.dataset.stage);
+                        if (num <= stage) {
+                            m.classList.add('border-emerald-400','text-emerald-400');
+                            m.classList.remove('border-white/30','text-white/50');
+                        } else {
+                            m.classList.remove('border-emerald-400','text-emerald-400');
+                            m.classList.add('border-white/30','text-white/50');
+                        }
+                    });
+                }
+            });
+        }, {threshold: 0.6});
 
-    panels.forEach(panel => observer.observe(panel));
-}
+        panels.forEach(panel => observer.observe(panel));
+    }
 
-// Initialize after load
-window.addEventListener('load', () => {
-    initJourneyHighlight();
-});
-</script>
+    window.addEventListener('load', initJourneyHighlight);
+    </script>
+</body>
+</html>
