@@ -38,101 +38,153 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" 
-             style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
-        </div>
+    <!-- HORIZONTAL SCROLL WRAPPER -->
+    <div id="horizontal-wrapper" class="flex">
         
-        <div class="relative z-10 text-center px-6 max-w-5xl">
-            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
-                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                <span class="text-sm text-white/90">Available for freelance &amp; collaborations</span>
+        <!-- HERO PANEL -->
+        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center z-0" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
             </div>
             
-            <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6">
-                Faizan Quazi
-            </h1>
-            <p class="text-3xl md:text-4xl text-white/95 tracking-tight mb-4">User Experience Analyst</p>
-            <p class="max-w-lg mx-auto text-xl text-white/80 mb-10">Creating meaningful experiences through research-driven design.</p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="work.html" 
-                   class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all">
-                    View Selected Work
-                    <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                </a>
-                <a href="about.html" 
-                   class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
-                    Learn more about me
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Intro -->
-    <section class="max-w-5xl mx-auto px-6 py-20 text-center border-t border-white/10">
-        <div class="max-w-3xl mx-auto">
-            <p class="text-2xl leading-snug">I turn complex enterprise systems into intuitive, human experiences. 
-            Currently leading usability at <span class="text-white font-medium">HCL Software (Commerce)</span>.</p>
-            
-            <div class="mt-8 flex justify-center gap-4">
-                <a href="experience.html" class="px-6 py-3 border border-white/30 rounded-full text-sm hover:bg-white/5 transition-colors">View full career →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Preview -->
-    <section class="bg-zinc-900 py-20 border-t border-white/10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">FEATURED</span>
-                    <h2 class="text-5xl font-semibold tracking-tighter">Selected Work</h2>
+            <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="text-sm text-white/90">Available for freelance &amp; collaborations</span>
                 </div>
-                <a href="work.html" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group">
-                    VIEW ALL PROJECTS 
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </a>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
-                    <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
-                    <div class="p-8">
-                        <h3 class="text-3xl font-semibold tracking-tight mb-2">HCL Commerce — B2B Usability</h3>
-                        <p class="text-white/70">Leading usability improvements across the enterprise B2B commerce platform.</p>
-                    </div>
-                </a>
                 
-                <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
-                    <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
-                    <div class="p-8">
-                        <h3 class="text-3xl font-semibold tracking-tight mb-2">Unica Marketing Automation</h3>
-                        <p class="text-white/70">Core workflows, personas, and high-fidelity prototypes for the marketing platform.</p>
-                    </div>
-                </a>
+                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">
+                    Faizan Quazi
+                </h1>
+                <p class="text-3xl md:text-4xl text-white/95 tracking-tight mb-4">User Experience Analyst</p>
+                <p class="max-w-lg mx-auto text-xl text-white/80 mb-10">Creating meaningful experiences through research-driven design.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">
+                        View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
+                        Learn more about me
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-zinc-950 border-t border-white/10 py-12">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 text-sm">
-                <a href="mailto:faizanquazi123@gmail.com" class="hover:text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-envelope"></i> faizanquazi123@gmail.com
-                </a>
-                <a href="tel:+918446556866" class="hover:text-emerald-400 flex items-center gap-2">
-                    <i class="fa-solid fa-phone"></i> +91 84465 56866
-                </a>
-                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-emerald-400 flex items-center gap-2">
-                    <i class="fa-brands fa-linkedin"></i> LinkedIn
-                </a>
+        <!-- ABOUT PANEL -->
+        <section id="about" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
+            <div class="max-w-5xl mx-auto px-6 py-20">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                    <div class="md:col-span-5 mb-12 md:mb-0">
+                        <span class="text-emerald-400 text-sm font-medium tracking-widest">01</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">About me</h2>
+                    </div>
+                    <div class="md:col-span-7 text-[17px] leading-relaxed text-white/80 space-y-6">
+                        <p>I'm a User Experience Analyst with over 8 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-white">HCL Software (Commerce)</span>, I focus on improving B2B usability across complex enterprise platforms.</p>
+                        <p>My approach blends deep user research, information architecture, and collaborative design. I believe great experiences emerge when we truly understand the people we're designing for.</p>
+                        
+                        <div class="pt-6 flex items-center gap-x-4 text-sm">
+                            <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center gap-x-2 px-5 py-2.5 border border-white/20 rounded-full hover:bg-white/5">
+                                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="mailto:faizanquazi123@gmail.com" class="inline-flex items-center gap-x-2 px-5 py-2.5 border border-white/20 rounded-full hover:bg-white/5">
+                                <i class="fa-solid fa-envelope"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="mt-8 text-white/50 text-xs">© 2026 Faizan Quazi. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </section>
+
+        <!-- EXPERTISE PANEL -->
+        <section id="expertise" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900">
+            <div class="max-w-6xl mx-auto px-6 py-20">
+                <div class="mb-14">
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">02</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter">What I do</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                        <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
+                            <i class="fa-solid fa-search text-3xl text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-semibold mb-4 tracking-tight">User Research &amp; Insights</h3>
+                        <p class="text-white/70">Interviews, usability testing, card sorting, personas, and data-driven synthesis.</p>
+                    </div>
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                        <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
+                            <i class="fa-solid fa-sitemap text-3xl text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-semibold mb-4 tracking-tight">Information Architecture</h3>
+                        <p class="text-white/70">Mind mapping, flowcharts, wireframes, and prototypes for complex systems.</p>
+                    </div>
+                    <div class="bg-zinc-950 border border-white/10 p-9 rounded-3xl">
+                        <div class="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl mb-8">
+                            <i class="fa-solid fa-palette text-3xl text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-semibold mb-4 tracking-tight">Interaction &amp; Visual Design</h3>
+                        <p class="text-white/70">High-fidelity prototypes and pixel-perfect interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK PANEL -->
+        <section id="work" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900">
+            <div class="w-full max-w-6xl mx-auto px-6">
+                <div class="mb-10">
+                    <span class="text-emerald-400 text-sm font-medium tracking-widest">03</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter">Selected Work</h2>
+                </div>
+                
+                <div class="horizontal-scroll-container overflow-hidden">
+                    <div class="horizontal-scroll-inner flex gap-6 pb-8">
+                        <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
+                            <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover"></div>
+                            <div class="p-8">
+                                <h3 class="text-3xl font-semibold tracking-tight mb-3">HCL Commerce — B2B Usability</h3>
+                                <p class="text-white/70">Leading comprehensive usability improvements across the enterprise platform.</p>
+                            </div>
+                        </div>
+                        <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden">
+                            <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover"></div>
+                            <div class="p-8">
+                                <h3 class="text-3xl font-semibold tracking-tight mb-3">Unica Marketing Automation</h3>
+                                <p class="text-white/70">Core workflows, personas, card sorting and high-fidelity prototypes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="work.html" class="inline-flex items-center gap-x-2 text-sm font-medium group">
+                        VIEW ALL PROJECTS 
+                        <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PANEL -->
+        <section id="contact" class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <span class="text-emerald-400 text-sm font-medium tracking-widest">04</span>
+                <h2 class="text-6xl font-semibold tracking-tighter mt-3 mb-6">Let's build something<br>meaningful together.</h2>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="mailto:faizanquazi123@gmail.com" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-white text-zinc-950 text-lg font-semibold rounded-2xl hover:bg-white/90 transition-all">
+                        <i class="fa-solid fa-envelope"></i> Send me an email
+                    </a>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-white/30 rounded-2xl text-lg font-medium hover:bg-white/5 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+                
+                <div class="text-sm text-white/50">Pune, Maharashtra, India • +91 84465 56866</div>
+            </div>
+        </section>
+
+    </div>
 
     <script src="js/main.js"></script>
 </body>
