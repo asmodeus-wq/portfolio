@@ -10,6 +10,7 @@
 </head>
 <body class="bg-zinc-950 text-white">
 
+    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3">
@@ -21,39 +22,131 @@
             <div class="hidden md:flex items-center gap-x-8 text-sm">
                 <a href="about.html" class="nav-link">About</a>
                 <a href="work.html" class="nav-link active">Work</a>
-                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="process.html" class="nav-link">Process</a>
+                <a href="experience.html" class="nav-link">Career</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl bg-transparent border-none cursor-pointer">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <div class="max-w-6xl mx-auto px-6 pt-24 pb-20">
-        <div class="mb-12">
-            <span class="text-emerald-400 text-sm font-medium tracking-widest">WORK</span>
-            <h1 class="text-6xl font-semibold tracking-tighter mt-3">Selected Projects</h1>
+    <!-- Header -->
+    <div class="max-w-6xl mx-auto px-6 pt-24 pb-12">
+        <div>
+            <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">SELECTED WORK</span>
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-2">Projects & Case Studies</h1>
+            <p class="mt-4 max-w-xl text-xl text-white/70">A selection of work spanning enterprise SaaS, marketing automation, and design systems.</p>
         </div>
+    </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <a href="hcl-commerce.html" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
-                <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+    <!-- Project Cards -->
+    <div class="max-w-6xl mx-auto px-6 pb-16">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- HCL Commerce -->
+            <a href="hcl-commerce.html" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
+                <div class="aspect-video bg-zinc-800 overflow-hidden">
+                    <img src="https://picsum.photos/id/1015/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="HCL Commerce">
+                </div>
                 <div class="p-8">
-                    <h3 class="text-3xl font-semibold tracking-tight mb-2">HCL Commerce — B2B Usability Overhaul</h3>
-                    <p class="text-white/70">Enterprise SaaS • 2023 — Present</p>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">ENTERPRISE SAAS</span>
+                        <span class="text-white/50 text-sm">2023 — Present</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight">HCL Commerce — B2B Usability Overhaul</h3>
+                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Led end-to-end UX improvements for a complex B2B commerce platform used by global enterprises.</p>
                 </div>
             </a>
 
-            <a href="#" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
-                <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+            <!-- Unica Marketing Automation -->
+            <a href="#" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
+                <div class="aspect-video bg-zinc-800 overflow-hidden">
+                    <img src="https://picsum.photos/id/201/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Unica Marketing Automation">
+                </div>
                 <div class="p-8">
-                    <h3 class="text-3xl font-semibold tracking-tight mb-2">Unica Marketing Automation</h3>
-                    <p class="text-white/70">Marketing Automation • 2018 — 2021</p>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">MARKETING AUTOMATION</span>
+                        <span class="text-white/50 text-sm">2018 — 2021</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight">Unica Marketing Automation</h3>
+                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Designed workflows, personas, and high-fidelity prototypes for a leading marketing automation platform.</p>
                 </div>
             </a>
+
+            <!-- Raintree 2021 -->
+            <a href="#raintree" class="group block bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/40 transition-all">
+                <div class="aspect-video bg-zinc-800 overflow-hidden">
+                    <img src="https://picsum.photos/id/160/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Raintree 2021">
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-emerald-400 text-xs font-semibold tracking-widest">DESIGN SYSTEM</span>
+                        <span class="text-white/50 text-sm">2021</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight">Raintree 2021</h3>
+                    <p class="mt-3 text-white/70 text-sm line-clamp-2">Design system and component library exploration with interactive prototypes.</p>
+                    <div class="mt-4 inline-flex items-center text-emerald-400 text-sm font-medium">
+                        View interactive prototype <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Interactive Figma Prototype Section -->
+    <div id="raintree" class="bg-zinc-900 border-t border-white/10 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-10">
+                <div>
+                    <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">LIVE DEMO</span>
+                    <h2 class="text-5xl font-semibold tracking-tighter mt-1">Raintree 2021</h2>
+                    <p class="mt-2 text-white/70">Explore the interactive prototype directly from Figma</p>
+                </div>
+                <a href="https://www.figma.com/design/pQ0XXN8DD7jAUaBbt39.JAY/Design-portfolio" target="_blank" 
+                   class="inline-flex items-center gap-x-2 text-sm font-medium text-white/80 hover:text-white transition">
+                    Open in Figma <i class="fa-solid fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <!-- Styled Figma Embed Window -->
+            <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
+                
+                <!-- Fake browser bar -->
+                <div class="flex items-center gap-x-3 bg-zinc-900 px-5 py-3 border-b border-white/10">
+                    <div class="flex gap-x-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+                    </div>
+                    <div class="flex-1 text-center">
+                        <span class="text-xs text-white/50 tracking-[2px] font-mono">FIGMA — RAINTREE 2021 PROTOTYPE</span>
+                    </div>
+                </div>
+
+                <!-- The Embed -->
+                <div class="relative w-full" style="aspect-ratio: 16 / 9; min-height: 520px;">
+                    <iframe 
+                        style="border: none;" 
+                        width="100%" 
+                        height="100%" 
+                        src="https://embed.figma.com/design/pQ0XXN8DD7jAUaBbt39.JAY/Design-portfolio?node-id=0-1&embed-host-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <p class="text-center text-white/50 text-sm mt-6">Click inside the prototype above to interact with the design</p>
         </div>
     </div>
 
     <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
         © 2026 Faizan Quazi
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
