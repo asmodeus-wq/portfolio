@@ -1,27 +1,28 @@
 // ============================================
-// Horizontal Scroll - Better Mobile Desktop View Support
+// Horizontal Full-Page Scroll - Optimized
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP not loaded');
+        return;
+    }
     gsap.registerPlugin(ScrollTrigger);
 
     const wrapper = document.getElementById('horizontal-wrapper');
     if (!wrapper) return;
 
-    // Run horizontal logic if screen is reasonably wide (helps with desktop view on mobile Chrome)
-    const runHorizontal = window.innerWidth >= 600;
+    const isMobile = window.innerWidth < 768;
 
-    if (runHorizontal) {
+    if (!isMobile) {
         const panels = wrapper.querySelectorAll('.panel');
-        
+
         setTimeout(() => {
             let totalWidth = 0;
             panels.forEach(p => totalWidth += p.offsetWidth);
 
-            // Extra distance so last panel is fully visible
-            const scrollDistance = totalWidth - window.innerWidth + 200;
+            const scrollDistance = totalWidth - window.innerWidth + 150;
 
             gsap.to(wrapper, {
                 x: -scrollDistance,
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
+            // Active navigation
             const navLinks = document.querySelectorAll('.nav-link');
             panels.forEach(panel => {
                 ScrollTrigger.create({
@@ -52,22 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
+            // Subtle panel animation
             panels.forEach((panel, i) => {
                 if (i === 0) return;
-                gsap.fromTo(panel, { opacity: 0.65, scale: 0.97 }, {
-                    opacity: 1, scale: 1, duration: 0.6,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: panel,
-                        start: 'left 75%',
-                        toggleActions: 'play none none reverse'
+                gsap.fromTo(panel, 
+                    { opacity: 0.65, scale: 0.97 },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: panel,
+                            start: 'left 75%',
+                            toggleActions: 'play none none reverse'
+                        }
                     }
-                });
+                );
             });
         }, 400);
     }
 
-    // Inner horizontal in Work section
+    // Inner horizontal scroll in Work section
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
     if (hContainer && hInner) {
@@ -92,18 +100,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
-            const nav = document.querySelector('.hidden.md\:flex');
+            const nav = document.querySelector('.hidden.md\\:flex');
             if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
         });
     }
 
-    // Keyboard
+    // Keyboard arrows
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') window.scrollBy({ left: 500, behavior: 'smooth' });
         if (e.key === 'ArrowLeft') window.scrollBy({ left: -500, behavior: 'smooth' });
     });
 
-    // Refresh on resize (helps desktop view on mobile Chrome)
+    // Refresh ScrollTrigger on resize (helps desktop view on mobile)
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -112,5 +120,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Improved last panel visibility + placeholder hero visual', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized', 'color:#10b981');
 });
