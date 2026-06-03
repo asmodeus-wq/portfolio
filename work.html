@@ -68,7 +68,7 @@
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                             <img id="raintree-image" src="images/rt1.png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="Raintree 2021 - Screen 1" onclick="nextRaintreeScreen()">
                             <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
-                                <span id="raintree-counter">1 / 4</span>
+                                <span id="raintree-counter">1 / 11</span>
                             </div>
                         </div>
                         <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
@@ -95,9 +95,9 @@
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <img id="aiml-image" src="images/am(1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="AI/ML - Screen 1" onclick="nextAIMLScreen()">
+                            <img id="aiml-image" src="images/am (1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="AI/ML - Screen 1" onclick="nextAIMLScreen()">
                             <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
-                                <span id="aiml-counter">1 / 4</span>
+                                <span id="aiml-counter">1 / 12</span>
                             </div>
                         </div>
                         <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
@@ -124,9 +124,9 @@
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <img id="identity-image" src="images/IS1.png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="Identity Service - Screen 1" onclick="nextIdentityScreen()">
+                            <img id="identity-image" src="images/is1.png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="Identity Service - Screen 1" onclick="nextIdentityScreen()">
                             <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
-                                <span id="identity-counter">1 / 4</span>
+                                <span id="identity-counter">1 / 12</span>
                             </div>
                         </div>
                         <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
@@ -153,9 +153,9 @@
                     </div>
                     <div class="md:col-span-7">
                         <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                            <img id="hcl-image" src="images/hs(1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="HCL Software - Screen 1" onclick="nextHCLScreen()">
+                            <img id="hcl-image" src="images/hs (1).png" class="w-full h-auto cursor-pointer transition-all duration-300 hover:brightness-95" alt="HCL Software - Screen 1" onclick="nextHCLScreen()">
                             <div class="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-mono">
-                                <span id="hcl-counter">1 / 4</span>
+                                <span id="hcl-counter">1 / 10</span>
                             </div>
                         </div>
                         <p class="text-center text-xs text-white/50 mt-3">Click image to view next screen in the prototype flow</p>
@@ -168,10 +168,10 @@
 
     <script src="js/main.js"></script>
     
-    <!-- Carousel Scripts for all projects -->
+    <!-- Carousel Scripts -->
     <script>
-        // Raintree
-        const raintreeImages = ['images/rt1.png', 'images/rt2.png', 'images/rt3.png', 'images/rt4.png'];
+        // Raintree (rt1 to rt11)
+        const raintreeImages = ['images/rt1.png','images/rt2.png','images/rt3.png','images/rt4.png','images/rt5.png','images/rt6.png','images/rt7.png','images/rt8.png','images/rt9.png','images/rt10.png','images/rt11.png'];
         let currentRaintree = 0;
         function updateRaintree() {
             const img = document.getElementById('raintree-image');
@@ -184,8 +184,8 @@
             updateRaintree();
         }
 
-        // AI/ML
-        const aimlImages = ['images/am(1).png', 'images/am(2).png', 'images/am(3).png', 'images/am(4).png'];
+        // AI/ML (am (1) to am (12))
+        const aimlImages = ['images/am (1).png','images/am (2).png','images/am (3).png','images/am (4).png','images/am (5).png','images/am (6).png','images/am (7).png','images/am (8).png','images/am (9).png','images/am (10).png','images/am (11).png','images/am (12).png'];
         let currentAIML = 0;
         function updateAIML() {
             const img = document.getElementById('aiml-image');
@@ -198,8 +198,8 @@
             updateAIML();
         }
 
-        // Identity Service
-        const identityImages = ['images/IS1.png', 'images/IS2.png', 'images/IS3.png', 'images/IS4.png'];
+        // Identity Service (is1 to is12)
+        const identityImages = ['images/is1.png','images/is2.png','images/is3.png','images/is4.png','images/is5.png','images/is6.png','images/is7.png','images/is8.png','images/is9.png','images/is10.png','images/is11.png','images/is12.png'];
         let currentIdentity = 0;
         function updateIdentity() {
             const img = document.getElementById('identity-image');
@@ -212,8 +212,8 @@
             updateIdentity();
         }
 
-        // HCL Software
-        const hclImages = ['images/hs(1).png', 'images/hs(2).png', 'images/hs(3).png', 'images/hs(4).png'];
+        // HCL Software (hs (1) to hs (10))
+        const hclImages = ['images/hs (1).png','images/hs (2).png','images/hs (3).png','images/hs (4).png','images/hs (5).png','images/hs (6).png','images/hs (7).png','images/hs (8).png','images/hs (9).png','images/hs (10).png'];
         let currentHCL = 0;
         function updateHCL() {
             const img = document.getElementById('hcl-image');
@@ -226,23 +226,12 @@
             updateHCL();
         }
 
-        // Initialize all on load
+        // Initialize all
         document.addEventListener('DOMContentLoaded', () => {
-            // Raintree
-            const rImg = document.getElementById('raintree-image');
-            if (rImg) { rImg.src = raintreeImages[0]; document.getElementById('raintree-counter').textContent = '1 / 4'; }
-
-            // AI/ML
-            const aImg = document.getElementById('aiml-image');
-            if (aImg) { aImg.src = aimlImages[0]; document.getElementById('aiml-counter').textContent = '1 / 4'; }
-
-            // Identity
-            const iImg = document.getElementById('identity-image');
-            if (iImg) { iImg.src = identityImages[0]; document.getElementById('identity-counter').textContent = '1 / 4'; }
-
-            // HCL
-            const hImg = document.getElementById('hcl-image');
-            if (hImg) { hImg.src = hclImages[0]; document.getElementById('hcl-counter').textContent = '1 / 4'; }
+            const rImg = document.getElementById('raintree-image'); if (rImg) { rImg.src = raintreeImages[0]; document.getElementById('raintree-counter').textContent = `1 / ${raintreeImages.length}`; }
+            const aImg = document.getElementById('aiml-image'); if (aImg) { aImg.src = aimlImages[0]; document.getElementById('aiml-counter').textContent = `1 / ${aimlImages.length}`; }
+            const iImg = document.getElementById('identity-image'); if (iImg) { iImg.src = identityImages[0]; document.getElementById('identity-counter').textContent = `1 / ${identityImages.length}`; }
+            const hImg = document.getElementById('hcl-image'); if (hImg) { hImg.src = hclImages[0]; document.getElementById('hcl-counter').textContent = `1 / ${hclImages.length}`; }
         });
     </script>
 </body>
