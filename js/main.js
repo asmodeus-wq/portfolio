@@ -1,100 +1,77 @@
 // ============================================
-// Faizan Quazi Portfolio - AGGRESSIVE CLEAN PILING
-// Previous section completely hides when next one piles on
+// Horizontal Full-Page Scroll (Lewis style)
+// Entire site scrolls left ↔ right through big panels
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP not loaded');
+        return;
+    }
     gsap.registerPlugin(ScrollTrigger);
 
-    // Mobile menu
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    if (mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            const nav = document.querySelector('.hidden.md\:flex');
-            if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        });
-    }
+    const wrapper = document.getElementById('horizontal-wrapper');
+    if (!wrapper) return;
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            const el = document.getElementById(a.getAttribute('href').slice(1));
-            if (el) {
-                e.preventDefault();
-                window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
-            }
-        });
-    });
+    // Calculate total scroll width
+    const panels = wrapper.querySelectorAll('.panel');
+    const totalWidth = Array.from(panels).reduce((sum, panel) => sum + panel.offsetWidth, 0);
 
-    // ============================================
-    // AGGRESSIVE VERTICAL PILING - Previous content gets HIDDEN
-    // ============================================
-
-    const chapters = ['#about', '#expertise', '#experience', '#testimonials', '#contact'];
-
-    chapters.forEach((selector) => {
-        const section = document.querySelector(selector);
-        if (!section) return;
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'piling-wrapper';
-        section.parentNode.insertBefore(wrapper, section);
-        wrapper.appendChild(section);
-
-        // Pin + strong piling
-        ScrollTrigger.create({
+    // Convert vertical scroll into horizontal movement
+    gsap.to(wrapper, {
+        x: () => -(totalWidth - window.innerWidth),
+        ease: 'none',
+        scrollTrigger: {
             trigger: wrapper,
-            start: 'top top',
-            end: 'bottom top',
             pin: true,
-            pinSpacing: false,
-            scrub: 2.5,
+            scrub: 1.5,
+            start: 'top top',
+            end: () => '+=' + (totalWidth - window.innerWidth),
+            invalidateOnRefresh: true
+        }
+    });
 
-            onUpdate: (self) => {
-                const p = self.progress;
-
-                // Very aggressive: push way up + fade out completely
-                const y = p * -200;
-                const scale = 1 - (p * 0.15);
-                const opacity = Math.max(1 - (p * 0.6), 0.3);
-
-                gsap.to(section, {
-                    y: y,
-                    scale: Math.max(scale, 0.85),
-                    opacity: opacity,
-                    duration: 0.1,
-                    overwrite: 'auto',
-                    ease: 'none'
-                });
-            }
-        });
-
-        // When next section enters, quickly hide current one completely
+    // Active nav highlighting based on horizontal position
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    panels.forEach((panel, index) => {
         ScrollTrigger.create({
-            trigger: wrapper,
-            start: 'bottom 50%',
-            end: 'bottom top',
-            scrub: true,
-            onUpdate: (self) => {
-                const p = self.progress;
-
-                gsap.to(section, {
-                    y: -200 + (p * 200),
-                    scale: 0.85 + (p * 0.15),
-                    opacity: 0.3 + (p * 0.7),
-                    duration: 0.1,
-                    overwrite: 'auto'
-                });
+            trigger: panel,
+            start: 'left center',
+            end: 'right center',
+            onToggle: self => {
+                if (self.isActive) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const targetLink = document.querySelector(`a[href="#${panel.id}"]`);
+                    if (targetLink) targetLink.classList.add('active');
+                }
             }
         });
     });
 
-    // Horizontal work section (unchanged)
+    // Subtle scale/opacity animation on panels as they come into view
+    panels.forEach((panel, i) => {
+        if (i === 0) return; // skip hero
+        gsap.fromTo(panel, 
+            { opacity: 0.6, scale: 0.98 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: panel,
+                    start: 'left 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+    });
+
+    // Inner horizontal scroll for Work section (optional extra)
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
-
     if (hContainer && hInner) {
         const dist = hInner.scrollWidth - hContainer.clientWidth;
         gsap.to(hInner, {
@@ -102,13 +79,18 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: 'none',
             scrollTrigger: {
                 trigger: hContainer,
-                pin: true,
-                scrub: 2,
-                start: 'center center',
+                scrub: 1.2,
+                start: 'left left',
                 end: () => '+=' + dist
             }
         });
     }
 
-    console.log('%c[Portfolio] Aggressive clean piling active - previous content hides', 'color:#10b981');
+    // Keyboard support (arrow keys)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') window.scrollBy({ left: 300, behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') window.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    console.log('%c[Portfolio] Full horizontal scrolling initialized', 'color:#10b981');
 });
