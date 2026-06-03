@@ -10,25 +10,92 @@
 </head>
 <body class="bg-zinc-950 text-white">
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-x-3">
+            <a href="index.html" class="flex items-center gap-x-3 no-underline">
                 <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
                     <span class="text-zinc-950 font-bold text-xl">FQ</span>
                 </div>
                 <h1 class="font-semibold text-xl tracking-tight">Faizan Quazi</h1>
             </a>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm">
+                <a href="about.html" class="nav-link no-underline">About</a>
+                <a href="work.html" class="nav-link no-underline">Work</a>
+                <a href="process.html" class="nav-link no-underline">Process</a>
+                <a href="experience.html" class="nav-link no-underline">Career</a>
+                <a href="contact.html" class="nav-link active no-underline">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl bg-transparent border-none cursor-pointer">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <div class="max-w-3xl mx-auto px-6 pt-24 pb-20 text-center">
-        <h1 class="text-6xl font-semibold tracking-tighter mb-6">Let's work together</h1>
-        <p class="text-xl text-white/70 mb-12">I'm always open to interesting projects and conversations.</p>
+    <!-- Hero with Pune Map Background -->
+    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden"
+             style="background-image: linear-gradient(rgba(9,9,11,0.88), rgba(9,9,11,0.94)), url('images/pune-map.jpg');
+                      background-size: cover;
+                      background-position: center;
+                      background-attachment: fixed;">
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            
+            <!-- Availability Badge -->
+            <div class="inline-flex items-center gap-x-2 px-6 py-2 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 text-sm font-medium mb-8">
+                <i class="fa-solid fa-check-circle"></i>
+                <span>Available for freelance & collaborations</span>
+            </div>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:faizanquazi123@gmail.com" class="px-10 py-5 bg-white text-zinc-950 rounded-2xl font-semibold text-lg">Send Email</a>
-            <a href="https://www.linkedin.com/in/faizanquazi/" class="px-10 py-5 border border-white/30 rounded-2xl font-medium text-lg hover:bg-white/5">LinkedIn</a>
+            <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-none mb-6">
+                Let's create<br>something meaningful together.
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-2xl text-white/80 tracking-tight mb-12">
+                Based in Pune, India. I’m always excited to discuss new projects, collaborations, or just have a good conversation about design.
+            </p>
+
+            <!-- Main CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                
+                <a href="mailto:faizanquazi123@gmail.com" 
+                   class="group inline-flex items-center justify-center gap-x-3 px-12 py-5 bg-white text-zinc-950 font-semibold text-lg rounded-3xl hover:bg-emerald-400 hover:text-white transition-all active:scale-[0.985]">
+                    <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition"></i>
+                    <span>Email Me</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank"
+                   class="inline-flex items-center justify-center gap-x-3 px-12 py-5 border-2 border-white/30 hover:bg-white/5 font-semibold text-lg rounded-3xl transition-all active:scale-[0.985]">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                    <span>Connect on LinkedIn</span>
+                </a>
+            </div>
+
+            <!-- Quick Contact Info -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-x-10 gap-y-6 text-lg">
+                
+                <a href="tel:+918446556866" class="flex items-center gap-x-3 text-white/80 hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone text-emerald-400"></i>
+                    <span>+91 84465 56866</span>
+                </a>
+
+                <div class="hidden sm:block w-px h-5 bg-white/20"></div>
+
+                <div class="flex items-center gap-x-3 text-white/80">
+                    <i class="fa-solid fa-map-marker-alt text-emerald-400"></i>
+                    <span>Pune, Maharashtra, India</span>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-8 text-center text-sm text-white/50">
+        © 2026 Faizan Quazi • Designed with intention
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
