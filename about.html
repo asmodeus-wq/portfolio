@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-zinc-950 text-white">
 
@@ -46,7 +44,7 @@
                 <h2 class="text-5xl font-semibold tracking-tighter">Hi, I'm Faizan Quazi.</h2>
                 <div class="mt-6 text-[17px] leading-relaxed text-white/80 space-y-6">
                     <p>I’m a User Experience Analyst focused on creating meaningful digital experiences through research-driven design.</p>
-                    <p>Currently at HCL Software (Commerce), leading usability improvements across enterprise B2B platforms.</p>
+                    <p>Currently at <span class="text-white font-medium">HCL Software (Commerce)</span>, leading usability improvements across enterprise platforms.</p>
                 </div>
             </div>
             <div class="md:col-span-5 mt-12 md:mt-0">
@@ -60,59 +58,59 @@
         </div>
     </section>
 
-    <!-- Education Timeline -->
+    <!-- Education -->
     <section class="max-w-5xl mx-auto px-6 py-20 bg-zinc-900">
         <div class="mb-14">
             <span class="text-emerald-400 text-sm font-medium tracking-widest">EDUCATION</span>
             <h2 class="text-5xl font-semibold tracking-tighter mt-3">My Learning Journey</h2>
         </div>
 
-        <div class="relative pl-12 md:pl-16 border-l-2 border-white/20 space-y-24">
-            <div class="education-item relative">
-                <div class="timeline-dot absolute -left-[13px] top-2 w-6 h-6 rounded-full border-[3px] border-emerald-400 bg-zinc-950"></div>
-                <div class="flex flex-col md:flex-row md:items-start gap-y-3 md:gap-x-12">
-                    <div class="md:w-48 font-mono text-emerald-400 text-sm">2023</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold">Bachelor of Arts</h3>
-                        <p class="text-white/60">Pune University</p>
-                        <div class="education-desc mt-4 text-white/70">Completed while building my design career.</div>
-                    </div>
+        <div class="space-y-16" id="education-timeline">
+            <div class="education-item flex flex-col md:flex-row gap-6 md:items-start group">
+                <div class="md:w-52">
+                    <div class="text-emerald-400 font-mono text-sm">2023</div>
+                </div>
+                <div class="flex-1 border-l-2 border-white/20 pl-6 relative">
+                    <div class="timeline-dot absolute -left-[9px] top-1.5 w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 group-[.active]:bg-emerald-400 transition-all"></div>
+                    <h3 class="text-2xl font-semibold">Bachelor of Arts</h3>
+                    <p class="text-white/60">Pune University</p>
+                    <p class="education-desc mt-3 text-white/70">Completed while actively building my design career.</p>
                 </div>
             </div>
 
-            <div class="education-item relative">
-                <div class="timeline-dot absolute -left-[13px] top-2 w-6 h-6 rounded-full border-[3px] border-emerald-400 bg-zinc-950"></div>
-                <div class="flex flex-col md:flex-row md:items-start gap-y-3 md:gap-x-12">
-                    <div class="md:w-48 font-mono text-emerald-400 text-sm">2017</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold">UX Certificate</h3>
-                        <p class="text-white/60">Felix Institute</p>
-                        <div class="education-desc mt-4 text-white/70">Formal training in User Experience Design.</div>
-                    </div>
+            <div class="education-item flex flex-col md:flex-row gap-6 md:items-start group">
+                <div class="md:w-52">
+                    <div class="text-emerald-400 font-mono text-sm">2017</div>
+                </div>
+                <div class="flex-1 border-l-2 border-white/20 pl-6 relative">
+                    <div class="timeline-dot absolute -left-[9px] top-1.5 w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 group-[.active]:bg-emerald-400 transition-all"></div>
+                    <h3 class="text-2xl font-semibold">UX Certificate</h3>
+                    <p class="text-white/60">Felix Institute</p>
+                    <p class="education-desc mt-3 text-white/70">Formal training in User Experience Design.</p>
                 </div>
             </div>
 
-            <div class="education-item relative">
-                <div class="timeline-dot absolute -left-[13px] top-2 w-6 h-6 rounded-full border-[3px] border-emerald-400 bg-zinc-950"></div>
-                <div class="flex flex-col md:flex-row md:items-start gap-y-3 md:gap-x-12">
-                    <div class="md:w-48 font-mono text-emerald-400 text-sm">2016</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold">Diploma in Journalism & Mass Media</h3>
-                        <p class="text-white/60">Vishwakarma Institute</p>
-                        <div class="education-desc mt-4 text-white/70">Developed storytelling and communication skills.</div>
-                    </div>
+            <div class="education-item flex flex-col md:flex-row gap-6 md:items-start group">
+                <div class="md:w-52">
+                    <div class="text-emerald-400 font-mono text-sm">2016</div>
+                </div>
+                <div class="flex-1 border-l-2 border-white/20 pl-6 relative">
+                    <div class="timeline-dot absolute -left-[9px] top-1.5 w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 group-[.active]:bg-emerald-400 transition-all"></div>
+                    <h3 class="text-2xl font-semibold">Diploma in Journalism & Mass Media</h3>
+                    <p class="text-white/60">Vishwakarma Institute</p>
+                    <p class="education-desc mt-3 text-white/70">Developed strong storytelling and communication skills.</p>
                 </div>
             </div>
 
-            <div class="education-item relative">
-                <div class="timeline-dot absolute -left-[13px] top-2 w-6 h-6 rounded-full border-[3px] border-emerald-400 bg-zinc-950"></div>
-                <div class="flex flex-col md:flex-row md:items-start gap-y-3 md:gap-x-12">
-                    <div class="md:w-48 font-mono text-emerald-400 text-sm">2015</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold">Industrial Training Institute Certification</h3>
-                        <p class="text-white/60">Govt. Technical Course</p>
-                        <div class="education-desc mt-4 text-white/70">Built foundational technical understanding.</div>
-                    </div>
+            <div class="education-item flex flex-col md:flex-row gap-6 md:items-start group">
+                <div class="md:w-52">
+                    <div class="text-emerald-400 font-mono text-sm">2015</div>
+                </div>
+                <div class="flex-1 border-l-2 border-white/20 pl-6 relative">
+                    <div class="timeline-dot absolute -left-[9px] top-1.5 w-5 h-5 rounded-full border-2 border-emerald-400 bg-zinc-950 group-[.active]:bg-emerald-400 transition-all"></div>
+                    <h3 class="text-2xl font-semibold">Industrial Training Institute Certification</h3>
+                    <p class="text-white/60">Govt. Technical Course</p>
+                    <p class="education-desc mt-3 text-white/70">Built foundational understanding of systems and processes.</p>
                 </div>
             </div>
         </div>
@@ -131,34 +129,23 @@
     </footer>
 
     <script>
+        // Simple & Reliable Timeline
         document.addEventListener('DOMContentLoaded', () => {
             const items = document.querySelectorAll('.education-item');
-            items.forEach((item, index) => {
-                ScrollTrigger.create({
-                    trigger: item,
-                    start: "top 60%",
-                    end: "bottom 40%",
-                    onEnter: () => activate(index),
-                    onEnterBack: () => activate(index),
-                });
-            });
 
-            function activate(activeIndex) {
-                items.forEach((item, i) => {
-                    const dot = item.querySelector('.timeline-dot');
-                    const desc = item.querySelector('.education-desc');
-                    if (i === activeIndex) {
-                        dot.style.backgroundColor = '#10b981';
-                        dot.style.transform = 'scale(1.4)';
-                        if (desc) desc.style.opacity = '1';
-                    } else {
-                        dot.style.backgroundColor = '';
-                        dot.style.transform = 'scale(1)';
-                        if (desc) desc.style.opacity = '0.4';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        items.forEach(item => item.classList.remove('active'));
+                        entry.target.classList.add('active');
                     }
                 });
-            }
-            if (items.length) activate(0);
+            }, {
+                threshold: 0.6,
+                rootMargin: "-50px 0px"
+            });
+
+            items.forEach(item => observer.observe(item));
         });
     </script>
 </body>
