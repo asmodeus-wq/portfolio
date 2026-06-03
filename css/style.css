@@ -1,10 +1,7 @@
 /* ============================================
    Horizontal Portfolio Styles
    ============================================ */
-html,
-body {
-    overflow-x: clip;
-}
+
 :root {
   --accent: #10b981;
 }
