@@ -1,37 +1,41 @@
 // ============================================
-// Horizontal Full-Page Scroll - Optimized
+// Horizontal Full-Page Scroll - Fixed Animations
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP not loaded');
+        return;
+    }
     gsap.registerPlugin(ScrollTrigger);
 
     const wrapper = document.getElementById('horizontal-wrapper');
     if (!wrapper) return;
 
-    // Performance: Only enable heavy horizontal scroll on desktop
-    const isDesktop = window.innerWidth >= 768;
+    // Always enable horizontal scroll on desktop, graceful fallback on mobile
+    const isMobile = window.innerWidth < 768;
 
-    if (isDesktop) {
+    if (!isMobile) {
         const panels = wrapper.querySelectorAll('.panel');
-        const totalWidth = Array.from(panels).reduce((sum, panel) => sum + panel.offsetWidth, 0);
+        let totalWidth = 0;
+        panels.forEach(p => totalWidth += p.offsetWidth);
 
+        // Main horizontal scroll animation
         gsap.to(wrapper, {
             x: () => -(totalWidth - window.innerWidth),
             ease: 'none',
             scrollTrigger: {
                 trigger: wrapper,
                 pin: true,
-                scrub: 1.8,
+                scrub: 1.6,
                 start: 'top top',
                 end: () => '+=' + (totalWidth - window.innerWidth),
-                invalidateOnRefresh: true,
-                anticipatePin: 1
+                invalidateOnRefresh: true
             }
         });
 
-        // Active nav
+        // Active navigation
         const navLinks = document.querySelectorAll('.nav-link');
         panels.forEach(panel => {
             ScrollTrigger.create({
@@ -48,34 +52,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Light entrance animation
-        panels.forEach((panel, i) => {
-            if (i === 0) return;
-            gsap.fromTo(panel, { opacity: 0.7 }, {
-                opacity: 1,
-                duration: 0.6,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: panel,
-                    start: 'left 75%',
-                    toggleActions: 'play none none reverse'
+        // Subtle scale + fade animation as panels enter
+        panels.forEach((panel, index) => {
+            if (index === 0) return;
+            gsap.fromTo(panel,
+                { opacity: 0.65, scale: 0.97 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: panel,
+                        start: 'left 80%',
+                        toggleActions: 'play none none reverse'
+                    }
                 }
-            });
+            );
         });
     }
 
-    // Inner horizontal scroll for Work (works on all screens)
+    // Inner horizontal scroll in Work section (works everywhere)
     const hContainer = document.querySelector('.horizontal-scroll-container');
     const hInner = document.querySelector('.horizontal-scroll-inner');
     if (hContainer && hInner) {
         const dist = hInner.scrollWidth - hContainer.clientWidth;
-        if (dist > 0) {
+        if (dist > 50) {
             gsap.to(hInner, {
                 x: -dist,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: hContainer,
-                    scrub: 1.2,
+                    scrub: 1.3,
                     start: 'left left',
                     end: () => '+=' + dist
                 }
@@ -88,15 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
             const nav = document.querySelector('.hidden.md\:flex');
-            if (nav) nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav) {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            }
         });
     }
 
-    // Keyboard arrows
+    // Keyboard support
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') window.scrollBy({ left: 400, behavior: 'smooth' });
-        if (e.key === 'ArrowLeft') window.scrollBy({ left: -400, behavior: 'smooth' });
+        if (e.key === 'ArrowRight') window.scrollBy({ left: 500, behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') window.scrollBy({ left: -500, behavior: 'smooth' });
     });
 
-    console.log('%c[Portfolio] Optimized horizontal scroll ready', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll + animations restored', 'color:#10b981');
 });
