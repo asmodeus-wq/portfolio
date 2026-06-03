@@ -146,11 +146,12 @@
                 </div>
                 
                 <div class="md:col-span-5 mt-12 md:mt-0 space-y-6">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl">
-                        <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain" alt="Stakeholder Mapping">
+                    <!-- Clickable images with zoom hint -->
+                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Stakeholder Mapping">
                     </div>
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl">
-                        <img src="images/personas.png" class="w-full h-auto object-contain" alt="User Personas">
+                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Personas">
                     </div>
                 </div>
             </div>
@@ -162,8 +163,8 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-x-12 items-center">
                 <div class="md:col-span-5 order-2 md:order-1 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl">
-                        <img src="images/user-scenarios.png" class="w-full h-auto object-contain" alt="User Scenarios">
+                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Scenarios">
                     </div>
                 </div>
                 
@@ -214,8 +215,8 @@
                 </div>
                 
                 <div class="md:col-span-5 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl">
-                        <img src="images/design-plan.png" class="w-full h-auto object-contain" alt="Design Plan & Framework">
+                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Design Plan & Framework">
                     </div>
                     <div class="mt-6 text-center text-sm text-white/50">Design plan & framework visualization</div>
                 </div>
@@ -236,10 +237,29 @@
         <div class="mt-8 text-xs text-white/50 tracking-widest">OR EMAIL ME DIRECTLY AT <a href="mailto:faizanquazi123@gmail.com" class="underline hover:text-white">FAIZANQUAZI123@GMAIL.COM</a></div>
     </section>
 
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4" onclick="closeLightbox(event)">
+        <div class="relative max-w-[95vw] max-h-[90vh] w-full" onclick="event.stopImmediatePropagation()">
+            <!-- Close button -->
+            <button onclick="closeLightbox()" 
+                    class="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-11 h-11 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-white rounded-full text-xl transition z-10">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            
+            <!-- Image container -->
+            <div class="bg-zinc-950 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img id="lightbox-image" class="max-h-[80vh] w-auto max-w-full mx-auto object-contain" alt="Enlarged view">
+            </div>
+            
+            <!-- Image caption / alt text -->
+            <div id="lightbox-caption" class="mt-4 text-center text-white/70 text-sm tracking-wide"></div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
     
     <script>
-        // Subtle scroll animations
+        // Subtle scroll animations + Lightbox functionality
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
             gsap.registerPlugin(ScrollTrigger);
@@ -263,7 +283,7 @@
                 );
             });
 
-            // Image hover lift effect (enhanced)
+            // Image hover lift effect
             document.querySelectorAll('img').forEach(img => {
                 img.addEventListener('mouseenter', () => {
                     gsap.to(img, { scale: 1.015, duration: 0.4, ease: 'power2.out' });
@@ -273,7 +293,92 @@
                 });
             });
 
-            console.log('%c[Process] New redesigned page initialized with animations', 'color:#10b981');
+            // Keyboard support for lightbox
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('lightbox-modal');
+                    if (!modal.classList.contains('hidden')) closeLightbox();
+                }
+            });
+
+            console.log('%c[Process] Page initialized with lightbox zoom feature', 'color:#10b981');
+        });
+
+        // === LIGHTBOX FUNCTIONS ===
+        let currentLightboxImage = null;
+
+        function openLightbox(imgElement) {
+            const modal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-image');
+            const caption = document.getElementById('lightbox-caption');
+
+            if (!imgElement || !modal || !lightboxImg) return;
+
+            currentLightboxImage = imgElement;
+            
+            // Set image source and caption
+            lightboxImg.src = imgElement.src;
+            lightboxImg.alt = imgElement.alt || 'Enlarged image';
+            caption.textContent = imgElement.alt || '';
+
+            // Show modal
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+
+            // Animate in with GSAP
+            gsap.fromTo(modal, 
+                { opacity: 0 },
+                { opacity: 1, duration: 0.25, ease: 'power2.out' }
+            );
+            gsap.fromTo(lightboxImg, 
+                { scale: 0.92, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(1.2)' }
+            );
+        }
+
+        function closeLightbox(event) {
+            const modal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-image');
+
+            if (!modal) return;
+
+            // Only close if clicking the backdrop (not the image container)
+            if (event && event.target.id !== 'lightbox-modal') {
+                // If they clicked inside the modal content, do nothing
+                return;
+            }
+
+            // Animate out
+            gsap.to(lightboxImg, {
+                scale: 0.95,
+                opacity: 0,
+                duration: 0.2,
+                ease: 'power2.in',
+                onComplete: () => {
+                    modal.style.display = 'none';
+                    modal.classList.add('hidden');
+                    lightboxImg.style.opacity = '1';
+                    lightboxImg.style.transform = 'scale(1)';
+                }
+            });
+
+            gsap.to(modal, {
+                opacity: 0,
+                duration: 0.2,
+                ease: 'power2.in',
+                onComplete: () => {
+                    modal.style.opacity = '1';
+                }
+            });
+        }
+
+        // Bonus: Click on the enlarged image to close
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-image');
+            if (modal && !modal.classList.contains('hidden') && e.target === lightboxImg) {
+                closeLightbox();
+            }
         });
     </script>
 </body>
