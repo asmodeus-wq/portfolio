@@ -1,5 +1,5 @@
 /* ============================================
-   Horizontal Full-Page Portfolio (Lewis style)
+   Optimized Horizontal Portfolio
    ============================================ */
 
 :root { --accent: #10b981; }
@@ -18,6 +18,22 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 60px 0;
+}
+
+/* Mobile fallback - vertical stack */
+@media (max-width: 767px) {
+  #horizontal-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  .panel {
+    min-width: 100vw;
+    min-height: 100vh;
+    border-left: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  nav .hidden.md\:flex { display: none; }
 }
 
 .nav-link { position: relative; }
@@ -48,9 +64,9 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
 }
 
-@media (max-width: 768px) {
-  #horizontal-wrapper { flex-direction: column; height: auto; }
-  .panel { min-width: 100vw; min-height: 100vh; }
+/* Performance */
+.panel img {
+  will-change: transform;
 }
 
 @media print { nav, footer, .fixed { display: none !important; } }
