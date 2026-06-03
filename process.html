@@ -39,19 +39,6 @@
 
     <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex">
-<div id="master-journey"
-     class="hidden md:block fixed left-16 top-0 bottom-0 w-[8px] bg-white/20 rounded-full z-40">
-    <div id="journey-progress"
-         class="absolute top-0 left-0 w-full bg-emerald-400 rounded-full"
-         style="height:0%"></div>
-
-    <div class="journey-circle-master absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-[6px] border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-500" style="top:18%;" data-circle="1">01</div>
-    <div class="journey-circle-master absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-[6px] border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-500" style="top:34%;" data-circle="2">02</div>
-    <div class="journey-circle-master absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-[6px] border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-500" style="top:50%;" data-circle="3">03</div>
-    <div class="journey-circle-master absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-[6px] border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-500" style="top:66%;" data-circle="4">04</div>
-    <div class="journey-circle-master absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-[6px] border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-500" style="top:82%;" data-circle="5">05</div>
-</div>
-
         
         <!-- HERO PANEL -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
@@ -98,7 +85,9 @@
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="1">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-28">
+                    
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-10">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE ONE</div>
                         </div>
@@ -138,7 +127,9 @@
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="2">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-28">
+                    
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-10">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE TWO</div>
                         </div>
@@ -178,7 +169,9 @@
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="3">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-28">
+                    
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-10">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE THREE</div>
                         </div>
@@ -218,7 +211,9 @@
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 relative" data-stage="4">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-28">
+                    
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-10">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE FOUR</div>
                         </div>
@@ -258,7 +253,9 @@
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-stage="5">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-28">
+                    
+
+                    <div class="md:col-span-7 mb-10 md:mb-0 md:pl-10">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">STAGE FIVE</div>
                         </div>
@@ -308,54 +305,60 @@
 
     </div>
 
+<!-- HORIZONTAL JOURNEY TRACK -->
+<div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
+    <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-500" style="width:0%"></div>
+
+    <div class="journey-marker absolute -top-5 left-[20%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-300" data-stage="1">01</div>
+    <div class="journey-marker absolute -top-5 left-[35%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-300" data-stage="2">02</div>
+    <div class="journey-marker absolute -top-5 left-[50%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-300" data-stage="3">03</div>
+    <div class="journey-marker absolute -top-5 left-[65%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-300" data-stage="4">04</div>
+    <div class="journey-marker absolute -top-5 left-[80%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold transition-all duration-300" data-stage="5">05</div>
+</div>
+
+
     <script src="js/main.js"></script>
     
 <script>
 function initJourneyHighlight() {
     const panels = document.querySelectorAll('.journey-panel');
-    const circles = document.querySelectorAll('.journey-circle-master');
+    const markers = document.querySelectorAll('.journey-marker');
     const progress = document.getElementById('journey-progress');
 
-    const stageHeights = {
-        1:'18%',
-        2:'34%',
+    const widths = {
+        1:'20%',
+        2:'35%',
         3:'50%',
-        4:'66%',
-        5:'82%'
+        4:'65%',
+        5:'80%'
     };
 
     const observer = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 const stage = parseInt(entry.target.dataset.stage);
-                progress.style.height = stageHeights[stage];
 
-                circles.forEach(circle=>{
-                    const num = parseInt(circle.dataset.circle);
+                progress.style.width = widths[stage];
+
+                markers.forEach(marker=>{
+                    const num = parseInt(marker.dataset.stage);
 
                     if(num <= stage){
-                        circle.classList.add('border-emerald-400','text-emerald-400','scale-110');
-                        circle.classList.remove('border-white/30','text-white/50');
+                        marker.classList.add('border-emerald-400','text-emerald-400','scale-110');
+                        marker.classList.remove('border-white/30','text-white/50');
                     } else {
-                        circle.classList.remove('border-emerald-400','text-emerald-400','scale-110');
-                        circle.classList.add('border-white/30','text-white/50');
+                        marker.classList.remove('border-emerald-400','text-emerald-400','scale-110');
+                        marker.classList.add('border-white/30','text-white/50');
                     }
                 });
             }
         });
-    }, {threshold:0.55});
+    },{threshold:0.55});
 
     panels.forEach(panel=>observer.observe(panel));
 }
 
-window.onload = function(){
-    if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
-        gsap.registerPlugin(ScrollTrigger);
-    }
-    initJourneyHighlight();
-}
+window.addEventListener('load', initJourneyHighlight);
 </script>
-
-
 </body>
 </html>
