@@ -72,7 +72,7 @@
             </div>
         </section>
 
-        <!-- PHASE 1: Understand -->
+        <!-- PHASE 1: Understand (Contains 3 images) -->
         <section class="panel journey-panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 relative" data-phase="1">
             <div class="max-w-6xl mx-auto px-6 py-12">
                 <div class="text-center mb-12">
@@ -83,18 +83,18 @@
                 <!-- Design Plan Framework -->
                 <div class="mb-16">
                     <h3 class="text-3xl font-semibold mb-6 text-center">My Design Process Framework</h3>
-                    <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-800">
+                    <div class="rounded-3xl overflow-hidden border border-white/10 bg-zinc-800 p-4">
                         <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/design-plan.png" 
-                             class="w-full h-auto object-contain" 
+                             class="w-full h-auto object-contain rounded-2xl" 
                              alt="Design Plan Framework">
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center mb-20">
                     <div class="md:col-span-7">
-                        <p class="text-xl text-white/80 max-w-xl mb-8">I deeply immerse in the context — mapping stakeholders, developing personas, and understanding user needs.</p>
+                        <p class="text-xl text-white/80 max-w-xl">I deeply immerse in the context — mapping stakeholders, developing personas, and understanding user needs.</p>
                     </div>
-                    <div class="md:col-span-5 space-y-6">
+                    <div class="md:col-span-5 space-y-8">
                         <img src="https://raw.githubusercontent.com/asmodeus-wq/portfolio/main/images/stakeholder-mapping.png" 
                              class="rounded-3xl border border-white/10 w-full h-auto object-contain" 
                              alt="Stakeholder Mapping">
@@ -105,7 +105,7 @@
                 </div>
 
                 <!-- Problem & Goals -->
-                <div class="mt-20 grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-7">
                         <div class="flex items-center gap-x-4 mb-6">
                             <div class="text-emerald-400 text-sm font-medium tracking-[3px]">SYNTHESIS</div>
@@ -156,7 +156,7 @@
                             <p class="text-white/70">The result is always a clear, high-quality deliverable ready for development and launch.</p>
                         </div>
                     </div>
-                    <div class="md:col-span-5 text-center">
+                    <div class="md:col-span-5 text-center pt-12">
                         <a href="contact.html" class="inline-block px-12 py-6 bg-white text-zinc-950 text-xl font-semibold rounded-3xl hover:bg-emerald-400 transition-all">Start a Project With Me</a>
                     </div>
                 </div>
@@ -165,11 +165,9 @@
 
     </div>
 
-    <!-- 3-Phase Journey Progress Tracker -->
+    <!-- 3-Phase Journey Tracker -->
     <div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
         <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-700 ease-out" style="width: 0%"></div>
-        
-        <!-- Phase Markers -->
         <div class="journey-marker absolute -top-5 left-[18%] w-12 h-12 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold text-lg shadow-lg" data-phase="1">01</div>
         <div class="journey-marker absolute -top-5 left-[50%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-phase="2">02</div>
         <div class="journey-marker absolute -top-5 left-[82%] w-12 h-12 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg" data-phase="3">03</div>
@@ -186,7 +184,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const phase = parseInt(entry.target.dataset.phase);
-                    
                     const progressWidth = phase === 1 ? '33%' : phase === 2 ? '66%' : '100%';
                     progressBar.style.width = progressWidth;
 
@@ -202,10 +199,7 @@
                     });
                 }
             });
-        }, { 
-            threshold: 0.6,
-            rootMargin: "-10% 0px -20% 0px"
-        });
+        }, { threshold: 0.6, rootMargin: "-10% 0px -20% 0px" });
 
         panels.forEach(panel => observer.observe(panel));
     }
