@@ -1,5 +1,5 @@
 /* ============================================
-   Faizan Quazi Portfolio - Premium Motion (Lewis Pilling + Horizontal)
+   Faizan Quazi Portfolio - Clean Lewis-style Piling
    ============================================ */
 
 :root { --accent: #10b981; }
@@ -7,59 +7,41 @@
 body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 html { scroll-behavior: smooth; }
 
-/* Navigation */
 .nav-link { position: relative; }
 .nav-link:after {
   content: '';
   position: absolute;
   width: 0; height: 1px; bottom: -2px; left: 0;
-  background-color: white;
-  transition: width 0.3s ease;
+  background: white;
+  transition: width .3s ease;
 }
 .nav-link:hover:after, .nav-link.active:after { width: 100%; }
 
-/* PILING WRAPPER */
+/* PILING */
 .piling-wrapper {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
-/* HORIZONTAL SCROLL */
-.horizontal-scroll-container {
-  overflow: hidden;
-  cursor: grab;
-}
+/* HORIZONTAL WORK */
+.horizontal-scroll-container { overflow: hidden; cursor: grab; }
 .horizontal-scroll-container:active { cursor: grabbing; }
-
-.horizontal-scroll-inner {
-  display: flex;
-  gap: 24px;
-  will-change: transform;
-  padding-bottom: 40px;
-}
+.horizontal-scroll-inner { display: flex; gap: 24px; will-change: transform; }
 
 .horizontal-card {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transition: transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1);
 }
 .horizontal-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   h1 { font-size: 3.25rem !important; line-height: 1 !important; }
   .text-6xl { font-size: 2.75rem !important; }
   .horizontal-scroll-inner { gap: 16px; }
   .horizontal-card { width: 300px !important; }
-}
-
-/* Accessibility */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid #10b981;
-  outline-offset: 3px;
-  border-radius: 8px;
 }
 
 @media print {
