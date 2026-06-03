@@ -176,13 +176,42 @@
     </div>
 
 <!-- Journey Progress Tracker - 3 Phases -->
-<div id="journey-track" class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50 overflow-hidden">
-    <div id="journey-progress" class="h-full bg-emerald-400 transition-all duration-500" style="width:0%"></div>
-    
-    <!-- 3 Phase Markers -->
-    <div class="journey-marker absolute -top-6 left-[15%] w-11 h-11 rounded-full border-4 border-emerald-400 bg-zinc-950 flex items-center justify-center font-bold text-lg shadow-xl" data-stage="1">01</div>
-    <div class="journey-marker absolute -top-6 left-[50%] w-11 h-11 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg shadow-xl" data-stage="2">02</div>
-    <div class="journey-marker absolute -top-6 left-[85%] w-11 h-11 rounded-full border-4 border-white/30 text-white/50 bg-zinc-950 flex items-center justify-center font-bold text-lg shadow-xl" data-stage="3">03</div>
+<div id="journey-track"
+     class="hidden md:block fixed left-0 right-0 bottom-12 h-2 bg-white/20 z-50">
+
+    <!-- Progress Fill -->
+    <div id="journey-progress"
+         class="h-full bg-emerald-400 transition-all duration-500"
+         style="width:0%">
+    </div>
+
+    <!-- Marker 01 -->
+    <div class="journey-marker absolute -top-6 left-[15%] -translate-x-1/2
+                w-11 h-11 rounded-full border-4 border-emerald-400
+                bg-zinc-950 flex items-center justify-center
+                font-bold text-lg shadow-xl"
+         data-stage="1">
+        01
+    </div>
+
+    <!-- Marker 02 -->
+    <div class="journey-marker absolute -top-6 left-1/2 -translate-x-1/2
+                w-11 h-11 rounded-full border-4 border-white/30
+                text-white/50 bg-zinc-950 flex items-center justify-center
+                font-bold text-lg shadow-xl"
+         data-stage="2">
+        02
+    </div>
+
+    <!-- Marker 03 -->
+    <div class="journey-marker absolute -top-6 left-[85%] -translate-x-1/2
+                w-11 h-11 rounded-full border-4 border-white/30
+                text-white/50 bg-zinc-950 flex items-center justify-center
+                font-bold text-lg shadow-xl"
+         data-stage="3">
+        03
+    </div>
+
 </div>
 
 <script>
