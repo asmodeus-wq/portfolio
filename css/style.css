@@ -1,0 +1,144 @@
+/* ============================================
+   Faizan Quazi Portfolio - Custom Styles
+   Clean, modern, professional with smooth interactions
+   ============================================ */
+
+:root {
+  --accent: #10b981;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navigation active state */
+.nav-link {
+  position: relative;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 100%;
+}
+
+/* Section spacing consistency */
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* Project cards hover enhancement */
+.group:hover img {
+  transform: scale(1.06);
+}
+
+/* Timeline styling */
+#experience .flex {
+  transition: all 0.2s ease;
+}
+
+#experience .group:hover {
+  transform: translateX(4px);
+}
+
+/* Expertise cards */
+#expertise .rounded-3xl {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+#expertise .rounded-3xl:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Testimonial cards */
+#testimonials .rounded-3xl {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+#testimonials .rounded-3xl:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* Button and link polish */
+a, button {
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Mobile menu */
+#mobile-menu {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image loading states */
+img {
+  transition: opacity 0.4s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0.95;
+}
+
+/* Responsive typography tweaks */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.25rem !important;
+    line-height: 1 !important;
+  }
+  
+  .text-6xl {
+    font-size: 2.75rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.65rem !important;
+  }
+}
+
+/* Subtle focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Print styles (for resume-like printing) */
+@media print {
+  nav, footer, .fixed {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
