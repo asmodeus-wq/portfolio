@@ -1,10 +1,14 @@
 /* ============================================
-   Horizontal Portfolio - Better Last Panel + Placeholder Hero
+   Horizontal Portfolio Styles
    ============================================ */
 
-:root { --accent: #10b981; }
+:root {
+  --accent: #10b981;
+}
 
-body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
 #horizontal-wrapper {
   display: flex;
@@ -21,6 +25,7 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   padding: 60px 0;
 }
 
+/* Mobile fallback */
 @media (max-width: 767px) {
   #horizontal-wrapper {
     flex-direction: column;
@@ -34,7 +39,10 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   }
 }
 
-.nav-link { position: relative; }
+.nav-link {
+  position: relative;
+}
+
 .nav-link:after {
   content: '';
   position: absolute;
@@ -42,24 +50,50 @@ body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   height: 1px;
   bottom: -2px;
   left: 0;
-  background: white;
-  transition: width .3s ease;
+  background-color: white;
+  transition: width 0.3s ease;
 }
-.nav-link:hover:after, .nav-link.active:after { width: 100%; }
 
-.horizontal-scroll-container { overflow: hidden; cursor: grab; }
-.horizontal-scroll-container:active { cursor: grabbing; }
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 100%;
+}
 
-.horizontal-scroll-inner { display: flex; gap: 24px; will-change: transform; }
+/* Horizontal scroll in Work section */
+.horizontal-scroll-container {
+  overflow: hidden;
+  cursor: grab;
+}
+
+.horizontal-scroll-container:active {
+  cursor: grabbing;
+}
+
+.horizontal-scroll-inner {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+}
 
 .horizontal-card {
-  transition: transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s ease;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
 }
 
 .horizontal-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+              0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-@media print { nav, footer, .fixed { display: none !important; } }
+/* Performance */
+.panel img {
+  will-change: transform;
+}
+
+@media print {
+  nav, footer, .fixed {
+    display: none !important;
+  }
+}
