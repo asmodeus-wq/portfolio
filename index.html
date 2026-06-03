@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP for advanced scroll effects (Lewis template style) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-zinc-950 text-white">
 
@@ -44,8 +47,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
+    <!-- Hero Section with subtle parallax -->
+    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden hero-section">
         <div class="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] bg-[length:4px_4px]"></div>
         
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
@@ -168,7 +171,6 @@
         </div>
         
         <div class="space-y-12">
-            <!-- HCL Commerce -->
             <div class="flex gap-8 group">
                 <div class="w-28 flex-shrink-0 pt-1">
                     <div class="text-emerald-400 font-mono text-sm tracking-widest">DEC 2022 — PRESENT</div>
@@ -183,7 +185,6 @@
                 </div>
             </div>
             
-            <!-- Cybage -->
             <div class="flex gap-8 group">
                 <div class="w-28 flex-shrink-0 pt-1">
                     <div class="text-white/50 font-mono text-sm tracking-widest">MAY 2021 — DEC 2022</div>
@@ -195,7 +196,6 @@
                 </div>
             </div>
             
-            <!-- HCL Unica -->
             <div class="flex gap-8 group">
                 <div class="w-28 flex-shrink-0 pt-1">
                     <div class="text-white/50 font-mono text-sm tracking-widest">DEC 2018 — APR 2021</div>
@@ -207,7 +207,6 @@
                 </div>
             </div>
             
-            <!-- BrightBrain -->
             <div class="flex gap-8 group">
                 <div class="w-28 flex-shrink-0 pt-1">
                     <div class="text-white/50 font-mono text-sm tracking-widest">APR 2018 — DEC 2018</div>
@@ -219,7 +218,6 @@
                 </div>
             </div>
             
-            <!-- Freelance -->
             <div class="flex gap-8 group">
                 <div class="w-28 flex-shrink-0 pt-1">
                     <div class="text-white/50 font-mono text-sm tracking-widest">FEB 2016 — APR 2018</div>
@@ -233,98 +231,91 @@
         </div>
     </section>
 
-    <!-- Work / Selected Projects -->
-    <section id="work" class="bg-zinc-900 py-20 border-t border-white/10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
+    <!-- Work Section with HORIZONTAL SCROLL (Advanced GSAP effect like Lewis template) -->
+    <section id="work" class="bg-zinc-900 py-20 border-t border-white/10 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-12">
+            <div class="flex justify-between items-end">
                 <div>
                     <span class="text-emerald-400 text-sm font-medium tracking-widest">CHAPTER 04</span>
                     <h2 class="text-6xl font-semibold tracking-tighter">Selected Work</h2>
+                    <p class="text-white/60 mt-2">Drag or scroll horizontally to explore projects</p>
                 </div>
-                <a href="#" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group">
-                    VIEW ALL PROJECTS 
-                    <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
-                </a>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Project 1 -->
-                <div class="group bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
+        </div>
+        
+        <!-- Horizontal Scroll Container -->
+        <div class="horizontal-scroll-container">
+            <div class="horizontal-scroll-inner flex gap-6 px-6">
+                
+                <!-- Project Card 1 -->
+                <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden group">
                     <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="https://picsum.photos/id/1015/1200/630" alt="HCL Commerce B2B Platform" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://picsum.photos/id/1015/1200/630" alt="HCL Commerce B2B Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-6 right-6 px-4 py-1 text-xs font-medium bg-black/70 backdrop-blur rounded-full">2023 — Present</div>
                     </div>
                     <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-3xl font-semibold tracking-tight">HCL Commerce — B2B Usability Overhaul</h3>
-                        </div>
-                        <p class="text-white/70 mb-6">Leading comprehensive usability improvements across the enterprise B2B commerce platform. Research, IA, and design system work.</p>
+                        <h3 class="text-3xl font-semibold tracking-tight mb-3">HCL Commerce — B2B Usability</h3>
+                        <p class="text-white/70 mb-6">Leading comprehensive usability improvements across the enterprise B2B commerce platform.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Enterprise SaaS</span>
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">B2B</span>
-                            <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Usability Testing</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="group bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
+
+                <!-- Project Card 2 -->
+                <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden group">
                     <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="https://picsum.photos/id/201/1200/630" alt="Unica Marketing Automation" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://picsum.photos/id/201/1200/630" alt="Unica Marketing Automation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-6 right-6 px-4 py-1 text-xs font-medium bg-black/70 backdrop-blur rounded-full">2018 — 2021</div>
                     </div>
                     <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-3xl font-semibold tracking-tight">Unica Marketing Automation</h3>
-                        </div>
-                        <p class="text-white/70 mb-6">Designed core workflows for IBM/HCL Unica platform. Created personas, conducted card sorting, and delivered high-fidelity prototypes.</p>
+                        <h3 class="text-3xl font-semibold tracking-tight mb-3">Unica Marketing Automation</h3>
+                        <p class="text-white/70 mb-6">Designed core workflows, personas, card sorting, and high-fidelity prototypes for the platform.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Marketing Automation</span>
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Information Architecture</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 3 -->
-                <div class="group bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
+
+                <!-- Project Card 3 -->
+                <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden group">
                     <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="https://picsum.photos/id/160/1200/630" alt="Cybage Product Design" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://picsum.photos/id/160/1200/630" alt="Enterprise Product Redesign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-6 right-6 px-4 py-1 text-xs font-medium bg-black/70 backdrop-blur rounded-full">2021 — 2022</div>
                     </div>
                     <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-3xl font-semibold tracking-tight">Enterprise Product Redesign</h3>
-                        </div>
-                        <p class="text-white/70 mb-6">End-to-end product design for a complex internal platform. User interviews, journey mapping, wireframing and iterative usability testing.</p>
+                        <h3 class="text-3xl font-semibold tracking-tight mb-3">Enterprise Product Redesign</h3>
+                        <p class="text-white/70 mb-6">End-to-end product design including user interviews, journey mapping, and iterative testing.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Product Design</span>
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">User Testing</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 4 -->
-                <div class="group bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all">
+
+                <!-- Project Card 4 -->
+                <div class="horizontal-card flex-shrink-0 w-[380px] md:w-[520px] bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden group">
                     <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="https://picsum.photos/id/251/1200/630" alt="Freelance Branding Projects" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://picsum.photos/id/251/1200/630" alt="Small Business Branding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-6 right-6 px-4 py-1 text-xs font-medium bg-black/70 backdrop-blur rounded-full">2016 — 2018</div>
                     </div>
                     <div class="p-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-3xl font-semibold tracking-tight">Small Business Branding &amp; Design</h3>
-                        </div>
-                        <p class="text-white/70 mb-6">Created visual identities, menus, posters, and digital assets for local businesses. Focused on clear communication and brand consistency.</p>
+                        <h3 class="text-3xl font-semibold tracking-tight mb-3">Small Business Branding &amp; Design</h3>
+                        <p class="text-white/70 mb-6">Created visual identities, menus, posters, and digital assets for local businesses.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Branding</span>
                             <span class="text-xs px-3.5 py-1 bg-white/10 rounded-full">Graphic Design</span>
                         </div>
                     </div>
                 </div>
+
             </div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 mt-6 text-center">
+            <p class="text-xs text-white/50">← Drag horizontally or use mouse wheel →</p>
         </div>
     </section>
 
