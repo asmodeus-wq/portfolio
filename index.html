@@ -29,19 +29,37 @@
             letter-spacing: -0.025em;
         }
 
-        /* Video background styling */
-        .hero-video {
+        /* Full-bleed Video Background */
+        .hero-video-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-video-container iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%) scale(1.15);
             object-fit: cover;
-            width: 100%;
-            height: 100%;
+            border: none;
         }
 
-        /* Vignette effect */
+        /* Strong Vignette for Text Readability */
         .hero-vignette {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.85) 100%);
             z-index: 11;
+            background: radial-gradient(
+                circle at center,
+                transparent 35%,
+                rgba(0,0,0,0.55) 70%,
+                rgba(0,0,0,0.85) 100%
+            );
             pointer-events: none;
         }
     </style>
@@ -75,52 +93,47 @@
     <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex flex-nowrap">
         
-        <!-- HERO PANEL -->
-<section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-    
-    <!-- Vimeo Background Video -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-        <iframe 
-            src="https://player.vimeo.com/video/1198270674?background=1&autoplay=1&loop=1&muted=1"
-            frameborder="0" 
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            class="absolute inset-0 w-full h-full object-cover scale-[1.01] min-w-full min-h-full">
-        </iframe>
-    </div>
+        <!-- HERO PANEL - Full bleed video -->
+        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+            
+            <!-- Vimeo Background Video - True full screen fill -->
+            <div class="hero-video-container">
+                <iframe 
+                    src="https://player.vimeo.com/video/1198270674?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0"
+                    frameborder="0" 
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-    <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70 z-10"></div>
-    
-    <!-- Vignette Overlay -->
-    <div class="hero-vignette"></div>
-    
-    <!-- Content -->
-    <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-        <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
-            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-            <span class="text-sm text-white/90">Available for collaborations</span>
-        </div>
-        
-        <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">
-            Faizan Quazi
-        </h1>
-        <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto">
-            Crafting intuitive digital experiences through research-driven design
-        </p>
-        
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">
-                View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-            </a>
-            <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
-                Learn more about me
-            </a>
-        </div>
-    </div>
-</section>
+            <!-- Strong Vignette + Gradient Overlay -->
+            <div class="hero-vignette"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/75 z-10"></div>
 
-        <!-- ABOUT PANEL - Light blue start -->
+            <!-- Hero Content -->
+            <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="text-sm text-white/90">Available for collaborations</span>
+                </div>
+                
+                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">
+                    Faizan Quazi
+                </h1>
+                <p class="text-2xl md:text-3xl text-white/90 mb-10 tracking-tight">User Experience Analyst</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">
+                        View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
+                        Learn more about me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-5xl w-full">
@@ -142,7 +155,7 @@
             </div>
         </section>
 
-        <!-- WHAT I DO PANEL - Light blue -->
+        <!-- WHAT I DO PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
             <div class="max-w-6xl w-full">
@@ -196,7 +209,7 @@
             </div>
         </section>
 
-        <!-- EXPERTISE PANEL - Medium blue -->
+        <!-- EXPERTISE PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #C8E4FF 0%, #A8D4FF 100%)">
             <div class="max-w-7xl w-full">
@@ -206,6 +219,7 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                    <!-- Tool cards remain the same -->
                     <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
                         <i class="fa-brands fa-figma text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium text-[#0F172A]">Figma</span>
@@ -310,7 +324,7 @@
             </div>
         </section>
 
-        <!-- MY WORK PANEL - Darker blue -->
+        <!-- MY WORK PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
             <div class="max-w-6xl w-full">
@@ -349,7 +363,7 @@
             </div>
         </section>
 
-        <!-- PROCESS PANEL - Dark blue -->
+        <!-- PROCESS PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #7FB8FF 0%, #5A9EFF 100%)">
             <div class="max-w-5xl w-full">
@@ -382,7 +396,7 @@
             </div>
         </section>
 
-        <!-- CAREER PANEL - Darker blue -->
+        <!-- CAREER PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #5A9EFF 0%, #3B82F6 100%)">
             <div class="max-w-5xl w-full">
@@ -420,7 +434,7 @@
             </div>
         </section>
 
-        <!-- CONTACT PANEL - With Pune map -->
+        <!-- CONTACT PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-8 md:p-12"
                  style="background-image: linear-gradient(rgba(248,250,252,0.32), rgba(248,250,252,0.48)), url('images/pune.png');
                           background-size: cover;
