@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Smooth Snap (No Skip, No Split View)
+// Horizontal Full-Page Scroll - Clean Instant Snap + Smooth Glide
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,22 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isMobile) {
         
-        // Always start at first panel (Hero)
+        // Always force start at Hero (panel 0)
         gsap.set(wrapper, { x: 0 });
         window.scrollTo(0, 0);
 
         let currentIndex = 0;
-        let isAnimating = false;
-        let lastScrollProgress = 0;
+        let isSnapping = false;
 
-        // Calculate total scroll distance
-        function getTotalScrollDistance() {
-            let total = 0;
-            panels.forEach(p => total += p.offsetWidth);
-            return total - window.innerWidth;
-        }
-
-        // Get target X for a specific panel index
+        // Get exact X position for a panel
         function getPanelX(index) {
             let x = 0;
             for (let i = 0; i < index; i++) {
@@ -44,11 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return x;
         }
 
-        // Smooth snap to a panel (slightly slow but smooth transition ~0.42s)
-        function snapToPanel(targetIndex, duration = 0.42) {
-            if (targetIndex < 0 || targetIndex >= panels.length || isAnimating) return;
-            
-            isAnimating = true;
+        // Smoothly tween to a specific panel (slightly slow glide ~0.38s)
+        function goToPanel(targetIndex, duration = 0.38) {
+            if (targetIndex < 0 || targetIndex >= panels.length || isSnapping) return;
+            if (targetIndex === currentIndex) return;
+
+            isSnapping = true;
             const oldIndex = currentIndex;
             currentIndex = targetIndex;
 
@@ -57,118 +50,104 @@ document.addEventListener('DOMContentLoaded', function() {
                 duration: duration,
                 ease: 'power2.out',
                 onComplete: () => {
-                    isAnimating = false;
+                    isSnapping = false;
                 }
             });
 
-            // Update nav active state
+            // Update nav
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(l => l.classList.remove('active'));
             if (navLinks[targetIndex]) navLinks[targetIndex].classList.add('active');
         }
 
-        // Main ScrollTrigger setup
-        const totalDistance = getTotalScrollDistance();
+        // Calculate total horizontal scroll distance
+        function getTotalDistance() {
+            let total = 0;
+            panels.forEach(p => total += p.offsetWidth);
+            return total - window.innerWidth;
+        }
 
-        const scrollTrigger = ScrollTrigger.create({
+        const totalDistance = getTotalDistance();
+
+        // Main ScrollTrigger - follows your scroll with light scrub
+        ScrollTrigger.create({
             trigger: wrapper,
             pin: true,
-            scrub: 0.25,                    // Responsive to scroll input
+            scrub: 0.22,                    // Light scrub so slight scroll feels responsive
             start: 'top top',
             end: () => '+=' + totalDistance,
             invalidateOnRefresh: true,
             immediateRender: true,
             onUpdate: function(self) {
-                // Track progress for snap decision
-                lastScrollProgress = self.progress;
-            },
-            snap: {
-                snapTo: (progress) => {
-                    if (isAnimating) return lastScrollProgress; // Don't fight animation
+                if (isSnapping) return; // Don't fight the snap tween
 
-                    const snapPoints = panels.map((_, i) => i / (panels.length - 1));
-                    
-                    // Find closest snap point
-                    let closest = 0;
-                    let minDist = Math.abs(progress - snapPoints[0]);
-                    
-                    for (let i = 1; i < snapPoints.length; i++) {
-                        const dist = Math.abs(progress - snapPoints[i]);
-                        if (dist < minDist) {
-                            minDist = dist;
-                            closest = i;
-                        }
+                const progress = self.progress;
+                const snapPoints = panels.map((_, i) => i / (panels.length - 1));
+
+                // Find closest panel
+                let closestIndex = 0;
+                let minDist = Math.abs(progress - snapPoints[0]);
+
+                for (let i = 1; i < snapPoints.length; i++) {
+                    const dist = Math.abs(progress - snapPoints[i]);
+                    if (dist < minDist) {
+                        minDist = dist;
+                        closestIndex = i;
                     }
+                }
 
-                    // CRITICAL: Only allow moving to adjacent panel (prevent skipping)
-                    const diff = closest - currentIndex;
-                    let targetIndex = currentIndex;
-                    
-                    if (diff > 1) {
-                        targetIndex = currentIndex + 1;   // Max +1
-                    } else if (diff < -1) {
-                        targetIndex = currentIndex - 1;   // Max -1
-                    } else {
-                        targetIndex = closest;
-                    }
+                // Only allow moving ONE panel at a time (no skipping)
+                const diff = closestIndex - currentIndex;
+                let targetIndex = currentIndex;
 
-                    // Only snap if we're actually changing panel
-                    if (targetIndex !== currentIndex && !isAnimating) {
-                        // Use requestAnimationFrame so it feels instant decision but smooth transition
-                        requestAnimationFrame(() => {
-                            snapToPanel(targetIndex, 0.42);
-                        });
-                    }
+                if (diff > 1) targetIndex = currentIndex + 1;
+                else if (diff < -1) targetIndex = currentIndex - 1;
+                else targetIndex = closestIndex;
 
-                    return snapPoints[currentIndex]; // Stay on current until snap completes
-                },
-                duration: 0.08,           // Very fast decision/commit
-                ease: 'none'
+                // If we crossed into a new adjacent panel, snap to it quickly
+                if (targetIndex !== currentIndex && !isSnapping) {
+                    // Instant decision, slightly slow smooth glide
+                    requestAnimationFrame(() => {
+                        goToPanel(targetIndex, 0.38);
+                    });
+                }
             }
         });
 
-        // Nav link clicks - smooth transition
+        // Nav clicks
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (!isAnimating) {
-                    snapToPanel(index, 0.45);
-                }
+                goToPanel(index, 0.4);
             });
         });
 
-        // Keyboard support
+        // Keyboard
         document.addEventListener('keydown', (e) => {
-            if (isAnimating) return;
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                snapToPanel(currentIndex + 1, 0.42);
-            }
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                snapToPanel(currentIndex - 1, 0.42);
-            }
+            if (isSnapping) return;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goToPanel(currentIndex + 1, 0.38);
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goToPanel(currentIndex - 1, 0.38);
         });
 
-        // Make sure we start at panel 0 cleanly
+        // Force clean start at panel 0
         setTimeout(() => {
-            snapToPanel(0, 0);
+            goToPanel(0, 0);
             ScrollTrigger.refresh();
             window.scrollTo(0, 0);
-        }, 80);
+        }, 100);
 
         // Refresh on resize
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 250);
+            resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 300);
         });
 
-        console.log('%c[Portfolio] Smooth horizontal snap initialized (no skip, smooth 0.42s transition)', 'color:#10b981');
+        console.log('%c[Portfolio] Clean snap initialized (instant decision + 0.38s smooth glide, no skip)', 'color:#10b981');
     }
 
-    // Mobile menu toggle
+    // Mobile menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
