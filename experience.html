@@ -28,6 +28,12 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
         }
+
+        /* Timeline line initial state for animation */
+        #timeline-line {
+            height: 0;
+            transform-origin: top;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans overflow-x-hidden">
@@ -237,17 +243,18 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Timeline line animation - fixed for reliability
+        // Timeline line - use scaleY for smooth, performant animation
+        gsap.set("#timeline-line", { scaleY: 0, transformOrigin: "top center" });
+
         ScrollTrigger.create({
             trigger: ".py-24",
-            start: "top 15%",
-            end: "bottom 85%",
-            scrub: 1,
-            onUpdate: (self) => {
-                const progress = self.progress;
+            start: "top 20%",
+            end: "bottom 80%",
+            scrub: true,
+            onUpdate: function(self) {
                 gsap.to("#timeline-line", {
-                    height: `${progress * 100}%`,
-                    duration: 0.05,
+                    scaleY: self.progress,
+                    duration: 0.1,
                     ease: "none",
                     overwrite: "auto"
                 });
