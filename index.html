@@ -28,6 +28,47 @@
             font-family: 'Space Grotesk', system-ui, sans-serif;
             letter-spacing: -0.025em;
         }
+
+        /* Full-bleed Video Background */
+        .hero-video-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-video-container iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%, -50%) scale(1.25);
+            object-fit: cover;
+            border: none;
+        }
+
+        @media (max-width: 767px) {
+            .hero-video-container iframe {
+                transform: translate(-50%, -50%) scale(2.6) !important;
+                min-width: 250% !important;
+                min-height: 250% !important;
+            }
+        }
+
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 11;
+            background: radial-gradient(
+                circle at center,
+                transparent 35%,
+                rgba(0,0,0,0.55) 70%,
+                rgba(0,0,0,0.85) 100%
+            );
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -59,44 +100,359 @@
     <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex flex-nowrap">
         
-        <!-- 1. HERO -->
-        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
-            <div class="absolute inset-0 z-0 overflow-hidden">
-                <iframe src="https://player.vimeo.com/video/1198270674?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="absolute inset-0 w-full h-full object-cover scale-[1.02]"></iframe>
+        <!-- HERO PANEL -->
+        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative overflow-hidden">
+            <div class="hero-video-container">
+                <iframe 
+                    src="https://player.vimeo.com/video/1198270674?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0"
+                    frameborder="0" 
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/75 z-10"></div>
+            <div class="hero-vignette"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/75 z-10"></div>
+            
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
                 <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
                     <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span class="text-sm text-white/90">Available for freelance & collaborations</span>
+                    <span class="text-sm text-white/90">Available for collaborations</span>
                 </div>
-                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">Faizan Quazi</h1>
-                <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto">Crafting intuitive digital experiences through research-driven design</p>
+                
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">
+                    Faizan Quazi
+                </h1>
+                <p class="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto">
+                    Crafting intuitive digital experiences through research-driven design
+                </p>
+                
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i></a>
-                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">Learn more about me</a>
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">
+                        View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
+                        Learn more about me
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- 2. ABOUT -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
+        <!-- ABOUT PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-5xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-12 md:mb-0">
                         <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">01 — ABOUT</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading text-[#0F172A]">Who I am</h2>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-3 section-heading text-[#0F172A]">Who I am</h2>
                         <p class="mt-4 text-[#475569]">A quick look into my journey as a User Experience Analyst.</p>
-                        <a href="about.html" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">Read full story <i class="fa-solid fa-arrow-right"></i></a>
+                        
+                        <a href="about.html" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                            Read full story <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
                     <div class="md:col-span-7 text-[17px] leading-relaxed text-[#334155] space-y-6">
-                        <p>I'm a User Experience Analyst with over 8 years of experience... (full text from old code)</p>
+                        <p>I'm a User Experience Analyst with over 8 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-[#0F172A] font-medium">HCL Software (Commerce)</span>, I focus on improving B2B usability across complex enterprise platforms.</p>
+                        <p>My approach blends deep user research, information architecture, and collaborative design. I believe great experiences emerge when we truly understand the people we're designing for.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Add other panels similarly -->
+        <!-- WHAT I DO PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
+            <div class="max-w-6xl w-full">
+                <div class="mb-8 md:mb-12">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">02 — WHAT I DO</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-3 section-heading text-[#0F172A]">My skillset</h2>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-search text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">User Research</h4>
+                        <p class="text-[#475569] text-sm">Interviews, usability testing, surveys, and behavioral analysis.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-sitemap text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Information Architecture</h4>
+                        <p class="text-[#475569] text-sm">Card sorting, flow mapping, taxonomy, and navigation systems.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-palette text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Interaction Design</h4>
+                        <p class="text-[#475569] text-sm">Wireframing, high-fidelity prototyping, and micro-interactions.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-layer-group text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Design Systems</h4>
+                        <p class="text-[#475569] text-sm">Component libraries, design tokens, and scalable UI foundations.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-vial text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Usability Testing</h4>
+                        <p class="text-[#475569] text-sm">Moderated/unmoderated testing, heuristic evaluation, and iteration.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-users-cog text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Stakeholder Management</h4>
+                        <p class="text-[#475569] text-sm">Workshop facilitation, requirement gathering, and cross-functional collaboration.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-chart-line text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Data-Driven Design</h4>
+                        <p class="text-[#475569] text-sm">Analytics interpretation, A/B testing, and insight synthesis.</p>
+                    </div>
+                    <div class="skill-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl hover:border-[#2C5EAD]/30 transition-all">
+                        <i class="fa-solid fa-universal-access text-2xl md:text-3xl text-[#2C5EAD] mb-4 md:mb-6"></i>
+                        <h4 class="font-semibold text-lg md:text-xl mb-2 text-[#0F172A]">Accessibility & Inclusive Design</h4>
+                        <p class="text-[#475569] text-sm">WCAG compliance, inclusive design principles, and accessible interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTISE / TOOLS PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #C8E4FF 0%, #A8D4FF 100%)">
+            <div class="max-w-7xl w-full">
+                <div class="mb-8 md:mb-10">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">03 — EXPERTISE</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">Tools I work with</h2>
+                </div>
+
+                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-3 md:gap-4">
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-brands fa-figma text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Figma</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-brands fa-adobe text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Adobe XD</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-palette text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Sketch</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-layer-group text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Framer</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-globe text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Webflow</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-play text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">ProtoPie</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-project-diagram text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Principle</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-users text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Miro</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-sticky-note text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">FigJam</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-book text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Notion</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-vial text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Maze</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-user-check text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">UserTesting</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-chart-line text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Hotjar</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-chart-bar text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Amplitude</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-chart-pie text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Mixpanel</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-brands fa-google text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Google Analytics</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-layer-group text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Zeplin</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-project-diagram text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Abstract</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-globe text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">InVision</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-stream text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Overflow</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-pencil-ruler text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Balsamiq</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-project-diagram text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Axure RP</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-vial text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Optimal Workshop</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-video text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Lookback</span>
+                    </div>
+                    <div class="tool-card group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-3 md:p-5 rounded-2xl flex items-center gap-x-3 h-full">
+                        <i class="fa-solid fa-comments text-xl md:text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A] text-sm md:text-base">Dovetail</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTED WORK PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
+            <div class="max-w-6xl w-full">
+                <div class="flex justify-between items-end mb-8 md:mb-10">
+                    <div>
+                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">04 — WORK</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">Selected Work</h2>
+                    </div>
+                    <a href="work.html" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group text-[#334155]">
+                        VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-5 md:gap-6">
+                    <a href="work.html" class="group block bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/30 transition-all">
+                        <div class="aspect-video bg-slate-100"><img src="https://picsum.photos/id/251/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-2 text-[#0F172A]">Raintree 2021</h3>
+                            <p class="text-[#475569] text-sm md:text-base">Comprehensive design system and component library with interactive prototypes.</p>
+                        </div>
+                    </a>
+                    <a href="work.html" class="group block bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/30 transition-all">
+                        <div class="aspect-video bg-slate-100"><img src="https://picsum.photos/id/133/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-5 md:p-6">
+                            <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-2 text-[#0F172A]">AI/ML Interfaces</h3>
+                            <p class="text-[#475569] text-sm md:text-base">Exploration of intelligent interfaces and high-fidelity AI-driven prototypes.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #7FB8FF 0%, #5A9EFF 100%)">
+            <div class="max-w-5xl w-full">
+                <div class="mb-8 md:mb-10">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">05 — PROCESS</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">How I work</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-5 md:gap-6 mb-8">
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-3">01</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Discover</h4>
+                        <p class="text-[#475569] text-sm">Deep research, stakeholder mapping, and understanding user needs.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-3">02</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Define</h4>
+                        <p class="text-[#475569] text-sm">Synthesizing insights into clear problems and opportunities.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-3">03</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Design</h4>
+                        <p class="text-[#475569] text-sm">Wireframing, prototyping, and iterative design solutions.</p>
+                    </div>
+                </div>
+
+                <a href="process.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                    See the full process <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CAREER PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #5A9EFF 0%, #3B82F6 100%)">
+            <div class="max-w-5xl w-full">
+                <div class="mb-8 md:mb-10">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">06 — CAREER</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">Experience</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-5 md:gap-6 mb-8">
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2022 — Present</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">HCL Software (Commerce)</div>
+                        <div class="text-[#475569] text-sm mt-1">User Experience Analyst — Leading B2B usability improvements on enterprise commerce platform.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2021 — 2022</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">Cybage Softwares</div>
+                        <div class="text-[#475569] text-sm mt-1">Senior Product Designer & Researcher — End-to-end UX for complex SaaS products.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2018 — 2021</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">HCL Software (Unica)</div>
+                        <div class="text-[#475569] text-sm mt-1">User Experience Designer — Marketing automation workflows and design systems.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 md:p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2016 — 2018</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">BrightBrain Technologies + Freelance</div>
+                        <div class="text-[#475569] text-sm mt-1">UI/UX Designer — Research, wireframing, and client-facing design work.</div>
+                    </div>
+                </div>
+
+                <a href="experience.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                    View full career journey <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT PANEL -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-5 sm:p-8 md:p-12"
+                 style="background-image: linear-gradient(rgba(248,250,252,0.32), rgba(248,250,252,0.48)), url('images/pune.png');
+                          background-size: cover;
+                          background-position: center;">
+            
+            <div class="max-w-3xl w-full text-center relative z-10">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">07 — CONTACT</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mt-3 mb-6 section-heading text-[#0F172A]">Let's build something<br>meaningful together.</h2>
+                
+                <p class="text-[#475569] mb-8 max-w-md mx-auto text-sm md:text-base">Based in Pune, India. Always open to exciting projects and conversations.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all">
+                        Get in touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-[#CBD5E1] rounded-3xl font-medium hover:bg-white transition-all text-[#334155]">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </div>
 
