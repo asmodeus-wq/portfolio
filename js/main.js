@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Fast + Controlled (No Skipping)
+// Horizontal Full-Page Scroll - Quick Snap on Release
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.28,
+                    scrub: 0.25,
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -53,19 +53,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             }
                             
-                            // Prevent skipping pages (only allow moving to adjacent panels)
+                            // Prevent skipping
                             const currentIndex = lastActiveIndex;
                             let targetIndex = closestIndex;
-                            
                             if (Math.abs(closestIndex - currentIndex) > 1) {
-                                // If trying to jump more than 1 panel, only move 1 step in that direction
                                 targetIndex = currentIndex + (closestIndex > currentIndex ? 1 : -1);
                             }
                             
                             lastActiveIndex = targetIndex;
                             return snapPoints[targetIndex];
                         },
-                        duration: { min: 0.08, max: 0.18 },   // Very fast settle
+                        duration: 0.12,           // Very quick snap after releasing scroll
                         ease: "power2.out"
                     }
                 }
@@ -133,5 +131,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (fast + no skipping)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (quick snap on release)', 'color:#10b981');
 });
