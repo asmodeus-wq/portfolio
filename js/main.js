@@ -1,8 +1,8 @@
 // ============================================
-// Horizontal Full-Page Snap Scroll - Refined
+// Horizontal Full-Page Snap Scroll - Ultra Responsive
 // One scroll gesture = Exactly one panel
-// Instant decision + smooth 0.45s glide
-// Short cooldown so it doesn't chain-fire
+// Near-instant decision (50ms) + smooth 0.45s glide
+// Short cooldown to prevent skipping
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isMobile) {
         
         let currentIndex = 0;
-        let isLocked = false;           // Prevents rapid firing / skipping
+        let isLocked = false;
         let accumulatedDelta = 0;
         let wheelTimer = null;
 
@@ -45,18 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetIndex === currentIndex) return;
 
             isLocked = true;
-            const oldIndex = currentIndex;
             currentIndex = targetIndex;
 
             gsap.to(wrapper, {
                 x: getPanelX(targetIndex),
-                duration: 0.45,           // Slightly slow smooth premium glide (you liked this speed)
+                duration: 0.45,
                 ease: 'power2.out',
                 onComplete: () => {
-                    // Cooldown period so next gesture is not immediate
                     setTimeout(() => {
                         isLocked = false;
-                    }, 650); // ~0.65 sec cooldown after landing
+                    }, 320); // Much shorter cooldown ~0.32s
                 }
             });
 
@@ -67,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // ============================================
-        // WHEEL / TRACKPAD - Gesture based (one gesture = one panel)
-        // Accumulates small deltas, then decides once when user pauses
+        // WHEEL / TRACKPAD - Much faster response
         // ============================================
         window.addEventListener('wheel', function(e) {
             if (isLocked) {
@@ -81,20 +78,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             clearTimeout(wheelTimer);
 
-            // When user pauses scrolling for a short moment, process the gesture
+            // Much faster pause detection (50ms instead of 120ms)
             wheelTimer = setTimeout(() => {
-                if (Math.abs(accumulatedDelta) < 8) {
+                if (Math.abs(accumulatedDelta) < 6) {
                     accumulatedDelta = 0;
-                    return; // too small, ignore
+                    return;
                 }
 
                 const direction = accumulatedDelta > 0 ? 1 : -1;
                 const targetIndex = currentIndex + direction;
 
                 goToPanel(targetIndex);
-
-                accumulatedDelta = 0; // reset for next gesture
-            }, 120); // 120ms pause detection - feels responsive
+                accumulatedDelta = 0;
+            }, 50); // 50ms - almost instant decision
         }, { passive: false });
 
         // Allow nav clicks to jump
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             goToPanel(0);
             window.scrollTo(0, 0);
-        }, 150);
+        }, 100);
 
         // Recalculate on resize
         let resizeTimer;
@@ -128,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         });
 
-        console.log('%c[Portfolio] Refined wheel snap ready (one gesture = one panel, 0.45s glide + 650ms cooldown)', 'color:#10b981');
+        console.log('%c[Portfolio] Ultra-responsive wheel snap (50ms decision, 0.45s glide)', 'color:#10b981');
     }
 
     // Mobile menu
