@@ -116,83 +116,66 @@
     </section>
 
     <!-- Skills & Expertise -->
-<section class="py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="grid lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-            
-            <!-- Left Column: Core Craft -->
-            <div class="lg:col-span-5">
-                <h2 class="text-5xl font-semibold tracking-tighter mb-12">Core Craft</h2>
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 lg:gap-20">
+                <!-- Left: Core Craft (3 items) -->
+                <div class="lg:w-5/12">
+                    <h2 class="text-5xl font-semibold tracking-tighter section-heading mb-12">Core Craft</h2>
+                    <div class="space-y-12">
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-magnifying-glass text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Research Mastery</h3>
+                                <p class="text-[#475569] mt-3">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-pen-ruler text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Interaction Design</h3>
+                                <p class="text-[#475569] mt-3">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-users text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Stakeholder Alignment</h3>
+                                <p class="text-[#475569] mt-3">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="space-y-10">
-                    <!-- Research Mastery -->
-                    <div class="flex gap-5">
-                        <div class="w-11 h-11 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
-                            🔍
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Research Mastery</h3>
-                            <p class="text-[#475569]">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interaction Design -->
-                    <div class="flex gap-5">
-                        <div class="w-11 h-11 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
-                            ⚡
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Interaction Design</h3>
-                            <p class="text-[#475569]">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
+                <!-- Right: Design Systems + Skill Rings -->
+                <div class="lg:w-7/12">
+                    <div class="mb-12">
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-chart-line text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Design Systems</h3>
+                                <p class="text-[#475569] mt-3">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Stakeholder Alignment -->
-                    <div class="flex gap-5">
-                        <div class="w-11 h-11 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
-                            👥
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Stakeholder Alignment</h3>
-                            <p class="text-[#475569]">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
-                        </div>
+                    <div class="grid grid-cols-2 gap-6" id="skill-rings">
+                        <!-- Populated by JS -->
                     </div>
-
-                    <!-- Strategic Thinking -->
-                    <div class="flex gap-5">
-                        <div class="w-11 h-11 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
-                            💡
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Strategic Thinking</h3>
-                            <p class="text-[#475569]">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Design Systems + Rings -->
-            <div class="lg:col-span-7">
-                <div class="mb-10">
-                    <div class="flex gap-5">
-                        <div class="w-11 h-11 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
-                            📐
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl mb-2">Design Systems</h3>
-                            <p class="text-[#475569]">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Rings Grid -->
-                <div class="grid grid-cols-2 gap-6" id="skill-rings">
-                    <!-- JS populated rings -->
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer class="bg-white border-t border-slate-200 py-12">
         <div class="max-w-5xl mx-auto px-6 text-center">
