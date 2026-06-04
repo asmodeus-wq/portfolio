@@ -70,75 +70,79 @@
             pointer-events: none;
         }
 
-        /* FINAL MOBILE COMPACT FIT - Content must fit in panel without internal scroll */
+        /* FINAL TIGHT MOBILE - Third panel (skillset) fixed + all panels fit without internal scroll */
         @media (max-width: 767px) {
             .panel {
-                padding: 1.8rem 0.45rem 1.4rem !important;
+                padding: 1.6rem 0.4rem 1.2rem !important;
             }
 
             .section-heading {
-                font-size: 1.1rem !important;
+                font-size: 1.05rem !important;
                 line-height: 1.05 !important;
-                margin-bottom: 0.1rem !important;
+                margin-bottom: 0.08rem !important;
             }
 
             .panel h3, .panel h4 {
-                font-size: 0.88rem !important;
+                font-size: 0.85rem !important;
             }
 
             .panel p, .panel .text-sm, .panel .text-base {
-                font-size: 0.68rem !important;
-                line-height: 1.22 !important;
-            }
-
-            /* Skill cards - compact 2-col grid that fits */
-            .skill-card {
-                padding: 0.7rem 0.75rem !important;
-            }
-
-            .skill-card h4 {
-                font-size: 0.9rem !important;
-                margin-bottom: 0.15rem !important;
-            }
-
-            .skill-card p {
-                font-size: 0.68rem !important;
+                font-size: 0.66rem !important;
                 line-height: 1.2 !important;
             }
 
-            /* Tools - 4 columns + super compact vertical cards so everything fits in viewport */
+            /* THIRD PANEL (What I Do / Skillset) - super compact so all 8 cards fit perfectly */
+            .skill-card {
+                padding: 0.55rem 0.6rem !important;
+            }
+
+            .skill-card h4 {
+                font-size: 0.88rem !important;
+                margin-bottom: 0.1rem !important;
+            }
+
+            .skill-card p {
+                font-size: 0.65rem !important;
+                line-height: 1.18 !important;
+            }
+
+            .grid-cols-2.sm\:grid-cols-3.md\:grid-cols-4 {
+                gap: 0.35rem !important;
+            }
+
+            /* Tools - 4 columns compact */
             .tool-card {
                 flex-direction: column !important;
                 align-items: center !important;
                 text-align: center !important;
-                padding: 0.4rem 0.25rem !important;
-                gap: 0.1rem !important;
+                padding: 0.35rem 0.2rem !important;
+                gap: 0.08rem !important;
             }
 
             .tool-card i {
-                font-size: 0.9rem !important;
+                font-size: 0.85rem !important;
             }
 
             .tool-card span {
-                font-size: 0.52rem !important;
+                font-size: 0.5rem !important;
                 line-height: 1.05 !important;
                 word-break: break-word;
             }
 
             .grid-cols-4.sm\:grid-cols-5 {
                 grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-                gap: 0.25rem !important;
+                gap: 0.2rem !important;
             }
 
-            /* Experience / Process / Work cards - tight but readable */
+            /* Other panels (Experience, Process, Work) - tight fit */
             .panel .bg-white.border.border-slate-200.rounded-2xl,
             .panel .bg-white.border.border-slate-200.rounded-3xl {
-                margin-bottom: 0.55rem !important;
-                padding: 0.85rem 0.95rem !important;
+                margin-bottom: 0.5rem !important;
+                padding: 0.8rem 0.9rem !important;
             }
 
             .panel .aspect-video {
-                max-height: 78px !important;
+                max-height: 72px !important;
             }
         }
     </style>
@@ -231,7 +235,7 @@
             </div>
         </section>
 
-        <!-- WHAT I DO PANEL -->
+        <!-- WHAT I DO PANEL (THIRD PANEL - FIXED FOR PHONE) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
             <div class="max-w-6xl w-full">
