@@ -29,10 +29,30 @@
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
         }
 
-        /* Timeline line initial state for animation */
-        #timeline-line {
-            height: 0;
+        /* Static background line */
+        .timeline-bg-line {
+            position: absolute;
+            left: 50%;
+            top: 48px;
+            bottom: 48px;
+            width: 2px;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Animated progress line */
+        #timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 48px;
+            width: 3px;
+            background: linear-gradient(to bottom, #2C5EAD, #60A5FA);
+            transform: scaleY(0);
             transform-origin: top;
+            z-index: 2;
+            border-radius: 3px;
+            box-shadow: 0 0 8px rgba(44, 94, 173, 0.4);
         }
     </style>
 </head>
@@ -72,15 +92,21 @@
     </section>
 
     <!-- Professional Journey -->
-    <section class="py-24 relative">
+    <section class="py-24 relative" id="journey-section">
         <div class="max-w-5xl mx-auto px-6">
+            
+            <!-- Timeline Container -->
             <div class="relative">
-                <!-- Vertical Timeline Line -->
-                <div id="timeline-line" class="absolute left-8 md:left-1/2 top-12 bottom-12 w-0.5 bg-gradient-to-b from-slate-200 to-slate-300 -translate-x-1/2 hidden md:block"></div>
+                
+                <!-- Static background line -->
+                <div class="timeline-bg-line hidden md:block"></div>
+                
+                <!-- Animated progress line -->
+                <div id="timeline-progress" class="hidden md:block" style="height: calc(100% - 96px);"></div>
 
                 <div class="space-y-24 relative">
                     
-                    <!-- Experience 1: HCL Commerce -->
+                    <!-- Experience 1 -->
                     <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
@@ -110,7 +136,7 @@
                         </div>
                     </div>
 
-                    <!-- Experience 2: Cybage -->
+                    <!-- Experience 2 -->
                     <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
@@ -148,7 +174,7 @@
                         </div>
                     </div>
 
-                    <!-- Experience 3: HCL UNICA -->
+                    <!-- Experience 3 -->
                     <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
@@ -174,7 +200,7 @@
                         </div>
                     </div>
 
-                    <!-- Experience 4: BrightBrain -->
+                    <!-- Experience 4 -->
                     <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
@@ -200,7 +226,7 @@
                         </div>
                     </div>
 
-                    <!-- Experience 5: Freelance -->
+                    <!-- Experience 5 -->
                     <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
@@ -243,47 +269,51 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Timeline line - use scaleY for smooth, performant animation
-        gsap.set("#timeline-line", { scaleY: 0, transformOrigin: "top center" });
+        // Timeline Progress Line Animation - Robust Version
+        const progressLine = document.getElementById('timeline-progress');
+        
+        if (progressLine) {
+            gsap.set(progressLine, { scaleY: 0, transformOrigin: "top center" });
 
-        ScrollTrigger.create({
-            trigger: ".py-24",
-            start: "top 20%",
-            end: "bottom 80%",
-            scrub: true,
-            onUpdate: function(self) {
-                gsap.to("#timeline-line", {
-                    scaleY: self.progress,
-                    duration: 0.1,
-                    ease: "none",
-                    overwrite: "auto"
-                });
-            }
-        });
+            ScrollTrigger.create({
+                trigger: "#journey-section",
+                start: "top 25%",
+                end: "bottom 75%",
+                scrub: 0.8,
+                onUpdate: function(self) {
+                    gsap.to(progressLine, {
+                        scaleY: self.progress,
+                        duration: 0.08,
+                        ease: "none",
+                        overwrite: "auto"
+                    });
+                }
+            });
+        }
 
-        // Animate experience cards
+        // Experience cards animation
         gsap.from(".experience-card", {
             scrollTrigger: {
-                trigger: ".py-24",
-                start: "top 55%",
+                trigger: "#journey-section",
+                start: "top 50%",
             },
             opacity: 0,
-            y: 70,
-            duration: 1.1,
-            stagger: 0.35,
+            y: 60,
+            duration: 1,
+            stagger: 0.3,
             ease: "power3.out"
         });
 
-        // Timeline dots animation
+        // Timeline dots pop-in
         gsap.from(".timeline-dot", {
             scrollTrigger: {
-                trigger: ".py-24",
-                start: "top 35%",
+                trigger: "#journey-section",
+                start: "top 40%",
             },
             scale: 0,
-            duration: 0.7,
-            stagger: 0.25,
-            ease: "back.out(2)"
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "back.out(1.8)"
         });
     </script>
 </body>
