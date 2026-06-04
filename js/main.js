@@ -2,8 +2,8 @@
 // STRICT One-Panel-At-A-Time Horizontal Snap
 // Works on ALL devices (desktop + phones)
 // Vertical finger movement on phone = horizontal panel change (like desktop wheel)
+// Finger UP = next panel, Finger DOWN = previous panel
 // Also supports horizontal swipe as alternative
-// Matches reference site experience across screen sizes
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let isLocked = false;
     let lastActionTime = 0;
-    const COOLDOWN_MS = 750;
-    const THRESHOLD = 35; // lower threshold for better mobile feel
+    const COOLDOWN_MS = 650;  // slightly faster cooldown
+    const THRESHOLD = 28; // more sensitive for reliable back gesture
 
     // IMPORTANT: Set explicit width so all panels are laid out (fixes missing/white space on mobile)
     wrapper.style.width = `${panels.length * 100}vw`;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         gsap.to(wrapper, {
             x: targetX,
-            duration: 0.42,
+            duration: 0.38,
             ease: "power2.out",
             onComplete: () => {
                 setTimeout(() => { isLocked = false; }, COOLDOWN_MS);
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLocked) return;
 
         const now = Date.now();
-        if (now - lastActionTime < 180) return;
+        if (now - lastActionTime < 160) return;
         lastActionTime = now;
 
         if (e.deltaY > 0) goToPanel(currentIndex + 1);
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goToPanel(currentIndex - 1); }
     });
 
-    // ========== MOBILE TOUCH: Vertical finger movement controls panels ==========
+    // ========== MOBILE TOUCH: Vertical finger UP = next, finger DOWN = previous ==========
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartTime = 0;
@@ -94,21 +94,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const absDeltaX = Math.abs(deltaX);
         const absDeltaY = Math.abs(deltaY);
-        const isVertical = absDeltaY > absDeltaX * 0.75; // prioritize vertical gesture
+        const isMostlyVertical = absDeltaY > absDeltaX * 0.7;
         const hasDistance = Math.max(absDeltaX, absDeltaY) > THRESHOLD;
-        const isFast = deltaTime < 650;
+        const isFast = deltaTime < 600;
 
-        if (hasDistance && isFast && (isVertical || absDeltaX > THRESHOLD)) {
+        if (hasDistance && isFast) {
             const now = Date.now();
-            if (now - lastActionTime < 180) return;
+            if (now - lastActionTime < 140) return;
             lastActionTime = now;
 
-            // Vertical up or left swipe = next panel
-            // Vertical down or right swipe = previous panel
-            if (deltaY < 0 || deltaX < 0) {
-                goToPanel(currentIndex + 1);
+            if (isMostlyVertical) {
+                // Finger UP (deltaY negative) = next panel
+                // Finger DOWN (deltaY positive) = previous panel
+                if (deltaY < 0) {
+                    goToPanel(currentIndex + 1);
+                } else if (deltaY > 0) {
+                    goToPanel(currentIndex - 1);
+                }
             } else {
-                goToPanel(currentIndex - 1);
+                // Horizontal swipe fallback
+                if (deltaX < 0) {
+                    goToPanel(currentIndex + 1);
+                } else {
+                    goToPanel(currentIndex - 1);
+                }
             }
         }
     }, { passive: true });
@@ -121,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const dX = currentX - touchStartX;
         const dY = currentY - touchStartY;
 
-        // If strong vertical movement, take control (hijack for panel change)
-        if (Math.abs(dY) > Math.abs(dX) * 0.8 && Math.abs(dY) > 25) {
+        // If strong vertical movement detected, take control immediately
+        if (Math.abs(dY) > Math.abs(dX) * 0.65 && Math.abs(dY) > 22) {
             e.preventDefault();
         }
     }, { passive: false });
@@ -135,13 +144,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isLocked) {
                 gsap.set(wrapper, { x: -panels[currentIndex].offsetLeft });
             }
-        }, 280);
+        }, 260);
     });
 
     window.addEventListener('load', forceStartAtHero);
     window.addEventListener('pageshow', forceStartAtHero);
 
-    // ========== MOBILE NAV MENU (fix for hamburger button) ==========
+    // ========== MOBILE NAV MENU ==========
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', function() {
@@ -179,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             document.body.appendChild(mobileMenu);
 
-            // Close handlers
             const closeBtn = mobileMenu.querySelector('#close-mobile-menu');
             if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.remove());
 
@@ -191,5 +199,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('%c[Portfolio] Horizontal snap + mobile nav ready (vertical scroll gesture works on phones)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal snap + mobile nav ready (reliable vertical gesture + back scrolling)', 'color:#10b981');
 });
