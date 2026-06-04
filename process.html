@@ -4,76 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Process | Faizan Quazi</title>
-    <meta name="description" content="Faizan Quazi's adaptive freelance UX design process">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
+    <nav class="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-lg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3 no-underline">
-                <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
-                    <span class="text-zinc-950 font-bold text-xl">FQ</span>
+                <div class="w-9 h-9 bg-[#2C5EAD] rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">FQ</span>
                 </div>
-                <h1 class="font-semibold text-xl tracking-tight">Faizan Quazi</h1>
+                <h1 class="font-semibold text-xl tracking-tight text-[#0F172A]">Faizan Quazi</h1>
             </a>
             
-            <div class="hidden md:flex items-center gap-x-8 text-sm">
-                <a href="about.html" class="nav-link no-underline">About</a>
-                <a href="experience.html" class="nav-link no-underline">Career</a>
-                <a href="process.html" class="nav-link active no-underline">Process</a>
-                <a href="work.html" class="nav-link no-underline">Work</a>
-                <a href="contact.html" class="nav-link no-underline">Contact</a>
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="about.html" class="nav-link text-[#334155]">About</a>
+                <a href="experience.html" class="nav-link text-[#334155]">Career</a>
+                <a href="process.html" class="nav-link active text-[#2C5EAD]">Process</a>
+                <a href="work.html" class="nav-link text-[#334155]">Work</a>
+                <a href="contact.html" class="nav-link text-[#334155]">Contact</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-2xl bg-transparent border-none cursor-pointer">
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-[#334155]">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(#27272a_0.5px,transparent_1px)] bg-[length:4px_4px] opacity-40"></div>
+    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden bg-white">
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm mb-8">
-                <i class="fa-solid fa-compass text-emerald-400"></i>
-                <span class="font-medium tracking-[2px] text-xs">CHAPTER 03 • FREELANCE APPROACH</span>
+            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-sm mb-8 font-medium">
+                <i class="fa-solid fa-compass"></i>
+                <span>CHAPTER 03 • DESIGN APPROACH</span>
             </div>
             
-            <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6">My Design<br>Process</h1>
-            <p class="max-w-2xl mx-auto text-2xl md:text-3xl text-white/80 tracking-tight">Adaptive. Human-centered.<br>Built for real-world complexity.</p>
+            <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 section-heading">My Design<br>Process</h1>
+            <p class="max-w-2xl mx-auto text-2xl md:text-3xl text-[#475569] tracking-tight">Adaptive. Human-centered.<br>Built for real-world complexity.</p>
             
             <div class="mt-12 flex justify-center">
-                <a href="#phases" class="group inline-flex items-center gap-x-3 px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/5 transition-all text-sm font-medium">
+                <a href="#phases" class="group inline-flex items-center gap-x-3 px-8 py-4 rounded-2xl border border-[#CBD5E1] hover:bg-white transition-all text-sm font-medium">
                     EXPLORE THE PROCESS
                     <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition"></i>
                 </a>
             </div>
         </div>
-        
-        <!-- Subtle scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40 text-xs tracking-[3px]">
-            <span>SCROLL TO BEGIN</span>
-            <i class="fa-solid fa-chevron-down mt-1 animate-bounce"></i>
-        </div>
     </section>
 
     <!-- Intro -->
-    <section class="max-w-5xl mx-auto px-6 py-20 border-t border-white/10">
+    <section class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-200">
         <div class="grid md:grid-cols-12 gap-x-12 items-center">
             <div class="md:col-span-5">
-                <span class="text-emerald-400 text-sm font-semibold tracking-[3px]">THE PHILOSOPHY</span>
-                <h2 class="text-6xl font-semibold tracking-tighter leading-none mt-3">No rigid templates.<br>Just the right approach.</h2>
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE PHILOSOPHY</span>
+                <h2 class="text-6xl font-semibold tracking-tighter leading-none mt-3 section-heading">No rigid templates.<br>Just the right approach.</h2>
             </div>
-            <div class="md:col-span-7 mt-8 md:mt-0 text-[17px] leading-relaxed text-white/75 space-y-6">
+            <div class="md:col-span-7 mt-8 md:mt-0 text-[17px] leading-relaxed text-[#334155] space-y-6">
                 <p>Every project is different. I adapt a proven design thinking framework to the specific context, stakeholders, and constraints of each engagement.</p>
-                <p>The process revolves around three core phases — <strong class="text-white">Understand</strong>, <strong class="text-white">Explore</strong>, and <strong class="text-white">Materialize</strong> — with continuous collaboration and iteration throughout.</p>
+                <p>The process revolves around three core phases — <strong class="text-[#0F172A]">Understand</strong>, <strong class="text-[#0F172A]">Explore</strong>, and <strong class="text-[#0F172A]">Materialize</strong> — with continuous collaboration and iteration throughout.</p>
             </div>
         </div>
     </section>
@@ -81,292 +78,52 @@
     <!-- Visual Process Journey -->
     <section id="phases" class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-14">
-            <span class="text-emerald-400 text-sm font-medium tracking-[3px]">THE JOURNEY</span>
-            <h3 class="text-5xl font-semibold tracking-tighter mt-2">Three phases.<br>One clear direction.</h3>
+            <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE JOURNEY</span>
+            <h3 class="text-5xl font-semibold tracking-tighter mt-2 section-heading">Three phases.<br>One clear direction.</h3>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- Phase 1 Card -->
-            <div class="group bg-zinc-900 border border-white/10 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-300">
+            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-emerald-400/90">01</span>
-                    <i class="fa-solid fa-search text-4xl text-emerald-400/70 group-hover:scale-110 transition"></i>
+                    <span class="text-6xl font-bold text-[#2C5EAD]">01</span>
+                    <i class="fa-solid fa-search text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Understand</h4>
-                <p class="text-white/70">Deep research, stakeholder mapping, personas & problem framing.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-emerald-400 font-medium">RESEARCH • SYNTHESIS</div>
+                <p class="text-[#475569]">Deep research, stakeholder mapping, personas & problem framing.</p>
+                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">RESEARCH • SYNTHESIS</div>
             </div>
 
-            <!-- Phase 2 Card -->
-            <div class="group bg-zinc-900 border border-white/10 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-300">
+            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-emerald-400/90">02</span>
-                    <i class="fa-solid fa-lightbulb text-4xl text-emerald-400/70 group-hover:scale-110 transition"></i>
+                    <span class="text-6xl font-bold text-[#2C5EAD]">02</span>
+                    <i class="fa-solid fa-lightbulb text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Explore</h4>
-                <p class="text-white/70">Ideation, user scenarios, and creative exploration of solution directions.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-emerald-400 font-medium">IDEATION • VALIDATION</div>
+                <p class="text-[#475569]">Ideation, user scenarios, and creative exploration of solution directions.</p>
+                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">IDEATION • VALIDATION</div>
             </div>
 
-            <!-- Phase 3 Card -->
-            <div class="group bg-zinc-900 border border-white/10 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-300">
+            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-emerald-400/90">03</span>
-                    <i class="fa-solid fa-rocket text-4xl text-emerald-400/70 group-hover:scale-110 transition"></i>
+                    <span class="text-6xl font-bold text-[#2C5EAD]">03</span>
+                    <i class="fa-solid fa-rocket text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Materialize</h4>
-                <p class="text-white/70">Wireframes, high-fidelity prototypes, testing & handoff.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-emerald-400 font-medium">DESIGN • DELIVERY</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Phase 01: Understand (Detailed) -->
-    <section class="bg-zinc-900 border-y border-white/10 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-x-4 mb-4">
-                <span class="px-4 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-xs font-semibold tracking-[2px]">PHASE 01</span>
-            </div>
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                <div class="md:col-span-7">
-                    <h2 class="text-6xl font-semibold tracking-tighter">Understand</h2>
-                    <p class="mt-6 text-xl text-white/80 max-w-xl">I immerse myself in the problem space — talking to stakeholders, mapping the ecosystem, and uncovering real user needs.</p>
-                    
-                    <div class="mt-10 space-y-8">
-                        <div>
-                            <h5 class="font-semibold text-emerald-400 mb-2 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                            <ul class="space-y-2 text-white/80">
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Stakeholder interviews & mapping</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> User research & persona development</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Journey mapping & pain point analysis</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Problem framing & goal definition</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-5 mt-12 md:mt-0 space-y-6">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Stakeholder Mapping">
-                    </div>
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Personas">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Phase 02: Explore -->
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                <div class="md:col-span-5 order-2 md:order-1 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Scenarios">
-                    </div>
-                </div>
-                
-                <div class="md:col-span-7 order-1 md:order-2">
-                    <div class="flex items-center gap-x-4 mb-4">
-                        <span class="px-4 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-xs font-semibold tracking-[2px]">PHASE 02</span>
-                    </div>
-                    <h2 class="text-6xl font-semibold tracking-tighter">Explore</h2>
-                    <p class="mt-6 text-xl text-white/80 max-w-xl">With a clear problem definition, we move into creative exploration — generating ideas, mapping user scenarios, and testing early concepts.</p>
-                    
-                    <div class="mt-10">
-                        <h5 class="font-semibold text-emerald-400 mb-3 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-white/80">
-                            <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-emerald-400"></i> Ideation workshops</div>
-                            <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-emerald-400"></i> User scenario mapping</div>
-                            <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-emerald-400"></i> Low-fidelity wireframing</div>
-                            <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-emerald-400"></i> Concept validation</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Phase 03: Materialize -->
-    <section class="bg-zinc-900 border-y border-white/10 py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                <div class="md:col-span-7">
-                    <div class="flex items-center gap-x-4 mb-4">
-                        <span class="px-4 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-xs font-semibold tracking-[2px]">PHASE 03</span>
-                    </div>
-                    <h2 class="text-6xl font-semibold tracking-tighter">Materialize</h2>
-                    <p class="mt-6 text-xl text-white/80 max-w-xl">Ideas become tangible. I craft detailed wireframes, high-fidelity prototypes, and polished designs ready for development and testing.</p>
-                    
-                    <div class="mt-10 space-y-6">
-                        <div>
-                            <h5 class="font-semibold text-emerald-400 mb-3 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                            <ul class="space-y-2.5 text-white/80">
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Detailed wireframes & user flows</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> High-fidelity UI design</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Interactive prototypes</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Usability testing & iteration</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-400"></i> Developer handoff & documentation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-5 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Design Plan & Framework">
-                    </div>
-                    <div class="mt-6 text-center text-sm text-white/50">Design plan & framework visualization</div>
-                </div>
+                <p class="text-[#475569]">Wireframes, high-fidelity prototypes, testing & handoff.</p>
+                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">DESIGN • DELIVERY</div>
             </div>
         </div>
     </section>
 
     <!-- Closing CTA -->
-    <section class="max-w-4xl mx-auto px-6 py-24 text-center">
-        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter">Ready to build something<br>meaningful together?</h2>
-        <p class="mt-6 text-xl text-white/70 max-w-md mx-auto">Let’s discuss your project and see how my process can help.</p>
+    <section class="max-w-4xl mx-auto px-6 py-24 text-center bg-white border-t border-slate-200">
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter section-heading">Ready to build something<br>meaningful together?</h2>
+        <p class="mt-6 text-xl text-[#475569] max-w-md mx-auto">Let’s discuss your project and see how my process can help.</p>
         
-        <a href="contact.html" 
-           class="mt-10 inline-block px-14 py-5 bg-white text-zinc-950 font-semibold text-lg rounded-3xl hover:bg-emerald-400 hover:text-white transition-all active:scale-[0.985]">
+        <a href="contact.html" class="mt-10 inline-block px-14 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all">
             Start a Conversation
         </a>
-        
-        <div class="mt-8 text-xs text-white/50 tracking-widest">OR EMAIL ME DIRECTLY AT <a href="mailto:faizanquazi123@gmail.com" class="underline hover:text-white">FAIZANQUAZI123@GMAIL.COM</a></div>
     </section>
 
-    <!-- Image Lightbox Modal -->
-    <div id="lightbox-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4" onclick="closeLightbox(event)">
-        <div class="relative max-w-[95vw] max-h-[90vh] w-full" onclick="event.stopImmediatePropagation()">
-            <!-- Close button -->
-            <button onclick="closeLightbox()" 
-                    class="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-11 h-11 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-white rounded-full text-xl transition z-10">
-                <i class="fa-solid fa-times"></i>
-            </button>
-            
-            <!-- Image container -->
-            <div class="bg-zinc-950 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                <img id="lightbox-image" class="max-h-[80vh] w-auto max-w-full mx-auto object-contain" alt="Enlarged view">
-            </div>
-            
-            <!-- Image caption / alt text -->
-            <div id="lightbox-caption" class="mt-4 text-center text-white/70 text-sm tracking-wide"></div>
-        </div>
-    </div>
-
-    <script src="js/main.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.utils.toArray('section').forEach((section, i) => {
-                if (i === 0) return;
-                gsap.fromTo(section, 
-                    { opacity: 0.6, y: 40 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: 'power2.out',
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
-            document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('mouseenter', () => {
-                    gsap.to(img, { scale: 1.015, duration: 0.4, ease: 'power2.out' });
-                });
-                img.addEventListener('mouseleave', () => {
-                    gsap.to(img, { scale: 1, duration: 0.4, ease: 'power2.out' });
-                });
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    const modal = document.getElementById('lightbox-modal');
-                    if (!modal.classList.contains('hidden')) closeLightbox();
-                }
-            });
-
-            console.log('%c[Process] Page initialized with lightbox zoom feature', 'color:#10b981');
-        });
-
-        let currentLightboxImage = null;
-
-        function openLightbox(imgElement) {
-            const modal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-image');
-            const caption = document.getElementById('lightbox-caption');
-
-            if (!imgElement || !modal || !lightboxImg) return;
-
-            currentLightboxImage = imgElement;
-            
-            lightboxImg.src = imgElement.src;
-            lightboxImg.alt = imgElement.alt || 'Enlarged image';
-            caption.textContent = imgElement.alt || '';
-
-            modal.classList.remove('hidden');
-            modal.style.display = 'flex';
-
-            gsap.fromTo(modal, 
-                { opacity: 0 },
-                { opacity: 1, duration: 0.25, ease: 'power2.out' }
-            );
-            gsap.fromTo(lightboxImg, 
-                { scale: 0.92, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(1.2)' }
-            );
-        }
-
-        function closeLightbox(event) {
-            const modal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-image');
-
-            if (!modal) return;
-
-            if (event && event.target.id !== 'lightbox-modal') {
-                return;
-            }
-
-            gsap.to(lightboxImg, {
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.2,
-                ease: 'power2.in',
-                onComplete: () => {
-                    modal.style.display = 'none';
-                    modal.classList.add('hidden');
-                    lightboxImg.style.opacity = '1';
-                    lightboxImg.style.transform = 'scale(1)';
-                }
-            });
-
-            gsap.to(modal, {
-                opacity: 0,
-                duration: 0.2,
-                ease: 'power2.in',
-                onComplete: () => {
-                    modal.style.opacity = '1';
-                }
-            });
-        }
-
-        document.addEventListener('click', function(e) {
-            const modal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-image');
-            if (modal && !modal.classList.contains('hidden') && e.target === lightboxImg) {
-                closeLightbox();
-            }
-        });
-    </script>
 </body>
 </html>
