@@ -82,50 +82,51 @@
             pointer-events: none;
         }
 
-        /* UNIFORM MOBILE SPACING + DENSITY */
+        /* CLEANER MOBILE SCALING - uniform across all panels, less aggressive */
         @media (max-width: 767px) {
             .panel {
-                padding: 52px 0.6rem 0.4rem !important;
+                padding-top: 56px !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                padding-bottom: 1rem !important;
+                min-height: 100dvh !important;
             }
 
             .section-heading {
-                font-size: 1.18rem !important;
-                line-height: 1.05 !important;
-                margin-bottom: 0.2rem !important;
-            }
-            .panel h3, .panel h4 {
-                font-size: 0.9rem !important;
-            }
-            .panel p, .panel .text-sm, .panel .text-base {
-                font-size: 0.7rem !important;
-                line-height: 1.25 !important;
+                font-size: 1.35rem !important;
+                line-height: 1.1 !important;
+                margin-bottom: 0.4rem !important;
             }
 
-            .panel > div > div.mb-8,
-            .panel > div > div.mb-10,
-            .panel > div > div.mb-12 {
-                margin-bottom: 0.5rem !important;
+            .panel h3, .panel h4 {
+                font-size: 0.95rem !important;
+            }
+
+            .panel p, .panel .text-sm, .panel .text-base {
+                font-size: 0.75rem !important;
+                line-height: 1.3 !important;
             }
 
             .skill-card, .tool-card, .panel .bg-white.border.border-slate-200.rounded-3xl,
             .panel .bg-white.border.border-slate-200.rounded-2xl {
-                padding: 0.55rem !important;
+                padding: 0.65rem 0.75rem !important;
             }
 
             .panel .grid {
-                gap: 0.3rem !important;
+                gap: 0.4rem !important;
             }
 
-            .panel .grid-cols-3 {
+            /* Tools panel - 4 columns on mobile for better fit */
+            .panel .grid-cols-4 {
                 grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
             }
 
             .panel .aspect-video {
-                max-height: 88px !important;
+                max-height: 95px !important;
             }
 
             .panel .mb-8, .panel .mb-10, .panel .mb-12 {
-                margin-bottom: 0.35rem !important;
+                margin-bottom: 0.5rem !important;
             }
         }
     </style>
@@ -160,7 +161,7 @@
     <div id="horizontal-wrapper" class="flex flex-nowrap">
         
         <!-- HERO PANEL -->
-        <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative overflow-hidden">
+        <section class="panel hero-panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center relative overflow-hidden">
             
             <div class="hero-video-container">
                 <iframe 
@@ -197,7 +198,7 @@
         </section>
 
         <!-- ABOUT PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-5xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
@@ -219,7 +220,7 @@
         </section>
 
         <!-- WHAT I DO / SKILLSET PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-8 md:mb-12">
@@ -273,7 +274,7 @@
         </section>
 
         <!-- EXPERTISE / TOOLS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #C8E4FF 0%, #A8D4FF 100%)">
             <div class="max-w-7xl w-full">
                 <div class="mb-8 md:mb-10">
@@ -387,7 +388,7 @@
         </section>
 
         <!-- MY WORK PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="flex justify-between items-end mb-8 md:mb-10">
@@ -426,7 +427,7 @@
         </section>
 
         <!-- PROCESS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #7FB8FF 0%, #5A9EFF 100%)">
             <div class="max-w-5xl w-full">
                 <div class="mb-8 md:mb-10">
@@ -459,7 +460,7 @@
         </section>
 
         <!-- CAREER PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #5A9EFF 0%, #3B82F6 100%)">
             <div class="max-w-5xl w-full">
                 <div class="mb-8 md:mb-10">
@@ -497,8 +498,8 @@
         </section>
 
         <!-- CONTACT PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-5 sm:p-8 md:p-12"
-                 style="background-image: linear-gradient(rgba(248,250,252,0.32), rgba(248,250,252,0.48)), url('images/pune.png');
+        <section class="panel min-w-[100vw] min-h-[100dvh] flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-5 sm:p-8 md:p-12"
+                 style="background-image: linear-gradient(rgba(248,250,152,0.32), rgba(248,250,152,0.48)), url('images/pune.png');
                           background-size: cover;
                           background-position: center;">
             

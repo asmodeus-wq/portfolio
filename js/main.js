@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let isLocked = false;
     let lastActionTime = 0;
     const COOLDOWN_MS = 520;
-    const THRESHOLD = 24; // sensitive for reliable back gesture on phone
+    const THRESHOLD = 22; // slightly more sensitive for reliable back gesture
 
-    // Set explicit width so all panels are laid out horizontally (fixes white space / missing panels)
+    // Set explicit width so all panels are laid out horizontally
     wrapper.style.width = `${panels.length * 100}vw`;
     wrapper.style.display = 'flex';
     wrapper.style.flexWrap = 'nowrap';
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentY = e.changedTouches[0].screenY;
         const dY = currentY - touchStartY;
 
-        if (Math.abs(dY) > 18) {
+        if (Math.abs(dY) > 16) {
             e.preventDefault();
         }
     }, { passive: false });
@@ -190,5 +190,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('%c[Portfolio] Horizontal snap ready — vertical drag on phone now works reliably', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal snap ready — vertical drag on phone now works reliably for all panels', 'color:#10b981');
 });
