@@ -1,10 +1,10 @@
 // ============================================
 // STRICT One-Panel-At-A-Time Horizontal Snap
-// Works on desktop + landscape phones (16:9)
-// Light OR hard/long scroll = EXACTLY ONE panel
-// Then ~1 second cooldown before next scroll works
+// Works on ALL devices including phones
+// Light OR hard/long scroll or swipe = EXACTLY ONE panel
+// Then ~1 second cooldown before next action works
 // Never skips, never chains, always starts at Hero
-// Touch/swipe support added for mobile
+// Full touch/swipe + wheel + keyboard support
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,17 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const panels = Array.from(wrapper.querySelectorAll('.panel'));
     if (panels.length === 0) return;
 
-    // Enable on desktop OR landscape phones (16:9 mobile view)
-    const isNarrowMobilePortrait = window.innerWidth < 768 && window.innerHeight > window.innerWidth;
-    if (isNarrowMobilePortrait) {
-        // On narrow portrait phones, fall back to normal vertical scroll (CSS handles it)
-        console.log('%c[Portfolio] Mobile portrait: vertical scroll mode', 'color:#64748b');
-        return;
-    }
+    // No early return for mobile - we want horizontal snap on phones too
+    // (like rajeshdhagare.com style experience)
 
     let currentIndex = 0;
     let isLocked = false;
-    let lastWheelTime = 0;
+    let lastActionTime = 0;
     const COOLDOWN_MS = 1050;
 
     // ALWAYS force start at Hero / Landing page (panel 0)
@@ -57,15 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Wheel handler - ANY scroll = exactly ONE panel
+    // Wheel handler (desktop + some mobile browsers)
     wrapper.addEventListener('wheel', function(e) {
         e.preventDefault();
 
         if (isLocked) return;
 
         const now = Date.now();
-        if (now - lastWheelTime < 220) return;
-        lastWheelTime = now;
+        if (now - lastActionTime < 220) return;
+        lastActionTime = now;
 
         if (e.deltaY > 0) {
             goToPanel(currentIndex + 1);
@@ -87,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Touch / Swipe support for phones & tablets
+    // Touch / Swipe support for phones & tablets (primary on mobile)
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -106,8 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
 
-        // Only horizontal swipes (ignore mostly vertical)
+        // Only trigger on clear horizontal swipes
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            const now = Date.now();
+            if (now - lastActionTime < 220) return;
+            lastActionTime = now;
+
             if (deltaX < 0) {
                 goToPanel(currentIndex + 1);
             } else {
@@ -116,11 +115,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { passive: true });
 
-    // Force hero on load / pageshow
+    // Force hero on load / pageshow / orientation change
     window.addEventListener('load', forceStartAtHero);
     window.addEventListener('pageshow', forceStartAtHero);
 
-    // Keep position correct on resize (important for orientation change)
+    // Keep position correct on resize/orientation change
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -131,5 +130,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 280);
     });
 
-    console.log('%c[Portfolio] STRICT one-panel snap ready (desktop + landscape phones)', 'color:#10b981');
+    console.log('%c[Portfolio] STRICT one-panel snap ready on ALL devices (including phones)', 'color:#10b981');
 });
