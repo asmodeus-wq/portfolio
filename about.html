@@ -43,6 +43,15 @@
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
         }
 
+        .craft-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease;
+        }
+        .craft-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+            border-color: #2C5EAD;
+        }
+
         .floating-number {
             font-size: 110px;
             line-height: 1;
@@ -170,12 +179,72 @@
         </div>
     </section>
 
-    <!-- EDUCATION JOURNEY - Immersive like Process Page -->
+    <!-- REDESIGNED CORE CRAFT (now above Education, more immersive) -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 02 • CRAFT</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Core Craft</h2>
+                <p class="mt-3 text-[#475569] max-w-md mx-auto">The foundational skills I bring to every project.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Research Mastery -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-magnifying-glass text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Research Mastery</h3>
+                    <p class="text-[#475569] leading-relaxed">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
+                </div>
+
+                <!-- Interaction Design -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-pen-ruler text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Interaction Design</h3>
+                    <p class="text-[#475569] leading-relaxed">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
+                </div>
+
+                <!-- Stakeholder Alignment -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Stakeholder Alignment</h3>
+                    <p class="text-[#475569] leading-relaxed">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
+                </div>
+
+                <!-- Design Systems -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-chart-line text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Design Systems</h3>
+                    <p class="text-[#475569] leading-relaxed">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
+                </div>
+
+                <!-- Strategic Thinking -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-lightbulb text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Strategic Thinking</h3>
+                    <p class="text-[#475569] leading-relaxed">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION JOURNEY -->
     <section class="bg-white border-y border-slate-200 py-20">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-12">
-                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 02 • GROWTH</span>
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 03 • GROWTH</span>
                 <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">My Learning Journey</h2>
                 <p class="mt-3 text-[#475569] max-w-md mx-auto">From foundational learning to specialized UX expertise — every step shaped my approach to design.</p>
             </div>
@@ -341,75 +410,15 @@
         </div>
     </section>
 
-    <!-- Skills & Expertise -->
+    <!-- Skill Rings / Expertise -->
     <section class="py-24">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-20">
-                
-                <!-- Left Column: Core Craft -->
-                <div class="md:w-5/12">
-                    <h2 class="text-5xl font-semibold tracking-tighter section-heading mb-12">Core Craft</h2>
-                    <div class="space-y-10">
-                        
-                        <div class="flex items-start gap-6">
-                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-magnifying-glass text-2xl text-[#2C5EAD]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-xl">Research Mastery</h3>
-                                <p class="text-[#475569] mt-2">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-6">
-                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-pen-ruler text-2xl text-[#2C5EAD]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-xl">Interaction Design</h3>
-                                <p class="text-[#475569] mt-2">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-6">
-                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-users text-2xl text-[#2C5EAD]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-xl">Stakeholder Alignment</h3>
-                                <p class="text-[#475569] mt-2">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-6">
-                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-chart-line text-2xl text-[#2C5EAD]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-xl">Design Systems</h3>
-                                <p class="text-[#475569] mt-2">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-6">
-                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-lightbulb text-2xl text-[#2C5EAD]"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-xl">Strategic Thinking</h3>
-                                <p class="text-[#475569] mt-2">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-               
-                <!-- Right Column: Skill Rings -->
-                <div class="md:w-7/12">
-                    <div class="grid grid-cols-2 gap-6" id="skill-rings">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
+            <div class="text-center mb-12">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">EXPERTISE</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Skill Rings</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="skill-rings">
+                <!-- Populated by JS -->
             </div>
         </div>
     </section>
@@ -544,9 +553,9 @@
         window.addEventListener('scroll', updateEduStepper);
         window.addEventListener('load', updateEduStepper);
 
-        // Entrance animations for education cards
-        function initEduAnimations() {
-            gsap.utils.toArray('.edu-card').forEach((card, i) => {
+        // Entrance animations for education cards + craft cards
+        function initAnimations() {
+            gsap.utils.toArray('.edu-card, .craft-card').forEach((card, i) => {
                 gsap.fromTo(card,
                     { opacity: 0, y: 40, scale: 0.985 },
                     {
@@ -555,7 +564,7 @@
                         scale: 1,
                         duration: 0.9,
                         ease: 'power3.out',
-                        delay: i * 0.06,
+                        delay: i * 0.05,
                         scrollTrigger: {
                             trigger: card,
                             start: 'top 85%',
@@ -566,9 +575,8 @@
             });
         }
 
-        // Init all animations
         window.addEventListener('load', () => {
-            initEduAnimations();
+            initAnimations();
             updateEduStepper();
         });
     </script>
