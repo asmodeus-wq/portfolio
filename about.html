@@ -23,6 +23,61 @@
         .skill-ring {
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        .journey-card {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.3s ease;
+        }
+        .journey-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+            border-color: #2C5EAD;
+        }
+
+        .edu-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+        }
+        .edu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+
+        .floating-number {
+            font-size: 110px;
+            line-height: 1;
+            font-weight: 800;
+            opacity: 0.07;
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            top: -15px;
+            left: -8px;
+            z-index: 0;
+        }
+
+        .step {
+            transition: all 0.3s ease;
+        }
+        .step.active {
+            color: #2C5EAD;
+            font-weight: 600;
+        }
+        .step.active .step-number {
+            background: #2C5EAD;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
+        }
+
+        .connector {
+            width: 50px;
+            height: 2px;
+            background: #e2e8f0;
+            transition: background 0.4s ease;
+        }
+        .connector.filled {
+            background: linear-gradient(to right, #2C5EAD, #60A5FA);
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -115,80 +170,251 @@
         </div>
     </section>
 
-<!-- Skills & Expertise -->
-<section class="py-24">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row gap-20">
+    <!-- EDUCATION JOURNEY - Immersive like Process Page -->
+    <section class="bg-white border-y border-slate-200 py-20">
+        <div class="max-w-6xl mx-auto px-6">
             
-            <!-- Left Column: Core Craft -->
-            <div class="md:w-5/12">
-                <h2 class="text-5xl font-semibold tracking-tighter section-heading mb-12">Core Craft</h2>
-                <div class="space-y-10">
-                    
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-magnifying-glass text-2xl text-[#2C5EAD]"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl">Research Mastery</h3>
-                            <p class="text-[#475569] mt-2">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
-                        </div>
-                    </div>
+            <div class="text-center mb-12">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 02 • GROWTH</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">My Learning Journey</h2>
+                <p class="mt-3 text-[#475569] max-w-md mx-auto">From foundational learning to specialized UX expertise — every step shaped my approach to design.</p>
+            </div>
 
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-pen-ruler text-2xl text-[#2C5EAD]"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl">Interaction Design</h3>
-                            <p class="text-[#475569] mt-2">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
-                        </div>
+            <!-- Horizontal Education Stepper -->
+            <div id="edu-stepper" class="sticky top-20 z-[90] hidden lg:block bg-white/95 backdrop-blur-lg border border-slate-200 rounded-3xl px-8 py-5 mb-12 shadow-sm">
+                <div class="flex items-center justify-center gap-x-2 text-sm">
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="school">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">07</div>
+                        <span class="font-medium tracking-tight">School</span>
                     </div>
-
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-users text-2xl text-[#2C5EAD]"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl">Stakeholder Alignment</h3>
-                            <p class="text-[#475569] mt-2">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
-                        </div>
+                    <div class="connector"></div>
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="jr">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">09</div>
+                        <span class="font-medium tracking-tight">Jr. College</span>
                     </div>
-
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-chart-line text-2xl text-[#2C5EAD]"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl">Design Systems</h3>
-                            <p class="text-[#475569] mt-2">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
-                        </div>
+                    <div class="connector"></div>
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="engg">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">11</div>
+                        <span class="font-medium tracking-tight">Engineering</span>
                     </div>
-
-                    <!-- New Skill -->
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-lightbulb text-2xl text-[#2C5EAD]"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-xl">Strategic Thinking</h3>
-                            <p class="text-[#475569] mt-2">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
-                        </div>
+                    <div class="connector"></div>
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="diploma">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">16</div>
+                        <span class="font-medium tracking-tight">Diploma</span>
                     </div>
-
+                    <div class="connector"></div>
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="ux">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">17</div>
+                        <span class="font-medium tracking-tight">UX Cert</span>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="bachelors">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">23</div>
+                        <span class="font-medium tracking-tight">Bachelors</span>
+                    </div>
                 </div>
             </div>
-           
-            <!-- Right Column: Skill Rings -->
-            <div class="md:w-7/12">
-                <div class="grid grid-cols-2 gap-6" id="skill-rings">
-                    <!-- Populated by JS -->
+
+            <!-- Education Cards -->
+            <div class="space-y-8">
+                
+                <!-- St. Aloysius -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="school">
+                    <div class="floating-number text-[#2C5EAD]">07</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2007</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">St. Aloysius Convent School</h3>
+                            <p class="text-[#475569] text-lg">Jalgaon District • Foundational education that sparked curiosity and discipline.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">EARLY FOUNDATION</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poona College -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="jr">
+                    <div class="floating-number text-[#2C5EAD]">09</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2007 — 2009</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Poona College of Science</h3>
+                            <p class="text-[#475569] text-lg">Jr. College, Pune University • Built strong analytical and communication foundations.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">JUNIOR COLLEGE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sinhgad -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="engg">
+                    <div class="floating-number text-[#2C5EAD]">11</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2009 — 2011</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Sinhgad Academy of Engineering</h3>
+                            <p class="text-[#475569] text-lg">Technical foundation in engineering principles and problem-solving.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">ENGINEERING</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITI -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="diploma">
+                    <div class="floating-number text-[#2C5EAD]">15</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-[#FEF3C7] text-amber-700 text-xs font-semibold tracking-[2.5px]">2015</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Industrial Training Institute (Govt)</h3>
+                            <p class="text-[#475569] text-lg">Certification course • Hands-on technical skills and practical application.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">CERTIFICATION</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vishwakarma Diploma -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="diploma">
+                    <div class="floating-number text-[#2C5EAD]">16</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-[#FEF3C7] text-amber-700 text-xs font-semibold tracking-[2.5px]">2016</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Vishwakarma Institute</h3>
+                            <p class="text-[#475569] text-lg">Diploma in Journalism &amp; Mass Media • Strengthened communication and storytelling skills.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">DIPLOMA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UX Certificate -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="ux">
+                    <div class="floating-number text-[#2C5EAD]">17</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-[2.5px]">2017</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Felix Institute</h3>
+                            <p class="text-[#475569] text-lg">UX Certificate • The pivotal step that formalized my passion into a professional craft.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">UX CERTIFICATE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bachelors -->
+                <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="bachelors">
+                    <div class="floating-number text-[#2C5EAD]">23</div>
+                    <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
+                        <div class="md:col-span-8">
+                            <div class="flex items-center gap-x-4 mb-3">
+                                <span class="px-5 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-[2.5px]">2023</span>
+                            </div>
+                            <h3 class="text-4xl font-semibold tracking-tight mb-2">Bachelors in Arts</h3>
+                            <p class="text-[#475569] text-lg">Completed my formal higher education while actively building a career in User Experience.</p>
+                        </div>
+                        <div class="md:col-span-4 mt-6 md:mt-0 text-right">
+                            <div class="text-sm text-[#64748B] tracking-widest">BACHELORS</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-20">
+                
+                <!-- Left Column: Core Craft -->
+                <div class="md:w-5/12">
+                    <h2 class="text-5xl font-semibold tracking-tighter section-heading mb-12">Core Craft</h2>
+                    <div class="space-y-10">
+                        
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-magnifying-glass text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Research Mastery</h3>
+                                <p class="text-[#475569] mt-2">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-pen-ruler text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Interaction Design</h3>
+                                <p class="text-[#475569] mt-2">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-users text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Stakeholder Alignment</h3>
+                                <p class="text-[#475569] mt-2">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-chart-line text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Design Systems</h3>
+                                <p class="text-[#475569] mt-2">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-lightbulb text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Strategic Thinking</h3>
+                                <p class="text-[#475569] mt-2">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+                <!-- Right Column: Skill Rings -->
+                <div class="md:w-7/12">
+                    <div class="grid grid-cols-2 gap-6" id="skill-rings">
+                        <!-- Populated by JS -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Compact Footer -->
     <footer class="bg-white border-t border-slate-200 py-6">
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
@@ -287,6 +513,63 @@
                     });
                 });
             }
+        });
+
+        // Education stepper active state
+        const eduSteps = document.querySelectorAll('#edu-stepper .step');
+        const eduCards = document.querySelectorAll('.edu-card');
+
+        function updateEduStepper() {
+            let current = '';
+            eduCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= 250) {
+                    current = card.getAttribute('data-edu');
+                }
+            });
+
+            eduSteps.forEach(step => {
+                step.classList.remove('active');
+                const connector = step.nextElementSibling;
+                if (connector && connector.classList.contains('connector')) {
+                    connector.classList.remove('filled');
+                }
+
+                if (step.getAttribute('data-edu') === current) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateEduStepper);
+        window.addEventListener('load', updateEduStepper);
+
+        // Entrance animations for education cards
+        function initEduAnimations() {
+            gsap.utils.toArray('.edu-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 40, scale: 0.985 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.9,
+                        ease: 'power3.out',
+                        delay: i * 0.06,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+        }
+
+        // Init all animations
+        window.addEventListener('load', () => {
+            initEduAnimations();
+            updateEduStepper();
         });
     </script>
 </body>
