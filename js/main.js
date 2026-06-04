@@ -1,9 +1,8 @@
 // ============================================
 // STRICT One-Panel-At-A-Time Horizontal Snap
-// Works on ALL devices (desktop + phones)
-// Vertical finger movement on phone = horizontal panel change (like desktop wheel)
+// Works reliably on ALL devices (desktop + phones)
+// Vertical finger movement on phone = horizontal panel change
 // Finger UP = next panel, Finger DOWN = previous panel
-// Also supports horizontal swipe as alternative
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,18 +16,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let isLocked = false;
     let lastActionTime = 0;
-    const COOLDOWN_MS = 650;  // slightly faster cooldown
-    const THRESHOLD = 28; // more sensitive for reliable back gesture
+    const COOLDOWN_MS = 520;
+    const THRESHOLD = 24; // sensitive for reliable back gesture on phone
 
-    // IMPORTANT: Set explicit width so all panels are laid out (fixes missing/white space on mobile)
+    // Set explicit width so all panels are laid out horizontally (fixes white space / missing panels)
     wrapper.style.width = `${panels.length * 100}vw`;
+    wrapper.style.display = 'flex';
+    wrapper.style.flexWrap = 'nowrap';
+
+    // On mobile, prevent native vertical scroll from fighting the horizontal snap
+    function lockBodyScroll() {
+        if (window.innerWidth <= 900) {
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+            document.body.style.height = '100dvh';
+        }
+    }
+    lockBodyScroll();
 
     function forceStartAtHero() {
         gsap.set(wrapper, { x: 0 });
         currentIndex = 0;
-        if (window.innerWidth > 768) {
-            window.scrollTo(0, 0);
-        }
     }
 
     forceStartAtHero();
@@ -43,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         gsap.to(wrapper, {
             x: targetX,
-            duration: 0.38,
+            duration: 0.36,
             ease: "power2.out",
             onComplete: () => {
                 setTimeout(() => { isLocked = false; }, COOLDOWN_MS);
@@ -51,34 +59,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Desktop + tablet wheel (vertical scroll moves horizontal panels)
+    // Desktop + tablet wheel
     wrapper.addEventListener('wheel', function(e) {
         e.preventDefault();
         if (isLocked) return;
 
         const now = Date.now();
-        if (now - lastActionTime < 160) return;
+        if (now - lastActionTime < 120) return;
         lastActionTime = now;
 
         if (e.deltaY > 0) goToPanel(currentIndex + 1);
         else if (e.deltaY < 0) goToPanel(currentIndex - 1);
     }, { passive: false });
 
-    // Keyboard navigation
+    // Keyboard
     document.addEventListener('keydown', function(e) {
         if (isLocked) return;
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goToPanel(currentIndex + 1); }
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goToPanel(currentIndex - 1); }
     });
 
-    // ========== MOBILE TOUCH: Vertical finger UP = next, finger DOWN = previous ==========
-    let touchStartX = 0;
+    // ========== MOBILE: Vertical drag UP = next, DOWN = previous ==========
     let touchStartY = 0;
     let touchStartTime = 0;
 
     wrapper.addEventListener('touchstart', function(e) {
         if (isLocked) return;
-        touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
         touchStartTime = Date.now();
     }, { passive: true });
@@ -86,57 +92,41 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapper.addEventListener('touchend', function(e) {
         if (isLocked) return;
 
-        const touchEndX = e.changedTouches[0].screenX;
         const touchEndY = e.changedTouches[0].screenY;
-        const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
         const deltaTime = Date.now() - touchStartTime;
 
-        const absDeltaX = Math.abs(deltaX);
         const absDeltaY = Math.abs(deltaY);
-        const isMostlyVertical = absDeltaY > absDeltaX * 0.7;
-        const hasDistance = Math.max(absDeltaX, absDeltaY) > THRESHOLD;
-        const isFast = deltaTime < 600;
+        const hasDistance = absDeltaY > THRESHOLD;
+        const isFast = deltaTime < 550;
 
         if (hasDistance && isFast) {
             const now = Date.now();
-            if (now - lastActionTime < 140) return;
+            if (now - lastActionTime < 100) return;
             lastActionTime = now;
 
-            if (isMostlyVertical) {
-                // Finger UP (deltaY negative) = next panel
-                // Finger DOWN (deltaY positive) = previous panel
-                if (deltaY < 0) {
-                    goToPanel(currentIndex + 1);
-                } else if (deltaY > 0) {
-                    goToPanel(currentIndex - 1);
-                }
-            } else {
-                // Horizontal swipe fallback
-                if (deltaX < 0) {
-                    goToPanel(currentIndex + 1);
-                } else {
-                    goToPanel(currentIndex - 1);
-                }
+            if (deltaY < 0) {
+                // Finger UP → next panel
+                goToPanel(currentIndex + 1);
+            } else if (deltaY > 0) {
+                // Finger DOWN → previous panel (back)
+                goToPanel(currentIndex - 1);
             }
         }
     }, { passive: true });
 
-    // Prevent native vertical scroll from fighting us when user intends to change panels
+    // Take control on vertical touchmove to prevent native scroll
     wrapper.addEventListener('touchmove', function(e) {
         if (isLocked) return;
-        const currentX = e.changedTouches[0].screenX;
         const currentY = e.changedTouches[0].screenY;
-        const dX = currentX - touchStartX;
         const dY = currentY - touchStartY;
 
-        // If strong vertical movement detected, take control immediately
-        if (Math.abs(dY) > Math.abs(dX) * 0.65 && Math.abs(dY) > 22) {
+        if (Math.abs(dY) > 18) {
             e.preventDefault();
         }
     }, { passive: false });
 
-    // Keep position correct on resize / orientation change
+    // Keep position correct on resize/orientation change
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -144,13 +134,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isLocked) {
                 gsap.set(wrapper, { x: -panels[currentIndex].offsetLeft });
             }
-        }, 260);
+            lockBodyScroll();
+        }, 200);
     });
 
     window.addEventListener('load', forceStartAtHero);
     window.addEventListener('pageshow', forceStartAtHero);
 
-    // ========== MOBILE NAV MENU ==========
+    // Mobile hamburger menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', function() {
@@ -199,5 +190,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('%c[Portfolio] Horizontal snap + mobile nav ready (reliable vertical gesture + back scrolling)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal snap ready — vertical drag on phone now works reliably', 'color:#10b981');
 });
