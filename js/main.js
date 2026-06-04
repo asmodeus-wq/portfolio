@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Smooth + Quick Settle
+// Horizontal Full-Page Scroll - Fast + Controlled (No Skipping)
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isMobile) {
         const panels = Array.from(wrapper.querySelectorAll('.panel'));
+        let lastActiveIndex = 0;
 
         setTimeout(() => {
             let totalWidth = 0;
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.3,                    // Good sensitivity
+                    scrub: 0.28,
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -41,19 +42,30 @@ document.addEventListener('DOMContentLoaded', function() {
                             const snapPoints = panels.map((_, i) => i / (panels.length - 1));
                             
                             // Find closest snap point
-                            let closest = snapPoints[0];
-                            let minDist = Math.abs(progress - closest);
+                            let closestIndex = 0;
+                            let minDist = Math.abs(progress - snapPoints[0]);
                             
                             for (let i = 1; i < snapPoints.length; i++) {
                                 const dist = Math.abs(progress - snapPoints[i]);
                                 if (dist < minDist) {
                                     minDist = dist;
-                                    closest = snapPoints[i];
+                                    closestIndex = i;
                                 }
                             }
-                            return closest;
+                            
+                            // Prevent skipping pages (only allow moving to adjacent panels)
+                            const currentIndex = lastActiveIndex;
+                            let targetIndex = closestIndex;
+                            
+                            if (Math.abs(closestIndex - currentIndex) > 1) {
+                                // If trying to jump more than 1 panel, only move 1 step in that direction
+                                targetIndex = currentIndex + (closestIndex > currentIndex ? 1 : -1);
+                            }
+                            
+                            lastActiveIndex = targetIndex;
+                            return snapPoints[targetIndex];
                         },
-                        duration: { min: 0.15, max: 0.3 },   // Quick settle after releasing scroll
+                        duration: { min: 0.08, max: 0.18 },   // Very fast settle
                         ease: "power2.out"
                     }
                 }
@@ -68,10 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     end: 'right center',
                     onToggle: self => {
                         if (self.isActive) {
+                            lastActiveIndex = index;
                             navLinks.forEach(l => l.classList.remove('active'));
-                            if (navLinks[index]) {
-                                navLinks[index].classList.add('active');
-                            }
+                            if (navLinks[index]) navLinks[index].classList.add('active');
                         }
                     }
                 });
@@ -122,5 +133,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (smooth + quick settle)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (fast + no skipping)', 'color:#10b981');
 });
