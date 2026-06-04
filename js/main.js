@@ -1,6 +1,7 @@
 // ============================================
 // Clean One-Panel-At-A-Time Horizontal Snap
 // Starts at Hero, Light scroll = Next panel only
+// Cooldown ~1sec so long scroll doesn't chain
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isAnimating = false;
     let lastWheelTime = 0;
 
-    // ALWAYS start at first panel (Hero / Landing page)
+    // ALWAYS force start at first panel (Hero / Landing page)
     gsap.set(wrapper, { x: 0 });
     currentIndex = 0;
 
@@ -41,20 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Wheel handler - very sensitive, one gesture = one panel
+    // Long scroll still = only one panel, then ~1sec cooldown before next allowed
     wrapper.addEventListener('wheel', function(e) {
         e.preventDefault();
 
         const now = Date.now();
-        if (now - lastWheelTime < 320) return; // prevent rapid skipping
+        if (now - lastWheelTime < 950) return; // ~1 second cooldown - prevents chaining on long/hard scrolls
         lastWheelTime = now;
 
         if (isAnimating) return;
 
         if (e.deltaY > 0) {
-            // scroll down → next panel
+            // scroll down → next panel only
             goToPanel(currentIndex + 1);
         } else if (e.deltaY < 0) {
-            // scroll up → previous panel
+            // scroll up → previous panel only
             goToPanel(currentIndex - 1);
         }
     }, { passive: false });
@@ -86,5 +88,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 250);
     });
 
-    console.log('%c[Portfolio] Clean one-panel snap initialized (starts at Hero)', 'color:#10b981');
+    console.log('%c[Portfolio] Clean one-panel snap initialized (starts at Hero, 1sec cooldown)', 'color:#10b981');
 });
