@@ -94,20 +94,11 @@
             filter: brightness(0.93) contrast(1.05);
         }
 
-        .panel-header {
-            margin-bottom: 3rem;
-        }
-
-        .big-number {
-            font-size: 5.5rem;
-            line-height: 1;
-            font-weight: 800;
-            opacity: 0.08;
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            pointer-events: none;
-            user-select: none;
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 600;
+            color: #2C5EAD;
         }
     </style>
 </head>
@@ -140,7 +131,7 @@
     <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex flex-nowrap">
         
-        <!-- HERO PANEL (Video kept) -->
+        <!-- HERO PANEL -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative overflow-hidden">
             <div class="hero-video-container">
                 <iframe 
@@ -177,7 +168,7 @@
                  style="background: #F8FAFC">
             <div class="max-w-5xl w-full">
                 <div class="max-w-2xl">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">01 — THE STORY</div>
+                    <div class="section-label mb-4">01 — THE STORY</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none mb-8">Who I am</h2>
                     
                     <div class="text-[17px] leading-relaxed text-[#334155] space-y-6 mb-10">
@@ -192,55 +183,47 @@
             </div>
         </section>
 
-        <!-- SKILLSET PANEL -->
+        <!-- SKILLSET PANEL (Cleaned up - only headings) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #F8FAFC 0%, #F0F7FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-14">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">02 — CRAFT</div>
+                    <div class="section-label mb-4">02 — CRAFT</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">My Skillset</h2>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-search text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">User Research</h4>
-                        <p class="text-[#475569] leading-relaxed">Interviews, usability testing, surveys, and behavioral analysis that uncover real needs.</p>
+                        <i class="fa-solid fa-search text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">User Research</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-sitemap text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Information Architecture</h4>
-                        <p class="text-[#475569] leading-relaxed">Card sorting, flow mapping, taxonomy, and navigation systems.</p>
+                        <i class="fa-solid fa-sitemap text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Information Architecture</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-palette text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Interaction Design</h4>
-                        <p class="text-[#475569] leading-relaxed">Wireframing, high-fidelity prototyping, and thoughtful micro-interactions.</p>
+                        <i class="fa-solid fa-palette text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Interaction Design</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-layer-group text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Design Systems</h4>
-                        <p class="text-[#475569] leading-relaxed">Component libraries, design tokens, and scalable UI foundations.</p>
+                        <i class="fa-solid fa-layer-group text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Design Systems</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-vial text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Usability Testing</h4>
-                        <p class="text-[#475569] leading-relaxed">Moderated testing, heuristic evaluation, and continuous iteration.</p>
+                        <i class="fa-solid fa-vial text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Usability Testing</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-users-cog text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Stakeholder Management</h4>
-                        <p class="text-[#475569] leading-relaxed">Workshop facilitation and cross-functional collaboration.</p>
+                        <i class="fa-solid fa-users-cog text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Stakeholder Management</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-chart-line text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Data-Driven Design</h4>
-                        <p class="text-[#475569] leading-relaxed">Analytics interpretation, A/B testing, and insight synthesis.</p>
+                        <i class="fa-solid fa-chart-line text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Data-Driven Design</h4>
                     </div>
                     <div class="skill-card premium-card bg-white border border-slate-200 p-9 rounded-3xl">
-                        <i class="fa-solid fa-universal-access text-4xl text-[#2C5EAD] mb-7"></i>
-                        <h4 class="font-semibold text-2xl mb-4">Accessibility &amp; Inclusive Design</h4>
-                        <p class="text-[#475569] leading-relaxed">WCAG compliance and inclusive design principles.</p>
+                        <i class="fa-solid fa-universal-access text-4xl text-[#2C5EAD] mb-6"></i>
+                        <h4 class="font-semibold text-2xl">Accessibility &amp; Inclusive Design</h4>
                     </div>
                 </div>
             </div>
@@ -251,7 +234,7 @@
                  style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
             <div class="max-w-7xl w-full">
                 <div class="mb-14">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">03 — EXPERTISE</div>
+                    <div class="section-label mb-4">03 — EXPERTISE</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">Tools I work with</h2>
                 </div>
 
@@ -283,7 +266,7 @@
                  style="background: #F8FAFC">
             <div class="max-w-6xl w-full">
                 <div class="mb-12">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">04 — WORK</div>
+                    <div class="section-label mb-4">04 — WORK</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">Selected Work</h2>
                 </div>
 
@@ -292,7 +275,7 @@
                         <div class="aspect-video bg-slate-100"><img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform"></div>
                         <div class="p-8">
                             <h3 class="text-3xl font-semibold tracking-tight mb-4">Raintree 2021</h3>
-                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences across platforms.</p>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences.</p>
                         </div>
                     </a>
                     <a href="work.html" class="group block premium-card bg-white border border-slate-200 rounded-3xl overflow-hidden">
@@ -311,7 +294,7 @@
                  style="background: linear-gradient(135deg, #F8FAFC 0%, #F0F7FF 100%)">
             <div class="max-w-5xl w-full">
                 <div class="mb-14">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">05 — PROCESS</div>
+                    <div class="section-label mb-4">05 — PROCESS</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">How I work</h2>
                 </div>
 
@@ -344,7 +327,7 @@
                  style="background: #F8FAFC">
             <div class="max-w-5xl w-full">
                 <div class="mb-14">
-                    <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">06 — CAREER</div>
+                    <div class="section-label mb-4">06 — CAREER</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">Experience</h2>
                 </div>
 
@@ -380,7 +363,7 @@
         <!-- CONTACT PANEL -->
         <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-10 md:p-16">
             <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-12 lg:pl-20 relative z-10">
-                <div class="text-[#2C5EAD] text-sm font-semibold tracking-[4px] mb-4">07 — CONTACT</div>
+                <div class="section-label mb-4">07 — CONTACT</div>
                 <h2 class="text-7xl md:text-[64px] font-semibold tracking-tighter leading-none mb-8 section-heading text-white drop-shadow-lg">
                     Let's create<br>something meaningful together.
                 </h2>
