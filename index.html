@@ -18,6 +18,14 @@
             letter-spacing: -0.04em;
         }
 
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 700;
+            color: #2C5EAD;
+            text-transform: uppercase;
+        }
+
         .premium-card {
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
                         box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
@@ -92,13 +100,6 @@
             background-position: 68% center;
             background-repeat: no-repeat;
             filter: brightness(0.93) contrast(1.05);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            letter-spacing: 3.5px;
-            font-weight: 600;
-            color: #2C5EAD;
         }
     </style>
 </head>
@@ -183,7 +184,7 @@
             </div>
         </section>
 
-        <!-- SKILLSET PANEL (Cleaned up - only headings) -->
+        <!-- SKILLSET PANEL (Only headings) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #F8FAFC 0%, #F0F7FF 100%)">
             <div class="max-w-6xl w-full">
@@ -261,27 +262,40 @@
             </div>
         </section>
 
-        <!-- SELECTED WORK PANEL -->
+        <!-- SELECTED WORK PANEL (Completely Redesigned) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
-                 style="background: #F8FAFC">
+                 style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-12">
                     <div class="section-label mb-4">04 — WORK</div>
                     <h2 class="text-7xl md:text-8xl font-semibold tracking-tighter section-heading leading-none">Selected Work</h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                     <a href="work.html" class="group block premium-card bg-white border border-slate-200 rounded-3xl overflow-hidden">
-                        <div class="aspect-video bg-slate-100"><img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform"></div>
+                        <div class="aspect-video bg-slate-100 relative">
+                            <img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent"></div>
+                        </div>
                         <div class="p-8">
-                            <h3 class="text-3xl font-semibold tracking-tight mb-4">Raintree 2021</h3>
-                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences.</p>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-3xl font-semibold tracking-tight">Raintree 2021</h3>
+                                <span class="text-xs px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-medium">Design System</span>
+                            </div>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences across platforms.</p>
                         </div>
                     </a>
+
                     <a href="work.html" class="group block premium-card bg-white border border-slate-200 rounded-3xl overflow-hidden">
-                        <div class="aspect-video bg-slate-100"><img src="images/aiml.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform"></div>
+                        <div class="aspect-video bg-slate-100 relative">
+                            <img src="images/aiml.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent"></div>
+                        </div>
                         <div class="p-8">
-                            <h3 class="text-3xl font-semibold tracking-tight mb-4">AI/ML Interfaces</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-3xl font-semibold tracking-tight">AI/ML Interfaces</h3>
+                                <span class="text-xs px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium">Exploration</span>
+                            </div>
                             <p class="text-[#475569] text-[15px] leading-relaxed">Speculative exploration of intelligent interfaces, predictive interactions, and AI-driven user experiences.</p>
                         </div>
                     </a>
