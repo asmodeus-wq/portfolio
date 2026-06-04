@@ -13,6 +13,37 @@
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
+
+        .contact-hero {
+            background-image: 
+                /* Strong vignette from left (text side) fading toward Pune label on right */
+                linear-gradient(to right, 
+                    rgba(15, 23, 42, 0.72) 0%, 
+                    rgba(15, 23, 42, 0.55) 28%, 
+                    rgba(15, 23, 42, 0.28) 48%, 
+                    rgba(15, 23, 42, 0.08) 65%, 
+                    transparent 78%
+                ),
+                url('images/pune.png');
+            background-size: cover;
+            background-position: 72% center; /* Emphasize the Pune label area which is off-center right */
+            background-repeat: no-repeat;
+            filter: brightness(0.82) contrast(1.08) saturate(1.05);
+        }
+
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at 68% 42%, 
+                transparent 38%, 
+                rgba(15, 23, 42, 0.18) 62%, 
+                rgba(15, 23, 42, 0.38) 82%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -42,44 +73,41 @@
     </nav>
 
     <!-- Hero with visible Pune Map -->
-    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden"
-             style="background-image: linear-gradient(rgba(248,250,252,0.82), rgba(248,250,252,0.88)), url('images/pune.png');
-                      background-size: cover;
-                      background-position: center;">
+    <section class="contact-hero min-h-[100dvh] flex items-center justify-start relative pt-20 overflow-hidden">
         
-        <div class="max-w-3xl mx-auto px-6 md:pl-12 lg:pl-16 relative z-10">
+        <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 px-6 md:pl-12 lg:pl-20 relative z-10">
             
             <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 07</span>
-            <h1 class="text-6xl md:text-[68px] font-semibold tracking-tighter leading-none mt-4 mb-6 section-heading">
+            <h1 class="text-6xl md:text-[68px] font-semibold tracking-tighter leading-none mt-4 mb-6 section-heading text-white drop-shadow-lg">
                 Let's create<br>something meaningful together.
             </h1>
             
-            <p class="max-w-xl text-xl text-[#475569] tracking-tight mb-10">
+            <p class="max-w-lg text-xl text-white/85 tracking-tight mb-10 drop-shadow">
                 Based in Pune, India. I’m always excited to discuss new projects, collaborations, or just have a good conversation about design.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 mb-14">
-                <a href="mailto:faizanquazi123@gmail.com" class="group inline-flex items-center justify-center gap-x-4 px-10 py-4.5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all active:scale-[0.985]">
+                <a href="mailto:faizanquazi123@gmail.com" class="group inline-flex items-center justify-center gap-x-4 px-10 py-4.5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all active:scale-[0.985] shadow-xl">
                     <i class="fa-solid fa-envelope text-2xl group-hover:scale-110 transition"></i>
                     <span>Email Me</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-4 px-10 py-4.5 border-2 border-[#CBD5E1] hover:bg-white font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] text-[#334155]">
+                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-4 px-10 py-4.5 border-2 border-white/40 hover:bg-white/10 font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] text-white backdrop-blur-sm">
                     <i class="fa-brands fa-linkedin text-2xl"></i>
                     <span>Connect on LinkedIn</span>
                 </a>
             </div>
 
             <div class="flex flex-col sm:flex-row items-center gap-x-8 gap-y-4 text-lg">
-                <a href="tel:+918446556866" class="flex items-center gap-x-3 text-[#475569] hover:text-[#0F172A] transition-colors">
-                    <i class="fa-solid fa-phone text-[#2C5EAD]"></i>
+                <a href="tel:+918446556866" class="flex items-center gap-x-3 text-white/90 hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone text-[#93C5FD]"></i>
                     <span>+91 84465 56866</span>
                 </a>
 
-                <div class="hidden sm:block w-px h-5 bg-slate-300"></div>
+                <div class="hidden sm:block w-px h-5 bg-white/40"></div>
 
-                <div class="flex items-center gap-x-3 text-[#475569]">
-                    <i class="fa-solid fa-map-marker-alt text-[#2C5EAD]"></i>
+                <div class="flex items-center gap-x-3 text-white/90">
+                    <i class="fa-solid fa-map-marker-alt text-[#93C5FD]"></i>
                     <span>Pune, Maharashtra, India</span>
                 </div>
             </div>
