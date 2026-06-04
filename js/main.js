@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let isLocked = false;
     let lastActionTime = 0;
-    const COOLDOWN_MS = 520;
+    const COOLDOWN_MS = 680;  // Increased to prevent skipping on hard/fast scrolls
     const THRESHOLD = 22; // slightly more sensitive for reliable back gesture
 
     // Set explicit width so all panels are laid out horizontally
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         gsap.to(wrapper, {
             x: targetX,
-            duration: 0.36,
+            duration: 0.42,
             ease: "power2.out",
             onComplete: () => {
                 setTimeout(() => { isLocked = false; }, COOLDOWN_MS);
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLocked) return;
 
         const now = Date.now();
-        if (now - lastActionTime < 120) return;
+        if (now - lastActionTime < 160) return;  // Increased cooldown for wheel
         lastActionTime = now;
 
         if (e.deltaY > 0) goToPanel(currentIndex + 1);
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (hasDistance && isFast) {
             const now = Date.now();
-            if (now - lastActionTime < 100) return;
+            if (now - lastActionTime < 140) return;
             lastActionTime = now;
 
             if (deltaY < 0) {
