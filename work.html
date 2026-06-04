@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            overflow-x: hidden;
+        }
+        #horizontal-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100vh;
+            width: max-content;
+            overflow: hidden;
+        }
+        .panel {
+            min-width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
 
@@ -35,7 +52,7 @@
     </nav>
 
     <!-- Horizontal Wrapper -->
-    <div id="horizontal-wrapper" class="flex flex-nowrap h-screen w-max">
+    <div id="horizontal-wrapper">
 
         <!-- Hero Panel -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 bg-white">
