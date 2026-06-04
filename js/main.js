@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Instant Commit Feel
+// Horizontal Full-Page Scroll - Smooth & Sensitive
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,14 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const scrollDistance = totalWidth - window.innerWidth + 80;
 
-            // Main horizontal scroll with fast commit snap
             gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.25,                    // Very direct response while scrolling
+                    scrub: 0.35,                    // Balanced - responsive but smooth
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             
                             const snapPoints = panels.map((_, i) => i / (panels.length - 1));
                             
-                            // Find closest snap point quickly
+                            // Find closest snap point
                             let closest = snapPoints[0];
                             let minDist = Math.abs(progress - closest);
                             
@@ -54,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                             return closest;
                         },
-                        duration: { min: 0.05, max: 0.12 },   // Very fast / almost instant snap
-                        ease: "power1.out"
+                        duration: { min: 0.3, max: 0.55 },   // Smooth, slightly slower glide
+                        ease: "power2.out"
                     }
                 }
             });
@@ -123,5 +122,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (instant commit)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (smooth + sensitive)', 'color:#10b981');
 });
