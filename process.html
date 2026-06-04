@@ -13,6 +13,38 @@
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
+
+        .journey-step {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .journey-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .phase-section {
+            scroll-margin-top: 80px;
+        }
+
+        .process-connector {
+            position: relative;
+        }
+
+        .process-connector::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, #e2e8f0, transparent);
+            transform: translateX(-50%);
+        }
+
+        .phase-number {
+            font-variant-numeric: tabular-nums;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -53,15 +85,15 @@
             <p class="max-w-2xl mx-auto text-2xl md:text-3xl text-[#475569] tracking-tight">Adaptive. Human-centered.<br>Built for real-world complexity.</p>
             
             <div class="mt-12 flex justify-center">
-                <a href="#phases" class="group inline-flex items-center gap-x-3 px-8 py-4 rounded-2xl border border-[#CBD5E1] hover:bg-white transition-all text-sm font-medium">
-                    EXPLORE THE PROCESS
+                <a href="#journey-overview" class="group inline-flex items-center gap-x-3 px-8 py-4 rounded-2xl border border-[#CBD5E1] hover:bg-white hover:border-[#2C5EAD]/30 transition-all text-sm font-medium">
+                    BEGIN THE JOURNEY
                     <i class="fa-solid fa-arrow-down group-hover:translate-y-0.5 transition"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Intro -->
+    <!-- Philosophy Intro -->
     <section class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-200">
         <div class="grid md:grid-cols-12 gap-x-12 items-center">
             <div class="md:col-span-5">
@@ -75,76 +107,93 @@
         </div>
     </section>
 
-    <!-- Visual Process Journey -->
-    <section id="phases" class="max-w-6xl mx-auto px-6 py-16">
+    <!-- Journey Overview - Immersive 3-Step Map -->
+    <section id="journey-overview" class="max-w-6xl mx-auto px-6 py-16">
         <div class="text-center mb-14">
             <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE JOURNEY</span>
             <h3 class="text-5xl font-semibold tracking-tighter mt-2 section-heading">Three phases.<br>One clear direction.</h3>
+            <p class="mt-4 max-w-md mx-auto text-[#475569]">Scroll through the complete journey or jump directly into any phase.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
+            <!-- Step 01 -->
+            <a href="#phase1" class="journey-step group block bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-[#2C5EAD]">01</span>
+                    <span class="phase-number text-7xl font-bold text-[#2C5EAD]">01</span>
                     <i class="fa-solid fa-search text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Understand</h4>
-                <p class="text-[#475569]">Deep research, stakeholder mapping, personas & problem framing.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">RESEARCH • SYNTHESIS</div>
-            </div>
+                <p class="text-[#475569] mb-6">Deep research, stakeholder mapping, personas &amp; problem framing.</p>
+                <div class="inline-flex items-center text-sm font-medium text-[#2C5EAD] group-hover:gap-x-2 transition-all">
+                    Dive into research <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                </div>
+            </a>
 
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
+            <!-- Step 02 -->
+            <a href="#phase2" class="journey-step group block bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-[#2C5EAD]">02</span>
+                    <span class="phase-number text-7xl font-bold text-[#2C5EAD]">02</span>
                     <i class="fa-solid fa-lightbulb text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Explore</h4>
-                <p class="text-[#475569]">Ideation, user scenarios, and creative exploration of solution directions.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">IDEATION • VALIDATION</div>
-            </div>
+                <p class="text-[#475569] mb-6">Ideation, user scenarios, and creative exploration of solution directions.</p>
+                <div class="inline-flex items-center text-sm font-medium text-[#2C5EAD] group-hover:gap-x-2 transition-all">
+                    See the ideas <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                </div>
+            </a>
 
-            <div class="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
+            <!-- Step 03 -->
+            <a href="#phase3" class="journey-step group block bg-white border border-slate-200 rounded-3xl p-8 hover:border-[#2C5EAD]/40 transition-all duration-300">
                 <div class="flex items-center justify-between mb-6">
-                    <span class="text-6xl font-bold text-[#2C5EAD]">03</span>
+                    <span class="phase-number text-7xl font-bold text-[#2C5EAD]">03</span>
                     <i class="fa-solid fa-rocket text-4xl text-[#2C5EAD] group-hover:scale-110 transition"></i>
                 </div>
                 <h4 class="text-3xl font-semibold tracking-tight mb-3">Materialize</h4>
-                <p class="text-[#475569]">Wireframes, high-fidelity prototypes, testing & handoff.</p>
-                <div class="mt-8 text-xs tracking-[2px] text-[#2C5EAD] font-medium">DESIGN • DELIVERY</div>
-            </div>
+                <p class="text-[#475569] mb-6">Wireframes, high-fidelity prototypes, testing &amp; handoff.</p>
+                <div class="inline-flex items-center text-sm font-medium text-[#2C5EAD] group-hover:gap-x-2 transition-all">
+                    See the delivery <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Phase 01: Understand (Detailed) -->
-    <section class="bg-white border-y border-slate-200 py-20">
+    <!-- Phase 01: Understand -->
+    <section id="phase1" class="phase-section bg-white border-y border-slate-200 py-20">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-x-4 mb-4">
-                <span class="px-4 py-1 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 01</span>
-            </div>
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="grid md:grid-cols-12 gap-x-12 items-start">
                 <div class="md:col-span-7">
+                    <div class="flex items-center gap-x-4 mb-4">
+                        <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 01</span>
+                    </div>
                     <h2 class="text-6xl font-semibold tracking-tighter section-heading">Understand</h2>
                     <p class="mt-6 text-xl text-[#334155] max-w-xl">I immerse myself in the problem space — talking to stakeholders, mapping the ecosystem, and uncovering real user needs.</p>
                     
                     <div class="mt-10 space-y-8">
                         <div>
-                            <h5 class="font-semibold text-[#2C5EAD] mb-2 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                            <ul class="space-y-2 text-[#475569]">
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Stakeholder interviews & mapping</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> User research & persona development</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Journey mapping & pain point analysis</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Problem framing & goal definition</li>
+                            <h5 class="font-semibold text-[#2C5EAD] mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                            <ul class="space-y-3.5 text-[#475569] text-[15px]">
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Stakeholder interviews &amp; mapping</li>
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> User research &amp; persona development</li>
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Journey mapping &amp; pain point analysis</li>
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Problem framing &amp; goal definition</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="md:col-span-5 mt-12 md:mt-0 space-y-6">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Stakeholder Mapping">
+                <div class="md:col-span-5 mt-12 md:mt-4 space-y-8">
+                    <div class="group">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]" alt="Stakeholder Mapping">
+                        </div>
+                        <p class="mt-3 text-center text-sm text-[#64748B] tracking-wide">Stakeholder Mapping &amp; Ecosystem View</p>
                     </div>
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Personas">
+                    
+                    <div class="group">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]" alt="User Personas">
+                        </div>
+                        <p class="mt-3 text-center text-sm text-[#64748B] tracking-wide">User Personas &amp; Insights</p>
                     </div>
                 </div>
             </div>
@@ -152,25 +201,29 @@
     </section>
 
     <!-- Phase 02: Explore -->
-    <section class="py-20">
+    <section id="phase2" class="phase-section py-20">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                <div class="md:col-span-5 order-2 md:order-1 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="User Scenarios">
+            <div class="grid md:grid-cols-12 gap-x-12 items-start">
+                <!-- Image first on desktop for visual alternation -->
+                <div class="md:col-span-5 md:order-1 order-2 mt-12 md:mt-0">
+                    <div class="group">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]" alt="User Scenarios">
+                        </div>
+                        <p class="mt-3 text-center text-sm text-[#64748B] tracking-wide">User Scenarios &amp; Journey Flows</p>
                     </div>
                 </div>
-                
-                <div class="md:col-span-7 order-1 md:order-2">
+
+                <div class="md:col-span-7 md:order-2 order-1">
                     <div class="flex items-center gap-x-4 mb-4">
-                        <span class="px-4 py-1 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 02</span>
+                        <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 02</span>
                     </div>
                     <h2 class="text-6xl font-semibold tracking-tighter section-heading">Explore</h2>
                     <p class="mt-6 text-xl text-[#334155] max-w-xl">With a clear problem definition, we move into creative exploration — generating ideas, mapping user scenarios, and testing early concepts.</p>
                     
                     <div class="mt-10">
-                        <h5 class="font-semibold text-[#2C5EAD] mb-3 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-[#475569]">
+                        <h5 class="font-semibold text-[#2C5EAD] mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5 text-[#475569] text-[15px]">
                             <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-[#2C5EAD]"></i> Ideation workshops</div>
                             <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-[#2C5EAD]"></i> User scenario mapping</div>
                             <div class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-[#2C5EAD]"></i> Low-fidelity wireframing</div>
@@ -183,35 +236,37 @@
     </section>
 
     <!-- Phase 03: Materialize -->
-    <section class="bg-white border-y border-slate-200 py-20">
+    <section id="phase3" class="phase-section bg-white border-y border-slate-200 py-20">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="grid md:grid-cols-12 gap-x-12 items-start">
                 <div class="md:col-span-7">
                     <div class="flex items-center gap-x-4 mb-4">
-                        <span class="px-4 py-1 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 03</span>
+                        <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 03</span>
                     </div>
                     <h2 class="text-6xl font-semibold tracking-tighter section-heading">Materialize</h2>
                     <p class="mt-6 text-xl text-[#334155] max-w-xl">Ideas become tangible. I craft detailed wireframes, high-fidelity prototypes, and polished designs ready for development and testing.</p>
                     
-                    <div class="mt-10 space-y-6">
+                    <div class="mt-10 space-y-8">
                         <div>
-                            <h5 class="font-semibold text-[#2C5EAD] mb-3 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                            <ul class="space-y-2.5 text-[#475569]">
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Detailed wireframes & user flows</li>
+                            <h5 class="font-semibold text-[#2C5EAD] mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                            <ul class="space-y-3.5 text-[#475569] text-[15px]">
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Detailed wireframes &amp; user flows</li>
                                 <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> High-fidelity UI design</li>
                                 <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Interactive prototypes</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Usability testing & iteration</li>
-                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Developer handoff & documentation</li>
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Usability testing &amp; iteration</li>
+                                <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Developer handoff &amp; documentation</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="md:col-span-5 mt-12 md:mt-0">
-                    <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                        <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Design Plan & Framework">
+                <div class="md:col-span-5 mt-12 md:mt-4">
+                    <div class="group">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.015]" alt="Design Plan &amp; Framework">
+                        </div>
+                        <p class="mt-3 text-center text-sm text-[#64748B] tracking-wide">Design Plan &amp; Framework Visualization</p>
                     </div>
-                    <div class="mt-6 text-center text-sm text-[#64748B]">Design plan & framework visualization</div>
                 </div>
             </div>
         </div>
@@ -220,12 +275,35 @@
     <!-- Closing CTA -->
     <section class="max-w-4xl mx-auto px-6 py-24 text-center bg-white border-t border-slate-200">
         <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter section-heading">Ready to build something<br>meaningful together?</h2>
-        <p class="mt-6 text-xl text-[#475569] max-w-md mx-auto">Let’s discuss your project and see how my process can help.</p>
+        <p class="mt-6 text-xl text-[#475569] max-w-md mx-auto">Let’s discuss your project and see how my process can help bring it to life.</p>
         
-        <a href="contact.html" class="mt-10 inline-block px-14 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all">
+        <a href="contact.html" class="mt-10 inline-block px-14 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all active:scale-[0.985]">
             Start a Conversation
         </a>
     </section>
+
+    <!-- Compact Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[#475569]">
+                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-solid fa-envelope"></i> 
+                        <span>faizanquazi123@gmail.com</span>
+                    </a>
+                    <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-solid fa-phone"></i> 
+                        <span>+91 84465 56866</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-brands fa-linkedin"></i> 
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <p class="text-xs text-[#64748B] text-center md:text-right">© 2026 Faizan Quazi • UX Analyst</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Image Lightbox Modal -->
     <div id="lightbox-modal" class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4" onclick="closeLightbox(event)">
@@ -287,6 +365,32 @@
                 modal.style.display = 'none';
                 modal.classList.add('hidden');
             }
+        });
+
+        // Smooth scroll for journey overview cards
+        document.querySelectorAll('a[href^="#phase"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Optional: subtle entrance animation for journey cards
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.journey-step');
+            cards.forEach((card, i) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.transitionDelay = (i * 120) + 'ms';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300);
+            });
         });
     </script>
 </body>
