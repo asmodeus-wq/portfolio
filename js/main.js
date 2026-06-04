@@ -1,6 +1,8 @@
 // ============================================
-// Horizontal Full-Page Snap Scroll - Instant + Smooth Glide
-// One scroll = One panel. Clean, no stuck, no skipping.
+// Horizontal Full-Page Snap Scroll - Refined
+// One scroll gesture = Exactly one panel
+// Instant decision + smooth 0.45s glide
+// Short cooldown so it doesn't chain-fire
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,13 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!isMobile) {
         
         let currentIndex = 0;
-        let isAnimating = false;
+        let isLocked = false;           // Prevents rapid firing / skipping
+        let accumulatedDelta = 0;
+        let wheelTimer = null;
 
-        // Force start at Hero (panel 0) cleanly
+        // Force start at Hero cleanly
         gsap.set(wrapper, { x: 0 });
         window.scrollTo(0, 0);
 
-        // Get exact X position for any panel
         function getPanelX(index) {
             let x = 0;
             for (let i = 0; i < index; i++) {
@@ -37,90 +40,98 @@ document.addEventListener('DOMContentLoaded', function() {
             return x;
         }
 
-        // Smoothly move to a panel (slightly slow premium glide ~0.42s)
         function goToPanel(targetIndex) {
-            if (targetIndex < 0 || targetIndex >= panels.length || isAnimating) return;
+            if (targetIndex < 0 || targetIndex >= panels.length || isLocked) return;
             if (targetIndex === currentIndex) return;
 
-            isAnimating = true;
+            isLocked = true;
             const oldIndex = currentIndex;
             currentIndex = targetIndex;
 
             gsap.to(wrapper, {
                 x: getPanelX(targetIndex),
-                duration: 0.42,           // Slightly slow smooth transition you liked
+                duration: 0.45,           // Slightly slow smooth premium glide (you liked this speed)
                 ease: 'power2.out',
                 onComplete: () => {
-                    isAnimating = false;
+                    // Cooldown period so next gesture is not immediate
+                    setTimeout(() => {
+                        isLocked = false;
+                    }, 650); // ~0.65 sec cooldown after landing
                 }
             });
 
-            // Update active nav link
+            // Update nav
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(l => l.classList.remove('active'));
             if (navLinks[targetIndex]) navLinks[targetIndex].classList.add('active');
         }
 
         // ============================================
-        // WHEEL / TRACKPAD HANDLER - Very sensitive
-        // One scroll gesture = move exactly one panel
+        // WHEEL / TRACKPAD - Gesture based (one gesture = one panel)
+        // Accumulates small deltas, then decides once when user pauses
         // ============================================
-        let wheelTimeout = null;
+        window.addEventListener('wheel', function(e) {
+            if (isLocked) {
+                e.preventDefault();
+                return;
+            }
 
-        wrapper.addEventListener('wheel', function(e) {
-            e.preventDefault(); // Prevent normal vertical scroll
+            accumulatedDelta += e.deltaY;
+            e.preventDefault();
 
-            if (isAnimating) return; // Ignore while moving
+            clearTimeout(wheelTimer);
 
-            const direction = e.deltaY > 0 ? 1 : -1;
-            const targetIndex = currentIndex + direction;
+            // When user pauses scrolling for a short moment, process the gesture
+            wheelTimer = setTimeout(() => {
+                if (Math.abs(accumulatedDelta) < 8) {
+                    accumulatedDelta = 0;
+                    return; // too small, ignore
+                }
 
-            // Move exactly one panel (no skipping even on hard scroll)
-            goToPanel(targetIndex);
+                const direction = accumulatedDelta > 0 ? 1 : -1;
+                const targetIndex = currentIndex + direction;
 
-            // Small cooldown so trackpad doesn't fire multiple times too fast
-            clearTimeout(wheelTimeout);
-            wheelTimeout = setTimeout(() => {
-                // ready for next gesture
-            }, 80);
+                goToPanel(targetIndex);
+
+                accumulatedDelta = 0; // reset for next gesture
+            }, 120); // 120ms pause detection - feels responsive
         }, { passive: false });
 
-        // Also allow clicking nav links
+        // Allow nav clicks to jump
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                goToPanel(index);
+                if (!isLocked) goToPanel(index);
             });
         });
 
-        // Keyboard arrows (bonus)
+        // Keyboard support
         document.addEventListener('keydown', (e) => {
-            if (isAnimating) return;
+            if (isLocked) return;
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goToPanel(currentIndex + 1);
             if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goToPanel(currentIndex - 1);
         });
 
-        // Make sure we really start at panel 0
+        // Make sure we start at panel 0
         setTimeout(() => {
             goToPanel(0);
             window.scrollTo(0, 0);
-        }, 120);
+        }, 150);
 
-        // Refresh positions on resize
+        // Recalculate on resize
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                // Recalculate current position after resize
                 gsap.set(wrapper, { x: getPanelX(currentIndex) });
             }, 300);
         });
 
-        console.log('%c[Portfolio] Wheel snap initialized (one scroll = one panel, 0.42s smooth glide)', 'color:#10b981');
+        console.log('%c[Portfolio] Refined wheel snap ready (one gesture = one panel, 0.45s glide + 650ms cooldown)', 'color:#10b981');
     }
 
-    // Mobile menu toggle
+    // Mobile menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
