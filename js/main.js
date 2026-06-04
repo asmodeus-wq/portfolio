@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Snappier Version
+// Horizontal Full-Page Scroll - Clean & Snappy
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,64 +16,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth < 768;
 
     if (!isMobile) {
-        const panels = wrapper.querySelectorAll('.panel');
+        const panels = Array.from(wrapper.querySelectorAll('.panel'));
 
         setTimeout(() => {
             let totalWidth = 0;
             panels.forEach(p => totalWidth += p.offsetWidth);
 
-            const scrollDistance = totalWidth - window.innerWidth + 150;
+            const scrollDistance = totalWidth - window.innerWidth + 80;
 
-            // Create labels for each panel (for snapping)
-            panels.forEach((panel, i) => {
-                ScrollTrigger.create({
-                    trigger: panel,
-                    start: 'left center',
-                    end: 'right center',
-                    id: `panel-${i}`
-                });
-            });
-
-            gsap.to(wrapper, {
+            // Main horizontal scroll with snap
+            const horizontalScroll = gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.6,                    // Tighter response (was 1.7)
+                    scrub: 0.5,
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
                     snap: {
                         snapTo: (progress) => {
-                            // Snap to nearest panel after ~35% scrolled into it
-                            const panelCount = panels.length;
-                            if (panelCount <= 1) return progress;
+                            if (panels.length <= 1) return progress;
                             
-                            const panelWidth = 1 / (panelCount - 1);
-                            const currentPanel = Math.floor(progress / panelWidth);
-                            const panelProgress = (progress % panelWidth) / panelWidth;
+                            // Calculate snap points (0, 0.25, 0.5, 0.75, 1 for 5 panels)
+                            const snapPoints = panels.map((_, i) => i / (panels.length - 1));
                             
-                            // If scrolled more than 35% into the next panel, commit to it
-                            if (panelProgress > 0.35) {
-                                return Math.min((currentPanel + 1) * panelWidth, 1);
-                            } 
-                            // If scrolled back past 35% of current panel, go back
-                            else if (panelProgress < 0.65 && currentPanel > 0) {
-                                return currentPanel * panelWidth;
+                            // Find closest snap point
+                            let closest = snapPoints[0];
+                            let minDist = Math.abs(progress - closest);
+                            
+                            for (let i = 1; i < snapPoints.length; i++) {
+                                const dist = Math.abs(progress - snapPoints[i]);
+                                if (dist < minDist) {
+                                    minDist = dist;
+                                    closest = snapPoints[i];
+                                }
                             }
                             
-                            return currentPanel * panelWidth;
+                            return closest;
                         },
-                        duration: { min: 0.25, max: 0.45 },
+                        duration: { min: 0.2, max: 0.4 },
                         ease: "power2.out"
                     }
                 }
             });
 
-            // Active navigation
+            // Active navigation highlighting
             const navLinks = document.querySelectorAll('.nav-link');
-            panels.forEach(panel => {
+            panels.forEach((panel, index) => {
                 ScrollTrigger.create({
                     trigger: panel,
                     start: 'left center',
@@ -81,53 +72,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     onToggle: self => {
                         if (self.isActive) {
                             navLinks.forEach(l => l.classList.remove('active'));
-                            const link = document.querySelector(`a[href="#${panel.id}"]`);
-                            if (link) link.classList.add('active');
+                            // Simple active state based on panel order
+                            if (navLinks[index]) {
+                                navLinks.forEach(l => l.classList.remove('active'));
+                                navLinks[index].classList.add('active');
+                            }
                         }
                     }
                 });
             });
 
-            // Subtle panel animation
+            // Subtle scale/opacity animation on panels
             panels.forEach((panel, i) => {
                 if (i === 0) return;
                 gsap.fromTo(panel, 
-                    { opacity: 0.65, scale: 0.97 },
+                    { opacity: 0.7, scale: 0.98 },
                     {
                         opacity: 1,
                         scale: 1,
-                        duration: 0.6,
+                        duration: 0.5,
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: panel,
-                            start: 'left 75%',
+                            start: 'left 70%',
                             toggleActions: 'play none none reverse'
                         }
                     }
-                });
+                );
             });
-        }, 400);
-    }
-
-    // Inner horizontal scroll in Work section
-    const hContainer = document.querySelector('.horizontal-scroll-container');
-    const hInner = document.querySelector('.horizontal-scroll-inner');
-    if (hContainer && hInner) {
-        setTimeout(() => {
-            const dist = hInner.scrollWidth - hContainer.clientWidth;
-            if (dist > 50) {
-                gsap.to(hInner, {
-                    x: -dist,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: hContainer,
-                        scrub: 1.3,
-                        start: 'left left',
-                        end: () => '+=' + dist
-                    }
-                });
-            }
-        }, 500);
+        }, 350);
     }
 
     // Mobile menu
@@ -139,13 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Keyboard arrows
+    // Keyboard support
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') window.scrollBy({ left: 500, behavior: 'smooth' });
-        if (e.key === 'ArrowLeft') window.scrollBy({ left: -500, behavior: 'smooth' });
+        if (e.key === 'ArrowRight') window.scrollBy({ left: 600, behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') window.scrollBy({ left: -600, behavior: 'smooth' });
     });
 
-    // Refresh ScrollTrigger on resize (helps desktop view on mobile)
+    // Refresh on resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -154,5 +127,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (snappier)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (clean + snap)', 'color:#10b981');
 });
