@@ -266,19 +266,16 @@
         const progressLine = document.getElementById('timeline-progress');
         const items = document.querySelectorAll('.timeline-item');
 
-        // Set initial progress line height
+        // Timeline progress line - reliable height animation
         if (progressLine) {
             gsap.set(progressLine, { height: 0 });
-        }
 
-        // Main timeline progress animation
-        ScrollTrigger.create({
-            trigger: '#journey-section',
-            start: 'top 20%',
-            end: 'bottom 80%',
-            scrub: 1,
-            onUpdate: function(self) {
-                if (progressLine) {
+            ScrollTrigger.create({
+                trigger: '#journey-section',
+                start: 'top 20%',
+                end: 'bottom 80%',
+                scrub: 1,
+                onUpdate: function(self) {
                     gsap.to(progressLine, {
                         height: `${self.progress * 100}%`,
                         duration: 0.1,
@@ -286,11 +283,11 @@
                         overwrite: 'auto'
                     });
                 }
-            }
-        });
+            });
+        }
 
-        // Active dot + card highlight as you scroll
-        items.forEach((item, index) => {
+        // Active dot highlighting
+        items.forEach((item) => {
             ScrollTrigger.create({
                 trigger: item,
                 start: 'top 55%',
@@ -306,20 +303,7 @@
             });
         });
 
-        // Staggered card entrance
-        gsap.from('.experience-card', {
-            scrollTrigger: {
-                trigger: '#journey-section',
-                start: 'top 60%',
-            },
-            opacity: 0,
-            y: 70,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.out'
-        });
-
-        // Dots pop in
+        // Subtle dot pop-in (safe)
         gsap.from('.timeline-dot', {
             scrollTrigger: {
                 trigger: '#journey-section',
@@ -327,7 +311,7 @@
             },
             scale: 0,
             duration: 0.6,
-            stagger: 0.15,
+            stagger: 0.12,
             ease: 'back.out(2)'
         });
     </script>
