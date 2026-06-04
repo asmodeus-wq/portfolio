@@ -222,5 +222,49 @@
             const hImg = document.getElementById('hcl-image'); if (hImg) { hImg.src = hclImages[0]; document.getElementById('hcl-counter').textContent = `1 / ${hclImages.length}`; }
         });
     </script>
+
+    <!-- Horizontal Scroll Script - Fast & Responsive (same as index.html) -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const wrapper = document.getElementById("horizontal-wrapper");
+        const panels = gsap.utils.toArray(".panel");
+
+        // Horizontal Scroll Setup - Fast responsive with strong snap
+        let scrollTween = gsap.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#horizontal-wrapper",
+                pin: true,
+                scrub: 0.6,
+                snap: {
+                    snapTo: 1 / (panels.length - 1),
+                    duration: 0.55,
+                    delay: 0,
+                    ease: "power3.out"
+                },
+                end: () => "+=" + wrapper.offsetWidth,
+                invalidateOnRefresh: true,
+                anticipatePin: 1
+            }
+        });
+
+        // Keyboard navigation - responsive
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                ScrollTrigger.getById(scrollTween.scrollTrigger.vars.id)?.scroll("+=" + window.innerWidth * 0.85);
+            } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                ScrollTrigger.getById(scrollTween.scrollTrigger.vars.id)?.scroll("-=" + window.innerWidth * 0.85);
+            }
+        });
+
+        // Refresh on resize
+        window.addEventListener("resize", () => {
+            ScrollTrigger.refresh();
+        });
+
+        console.log("Fast responsive horizontal scroll initialized on work.html - no cooldown");
+    </script>
 </body>
 </html>
