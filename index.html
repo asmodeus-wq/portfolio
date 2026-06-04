@@ -588,6 +588,64 @@
 
     </div>
 
-    <script src="js/main.js"></script>
+    <!-- Horizontal Scroll Script with Cooldown -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const wrapper = document.getElementById("horizontal-wrapper");
+        const panels = gsap.utils.toArray(".panel");
+
+        let isScrolling = false;
+        let scrollTimeout;
+
+        // Horizontal Scroll Setup with cooldown
+        let scrollTween = gsap.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#horizontal-wrapper",
+                pin: true,
+                scrub: 1.1,
+                snap: {
+                    snapTo: 1 / (panels.length - 1),
+                    duration: 0.75,
+                    delay: 0.2,
+                    ease: "power3.out"
+                },
+                end: () => "+=" + (wrapper.scrollWidth * 0.95),
+                invalidateOnRefresh: true,
+                onUpdate: function(self) {
+                    if (isScrolling) return;
+                    
+                    isScrolling = true;
+                    clearTimeout(scrollTimeout);
+                    
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                    }, 1400); // 1.4 second cooldown after scroll
+                }
+            }
+        });
+
+        // Keyboard navigation with cooldown
+        let lastKeyTime = 0;
+        document.addEventListener("keydown", (e) => {
+            const now = Date.now();
+            if (now - lastKeyTime < 1100) return;
+            
+            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                ScrollTrigger.getById(scrollTween.scrollTrigger.id || 'scroll')?.scroll("+= " + window.innerWidth);
+                lastKeyTime = now;
+            } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                ScrollTrigger.getById(scrollTween.scrollTrigger.id || 'scroll')?.scroll("-= " + window.innerWidth);
+                lastKeyTime = now;
+            }
+        });
+
+        // Refresh on resize
+        window.addEventListener("resize", () => ScrollTrigger.refresh());
+
+        console.log("✅ Horizontal scroll initialized with 1.4s cooldown to prevent skipping");
+    </script>
 </body>
 </html>
