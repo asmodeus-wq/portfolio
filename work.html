@@ -7,9 +7,43 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP + ScrollTrigger (same as homepage) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+        }
+
+        .project-panel {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-visual {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+        }
+        .project-visual:hover {
+            transform: scale(1.015);
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.25);
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            border: 1px solid #e2e8f0;
+        }
+
+        .figma-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .figma-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(44 94 173 / 0.3);
+        }
+    </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
 
@@ -37,37 +71,40 @@
         </div>
     </nav>
 
-    <!-- HORIZONTAL SCROLL WRAPPER (exact same as homepage) -->
+    <!-- HORIZONTAL SCROLL WRAPPER -->
     <div id="horizontal-wrapper" class="flex flex-nowrap">
 
         <!-- Hero Panel -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 bg-white">
             <div class="max-w-5xl mx-auto px-6 text-center">
-                <span class="inline-block px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-sm mb-6 tracking-[2px] font-medium">SELECTED WORK</span>
+                <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-sm mb-8 tracking-[2px] font-medium">
+                    SELECTED WORK
+                </div>
                 <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-none mb-6 section-heading">Featured<br>Projects</h1>
-                <p class="max-w-2xl mx-auto text-2xl text-[#475569] tracking-tight">A collection of design systems, prototypes, and interactive experiences I’ve crafted.</p>
+                <p class="max-w-2xl mx-auto text-2xl text-[#475569] tracking-tight">A collection of design systems, prototypes, and interactive experiences I’ve crafted over the years.</p>
             </div>
         </section>
 
-        <!-- Project 1: Raintree 2021 -->
+        <!-- Project 1: Raintree 2021 - Design System -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">2021 • DESIGN SYSTEM</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">Raintree 2021</h2>
-                        <p class="mt-6 text-lg text-[#334155]">A comprehensive design system and component library with interactive prototypes for consistent product experiences.</p>
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#2C5EAD]/20 text-[#2C5EAD] text-xs font-semibold tracking-[2.5px] mb-4">
+                            2021 • DESIGN SYSTEM
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">Raintree 2021</h2>
+                        <p class="mt-5 text-lg text-[#334155] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences across the platform.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&p=f&t=rVy9U0pPvG4s9bYT-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&fuid=1503179720234026897" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all">
-                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&p=f&t=rVy9U0pPvG4s9bYT-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&fuid=1503179720234026897" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all figma-btn">
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
-
-                        <p class="mt-6 text-xs text-[#64748B]">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+                        <div class="carousel-container">
                             <img id="raintree-image" src="images/rt1.png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="Raintree 2021 - Screen 1" onclick="nextRaintreeScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/90 text-[#0F172A] text-xs px-3 py-1 rounded-full font-mono border border-slate-200">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-slate-200 flex items-center gap-x-1.5">
                                 <span id="raintree-counter">1 / 11</span>
                             </div>
                         </div>
@@ -77,24 +114,25 @@
         </section>
 
         <!-- Project 2: AI/ML Interfaces -->
-        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%)">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
-                    <div class="md:col-span-5 mb-10 md:mb-0">
-                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">AI & MACHINE LEARNING</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">AI/ML Interfaces</h2>
-                        <p class="mt-6 text-lg text-[#334155]">Exploration of intelligent interfaces, data visualization, and AI-driven user experiences.</p>
+                    <div class="md:col-span-5 mb-10 md:mb-0 text-white">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                            EXPLORATION • 2022
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading text-white">AI/ML Interfaces</h2>
+                        <p class="mt-5 text-lg text-white/80 leading-relaxed">Speculative exploration of intelligent interfaces, predictive interactions, and AI-driven user experiences.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&p=f&t=pv5930EcTwCjE5Jp-0&scaling=min-zoom&content-scaling=fixed&page-id=108%3A19" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all">
-                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&p=f&t=pv5930EcTwCjE5Jp-0&scaling=min-zoom&content-scaling=fixed&page-id=108%3A19" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-[#0F172A] font-semibold rounded-2xl hover:bg-white/90 transition-all figma-btn">
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
-
-                        <p class="mt-6 text-xs text-[#64748B]">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+                        <div class="carousel-container bg-white/5 border-white/10">
                             <img id="aiml-image" src="images/am (1).png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="AI/ML - Screen 1" onclick="nextAIMLScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/90 text-[#0F172A] text-xs px-3 py-1 rounded-full font-mono border border-slate-200">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-white/20 flex items-center gap-x-1.5">
                                 <span id="aiml-counter">1 / 12</span>
                             </div>
                         </div>
@@ -104,24 +142,25 @@
         </section>
 
         <!-- Project 3: Identity Service -->
-        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #C8E4FF 0%, #A8D4FF 100%)">
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">SECURITY • IDENTITY</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">Identity Service</h2>
-                        <p class="mt-6 text-lg text-[#334155]">Secure identity management flows, authentication experiences, and enterprise-grade user journeys.</p>
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                            SECURITY • 2023
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">Identity Service</h2>
+                        <p class="mt-5 text-lg text-[#334155] leading-relaxed">Enterprise-grade identity management, authentication flows, and secure user experiences for complex B2B platforms.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&p=f&t=mOLmMthXovFAXrPE-0&scaling=min-zoom&content-scaling=fixed&page-id=2139%3A19516" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all">
-                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&p=f&t=mOLmMthXovFAXrPE-0&scaling=min-zoom&content-scaling=fixed&page-id=2139%3A19516" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0F172A] text-white font-semibold rounded-2xl hover:bg-slate-900 transition-all figma-btn">
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
-
-                        <p class="mt-6 text-xs text-[#64748B]">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+                        <div class="carousel-container">
                             <img id="identity-image" src="images/is1.png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="Identity Service - Screen 1" onclick="nextIdentityScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/90 text-[#0F172A] text-xs px-3 py-1 rounded-full font-mono border border-slate-200">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-slate-200 flex items-center gap-x-1.5">
                                 <span id="identity-counter">1 / 12</span>
                             </div>
                         </div>
@@ -130,25 +169,26 @@
             </div>
         </section>
 
-        <!-- Project 4: HCL Software -->
-        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
+        <!-- Project 4: HCL Software Commerce -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" style="background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%)">
             <div class="max-w-6xl w-full">
-                <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                <div class="grid md:grid-cols-12 gap-x-12 items-center text-white">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">HCL SOFTWARE • COMMERCE</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">HCL Software - UI Shell & Navigation</h2>
-                        <p class="mt-6 text-lg text-[#334155]">Improving b2b usability issues on HCL Commerce software suite, including UI shell architecture and navigation systems.</p>
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                            HCL SOFTWARE • 2024
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">HCL Commerce<br>UI Shell &amp; Navigation</h2>
+                        <p class="mt-5 text-lg text-white/80 leading-relaxed">Improving B2B usability on the HCL Commerce platform through better UI shell architecture and navigation systems.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&p=f&t=lUbli3rnDd8lVOdU-0&scaling=min-zoom&content-scaling=fixed&page-id=2103%3A130728" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all">
-                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt"></i>
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&p=f&t=lUbli3rnDd8lVOdU-0&scaling=min-zoom&content-scaling=fixed&page-id=2103%3A130728" target="_blank" 
+                           class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-[#0F172A] font-semibold rounded-2xl hover:bg-white/90 transition-all figma-btn">
+                            Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
-
-                        <p class="mt-6 text-xs text-[#64748B]">Click the image to step through the flow</p>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-white">
+                        <div class="carousel-container bg-white/5 border-white/10">
                             <img id="hcl-image" src="images/hs (1).png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="HCL Software - Screen 1" onclick="nextHCLScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/90 text-[#0F172A] text-xs px-3 py-1 rounded-full font-mono border border-slate-200">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-white/20 flex items-center gap-x-1.5">
                                 <span id="hcl-counter">1 / 10</span>
                             </div>
                         </div>
@@ -216,10 +256,31 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all carousels
             const rImg = document.getElementById('raintree-image'); if (rImg) { rImg.src = raintreeImages[0]; document.getElementById('raintree-counter').textContent = `1 / ${raintreeImages.length}`; }
             const aImg = document.getElementById('aiml-image'); if (aImg) { aImg.src = aimlImages[0]; document.getElementById('aiml-counter').textContent = `1 / ${aimlImages.length}`; }
             const iImg = document.getElementById('identity-image'); if (iImg) { iImg.src = identityImages[0]; document.getElementById('identity-counter').textContent = `1 / ${identityImages.length}`; }
             const hImg = document.getElementById('hcl-image'); if (hImg) { hImg.src = hclImages[0]; document.getElementById('hcl-counter').textContent = `1 / ${hclImages.length}`; }
+
+            // Panel entrance animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            document.querySelectorAll('.panel').forEach((panel, index) => {
+                gsap.fromTo(panel,
+                    { opacity: 0.6 },
+                    {
+                        opacity: 1,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: panel,
+                            start: 'left 60%',
+                            end: 'left 30%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
         });
     </script>
 </body>
