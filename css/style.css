@@ -1,9 +1,16 @@
 /* ============================================
-   Horizontal Portfolio Styles
+   Horizontal Portfolio Styles - Gapless Full-Bleed
+   Matches seamless behavior across desktop, phone browser, and actual phones
    ============================================ */
 
 :root {
   --accent: #10b981;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -13,7 +20,9 @@ body {
 #horizontal-wrapper {
   display: flex;
   flex-wrap: nowrap;
-  height: 100vh;
+  height: 100dvh;           /* Dynamic viewport height for mobile browsers */
+  width: 100%;
+  overflow: hidden;
 }
 
 .panel {
@@ -22,10 +31,14 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 60px 0;
+  width: 100vw;
+  height: 100dvh;
+  padding: 0;               /* No padding so panels are truly full-bleed */
+  margin: 0;
+  border: none;             /* Remove any borders that create visual gaps */
 }
 
-/* Mobile fallback - improved for landscape 16:9 phones */
+/* Mobile portrait - vertical fallback, still gapless */
 @media (max-width: 767px) {
   #horizontal-wrapper {
     flex-direction: column;
@@ -33,23 +46,25 @@ body {
   }
   .panel {
     min-width: 100vw;
-    min-height: 100vh;
-    border-left: none !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    min-height: 100dvh;
+    width: 100vw;
+    height: auto;
+    border: none;
   }
 }
 
-/* Landscape phones and small tablets (16:9 view) - keep horizontal snap nice */
+/* Landscape phones and small tablets (16:9) - horizontal, gapless */
 @media (max-width: 900px) and (orientation: landscape) {
   #horizontal-wrapper {
     flex-direction: row;
-    height: 100vh;
+    height: 100dvh;
   }
   .panel {
     min-width: 100vw;
-    min-height: 100vh;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    border-bottom: none;
+    min-height: 100dvh;
+    width: 100vw;
+    height: 100dvh;
+    border: none;
   }
 }
 
