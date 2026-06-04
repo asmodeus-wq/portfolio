@@ -10,8 +10,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #4BB8FA;
+        }
+        .nav-link.active {
+            color: #2C5EAD;
+            font-weight: 600;
+        }
+        
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.025em;
+        }
+    </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="bg-zinc-950 text-white font-sans">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
@@ -43,18 +62,18 @@
         <!-- HERO / LANDING PANEL -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             <div class="absolute inset-0 bg-cover bg-center z-0" 
-                 style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1018/2000/1200');">
+                 style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1015/2000/1200');">
             </div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl">
+                <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-[0.9] mb-6 text-white drop-shadow-2xl section-heading">
                     Faizan Quazi
                 </h1>
                 <p class="text-3xl md:text-4xl text-white/95 tracking-tight mb-4">User Experience Analyst</p>
                 <p class="max-w-lg mx-auto text-xl text-white/80 mb-10">Creating meaningful experiences through research-driven design.</p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-2xl font-semibold text-lg hover:bg-white/90 transition-all shadow-xl">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white rounded-2xl font-semibold text-lg hover:bg-[#1591DC] transition-all shadow-xl">
                         View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </a>
                     <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-2xl font-medium text-lg hover:bg-white/10 transition-all text-white">
@@ -64,13 +83,13 @@
             </div>
         </section>
 
-        <!-- ABOUT PANEL (Smart Preview) -->
+        <!-- ABOUT PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
             <div class="max-w-5xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-12 items-center">
                     <div class="md:col-span-5 mb-12 md:mb-0">
-                        <span class="text-emerald-400 text-sm font-medium tracking-widest">01 — ABOUT</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-3">Who I am</h2>
+                        <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">01 — ABOUT</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">Who I am</h2>
                         <p class="mt-4 text-white/70">A quick look into my journey as a User Experience Analyst.</p>
                         
                         <a href="about.html" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 border border-white/30 rounded-2xl font-medium hover:bg-white/5 transition-all">
@@ -85,188 +104,103 @@
             </div>
         </section>
 
-        <!-- WHAT I DO PANEL (Standalone - My Skillset) -->
+        <!-- WHAT I DO PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
             <div class="max-w-6xl w-full">
                 <div class="mb-12">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">02 — WHAT I DO</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter mt-3">My skillset</h2>
+                    <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">02 — WHAT I DO</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-3 section-heading">My skillset</h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-search text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-search text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">User Research</h4>
                         <p class="text-white/70 text-sm">Interviews, usability testing, surveys, and behavioral analysis.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-sitemap text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-sitemap text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Information Architecture</h4>
                         <p class="text-white/70 text-sm">Card sorting, flow mapping, taxonomy, and navigation systems.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-palette text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-palette text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Interaction Design</h4>
                         <p class="text-white/70 text-sm">Wireframing, high-fidelity prototyping, and micro-interactions.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-layer-group text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-layer-group text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Design Systems</h4>
                         <p class="text-white/70 text-sm">Component libraries, design tokens, and scalable UI foundations.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-vial text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-vial text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Usability Testing</h4>
                         <p class="text-white/70 text-sm">Moderated/unmoderated testing, heuristic evaluation, and iteration.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-users-cog text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-users-cog text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Stakeholder Management</h4>
                         <p class="text-white/70 text-sm">Workshop facilitation, requirement gathering, and cross-functional collaboration.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-chart-line text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-chart-line text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Data-Driven Design</h4>
                         <p class="text-white/70 text-sm">Analytics interpretation, A/B testing, and insight synthesis.</p>
                     </div>
-
-                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-emerald-400/30 transition-all">
-                        <i class="fa-solid fa-universal-access text-3xl text-emerald-400 mb-6"></i>
+                    <div class="bg-zinc-950 border border-white/10 p-8 rounded-3xl hover:border-[#2C5EAD]/40 transition-all">
+                        <i class="fa-solid fa-universal-access text-3xl text-[#2C5EAD] mb-6"></i>
                         <h4 class="font-semibold text-xl mb-2">Accessibility & Inclusive Design</h4>
                         <p class="text-white/70 text-sm">WCAG compliance, inclusive design principles, and accessible interfaces.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- EXPERTISE PANEL (Tools) -->
+        <!-- EXPERTISE PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
             <div class="max-w-7xl w-full">
                 <div class="mb-10">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">03 — EXPERTISE</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter mt-1">Tools I work with</h2>
+                    <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">03 — EXPERTISE</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading">Tools I work with</h2>
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-brands fa-figma text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-brands fa-figma text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">Figma</span>
                     </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-brands fa-adobe text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-brands fa-adobe text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">Adobe XD</span>
                     </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-palette text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-palette text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">Sketch</span>
                     </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-layer-group text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-layer-group text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">Framer</span>
                     </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-globe text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-globe text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">Webflow</span>
                     </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-play text-3xl text-emerald-400"></i>
+                    <div class="group bg-zinc-900 border border-white/10 hover:border-[#2C5EAD]/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-play text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium">ProtoPie</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Principle</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-users text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Miro</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-sticky-note text-3xl text-emerald-400"></i>
-                        <span class="font-medium">FigJam</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-book text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Notion</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-vial text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Maze</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-user-check text-3xl text-emerald-400"></i>
-                        <span class="font-medium">UserTesting</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-chart-line text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Hotjar</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-chart-bar text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Amplitude</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-chart-pie text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Mixpanel</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-brands fa-google text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Google Analytics</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-layer-group text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Zeplin</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Abstract</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-globe text-3xl text-emerald-400"></i>
-                        <span class="font-medium">InVision</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-stream text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Overflow</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-pencil-ruler text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Balsamiq</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-project-diagram text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Axure RP</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-vial text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Optimal Workshop</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-video text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Lookback</span>
-                    </div>
-                    <div class="group bg-zinc-900 border border-white/10 hover:border-emerald-400/40 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
-                        <i class="fa-solid fa-comments text-3xl text-emerald-400"></i>
-                        <span class="font-medium">Dovetail</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MY WORK PANEL (Smart Preview) -->
+        <!-- MY WORK PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
             <div class="max-w-6xl w-full">
                 <div class="flex justify-between items-end mb-10">
                     <div>
-                        <span class="text-emerald-400 text-sm font-medium tracking-widest">04 — WORK</span>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-1">Selected Work</h2>
+                        <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">04 — WORK</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading">Selected Work</h2>
                     </div>
                     <a href="work.html" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group">
                         VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
@@ -274,14 +208,14 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/30 transition-all">
+                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/40 transition-all">
                         <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/251/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
                         <div class="p-8">
                             <h3 class="text-2xl font-semibold tracking-tight mb-2">Raintree 2021</h3>
                             <p class="text-white/70">Comprehensive design system and component library with interactive prototypes.</p>
                         </div>
                     </a>
-                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-emerald-400/30 transition-all">
+                    <a href="work.html" class="group block bg-zinc-950 border border-white/10 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/40 transition-all">
                         <div class="aspect-video bg-zinc-800"><img src="https://picsum.photos/id/133/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
                         <div class="p-8">
                             <h3 class="text-2xl font-semibold tracking-tight mb-2">AI/ML Interfaces</h3>
@@ -298,27 +232,27 @@
             </div>
         </section>
 
-        <!-- PROCESS PANEL (Smart Preview) -->
+        <!-- PROCESS PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-950 p-8 md:p-12">
             <div class="max-w-5xl w-full">
                 <div class="mb-10">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">05 — PROCESS</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter mt-1">How I work</h2>
+                    <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">05 — PROCESS</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading">How I work</h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 mb-10">
                     <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
-                        <div class="text-emerald-400 text-4xl font-semibold mb-4">01</div>
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">01</div>
                         <h4 class="font-semibold text-xl mb-2">Discover</h4>
                         <p class="text-white/70 text-sm">Deep research, stakeholder mapping, and understanding user needs.</p>
                     </div>
                     <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
-                        <div class="text-emerald-400 text-4xl font-semibold mb-4">02</div>
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">02</div>
                         <h4 class="font-semibold text-xl mb-2">Define</h4>
                         <p class="text-white/70 text-sm">Synthesizing insights into clear problems and opportunities.</p>
                     </div>
                     <div class="bg-zinc-900 border border-white/10 p-8 rounded-3xl">
-                        <div class="text-emerald-400 text-4xl font-semibold mb-4">03</div>
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">03</div>
                         <h4 class="font-semibold text-xl mb-2">Design</h4>
                         <p class="text-white/70 text-sm">Wireframing, prototyping, and iterative design solutions.</p>
                     </div>
@@ -330,32 +264,32 @@
             </div>
         </section>
 
-        <!-- CAREER PANEL (Improved) -->
+        <!-- CAREER PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 bg-zinc-900 p-8 md:p-12">
             <div class="max-w-5xl w-full">
                 <div class="mb-10">
-                    <span class="text-emerald-400 text-sm font-medium tracking-widest">06 — CAREER</span>
-                    <h2 class="text-6xl font-semibold tracking-tighter mt-1">Experience</h2>
+                    <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">06 — CAREER</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading">Experience</h2>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6 mb-10">
                     <div class="bg-zinc-950 border border-white/10 p-6 rounded-2xl">
-                        <div class="text-emerald-400 text-sm font-medium mb-1">2022 — Present</div>
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2022 — Present</div>
                         <div class="font-semibold text-lg">HCL Software (Commerce)</div>
                         <div class="text-white/70 text-sm mt-1">User Experience Analyst — Leading B2B usability improvements on enterprise commerce platform.</div>
                     </div>
                     <div class="bg-zinc-950 border border-white/10 p-6 rounded-2xl">
-                        <div class="text-emerald-400 text-sm font-medium mb-1">2021 — 2022</div>
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2021 — 2022</div>
                         <div class="font-semibold text-lg">Cybage Softwares</div>
                         <div class="text-white/70 text-sm mt-1">Senior Product Designer & Researcher — End-to-end UX for complex SaaS products.</div>
                     </div>
                     <div class="bg-zinc-950 border border-white/10 p-6 rounded-2xl">
-                        <div class="text-emerald-400 text-sm font-medium mb-1">2018 — 2021</div>
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2018 — 2021</div>
                         <div class="font-semibold text-lg">HCL Software (Unica)</div>
                         <div class="text-white/70 text-sm mt-1">User Experience Designer — Marketing automation workflows and design systems.</div>
                     </div>
                     <div class="bg-zinc-950 border border-white/10 p-6 rounded-2xl">
-                        <div class="text-emerald-400 text-sm font-medium mb-1">2016 — 2018</div>
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2016 — 2018</div>
                         <div class="font-semibold text-lg">BrightBrain Technologies + Freelance</div>
                         <div class="text-white/70 text-sm mt-1">UI/UX Designer — Research, wireframing, and client-facing design work.</div>
                     </div>
@@ -367,20 +301,20 @@
             </div>
         </section>
 
-        <!-- CONTACT PANEL (with map background) -->
+        <!-- CONTACT PANEL -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-white/10 relative overflow-hidden p-8 md:p-12"
                  style="background-image: linear-gradient(rgba(9,9,11,0.68), rgba(9,9,11,0.78)), url('images/pune.png');
                           background-size: cover;
                           background-position: center;">
             
             <div class="max-w-3xl w-full text-center relative z-10">
-                <span class="text-emerald-400 text-sm font-medium tracking-widest">07 — CONTACT</span>
-                <h2 class="text-6xl font-semibold tracking-tighter mt-3 mb-6">Let's build something<br>meaningful together.</h2>
+                <span class="text-[#2C5EAD] text-sm font-medium tracking-widest">07 — CONTACT</span>
+                <h2 class="text-6xl font-semibold tracking-tighter mt-3 mb-6 section-heading">Let's build something<br>meaningful together.</h2>
                 
                 <p class="text-white/70 mb-10 max-w-md mx-auto">Based in Pune, India. Always open to exciting projects and conversations.</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-white text-zinc-950 font-semibold text-lg rounded-3xl hover:bg-emerald-400 hover:text-white transition-all">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all">
                         Get in touch
                     </a>
                     <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-white/30 rounded-3xl font-medium hover:bg-white/5 transition-all">
