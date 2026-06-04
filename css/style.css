@@ -1,6 +1,5 @@
 /* ============================================
-   Horizontal Portfolio Styles - Gapless + Mobile Snap
-   Horizontal one-panel snap works on phones too (like reference site)
+   Horizontal Portfolio Styles - Gapless + Reliable Mobile Snap
    ============================================ */
 
 :root {
@@ -11,6 +10,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -23,6 +23,8 @@ body {
   height: 100dvh;
   width: 100%;
   overflow: hidden;
+  touch-action: pan-x; /* prioritize horizontal swipes */
+  -webkit-overflow-scrolling: touch;
 }
 
 .panel {
@@ -36,10 +38,16 @@ body {
   padding: 0;
   margin: 0;
   border: none;
+  overflow: hidden; /* contain content */
 }
 
-/* No column fallback on mobile - keep horizontal so snap works on phones */
-/* Portrait phones will still have full-width panels that you swipe horizontally */
+/* On very narrow portrait phones, content inside panels can scroll internally if needed */
+@media (max-width: 480px) {
+  .panel {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
 .nav-link {
   position: relative;
@@ -61,7 +69,7 @@ body {
   width: 100%;
 }
 
-/* Horizontal scroll in Work section */
+/* Work section internal horizontal */
 .horizontal-scroll-container {
   overflow: hidden;
   cursor: grab;
@@ -89,7 +97,6 @@ body {
               0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-/* Performance */
 .panel img {
   will-change: transform;
 }
