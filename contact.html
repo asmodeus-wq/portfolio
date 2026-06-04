@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
         
@@ -16,33 +17,34 @@
 
         .contact-hero {
             background-image: 
-                /* Strong vignette from left (text side) fading toward Pune label on right */
                 linear-gradient(to right, 
-                    rgba(15, 23, 42, 0.72) 0%, 
-                    rgba(15, 23, 42, 0.55) 28%, 
-                    rgba(15, 23, 42, 0.28) 48%, 
-                    rgba(15, 23, 42, 0.08) 65%, 
-                    transparent 78%
+                    rgba(15, 23, 42, 0.78) 0%, 
+                    rgba(15, 23, 42, 0.62) 25%, 
+                    rgba(15, 23, 42, 0.35) 48%, 
+                    rgba(15, 23, 42, 0.12) 68%, 
+                    transparent 82%
                 ),
                 url('images/pune.png');
             background-size: cover;
-            background-position: 72% center; /* Emphasize the Pune label area which is off-center right */
+            background-position: 68% center;
             background-repeat: no-repeat;
-            filter: brightness(0.82) contrast(1.08) saturate(1.05);
+            filter: brightness(0.88) contrast(1.1) saturate(1.08);
         }
 
-        .contact-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                circle at 68% 42%, 
-                transparent 38%, 
-                rgba(15, 23, 42, 0.18) 62%, 
-                rgba(15, 23, 42, 0.38) 82%
-            );
-            pointer-events: none;
-            z-index: 1;
+        .premium-cta {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-cta:hover {
+            transform: translateY(-3px) scale(1.015);
+            box-shadow: 0 20px 25px -5px rgb(44 94 173 / 0.35), 0 8px 10px -6px rgb(44 94 173 / 0.3);
+        }
+
+        .contact-detail {
+            transition: all 0.3s ease;
+        }
+        .contact-detail:hover {
+            color: #fff;
+            transform: translateX(4px);
         }
     </style>
 </head>
@@ -72,34 +74,41 @@
         </div>
     </nav>
 
-    <!-- Hero with visible Pune Map -->
+    <!-- Immersive Hero with Pune Map -->
     <section class="contact-hero min-h-[100dvh] flex items-center justify-start relative pt-20 overflow-hidden">
         
         <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 px-6 md:pl-12 lg:pl-20 relative z-10">
             
-            <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 07</span>
-            <h1 class="text-6xl md:text-[68px] font-semibold tracking-tighter leading-none mt-4 mb-6 section-heading text-white drop-shadow-lg">
-                Let's create<br>something meaningful together.
+            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
+                <span class="text-white/90 text-sm font-medium tracking-[2.5px]">CHAPTER 07 • LET'S CONNECT</span>
+            </div>
+
+            <h1 class="text-6xl md:text-[72px] font-semibold tracking-tighter leading-none mt-2 mb-7 section-heading text-white drop-shadow-xl">
+                Let's create<br>something meaningful<br>together.
             </h1>
             
-            <p class="max-w-lg text-xl text-white/85 tracking-tight mb-10 drop-shadow">
+            <p class="max-w-lg text-xl text-white/90 tracking-tight mb-10 drop-shadow">
                 Based in Pune, India. I’m always excited to discuss new projects, collaborations, or just have a good conversation about design.
             </p>
 
+            <!-- Primary CTAs -->
             <div class="flex flex-col sm:flex-row gap-4 mb-14">
-                <a href="mailto:faizanquazi123@gmail.com" class="group inline-flex items-center justify-center gap-x-4 px-10 py-4.5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all active:scale-[0.985] shadow-xl">
+                <a href="mailto:faizanquazi123@gmail.com" 
+                   class="premium-cta group inline-flex items-center justify-center gap-x-4 px-10 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl active:scale-[0.985] shadow-2xl">
                     <i class="fa-solid fa-envelope text-2xl group-hover:scale-110 transition"></i>
                     <span>Email Me</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-4 px-10 py-4.5 border-2 border-white/40 hover:bg-white/10 font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] text-white backdrop-blur-sm">
+                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" 
+                   class="inline-flex items-center justify-center gap-x-4 px-10 py-5 border-2 border-white/40 hover:bg-white/10 font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] text-white backdrop-blur-sm">
                     <i class="fa-brands fa-linkedin text-2xl"></i>
                     <span>Connect on LinkedIn</span>
                 </a>
             </div>
 
+            <!-- Contact Details -->
             <div class="flex flex-col sm:flex-row items-center gap-x-8 gap-y-4 text-lg">
-                <a href="tel:+918446556866" class="flex items-center gap-x-3 text-white/90 hover:text-white transition-colors">
+                <a href="tel:+918446556866" class="contact-detail flex items-center gap-x-3 text-white/90 hover:text-white transition-colors">
                     <i class="fa-solid fa-phone text-[#93C5FD]"></i>
                     <span>+91 84465 56866</span>
                 </a>
@@ -112,11 +121,53 @@
                 </div>
             </div>
         </div>
+
+        <!-- Subtle scroll hint -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
+            <div class="flex flex-col items-center text-white/60 text-xs tracking-[2px]">
+                <div>SCROLL TO EXPLORE</div>
+                <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent mt-2"></div>
+            </div>
+        </div>
     </section>
 
-    <footer class="border-t border-slate-200 py-8 text-center text-sm text-[#64748B] bg-white">
-        © 2026 Faizan Quazi • Designed with intention
+    <!-- Compact Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[#475569]">
+                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-solid fa-envelope"></i> 
+                        <span>faizanquazi123@gmail.com</span>
+                    </a>
+                    <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-solid fa-phone"></i> 
+                        <span>+91 84465 56866</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                        <i class="fa-brands fa-linkedin"></i> 
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <p class="text-xs text-[#64748B] text-center md:text-right">© 2026 Faizan Quazi • UX Analyst</p>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // Subtle entrance animation for hero content
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.fromTo('.contact-hero > div', 
+                { opacity: 0, y: 30 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.1, 
+                    ease: 'power3.out',
+                    delay: 0.2
+                }
+            );
+        });
+    </script>
 </body>
 </html>
