@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Smooth & Sensitive
+// Horizontal Full-Page Scroll - Smooth + Quick Settle
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.35,                    // Balanced - responsive but smooth
+                    scrub: 0.3,                    // Good sensitivity
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                             return closest;
                         },
-                        duration: { min: 0.3, max: 0.55 },   // Smooth, slightly slower glide
+                        duration: { min: 0.15, max: 0.3 },   // Quick settle after releasing scroll
                         ease: "power2.out"
                     }
                 }
@@ -122,5 +122,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (smooth + sensitive)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (smooth + quick settle)', 'color:#10b981');
 });
