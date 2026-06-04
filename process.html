@@ -16,26 +16,6 @@
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
 
-        .phase-nav-link {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        .phase-nav-link.active {
-            color: #2C5EAD;
-            font-weight: 600;
-        }
-        .phase-nav-link.active::before {
-            content: '';
-            position: absolute;
-            left: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 20px;
-            background: #2C5EAD;
-            border-radius: 9999px;
-        }
-
         .journey-card {
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                         box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -47,26 +27,53 @@
             border-color: #2C5EAD;
         }
 
-        .phase-section {
-            scroll-margin-top: 100px;
-        }
-
-        .activity-item {
-            transition: all 0.3s ease;
-        }
-
-        .process-line {
+        .timeline-line {
             position: absolute;
-            left: 28px;
-            top: 80px;
-            bottom: 80px;
-            width: 2px;
-            background: linear-gradient(to bottom, #e2e8f0, #cbd5e1);
-            z-index: 0;
+            left: 42px;
+            top: 60px;
+            bottom: 60px;
+            width: 3px;
+            background: #e2e8f0;
+            z-index: 1;
+            border-radius: 9999px;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 42px;
+            top: 60px;
+            width: 4px;
+            background: linear-gradient(#2C5EAD, #60A5FA);
+            z-index: 2;
+            box-shadow: 0 0 12px rgba(44, 94, 173, 0.4);
+            border-radius: 9999px;
+        }
+
+        .phase-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+        .phase-dot.active {
+            background: #2C5EAD;
+            border-color: #2C5EAD;
+            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
+            transform: scale(1.1);
+        }
+
+        .phase-content {
+            transition: all 0.4s ease;
         }
 
         .immersive-hero {
             background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+        }
+
+        .activity-item {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .activity-item:hover {
+            transform: translateX(4px);
+            color: #0F172A;
         }
     </style>
 </head>
@@ -197,135 +204,129 @@
         </div>
     </section>
 
-    <!-- DEEP DIVE PHASES with Sticky Navigator -->
-    <section class="bg-white border-y border-slate-200 py-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">DEEP DIVE</span>
-                    <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-1">Phases in detail</h2>
-                </div>
-                <div class="hidden lg:block text-xs text-[#64748B] tracking-widest">SCROLL TO EXPLORE EACH PHASE</div>
+    <!-- IMMERSIVE VERTICAL TIMELINE PHASES -->
+    <section id="phases" class="relative bg-white border-y border-slate-200 py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE PROCESS UNFOLDED</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Phases in detail</h2>
+                <p class="mt-4 text-[#475569] max-w-md mx-auto">Scroll through the journey. Each phase builds on the last.</p>
             </div>
 
-            <div class="grid lg:grid-cols-12 gap-x-10">
+            <!-- Timeline Container -->
+            <div class="relative max-w-5xl mx-auto">
                 
-                <!-- Sticky Phase Navigator -->
-                <div class="lg:col-span-3 hidden lg:block">
-                    <div class="sticky top-24 space-y-1 pr-6">
-                        <div class="text-xs uppercase tracking-[2px] text-[#64748B] mb-4 pl-1">NAVIGATE THE PROCESS</div>
-                        
-                        <a href="#understand" class="phase-nav-link flex items-center gap-x-3 px-4 py-3 rounded-2xl text-[#334155] hover:bg-slate-50 group" data-phase="understand">
-                            <span class="font-mono text-[#2C5EAD] font-semibold w-6">01</span>
-                            <span class="font-medium group-hover:text-[#2C5EAD] transition">Understand</span>
-                        </a>
-                        <a href="#explore" class="phase-nav-link flex items-center gap-x-3 px-4 py-3 rounded-2xl text-[#334155] hover:bg-slate-50 group" data-phase="explore">
-                            <span class="font-mono text-[#2C5EAD] font-semibold w-6">02</span>
-                            <span class="font-medium group-hover:text-[#2C5EAD] transition">Explore</span>
-                        </a>
-                        <a href="#materialize" class="phase-nav-link flex items-center gap-x-3 px-4 py-3 rounded-2xl text-[#334155] hover:bg-slate-50 group" data-phase="materialize">
-                            <span class="font-mono text-[#2C5EAD] font-semibold w-6">03</span>
-                            <span class="font-medium group-hover:text-[#2C5EAD] transition">Materialize</span>
-                        </a>
-                    </div>
-                </div>
+                <!-- Vertical Timeline Line -->
+                <div class="timeline-line hidden md:block rounded-full"></div>
+                <div id="timeline-progress" class="timeline-progress hidden md:block rounded-full" style="height: 0;"></div>
 
-                <!-- Phases Content -->
-                <div class="lg:col-span-9 space-y-24">
+                <!-- PHASE 01: UNDERSTAND -->
+                <div id="understand" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12 mb-20 md:mb-24">
+                    <!-- Timeline Dot -->
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-[#2C5EAD] rounded-full z-10 text-2xl font-bold text-[#2C5EAD] phase-dot">
+                        01
+                    </div>
                     
-                    <!-- PHASE 01: UNDERSTAND -->
-                    <div id="understand" class="phase-section">
-                        <div class="grid md:grid-cols-12 gap-x-10 items-start">
-                            <div class="md:col-span-7">
-                                <div class="flex items-center gap-x-4 mb-3">
-                                    <span class="px-4 py-1 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 01</span>
-                                </div>
-                                <h2 class="text-6xl font-semibold tracking-tighter section-heading">Understand</h2>
-                                <p class="mt-6 text-xl text-[#334155] max-w-xl">I immerse myself in the problem space — talking to stakeholders, mapping the ecosystem, and uncovering real user needs.</p>
-                                
-                                <div class="mt-10">
-                                    <h5 class="font-semibold text-[#2C5EAD] mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                                    <ul class="space-y-3.5 text-[#475569]">
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Stakeholder interviews &amp; mapping</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> User research &amp; persona development</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Journey mapping &amp; pain point analysis</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Problem framing &amp; goal definition</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="md:col-span-5 mt-10 md:mt-0 space-y-6">
-                                <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                                    <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" alt="Stakeholder Mapping">
-                                </div>
-                                <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                                    <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" alt="User Personas">
-                                </div>
-                            </div>
+                    <!-- Content -->
+                    <div class="flex-1 pt-2">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <span class="px-4 py-1 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2px]">PHASE 01</span>
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter section-heading mb-5">Understand</h2>
+                        <p class="text-xl text-[#334155] max-w-xl leading-relaxed">I immerse myself in the problem space — talking to stakeholders, mapping the ecosystem, and uncovering real user needs.</p>
+                        
+                        <div class="mt-8">
+                            <h5 class="font-semibold text-[#2C5EAD] mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                            <ul class="space-y-3 text-[#475569] text-[15px]">
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Stakeholder interviews &amp; mapping</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> User research &amp; persona development</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Journey mapping &amp; pain point analysis</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-[#2C5EAD]"></i> Problem framing &amp; goal definition</li>
+                            </ul>
                         </div>
                     </div>
-
-                    <!-- PHASE 02: EXPLORE -->
-                    <div id="explore" class="phase-section">
-                        <div class="grid md:grid-cols-12 gap-x-10 items-start">
-                            <div class="md:col-span-5 order-2 md:order-1 mt-10 md:mt-0">
-                                <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                                    <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" alt="User Scenarios">
-                                </div>
-                            </div>
-                            
-                            <div class="md:col-span-7 order-1 md:order-2">
-                                <div class="flex items-center gap-x-4 mb-3">
-                                    <span class="px-4 py-1 rounded-full bg-[#FEF3C7] text-amber-700 text-xs font-semibold tracking-[2px]">PHASE 02</span>
-                                </div>
-                                <h2 class="text-6xl font-semibold tracking-tighter section-heading">Explore</h2>
-                                <p class="mt-6 text-xl text-[#334155] max-w-xl">With a clear problem definition, we move into creative exploration — generating ideas, mapping user scenarios, and testing early concepts.</p>
-                                
-                                <div class="mt-10">
-                                    <h5 class="font-semibold text-amber-700 mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5 text-[#475569]">
-                                        <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Ideation workshops</div>
-                                        <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> User scenario mapping</div>
-                                        <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Low-fidelity wireframing</div>
-                                        <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Concept validation</div>
-                                    </div>
-                                </div>
-                            </div>
+                    
+                    <!-- Images -->
+                    <div class="w-full md:w-[42%] space-y-5 pt-4">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.025]" alt="Stakeholder Mapping">
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/personas.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.025]" alt="User Personas">
                         </div>
                     </div>
-
-                    <!-- PHASE 03: MATERIALIZE -->
-                    <div id="materialize" class="phase-section">
-                        <div class="grid md:grid-cols-12 gap-x-10 items-start">
-                            <div class="md:col-span-7">
-                                <div class="flex items-center gap-x-4 mb-3">
-                                    <span class="px-4 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-[2px]">PHASE 03</span>
-                                </div>
-                                <h2 class="text-6xl font-semibold tracking-tighter section-heading">Materialize</h2>
-                                <p class="mt-6 text-xl text-[#334155] max-w-xl">Ideas become tangible. I craft detailed wireframes, high-fidelity prototypes, and polished designs ready for development and testing.</p>
-                                
-                                <div class="mt-10">
-                                    <h5 class="font-semibold text-emerald-700 mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
-                                    <ul class="space-y-3.5 text-[#475569]">
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Detailed wireframes &amp; user flows</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> High-fidelity UI design</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Interactive prototypes</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Usability testing &amp; iteration</li>
-                                        <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Developer handoff &amp; documentation</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="md:col-span-5 mt-10 md:mt-0">
-                                <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
-                                    <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]" alt="Design Plan &amp; Framework">
-                                </div>
-                                <div class="mt-4 text-center text-sm text-[#64748B]">Design plan &amp; framework visualization</div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- PHASE 02: EXPLORE -->
+                <div id="explore" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12 mb-20 md:mb-24">
+                    <!-- Timeline Dot -->
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-amber-600 rounded-full z-10 text-2xl font-bold text-amber-600 phase-dot">
+                        02
+                    </div>
+                    
+                    <!-- Content (order swapped for variety on desktop) -->
+                    <div class="flex-1 pt-2 order-2 md:order-1">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <span class="px-4 py-1 rounded-full bg-[#FEF3C7] text-amber-700 text-xs font-semibold tracking-[2px]">PHASE 02</span>
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter section-heading mb-5">Explore</h2>
+                        <p class="text-xl text-[#334155] max-w-xl leading-relaxed">With a clear problem definition, we move into creative exploration — generating ideas, mapping user scenarios, and testing early concepts.</p>
+                        
+                        <div class="mt-8">
+                            <h5 class="font-semibold text-amber-700 mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-[#475569] text-[15px]">
+                                <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Ideation workshops</div>
+                                <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> User scenario mapping</div>
+                                <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Low-fidelity wireframing</div>
+                                <div class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1 text-amber-600"></i> Concept validation</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Images -->
+                    <div class="w-full md:w-[42%] space-y-5 pt-4 order-1 md:order-2">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/user-scenarios.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.025]" alt="User Scenarios">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 03: MATERIALIZE -->
+                <div id="materialize" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12">
+                    <!-- Timeline Dot -->
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-emerald-600 rounded-full z-10 text-2xl font-bold text-emerald-600 phase-dot">
+                        03
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="flex-1 pt-2">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <span class="px-4 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold tracking-[2px]">PHASE 03</span>
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tighter section-heading mb-5">Materialize</h2>
+                        <p class="text-xl text-[#334155] max-w-xl leading-relaxed">Ideas become tangible. I craft detailed wireframes, high-fidelity prototypes, and polished designs ready for development and testing.</p>
+                        
+                        <div class="mt-8">
+                            <h5 class="font-semibold text-emerald-700 mb-4 text-sm tracking-widest">KEY ACTIVITIES</h5>
+                            <ul class="space-y-3 text-[#475569] text-[15px]">
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Detailed wireframes &amp; user flows</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> High-fidelity UI design</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Interactive prototypes</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Usability testing &amp; iteration</li>
+                                <li class="activity-item flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> Developer handoff &amp; documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Images -->
+                    <div class="w-full md:w-[42%] pt-4">
+                        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
+                            <img src="images/design-plan.png" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.025]" alt="Design Plan &amp; Framework">
+                        </div>
+                        <div class="mt-4 text-center text-sm text-[#64748B]">Design plan &amp; framework visualization</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -380,7 +381,7 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Smooth scroll for nav links
+        // Smooth scroll for journey cards
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -391,61 +392,83 @@
             });
         });
 
-        // Active phase navigator highlighting
-        const phaseLinks = document.querySelectorAll('.phase-nav-link');
-        const phases = ['understand', 'explore', 'materialize'];
+        // Timeline progress animation (immersive scroll progress)
+        const progressLine = document.getElementById('timeline-progress');
+        const phasesSection = document.getElementById('phases');
 
-        function updateActivePhase() {
-            let current = '';
-            phases.forEach(phaseId => {
-                const section = document.getElementById(phaseId);
-                if (section) {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= 150) {
-                        current = phaseId;
-                    }
-                }
-            });
+        if (progressLine && phasesSection) {
+            gsap.set(progressLine, { height: 0 });
 
-            phaseLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-phase') === current) {
-                    link.classList.add('active');
+            ScrollTrigger.create({
+                trigger: phasesSection,
+                start: 'top 30%',
+                end: 'bottom 70%',
+                scrub: 1.2,
+                onUpdate: function(self) {
+                    gsap.to(progressLine, {
+                        height: `${self.progress * 100}%`,
+                        duration: 0.1,
+                        ease: 'none',
+                        overwrite: 'auto'
+                    });
                 }
             });
         }
 
-        window.addEventListener('scroll', updateActivePhase);
-        window.addEventListener('load', updateActivePhase);
+        // Active phase dot highlighting on scroll
+        const phaseDots = document.querySelectorAll('.phase-dot');
+        const phaseIds = ['understand', 'explore', 'materialize'];
 
-        // Entrance animations with GSAP + ScrollTrigger
+        function updateActivePhaseDot() {
+            let current = '';
+            phaseIds.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 180 && rect.bottom >= 180) {
+                        current = id;
+                    }
+                }
+            });
+
+            phaseDots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (phaseIds[index] === current) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActivePhaseDot);
+        window.addEventListener('load', updateActivePhaseDot);
+
+        // Entrance animations
         function initAnimations() {
-            // Journey cards stagger
+            // Journey cards
             gsap.fromTo('.journey-card', 
-                { y: 60, opacity: 0 },
+                { y: 50, opacity: 0 },
                 { 
                     y: 0, 
                     opacity: 1, 
                     duration: 0.8, 
                     ease: 'power3.out',
-                    stagger: 0.15,
+                    stagger: 0.12,
                     scrollTrigger: {
                         trigger: '#journey',
-                        start: 'top 75%'
+                        start: 'top 70%'
                     }
                 }
             );
 
-            // Phase sections fade + slide
+            // Timeline phases
             gsap.utils.toArray('.phase-section').forEach((section, i) => {
                 gsap.fromTo(section,
-                    { opacity: 0, y: 40 },
+                    { opacity: 0, y: 30 },
                     {
                         opacity: 1,
                         y: 0,
-                        duration: 0.9,
+                        duration: 0.85,
                         ease: 'power2.out',
-                        delay: i * 0.1,
                         scrollTrigger: {
                             trigger: section,
                             start: 'top 80%',
@@ -455,19 +478,19 @@
                 );
             });
 
-            // Activity items subtle pop
+            // Activity items
             gsap.utils.toArray('.activity-item').forEach((item, i) => {
                 gsap.fromTo(item,
-                    { opacity: 0, x: -15 },
+                    { opacity: 0, x: -12 },
                     {
                         opacity: 1,
                         x: 0,
-                        duration: 0.5,
+                        duration: 0.45,
                         ease: 'power2.out',
-                        delay: i * 0.06,
+                        delay: i * 0.05,
                         scrollTrigger: {
                             trigger: item,
-                            start: 'top 90%',
+                            start: 'top 92%',
                             toggleActions: 'play none none reverse'
                         }
                     }
@@ -475,7 +498,7 @@
             });
         }
 
-        // Lightbox functions (kept from original)
+        // Lightbox (preserved)
         let currentLightboxImage = null;
 
         function openLightbox(imgElement) {
@@ -523,19 +546,17 @@
             }
         });
 
-        // Initialize everything
+        // Init
         window.addEventListener('load', () => {
             initAnimations();
-            updateActivePhase();
+            updateActivePhaseDot();
         });
 
-        // Mobile menu (basic)
+        // Basic mobile menu
         const mobileBtn = document.getElementById('mobile-menu-btn');
         if (mobileBtn) {
             mobileBtn.addEventListener('click', () => {
-                const nav = document.querySelector('nav');
-                nav.classList.toggle('bg-white');
-                alert('Mobile menu would open here (add your mobile nav logic if needed)');
+                alert('Mobile menu would open here');
             });
         }
     </script>
