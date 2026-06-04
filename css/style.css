@@ -25,7 +25,7 @@ body {
   padding: 60px 0;
 }
 
-/* Mobile fallback */
+/* Mobile fallback - improved for landscape 16:9 phones */
 @media (max-width: 767px) {
   #horizontal-wrapper {
     flex-direction: column;
@@ -36,6 +36,20 @@ body {
     min-height: 100vh;
     border-left: none !important;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
+/* Landscape phones and small tablets (16:9 view) - keep horizontal snap nice */
+@media (max-width: 900px) and (orientation: landscape) {
+  #horizontal-wrapper {
+    flex-direction: row;
+    height: 100vh;
+  }
+  .panel {
+    min-width: 100vw;
+    min-height: 100vh;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-bottom: none;
   }
 }
 
