@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Quick Snap on Release
+// Horizontal Full-Page Scroll - Instant Snap
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,7 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!isMobile) {
         const panels = Array.from(wrapper.querySelectorAll('.panel'));
+        if (panels.length === 0) return;
+
         let lastActiveIndex = 0;
+
+        // IMPORTANT: Force start at first panel (Hero)
+        gsap.set(wrapper, { x: 0 });
 
         setTimeout(() => {
             let totalWidth = 0;
@@ -25,26 +30,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const scrollDistance = totalWidth - window.innerWidth + 80;
 
+            // Main horizontal scroll with instant snap
             gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.25,
+                    scrub: 0.15,                    // Very responsive to small scrolls
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
+                    immediateRender: true,
                     snap: {
                         snapTo: (progress) => {
                             if (panels.length <= 1) return progress;
-                            
+
                             const snapPoints = panels.map((_, i) => i / (panels.length - 1));
-                            
+
                             // Find closest snap point
                             let closestIndex = 0;
                             let minDist = Math.abs(progress - snapPoints[0]);
-                            
+
                             for (let i = 1; i < snapPoints.length; i++) {
                                 const dist = Math.abs(progress - snapPoints[i]);
                                 if (dist < minDist) {
@@ -52,24 +59,24 @@ document.addEventListener('DOMContentLoaded', function() {
                                     closestIndex = i;
                                 }
                             }
-                            
-                            // Prevent skipping
+
+                            // Prevent skipping multiple panels (only move 1 at a time)
                             const currentIndex = lastActiveIndex;
                             let targetIndex = closestIndex;
                             if (Math.abs(closestIndex - currentIndex) > 1) {
                                 targetIndex = currentIndex + (closestIndex > currentIndex ? 1 : -1);
                             }
-                            
+
                             lastActiveIndex = targetIndex;
                             return snapPoints[targetIndex];
                         },
-                        duration: 0.12,           // Very quick snap after releasing scroll
-                        ease: "power2.out"
+                        duration: 0.06,           // Almost instant snap
+                        ease: "power1.out"
                     }
                 }
             });
 
-            // Active navigation
+            // Active nav link highlighting
             const navLinks = document.querySelectorAll('.nav-link');
             panels.forEach((panel, index) => {
                 ScrollTrigger.create({
@@ -86,25 +93,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            // Subtle panel animation
+            // Subtle panel entrance animation
             panels.forEach((panel, i) => {
                 if (i === 0) return;
                 gsap.fromTo(panel, 
-                    { opacity: 0.7, scale: 0.98 },
+                    { opacity: 0.75, scale: 0.985 },
                     {
                         opacity: 1,
                         scale: 1,
-                        duration: 0.5,
+                        duration: 0.4,
                         ease: 'power2.out',
                         scrollTrigger: {
                             trigger: panel,
-                            start: 'left 70%',
+                            start: 'left 60%',
                             toggleActions: 'play none none reverse'
                         }
                     }
                 );
             });
-        }, 350);
+
+            // Final safety refresh
+            ScrollTrigger.refresh();
+            window.scrollTo(0, 0);
+
+        }, 250);
     }
 
     // Mobile menu
@@ -116,10 +128,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Keyboard support
+    // Keyboard arrows
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') window.scrollBy({ left: 600, behavior: 'smooth' });
-        if (e.key === 'ArrowLeft') window.scrollBy({ left: -600, behavior: 'smooth' });
+        if (e.key === 'ArrowRight') window.scrollBy({ left: 700, behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') window.scrollBy({ left: -700, behavior: 'smooth' });
     });
 
     // Refresh on resize
@@ -131,5 +143,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (quick snap on release)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (instant snap)', 'color:#10b981');
 });
