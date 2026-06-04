@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Clean & Snappy
+// Horizontal Full-Page Scroll - Instant Commit Feel
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const scrollDistance = totalWidth - window.innerWidth + 80;
 
-            // Main horizontal scroll with snap
-            const horizontalScroll = gsap.to(wrapper, {
+            // Main horizontal scroll with fast commit snap
+            gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.4,
+                    scrub: 0.25,                    // Very direct response while scrolling
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -39,10 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         snapTo: (progress) => {
                             if (panels.length <= 1) return progress;
                             
-                            // Calculate snap points
                             const snapPoints = panels.map((_, i) => i / (panels.length - 1));
                             
-                            // Find closest snap point
+                            // Find closest snap point quickly
                             let closest = snapPoints[0];
                             let minDist = Math.abs(progress - closest);
                             
@@ -53,16 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                     closest = snapPoints[i];
                                 }
                             }
-                            
                             return closest;
                         },
-                        duration: { min: 0.08, max: 0.2 },   // Faster snap
-                        ease: "power2.out"
+                        duration: { min: 0.05, max: 0.12 },   // Very fast / almost instant snap
+                        ease: "power1.out"
                     }
                 }
             });
 
-            // Active navigation highlighting
+            // Active navigation
             const navLinks = document.querySelectorAll('.nav-link');
             panels.forEach((panel, index) => {
                 ScrollTrigger.create({
@@ -73,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (self.isActive) {
                             navLinks.forEach(l => l.classList.remove('active'));
                             if (navLinks[index]) {
-                                navLinks.forEach(l => l.classList.remove('active'));
                                 navLinks[index].classList.add('active');
                             }
                         }
@@ -81,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            // Subtle scale/opacity animation on panels
+            // Subtle panel animation
             panels.forEach((panel, i) => {
                 if (i === 0) return;
                 gsap.fromTo(panel, 
@@ -126,5 +123,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized (clean + snap)', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (instant commit)', 'color:#10b981');
 });
