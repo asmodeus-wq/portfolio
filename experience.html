@@ -16,36 +16,26 @@
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
 
-        .timeline-line {
+        .exp-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease;
+        }
+        .exp-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+            border-color: #2C5EAD;
+        }
+
+        .floating-period {
+            font-size: 90px;
+            line-height: 1;
+            font-weight: 800;
+            opacity: 0.06;
+            user-select: none;
+            pointer-events: none;
             position: absolute;
-            left: 38px;
-            top: 30px;
-            bottom: 160px;
-            width: 3px;
-            background: #e2e8f0;
-            z-index: 1;
-            border-radius: 9999px;
-        }
-
-        .timeline-progress {
-            position: absolute;
-            left: 38px;
-            top: 30px;
-            width: 4px;
-            background: linear-gradient(#2C5EAD, #60A5FA);
-            z-index: 2;
-            box-shadow: 0 0 16px rgba(44, 94, 173, 0.5);
-            border-radius: 9999px;
-        }
-
-        .experience-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 5px solid #e2e8f0;
-        }
-
-        .experience-card:hover {
-            border-left-color: #2C5EAD;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            top: -10px;
+            left: -5px;
+            z-index: 0;
         }
 
         .tag {
@@ -53,6 +43,33 @@
             padding: 0.35rem 0.9rem;
             border-radius: 9999px;
             font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .exp-card:hover .tag {
+            background-color: #e0e7ff;
+        }
+
+        .step {
+            transition: all 0.3s ease;
+        }
+        .step.active {
+            color: #2C5EAD;
+            font-weight: 600;
+        }
+        .step.active .step-number {
+            background: #2C5EAD;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
+        }
+
+        .connector {
+            width: 40px;
+            height: 2px;
+            background: #e2e8f0;
+            transition: background 0.4s ease;
+        }
+        .connector.filled {
+            background: linear-gradient(to right, #2C5EAD, #60A5FA);
         }
     </style>
 </head>
@@ -91,25 +108,67 @@
         </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="py-20 relative" id="journey-section">
-        <div class="max-w-5xl mx-auto px-6">
+    <!-- CAREER JOURNEY - Premium Redesign -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-6">
             
-            <!-- Timeline Lines -->
-            <div class="timeline-line hidden md:block rounded-full"></div>
-            <div id="timeline-progress" class="timeline-progress hidden md:block rounded-full" style="height: 0;"></div>
+            <div class="text-center mb-12">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE JOURNEY</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Career Journey</h2>
+            </div>
 
-            <div class="space-y-12 md:pl-[55px]">
-
-                <!-- Item 1: Current -->
-                <div class="timeline-item">
-                    <div class="mb-3">
-                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2022 — PRESENT</div>
-                        <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Analyst</h3>
-                        <p class="text-[#2C5EAD] font-medium mt-1.5">HCL Software • Commerce Platform</p>
+            <!-- Sticky Horizontal Career Stepper -->
+            <div id="career-stepper" class="sticky top-20 z-[90] hidden lg:block bg-white/95 backdrop-blur-lg border border-slate-200 rounded-3xl px-8 py-5 mb-12 shadow-sm">
+                <div class="flex items-center justify-center gap-x-1.5 text-sm">
+                    
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="freelance">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">16</div>
+                        <span class="font-medium tracking-tight">Freelance</span>
                     </div>
-                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Rehired as User Experience Analyst for HCL Commerce. Working on the HCL Commerce software suite and improving the entire B2B related usability issues. Leading comprehensive usability improvements across the enterprise platform.</p>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="brightbrain">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">18</div>
+                        <span class="font-medium tracking-tight">BrightBrain</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="unica">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">18</div>
+                        <span class="font-medium tracking-tight">HCL Unica</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="cybage">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">21</div>
+                        <span class="font-medium tracking-tight">Cybage</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="hcl">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">22</div>
+                        <span class="font-medium tracking-tight">HCL Commerce</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Experience Cards -->
+            <div class="space-y-8">
+
+                <!-- HCL Commerce (Current) -->
+                <div id="hcl" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="hcl">
+                    <div class="floating-period text-[#2C5EAD]">22</div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
+                            <div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2022 — PRESENT</div>
+                                <h3 class="text-4xl font-semibold tracking-tighter section-heading">User Experience Analyst</h3>
+                                <p class="text-[#2C5EAD] font-medium mt-1">HCL Software • Commerce Platform</p>
+                            </div>
+                            <div class="text-sm text-[#64748B] md:text-right">Current Role</div>
+                        </div>
+                        <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Rehired as User Experience Analyst for HCL Commerce. Working on the HCL Commerce software suite and improving the entire B2B related usability issues. Leading comprehensive usability improvements across the enterprise platform.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tag bg-emerald-100 text-emerald-700">Enterprise UX</span>
                             <span class="tag bg-blue-100 text-blue-700">B2B SaaS</span>
@@ -118,15 +177,18 @@
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="timeline-item">
-                    <div class="mb-3">
-                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">MAY 2021 — DEC 2022</div>
-                        <h3 class="text-[26px] leading-none font-semibold section-heading">Senior Product Designer & Researcher</h3>
-                        <p class="text-[#2C5EAD] font-medium mt-1.5">Cybage Softwares</p>
-                    </div>
-                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Responsible for performing user interviews & research, gathering segmented data, and delivering data-driven designs and design annotations. Working closely with users for better and enhanced usability experience.</p>
+                <!-- Cybage -->
+                <div id="cybage" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="cybage">
+                    <div class="floating-period text-[#2C5EAD]">21</div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
+                            <div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">MAY 2021 — DEC 2022</div>
+                                <h3 class="text-4xl font-semibold tracking-tighter section-heading">Senior Product Designer & Researcher</h3>
+                                <p class="text-[#2C5EAD] font-medium mt-1">Cybage Softwares</p>
+                            </div>
+                        </div>
+                        <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Responsible for performing user interviews & research, gathering segmented data, and delivering data-driven designs and design annotations. Working closely with users for better and enhanced usability experience.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tag bg-emerald-100 text-emerald-700">User Research</span>
                             <span class="tag bg-blue-100 text-blue-700">Prototyping</span>
@@ -135,15 +197,18 @@
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="timeline-item">
-                    <div class="mb-3">
-                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2018 — APR 2021</div>
-                        <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Designer</h3>
-                        <p class="text-[#2C5EAD] font-medium mt-1.5">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
-                    </div>
-                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">User Experience Designer for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
+                <!-- HCL Unica -->
+                <div id="unica" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="unica">
+                    <div class="floating-period text-[#2C5EAD]">18</div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
+                            <div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2018 — APR 2021</div>
+                                <h3 class="text-4xl font-semibold tracking-tighter section-heading">User Experience Designer</h3>
+                                <p class="text-[#2C5EAD] font-medium mt-1">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
+                            </div>
+                        </div>
+                        <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">User Experience Designer for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tag bg-emerald-100 text-emerald-700">Marketing UX</span>
                             <span class="tag bg-blue-100 text-blue-700">Information Architecture</span>
@@ -152,15 +217,18 @@
                     </div>
                 </div>
 
-                <!-- Item 4 -->
-                <div class="timeline-item">
-                    <div class="mb-3">
-                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">APR 2018 — DEC 2018</div>
-                        <h3 class="text-[26px] leading-none font-semibold section-heading">UI/UX Designer</h3>
-                        <p class="text-[#2C5EAD] font-medium mt-1.5">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
-                    </div>
-                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Conducting user research and testing. Developing wireframes and task flows based on user needs. Understanding product specifications and user psychology.</p>
+                <!-- BrightBrain -->
+                <div id="brightbrain" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="brightbrain">
+                    <div class="floating-period text-[#2C5EAD]">18</div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
+                            <div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">APR 2018 — DEC 2018</div>
+                                <h3 class="text-4xl font-semibold tracking-tighter section-heading">UI/UX Designer</h3>
+                                <p class="text-[#2C5EAD] font-medium mt-1">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
+                            </div>
+                        </div>
+                        <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Conducting user research and testing. Developing wireframes and task flows based on user needs. Understanding product specifications and user psychology.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tag bg-emerald-100 text-emerald-700">User Research</span>
                             <span class="tag bg-blue-100 text-blue-700">Wireframing</span>
@@ -169,15 +237,18 @@
                     </div>
                 </div>
 
-                <!-- Item 5 -->
-                <div class="timeline-item">
-                    <div class="mb-3">
-                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">FEB 2016 — APR 2018</div>
-                        <h3 class="text-[26px] leading-none font-semibold section-heading">Freelance Graphic Designer</h3>
-                        <p class="text-[#2C5EAD] font-medium mt-1.5">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
-                    </div>
-                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Creating and helping small local businesses with their design needs. Making creative menu cards, coasters, posters, social media posts, brochures and other marketing collateral.</p>
+                <!-- Freelance -->
+                <div id="freelance" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="freelance">
+                    <div class="floating-period text-[#2C5EAD]">16</div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
+                            <div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">FEB 2016 — APR 2018</div>
+                                <h3 class="text-4xl font-semibold tracking-tighter section-heading">Freelance Graphic Designer</h3>
+                                <p class="text-[#2C5EAD] font-medium mt-1">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
+                            </div>
+                        </div>
+                        <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Creating and helping small local businesses with their design needs. Making creative menu cards, coasters, posters, social media posts, brochures and other marketing collateral.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tag bg-emerald-100 text-emerald-700">Visual Identity</span>
                             <span class="tag bg-blue-100 text-blue-700">Marketing Collateral</span>
@@ -190,6 +261,7 @@
         </div>
     </section>
 
+    <!-- Compact Footer -->
     <footer class="bg-white border-t border-slate-200 py-6">
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
@@ -215,24 +287,67 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        const progressLine = document.getElementById('timeline-progress');
+        // Career stepper active state
+        const careerSteps = document.querySelectorAll('#career-stepper .step');
+        const expCards = document.querySelectorAll('.exp-card');
 
-        if (progressLine) {
-            gsap.set(progressLine, { height: 0 });
-
-            ScrollTrigger.create({
-                trigger: '#journey-section',
-                start: 'top 20%',
-                end: 'bottom 80%',
-                scrub: 1.2,
-                onUpdate: function(self) {
-                    gsap.to(progressLine, {
-                        height: `${self.progress * 100}%`,
-                        duration: 0.1,
-                        ease: 'none',
-                        overwrite: 'auto'
-                    });
+        function updateCareerStepper() {
+            let current = '';
+            expCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= 220) {
+                    current = card.getAttribute('data-exp');
                 }
+            });
+
+            careerSteps.forEach(step => {
+                step.classList.remove('active');
+                const connector = step.nextElementSibling;
+                if (connector && connector.classList.contains('connector')) {
+                    connector.classList.remove('filled');
+                }
+
+                if (step.getAttribute('data-exp') === current) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateCareerStepper);
+        window.addEventListener('load', updateCareerStepper);
+
+        // Rich entrance animations
+        function initAnimations() {
+            gsap.utils.toArray('.exp-card').forEach((card, i) => {
+                gsap.fromTo(card,
+                    { opacity: 0, y: 40, scale: 0.985 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.9,
+                        ease: 'power3.out',
+                        delay: i * 0.06,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+        }
+
+        window.addEventListener('load', () => {
+            initAnimations();
+            updateCareerStepper();
+        });
+
+        // Basic mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                alert('Mobile menu would open here');
             });
         }
     </script>
