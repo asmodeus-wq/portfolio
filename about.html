@@ -87,6 +87,15 @@
         .connector.filled {
             background: linear-gradient(to right, #2C5EAD, #60A5FA);
         }
+
+        /* Premium Skill Ring Cards */
+        .skill-ring-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .skill-ring-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -179,7 +188,7 @@
         </div>
     </section>
 
-    <!-- REDESIGNED CORE CRAFT (now above Education, more immersive) -->
+    <!-- REDESIGNED CORE CRAFT (2x3 Grid) -->
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -235,12 +244,35 @@
                     <p class="text-[#475569] leading-relaxed">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
                 </div>
 
+                <!-- NEW: Design Leadership -->
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
+                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users-cog text-3xl text-[#2C5EAD]"></i>
+                    </div>
+                    <h3 class="font-semibold text-2xl mb-3">Design Leadership</h3>
+                    <p class="text-[#475569] leading-relaxed">Guiding teams, mentoring designers, and establishing design culture and processes that scale across organizations.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- EDUCATION JOURNEY -->
-    <section class="bg-white border-y border-slate-200 py-20">
+    <!-- EXPERTISE - SKILL RINGS (Premium clean design matching reference) -->
+    <section class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-[#2C5EAD] text-xs font-semibold tracking-[3px] uppercase">EXPERTISE</span>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Skill Rings</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="skill-rings">
+                <!-- Populated dynamically by JS to match the clean card style -->
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION JOURNEY (Last main section) -->
+    <section class="py-20">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-12">
@@ -410,19 +442,6 @@
         </div>
     </section>
 
-    <!-- Skill Rings / Expertise -->
-    <section class="py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">EXPERTISE</span>
-                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Skill Rings</h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="skill-rings">
-                <!-- Populated by JS -->
-            </div>
-        </div>
-    </section>
-
     <!-- Compact Footer -->
     <footer class="bg-white border-t border-slate-200 py-6">
         <div class="max-w-5xl mx-auto px-6">
@@ -476,7 +495,7 @@
             }
         });
 
-        // Skill rings
+        // Premium Skill Rings - Matching the clean reference design
         const skills = [
             {name: "User Research", percent: 92},
             {name: "Wireframing", percent: 95},
@@ -486,45 +505,34 @@
             {name: "Interaction Design", percent: 89}
         ];
 
-        const container = document.getElementById('skill-rings');
+        const ringsContainer = document.getElementById('skill-rings');
         skills.forEach(skill => {
-            const div = document.createElement('div');
-            div.className = 'bg-white p-8 rounded-3xl border border-slate-100';
-            div.innerHTML = `
-                <div class="relative w-40 h-40 mx-auto">
+            const card = document.createElement('div');
+            card.className = 'skill-ring-card bg-white border border-slate-200 rounded-3xl p-8 flex flex-col items-center text-center shadow-sm';
+            
+            card.innerHTML = `
+                <div class="relative w-32 h-32 mb-6">
                     <svg class="w-full h-full" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="52" fill="none" stroke="#e2e8f0" stroke-width="12"/>
-                        <circle cx="60" cy="60" r="52" fill="none" stroke="#2C5EAD" stroke-width="12" stroke-dasharray="326" stroke-dashoffset="326" class="skill-ring"/>
+                        <!-- Background ring -->
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                        <!-- Progress ring -->
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#1e40af" stroke-width="10" 
+                                stroke-dasharray="326" stroke-dashoffset="${326 - (326 * (skill.percent / 100))}" 
+                                stroke-linecap="round" transform="rotate(-90 60 60)"/>
                     </svg>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="text-4xl font-semibold text-[#2C5EAD]">${skill.percent}</div>
-                            <div class="text-xs uppercase tracking-widest">%</div>
+                        <div>
+                            <div class="text-4xl font-semibold text-[#1e40af]">${skill.percent}</div>
+                            <div class="text-xs text-[#64748B] -mt-1">%</div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-6 font-medium">${skill.name}</div>
+                <div class="font-medium text-[#0F172A] text-sm tracking-tight">${skill.name}</div>
             `;
-            container.appendChild(div);
+            ringsContainer.appendChild(card);
         });
 
-        // Animate rings on scroll
-        ScrollTrigger.create({
-            trigger: "#skill-rings",
-            start: "top 75%",
-            onEnter: () => {
-                document.querySelectorAll('.skill-ring').forEach((ring, i) => {
-                    gsap.to(ring, {
-                        strokeDashoffset: 326 - (326 * (skills[i].percent / 100)),
-                        duration: 1.8,
-                        ease: "power2.out",
-                        delay: i * 0.1
-                    });
-                });
-            }
-        });
-
-        // Education stepper active state
+        // Education stepper
         const eduSteps = document.querySelectorAll('#edu-stepper .step');
         const eduCards = document.querySelectorAll('.edu-card');
 
@@ -553,21 +561,21 @@
         window.addEventListener('scroll', updateEduStepper);
         window.addEventListener('load', updateEduStepper);
 
-        // Entrance animations for education cards + craft cards
+        // Entrance animations
         function initAnimations() {
-            gsap.utils.toArray('.edu-card, .craft-card').forEach((card, i) => {
+            gsap.utils.toArray('.edu-card, .craft-card, .skill-ring-card').forEach((card, i) => {
                 gsap.fromTo(card,
-                    { opacity: 0, y: 40, scale: 0.985 },
+                    { opacity: 0, y: 35, scale: 0.985 },
                     {
                         opacity: 1,
                         y: 0,
                         scale: 1,
-                        duration: 0.9,
+                        duration: 0.85,
                         ease: 'power3.out',
-                        delay: i * 0.05,
+                        delay: i * 0.04,
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 85%',
+                            start: 'top 88%',
                             toggleActions: 'play none none reverse'
                         }
                     }
