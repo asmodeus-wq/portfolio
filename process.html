@@ -15,7 +15,7 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-zinc-950/90 backdrop-blur-lg border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3 no-underline">
                 <div class="w-9 h-9 bg-white rounded-full flex items-center justify-center">
                     <span class="text-zinc-950 font-bold text-xl">FQ</span>
@@ -25,9 +25,9 @@
             
             <div class="hidden md:flex items-center gap-x-8 text-sm">
                 <a href="about.html" class="nav-link no-underline">About</a>
-                <a href="work.html" class="nav-link no-underline">Work</a>
-                <a href="process.html" class="nav-link active no-underline">Process</a>
                 <a href="experience.html" class="nav-link no-underline">Career</a>
+                <a href="process.html" class="nav-link active no-underline">Process</a>
+                <a href="work.html" class="nav-link no-underline">Work</a>
                 <a href="contact.html" class="nav-link no-underline">Contact</a>
             </div>
 
@@ -146,7 +146,6 @@
                 </div>
                 
                 <div class="md:col-span-5 mt-12 md:mt-0 space-y-6">
-                    <!-- Clickable images with zoom hint -->
                     <div class="rounded-3xl overflow-hidden border border-white/10 shadow-xl group cursor-zoom-in" onclick="openLightbox(this.querySelector('img'))">
                         <img src="images/stakeholder-mapping.png" class="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.015]" alt="Stakeholder Mapping">
                     </div>
@@ -259,14 +258,12 @@
     <script src="js/main.js"></script>
     
     <script>
-        // Subtle scroll animations + Lightbox functionality
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
             gsap.registerPlugin(ScrollTrigger);
 
-            // Fade in sections
             gsap.utils.toArray('section').forEach((section, i) => {
-                if (i === 0) return; // skip hero
+                if (i === 0) return;
                 gsap.fromTo(section, 
                     { opacity: 0.6, y: 40 },
                     {
@@ -283,7 +280,6 @@
                 );
             });
 
-            // Image hover lift effect
             document.querySelectorAll('img').forEach(img => {
                 img.addEventListener('mouseenter', () => {
                     gsap.to(img, { scale: 1.015, duration: 0.4, ease: 'power2.out' });
@@ -293,7 +289,6 @@
                 });
             });
 
-            // Keyboard support for lightbox
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     const modal = document.getElementById('lightbox-modal');
@@ -304,7 +299,6 @@
             console.log('%c[Process] Page initialized with lightbox zoom feature', 'color:#10b981');
         });
 
-        // === LIGHTBOX FUNCTIONS ===
         let currentLightboxImage = null;
 
         function openLightbox(imgElement) {
@@ -316,16 +310,13 @@
 
             currentLightboxImage = imgElement;
             
-            // Set image source and caption
             lightboxImg.src = imgElement.src;
             lightboxImg.alt = imgElement.alt || 'Enlarged image';
             caption.textContent = imgElement.alt || '';
 
-            // Show modal
             modal.classList.remove('hidden');
             modal.style.display = 'flex';
 
-            // Animate in with GSAP
             gsap.fromTo(modal, 
                 { opacity: 0 },
                 { opacity: 1, duration: 0.25, ease: 'power2.out' }
@@ -342,13 +333,10 @@
 
             if (!modal) return;
 
-            // Only close if clicking the backdrop (not the image container)
             if (event && event.target.id !== 'lightbox-modal') {
-                // If they clicked inside the modal content, do nothing
                 return;
             }
 
-            // Animate out
             gsap.to(lightboxImg, {
                 scale: 0.95,
                 opacity: 0,
@@ -372,7 +360,6 @@
             });
         }
 
-        // Bonus: Click on the enlarged image to close
         document.addEventListener('click', function(e) {
             const modal = document.getElementById('lightbox-modal');
             const lightboxImg = document.getElementById('lightbox-image');
