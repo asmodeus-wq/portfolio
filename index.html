@@ -79,25 +79,55 @@
             pointer-events: none;
         }
 
-        /* Mobile scaling fixes - tighter content to fit panels without scroll */
+        /* Aggressive mobile scaling fixes for panels 2,4,5,6 + all content to fit without internal scroll */
         @media (max-width: 767px) {
             .panel {
-                padding: 1rem !important;
+                padding: 0.6rem 0.85rem !important;
             }
             .section-heading {
-                font-size: 1.875rem !important; /* ~text-3xl */
+                font-size: 1.45rem !important;
+                line-height: 1.15 !important;
             }
-            .skill-card, .tool-card {
-                padding: 0.75rem !important;
-            }
-            .skill-card i, .tool-card i {
-                font-size: 1.25rem !important;
-            }
-            .skill-card h4, .tool-card span {
-                font-size: 0.75rem !important;
+            .panel h3, .panel h4 {
+                font-size: 1.05rem !important;
+                line-height: 1.2 !important;
             }
             .panel p {
-                font-size: 0.875rem !important;
+                font-size: 0.78rem !important;
+                line-height: 1.35 !important;
+            }
+            .skill-card, .tool-card {
+                padding: 0.55rem !important;
+            }
+            .skill-card i, .tool-card i {
+                font-size: 1.05rem !important;
+            }
+            .skill-card h4, .tool-card span {
+                font-size: 0.68rem !important;
+                line-height: 1.15;
+            }
+            .panel .grid {
+                gap: 0.4rem !important;
+            }
+            /* Tools panel - 4 columns on phone to reduce height and fit everything */
+            .panel .grid-cols-3 {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+            /* Skillset cards - keep 2 cols but tighter */
+            .panel .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+            .panel .text-lg, .panel .text-xl {
+                font-size: 0.95rem !important;
+            }
+            .panel .text-sm {
+                font-size: 0.72rem !important;
+            }
+            .panel .mb-8, .panel .mb-10, .panel .mb-12 {
+                margin-bottom: 0.6rem !important;
+            }
+            .panel .mt-8 {
+                margin-top: 0.5rem !important;
             }
         }
     </style>
@@ -171,7 +201,7 @@
             </div>
         </section>
 
-        <!-- ABOUT PANEL -->
+        <!-- ABOUT PANEL (Panel 1 after hero) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #F0F7FF 0%, #E0F0FF 100%)">
             <div class="max-w-5xl w-full">
@@ -193,7 +223,7 @@
             </div>
         </section>
 
-        <!-- WHAT I DO PANEL (Skillset) -->
+        <!-- WHAT I DO PANEL / SKILLSET (Panel 2) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #E0F0FF 0%, #C8E4FF 100%)">
             <div class="max-w-6xl w-full">
@@ -247,7 +277,7 @@
             </div>
         </section>
 
-        <!-- EXPERTISE / TOOLS PANEL - Now compact on mobile -->
+        <!-- EXPERTISE / TOOLS PANEL (Panel 3) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #C8E4FF 0%, #A8D4FF 100%)">
             <div class="max-w-7xl w-full">
@@ -361,7 +391,7 @@
             </div>
         </section>
 
-        <!-- MY WORK PANEL -->
+        <!-- MY WORK PANEL (Panel 4) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
             <div class="max-w-6xl w-full">
@@ -400,7 +430,7 @@
             </div>
         </section>
 
-        <!-- PROCESS PANEL -->
+        <!-- PROCESS PANEL (Panel 5) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #7FB8FF 0%, #5A9EFF 100%)">
             <div class="max-w-5xl w-full">
@@ -433,7 +463,7 @@
             </div>
         </section>
 
-        <!-- CAREER PANEL -->
+        <!-- CAREER PANEL (Panel 6) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-5 sm:p-8 md:p-12" 
                  style="background: linear-gradient(135deg, #5A9EFF 0%, #3B82F6 100%)">
             <div class="max-w-5xl w-full">
@@ -471,7 +501,7 @@
             </div>
         </section>
 
-        <!-- CONTACT PANEL -->
+        <!-- CONTACT PANEL (Panel 7) -->
         <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-5 sm:p-8 md:p-12"
                  style="background-image: linear-gradient(rgba(248,250,252,0.32), rgba(248,250,252,0.48)), url('images/pune.png');
                           background-size: cover;
