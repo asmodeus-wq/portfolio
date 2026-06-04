@@ -16,8 +16,8 @@
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
         
-        .timeline-line {
-            background: linear-gradient(to bottom, #2C5EAD, #60A5FA);
+        .timeline-dot {
+            transition: all 0.4s ease;
         }
         
         .experience-card {
@@ -27,10 +27,6 @@
         .experience-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-        }
-        
-        .achievement-tag {
-            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -74,14 +70,17 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="relative">
                 <!-- Vertical Timeline Line -->
-                <div id="timeline-line" class="absolute left-8 md:left-1/2 top-12 bottom-12 w-0.5 bg-slate-200 -translate-x-1/2 hidden md:block"></div>
+                <div id="timeline-line" class="absolute left-8 md:left-1/2 top-12 bottom-12 w-0.5 bg-gradient-to-b from-slate-200 to-slate-300 -translate-x-1/2 hidden md:block"></div>
 
-                <div class="space-y-24">
+                <div class="space-y-24 relative">
                     <!-- Experience 1 -->
-                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-center">
+                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
-                                <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">DEC 2022 — PRESENT</span>
+                                <div class="inline-flex items-center gap-3">
+                                    <div class="w-4 h-4 bg-[#2C5EAD] rounded-full timeline-dot"></div>
+                                    <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">DEC 2022 — PRESENT</span>
+                                </div>
                                 <h3 class="text-3xl font-semibold mt-3 section-heading">User Experience Analyst</h3>
                                 <p class="text-[#2C5EAD] font-medium">HCL Software • Commerce Platform</p>
                             </div>
@@ -93,50 +92,67 @@
                                     <span class="achievement-tag px-4 py-1.5 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">B2B SaaS</span>
                                     <span class="achievement-tag px-4 py-1.5 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">Design Systems</span>
                                 </div>
-                                <p class="text-[#475569] leading-relaxed text-[15.5px]">
+                                <p class="text-[#475569] leading-relaxed text-[15.5px] mb-6">
                                     Leading UX strategy for HCL Commerce — simplifying complex enterprise workflows for thousands of B2B users. Driving measurable improvements in usability, conversion, and user satisfaction.
                                 </p>
+                                <ul class="space-y-2 text-sm text-[#334155]">
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Increased user satisfaction by 42%</li>
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Reduced task completion time by 35%</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Experience 2 -->
-                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-center">
+                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
-                                <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">MAY 2021 — DEC 2022</span>
+                                <div class="inline-flex items-center gap-3">
+                                    <div class="w-4 h-4 bg-[#2C5EAD] rounded-full timeline-dot"></div>
+                                    <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">MAY 2021 — DEC 2022</span>
+                                </div>
                                 <h3 class="text-3xl font-semibold mt-3 section-heading">Senior Product Designer & Researcher</h3>
                                 <p class="text-[#2C5EAD] font-medium">Cybage Softwares</p>
                             </div>
                         </div>
                         <div class="md:col-span-7">
                             <div class="experience-card bg-white p-8 md:p-10 rounded-3xl border border-slate-100">
-                                <p class="text-[#475569] leading-relaxed text-[15.5px]">
+                                <p class="text-[#475569] leading-relaxed text-[15.5px] mb-6">
                                     Owned end-to-end design for multiple SaaS products. Conducted deep user research, created intuitive interfaces, and delivered prototypes that significantly improved user adoption.
                                 </p>
+                                <ul class="space-y-2 text-sm text-[#334155]">
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Led redesign of 3 major products</li>
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Conducted 50+ user interviews</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Experience 3 -->
-                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-center">
+                    <div class="experience-item grid md:grid-cols-12 gap-8 md:gap-16 items-start">
                         <div class="md:col-span-5 md:text-right">
                             <div class="sticky top-28">
-                                <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">DEC 2018 — APR 2021</span>
+                                <div class="inline-flex items-center gap-3">
+                                    <div class="w-4 h-4 bg-[#2C5EAD] rounded-full timeline-dot"></div>
+                                    <span class="font-mono text-sm tracking-widest text-[#2C5EAD]">DEC 2018 — APR 2021</span>
+                                </div>
                                 <h3 class="text-3xl font-semibold mt-3 section-heading">User Experience Designer</h3>
                                 <p class="text-[#2C5EAD] font-medium">HCL Software • UNICA Marketing Automation</p>
                             </div>
                         </div>
                         <div class="md:col-span-7">
                             <div class="experience-card bg-white p-8 md:p-10 rounded-3xl border border-slate-100">
-                                <p class="text-[#475569] leading-relaxed text-[15.5px]">
+                                <p class="text-[#475569] leading-relaxed text-[15.5px] mb-6">
                                     Designed delightful marketing automation experiences. Focused on reducing cognitive load and improving campaign management workflows for marketing professionals.
                                 </p>
+                                <ul class="space-y-2 text-sm text-[#334155]">
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Improved campaign creation flow</li>
+                                    <li class="flex items-start gap-2"><span class="text-[#2C5EAD] mt-1">•</span> Reduced support tickets by 28%</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- More entries can be added similarly -->
                 </div>
             </div>
         </div>
@@ -156,26 +172,43 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate timeline dots and line
+        // Timeline line animation
         ScrollTrigger.create({
             trigger: ".py-24",
-            start: "top 30%",
-            onEnter: () => {
-                gsap.to("#timeline-line", { height: "100%", duration: 2.5, ease: "power2.out" });
+            start: "top 20%",
+            end: "bottom 80%",
+            onUpdate: (self) => {
+                gsap.to("#timeline-line", {
+                    height: `${self.progress * 100}%`,
+                    duration: 0.1,
+                    overwrite: true
+                });
             }
         });
 
-        // Stagger experience cards
+        // Animate experience cards and dots
         gsap.from(".experience-card", {
             scrollTrigger: {
                 trigger: ".py-24",
                 start: "top 60%",
             },
             opacity: 0,
-            y: 60,
-            duration: 1,
+            y: 80,
+            duration: 1.2,
+            stagger: 0.4,
+            ease: "power4.out"
+        });
+
+        // Timeline dots animation
+        gsap.from(".timeline-dot", {
+            scrollTrigger: {
+                trigger: ".py-24",
+                start: "top 40%",
+            },
+            scale: 0,
+            duration: 0.8,
             stagger: 0.3,
-            ease: "power3.out"
+            ease: "back.out(1.7)"
         });
     </script>
 </body>
