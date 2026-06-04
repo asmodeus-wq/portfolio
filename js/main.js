@@ -1,7 +1,7 @@
 // ============================================
-// Clean One-Panel-At-A-Time Horizontal Snap
-// Starts at Hero, One gesture = One panel only
-// Long/hard/light scroll = exactly one panel, then ~1.1s cooldown
+// Strict One-Panel-At-A-Time Horizontal Snap
+// Light or hard/long scroll = exactly ONE panel, then ~1.1s cooldown
+// Never skips, never chains, always starts at Hero
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,23 +16,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isMobile) return;
 
     let currentIndex = 0;
-    let isAnimating = false;
-    let lastMoveTime = 0;
-    const COOLDOWN_MS = 1100; // ~1.1 seconds cooldown after each move
+    let isLocked = false;
+    let lastScrollTime = 0;
+    const COOLDOWN = 1150; // ~1.15 seconds - user must stop and scroll again
 
-    // ALWAYS force start at first panel (Hero / Landing page)
-    function forceStartAtHero() {
+    // ALWAYS start at Hero / Landing page (panel 0)
+    function resetToHero() {
         gsap.set(wrapper, { x: 0 });
         currentIndex = 0;
         window.scrollTo(0, 0);
     }
 
-    forceStartAtHero();
+    resetToHero();
 
     function goToPanel(index) {
-        if (isAnimating || index < 0 || index >= panels.length) return;
+        if (isLocked || index < 0 || index >= panels.length) return;
 
-        isAnimating = true;
+        isLocked = true;
         currentIndex = index;
 
         const targetX = -panels[index].offsetLeft;
@@ -42,67 +42,60 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 0.42,
             ease: "power2.out",
             onComplete: () => {
-                isAnimating = false;
+                // Keep locked for cooldown period so user must deliberately scroll again
+                setTimeout(() => {
+                    isLocked = false;
+                }, COOLDOWN);
             }
         });
     }
 
-    // Wheel handler - STRICT one gesture = one panel
-    // No matter light/hard/long/short scroll, only one panel moves
-    // Then you must wait ~1.1s or start a new deliberate scroll
+    // Wheel handler - ANY scroll (light/hard/long/short) = exactly one panel
     wrapper.addEventListener('wheel', function(e) {
         e.preventDefault();
 
-        if (isAnimating) return;
+        if (isLocked) return;
 
         const now = Date.now();
-        if (now - lastMoveTime < COOLDOWN_MS) {
-            return; // Still in cooldown - ignore further scrolls
-        }
+        // Extra safety: ignore if within cooldown window
+        if (now - lastScrollTime < 180) return;
 
-        lastMoveTime = now;
+        lastScrollTime = now;
 
         if (e.deltaY > 0) {
-            // Any downward scroll (light or hard) = next panel only
             goToPanel(currentIndex + 1);
         } else if (e.deltaY < 0) {
-            // Any upward scroll = previous panel only
             goToPanel(currentIndex - 1);
         }
     }, { passive: false });
 
-    // Keyboard support (one key = one panel)
+    // Keyboard support
     document.addEventListener('keydown', function(e) {
+        if (isLocked) return;
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
             e.preventDefault();
-            if (!isAnimating && (Date.now() - lastMoveTime > COOLDOWN_MS)) {
-                lastMoveTime = Date.now();
-                goToPanel(currentIndex + 1);
-            }
+            goToPanel(currentIndex + 1);
         }
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
             e.preventDefault();
-            if (!isAnimating && (Date.now() - lastMoveTime > COOLDOWN_MS)) {
-                lastMoveTime = Date.now();
-                goToPanel(currentIndex - 1);
-            }
+            goToPanel(currentIndex - 1);
         }
     });
 
-    // Extra safety: force hero on load and pageshow (back/forward cache)
-    window.addEventListener('load', forceStartAtHero);
-    window.addEventListener('pageshow', forceStartAtHero);
+    // Force hero on load / pageshow (back-forward cache)
+    window.addEventListener('load', resetToHero);
+    window.addEventListener('pageshow', resetToHero);
 
-    // Keep current panel position on resize
+    // Keep position on resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            if (!isAnimating) {
+            if (!isLocked) {
                 gsap.set(wrapper, { x: -panels[currentIndex].offsetLeft });
             }
         }, 250);
     });
 
-    console.log('%c[Portfolio] Strict one-panel snap initialized (starts at Hero, 1.1s cooldown)', 'color:#10b981');
+    console.log('%c[Portfolio] Strict one-panel snap ready (Hero start + strict lock)', 'color:#10b981');
 });
