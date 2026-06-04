@@ -29,7 +29,7 @@
             letter-spacing: -0.025em;
         }
 
-        /* Full-bleed Video Background */
+        /* Full-bleed Video Background - Optimized for all screens */
         .hero-video-container {
             position: absolute;
             inset: 0;
@@ -44,9 +44,25 @@
             min-height: 100%;
             width: 100vw;
             height: 100vh;
-            transform: translate(-50%, -50%) scale(1.15);
+            transform: translate(-50%, -50%) scale(1.25);
             object-fit: cover;
             border: none;
+        }
+
+        /* Mobile-specific video fill (portrait phones) */
+        @media (max-width: 767px) {
+            .hero-video-container iframe {
+                transform: translate(-50%, -50%) scale(2.6) !important;
+                min-width: 250% !important;
+                min-height: 250% !important;
+            }
+        }
+
+        /* Landscape phones (16:9) - milder scale */
+        @media (max-width: 900px) and (orientation: landscape) {
+            .hero-video-container iframe {
+                transform: translate(-50%, -50%) scale(1.4) !important;
+            }
         }
 
         /* Strong Vignette for Text Readability */
@@ -96,7 +112,7 @@
         <!-- HERO PANEL - Full bleed video -->
         <section class="panel hero-panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             
-            <!-- Vimeo Background Video - True full screen fill -->
+            <!-- Vimeo Background Video - True full screen fill on all devices -->
             <div class="hero-video-container">
                 <iframe 
                     src="https://player.vimeo.com/video/1198270674?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0"
@@ -219,7 +235,6 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                    <!-- Tool cards remain the same -->
                     <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
                         <i class="fa-brands fa-figma text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium text-[#0F172A]">Figma</span>
