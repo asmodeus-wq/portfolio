@@ -15,9 +15,13 @@
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
         .skill-ring {
-            width: 148px;
-            height: 148px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
@@ -49,106 +53,120 @@
 
     <!-- Hero -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(248,250,252,0.65), rgba(248,250,252,0.82)), url('https://picsum.photos/id/1005/2000/1200');"></div>
-        <div class="relative z-10 text-center px-6 max-w-5xl">
-            <span class="text-[#2C5EAD] text-sm font-semibold tracking-[4px]">CHAPTER 01</span>
-            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mt-6 mb-6 leading-none section-heading text-[#0F172A]">I design clarity<br>in complexity.</h1>
-            <p class="text-xl md:text-2xl text-[#475569] max-w-lg mx-auto">10+ years turning complex enterprise systems into intuitive experiences.</p>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.85)), url('https://picsum.photos/id/1015/2000/1200');"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur rounded-full mb-8 border border-white/20">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span class="text-white text-sm font-medium tracking-widest">BASED IN PUNE • 10+ YEARS</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none text-white mb-6 section-heading">I craft experiences<br>that feel effortless.</h1>
+            <p class="text-xl md:text-2xl text-white/80 max-w-xl mx-auto">Senior UX Analyst with a passion for turning complex systems into intuitive, delightful interfaces.</p>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <div class="text-white/60 text-sm mb-2">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
         </div>
     </section>
 
-    <!-- Core Craft Section - FIXED ALIGNMENT -->
-    <section class="max-w-6xl mx-auto px-6 py-24 bg-white">
-        <div class="mb-16 text-center">
-            <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">MY CRAFT</span>
-            <h2 class="text-5xl font-semibold tracking-tighter section-heading text-[#0F172A] mt-3">Core Expertise</h2>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-12">
-            <!-- Left: Text Cards -->
-            <div class="lg:col-span-7 space-y-12">
-                <div class="flex gap-6">
-                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🔍</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold mb-2">Research Mastery</h3>
-                        <p class="text-[#475569] leading-relaxed">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
-                    </div>
-                </div>
-
-                <div class="flex gap-6">
-                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">⚡</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold mb-2">Interaction Design</h3>
-                        <p class="text-[#475569] leading-relaxed">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
-                    </div>
-                </div>
-
-                <div class="flex gap-6">
-                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">👥</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold mb-2">Stakeholder Alignment</h3>
-                        <p class="text-[#475569] leading-relaxed">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
-                    </div>
-                </div>
-
-                <div class="flex gap-6">
-                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🛠️</div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-semibold mb-2">Design Systems</h3>
-                        <p class="text-[#475569] leading-relaxed">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
-                    </div>
+    <!-- About Me -->
+    <section class="max-w-5xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-7">
+                <span class="text-[#2C5EAD] font-semibold tracking-widest text-sm">CHAPTER 01 • THE STORY</span>
+                <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter mt-4 mb-8 section-heading">Hi, I'm Faizan Quazi.</h2>
+                
+                <div class="prose prose-lg text-[#334155] space-y-6">
+                    <p class="text-[17px] leading-relaxed">With over <span class="font-semibold text-[#0F172A]">10 years</span> in User Experience, I specialize in bridging the gap between complex enterprise systems and human-centered design.</p>
+                    <p class="text-[17px] leading-relaxed">Currently leading UX initiatives at <strong>HCL Software</strong>, I’ve helped transform how users interact with large-scale commerce and enterprise platforms.</p>
+                    <p class="text-[17px] leading-relaxed">My approach combines deep research, strategic thinking, and pixel-perfect execution to create interfaces that users love.</p>
                 </div>
             </div>
+            
+            <div class="md:col-span-5">
+                <img src="images/pune.png" alt="Faizan Quazi" class="rounded-3xl shadow-2xl w-full aspect-square object-cover">
+            </div>
+        </div>
+    </section>
 
-            <!-- Right: Skill Rings - Matched Order -->
-            <div class="lg:col-span-5">
-                <div class="grid grid-cols-2 gap-8">
-                    <!-- Research Mastery -->
-                    <div class="text-center">
-                        <div class="skill-ring mx-auto relative">
-                            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                                <circle class="text-slate-200" stroke-width="10" fill="transparent" r="40" cx="50" cy="50"/>
-                                <circle class="text-[#2C5EAD]" stroke-width="10" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251" stroke-dashoffset="20" stroke-linecap="round"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-[#2C5EAD]">92</div>
+    <!-- Stats -->
+    <section class="bg-white py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div id="years" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">10</div>
+                    <div class="text-sm uppercase tracking-widest text-[#475569]">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div id="projects" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">60</div>
+                    <div class="text-sm uppercase tracking-widest text-[#475569]">Projects Delivered</div>
+                </div>
+                <div class="text-center">
+                    <div id="clients" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">25</div>
+                    <div class="text-sm uppercase tracking-widest text-[#475569]">Clients & Teams</div>
+                </div>
+                <div class="text-center">
+                    <div id="industries" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">6</div>
+                    <div class="text-sm uppercase tracking-widest text-[#475569]">Industries</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-20">
+                <div class="md:w-5/12">
+                    <h2 class="text-5xl font-semibold tracking-tighter section-heading mb-12">Core Craft</h2>
+                    <div class="space-y-10">
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-magnifying-glass text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Research Mastery</h3>
+                                <p class="text-[#475569] mt-2">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
+                            </div>
                         </div>
-                        <p class="mt-4 font-medium text-[#0F172A]">Research Mastery</p>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-pen-ruler text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Interaction Design</h3>
+                                <p class="text-[#475569] mt-2">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-users text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Stakeholder Alignment</h3>
+                                <p class="text-[#475569] mt-2">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-chart-line text-2xl text-[#2C5EAD]"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-xl">Design Systems</h3>
+                                <p class="text-[#475569] mt-2">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Interaction Design -->
-                    <div class="text-center">
-                        <div class="skill-ring mx-auto relative">
-                            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                                <circle class="text-slate-200" stroke-width="10" fill="transparent" r="40" cx="50" cy="50"/>
-                                <circle class="text-[#2C5EAD]" stroke-width="10" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251" stroke-dashoffset="27" stroke-linecap="round"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-[#2C5EAD]">89</div>
-                        </div>
-                        <p class="mt-4 font-medium text-[#0F172A]">Interaction Design</p>
-                    </div>
-
-                    <!-- Stakeholder Alignment -->
-                    <div class="text-center">
-                        <div class="skill-ring mx-auto relative">
-                            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                                <circle class="text-slate-200" stroke-width="10" fill="transparent" r="40" cx="50" cy="50"/>
-                                <circle class="text-[#2C5EAD]" stroke-width="10" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251" stroke-dashoffset="33" stroke-linecap="round"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-[#2C5EAD]">87</div>
-                        </div>
-                        <p class="mt-4 font-medium text-[#0F172A]">Stakeholder Alignment</p>
-                    </div>
-
-                    <!-- Design Systems -->
-                    <div class="text-center">
-                        <div class="skill-ring mx-auto relative">
-                            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                                <circle class="text-slate-200" stroke-width="10" fill="transparent" r="40" cx="50" cy="50"/>
-                                <circle class="text-[#2C5EAD]" stroke-width="10" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251" stroke-dashoffset="22" stroke-linecap="round"/>
-                            </svg>
-                            <div class="absolute inset-0 flex items-center justify-center text-4xl font-semibold text-[#2C5EAD]">91</div>
-                        </div>
-                        <p class="mt-4 font-medium text-[#0F172A]">Design Systems</p>
+                </div>
+                
+                <div class="md:w-7/12">
+                    <div class="grid grid-cols-2 gap-6" id="skill-rings">
+                        <!-- Populated by JS -->
                     </div>
                 </div>
             </div>
@@ -162,21 +180,84 @@
                 <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-2"><i class="fa-solid fa-phone"></i> +91 84465 56866</a>
                 <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             </div>
-            <p class="mt-8 text-[#64748B] text-xs">© 2026 Faizan Quazi</p>
+            <p class="mt-8 text-[#64748B] text-xs">© 2026 Faizan Quazi • UX Analyst</p>
         </div>
     </footer>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
+
+        // Animate stats
+        function animateValue(id, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                document.getElementById(id).textContent = value;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Trigger stats animation
         ScrollTrigger.create({
-            trigger: ".skill-ring",
-            start: "top 80%",
+            trigger: ".bg-white",
+            start: "top 70%",
             onEnter: () => {
-                gsap.from(".skill-ring svg circle:last-child", {
-                    strokeDashoffset: 251,
-                    duration: 1.8,
-                    ease: "power2.out",
-                    stagger: 0.15
+                animateValue("years", 0, 10, 1800);
+                animateValue("projects", 0, 60, 2000);
+                animateValue("clients", 0, 25, 2200);
+                animateValue("industries", 0, 6, 2400);
+            }
+        });
+
+        // Skill rings
+        const skills = [
+            {name: "User Research", percent: 92},
+            {name: "Wireframing", percent: 95},
+            {name: "Prototyping", percent: 88},
+            {name: "Usability Testing", percent: 90},
+            {name: "Design Systems", percent: 85},
+            {name: "Interaction Design", percent: 89}
+        ];
+
+        const container = document.getElementById('skill-rings');
+        skills.forEach(skill => {
+            const div = document.createElement('div');
+            div.className = 'bg-white p-8 rounded-3xl border border-slate-100';
+            div.innerHTML = `
+                <div class="relative w-40 h-40 mx-auto">
+                    <svg class="w-full h-full" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#e2e8f0" stroke-width="12"/>
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#2C5EAD" stroke-width="12" stroke-dasharray="326" stroke-dashoffset="326" class="skill-ring"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-4xl font-semibold text-[#2C5EAD]">${skill.percent}</div>
+                            <div class="text-xs uppercase tracking-widest">%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-6 font-medium">${skill.name}</div>
+            `;
+            container.appendChild(div);
+        });
+
+        // Animate rings on scroll
+        ScrollTrigger.create({
+            trigger: "#skill-rings",
+            start: "top 75%",
+            onEnter: () => {
+                document.querySelectorAll('.skill-ring').forEach((ring, i) => {
+                    gsap.to(ring, {
+                        strokeDashoffset: 326 - (326 * (skills[i].percent / 100)),
+                        duration: 1.8,
+                        ease: "power2.out",
+                        delay: i * 0.1
+                    });
                 });
             }
         });
