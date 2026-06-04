@@ -16,16 +16,12 @@
             font-family: 'Space Grotesk', system-ui, sans-serif;
         }
 
-        .timeline-container {
-            position: relative;
-        }
-
         .timeline-line {
             position: absolute;
-            left: 78px;
-            top: 28px;
-            bottom: 28px;
-            width: 2px;
+            left: 28px;
+            top: 30px;
+            bottom: 30px;
+            width: 3px;
             background: #e2e8f0;
             z-index: 1;
             border-radius: 9999px;
@@ -33,34 +29,13 @@
 
         .timeline-progress {
             position: absolute;
-            left: 78px;
-            top: 28px;
-            width: 3px;
+            left: 28px;
+            top: 30px;
+            width: 4px;
             background: linear-gradient(#2C5EAD, #60A5FA);
             z-index: 2;
-            box-shadow: 0 0 14px rgba(44, 94, 173, 0.6);
+            box-shadow: 0 0 16px rgba(44, 94, 173, 0.5);
             border-radius: 9999px;
-        }
-
-        .timeline-item {
-            position: relative;
-            z-index: 3;
-        }
-
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 4px solid #94a3b8;
-            box-shadow: 0 0 0 6px rgba(148, 163, 184, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .timeline-item.active .timeline-dot {
-            background: #2C5EAD;
-            border-color: #2C5EAD;
-            box-shadow: 0 0 0 8px rgba(44, 94, 173, 0.25);
-            transform: scale(1.15);
         }
 
         .experience-card {
@@ -71,11 +46,6 @@
         .experience-card:hover {
             border-left-color: #2C5EAD;
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .timeline-item.active .experience-card {
-            border-left-color: #2C5EAD;
-            box-shadow: 0 10px 15px -3px rgb(44 94 173 / 0.1);
         }
     </style>
 </head>
@@ -115,148 +85,108 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-20" id="journey-section">
+    <section class="py-20 relative" id="journey-section">
         <div class="max-w-5xl mx-auto px-6">
             
-            <div class="timeline-container">
-                
-                <!-- Background Line -->
-                <div class="timeline-line hidden md:block"></div>
-                
-                <!-- Progress Line -->
-                <div id="timeline-progress" class="timeline-progress hidden md:block" style="height: 0;"></div>
+            <!-- Timeline Lines -->
+            <div class="timeline-line hidden md:block rounded-full"></div>
+            <div id="timeline-progress" class="timeline-progress hidden md:block rounded-full" style="height: 0;"></div>
 
-                <div class="space-y-20">
+            <div class="space-y-16 md:pl-[70px]">
 
-                    <!-- Item 1 -->
-                    <div class="timeline-item grid md:grid-cols-12 gap-x-8 gap-y-6 items-start" data-index="0">
-                        <div class="md:col-span-3 md:text-right pt-1">
-                            <div class="sticky top-28">
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1.5">DEC 2022 — PRESENT</div>
-                                <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Analyst</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-2 text-[15px]">HCL Software • Commerce Platform</p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 flex justify-center pt-3">
-                            <div class="timeline-dot rounded-full"></div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                                <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Rehired as User Experience Analyst for HCL Commerce. Working on the HCL Commerce software suite and improving the entire B2B related usability issues. Leading comprehensive usability improvements across the enterprise platform.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs px-4 py-1.5 bg-emerald-100 text-emerald-700 rounded-full font-medium">Enterprise UX</span>
-                                    <span class="text-xs px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full font-medium">B2B SaaS</span>
-                                    <span class="text-xs px-4 py-1.5 bg-amber-100 text-amber-700 rounded-full font-medium">Design Systems</span>
-                                </div>
-                            </div>
+                <!-- Item 1 -->
+                <div class="timeline-item">
+                    <div class="mb-3">
+                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2022 — PRESENT</div>
+                        <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Analyst</h3>
+                        <p class="text-[#2C5EAD] font-medium mt-1.5">HCL Software • Commerce Platform</p>
+                    </div>
+                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
+                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Rehired as User Experience Analyst for HCL Commerce. Working on the HCL Commerce software suite and improving the entire B2B related usability issues. Leading comprehensive usability improvements across the enterprise platform.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-4 py-1.5 bg-emerald-100 text-emerald-700 rounded-full font-medium">Enterprise UX</span>
+                            <span class="text-xs px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full font-medium">B2B SaaS</span>
+                            <span class="text-xs px-4 py-1.5 bg-amber-100 text-amber-700 rounded-full font-medium">Design Systems</span>
                         </div>
                     </div>
-
-                    <!-- Item 2 -->
-                    <div class="timeline-item grid md:grid-cols-12 gap-x-8 gap-y-6 items-start" data-index="1">
-                        <div class="md:col-span-3 md:text-right pt-1">
-                            <div class="sticky top-28">
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1.5">MAY 2021 — DEC 2022</div>
-                                <h3 class="text-[26px] leading-none font-semibold section-heading">Senior Product Designer & Researcher</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-2 text-[15px]">Cybage Softwares</p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 flex justify-center pt-3">
-                            <div class="timeline-dot rounded-full"></div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                                <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Responsible for performing user interviews & research, gathering segmented data, and delivering data-driven designs and design annotations. Working closely with users for better and enhanced usability experience.</p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 text-[14.5px]">
-                                    <div>
-                                        <div class="font-semibold text-xs tracking-wider text-[#2C5EAD] mb-2.5">RESEARCH & STRATEGY</div>
-                                        <ul class="space-y-1.5 text-[#334155]">
-                                            <li>• Data gathering from client base</li>
-                                            <li>• Mindmapping, Flowchart & Card Sorting for IA</li>
-                                            <li>• Personas, Wireframes & Prototypes using UCD</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-xs tracking-wider text-[#2C5EAD] mb-2.5">EXECUTION</div>
-                                        <ul class="space-y-1.5 text-[#334155]">
-                                            <li>• User Testing sessions per personas</li>
-                                            <li>• Collaboration with PM, Designers, Developers & Client</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="timeline-item grid md:grid-cols-12 gap-x-8 gap-y-6 items-start" data-index="2">
-                        <div class="md:col-span-3 md:text-right pt-1">
-                            <div class="sticky top-28">
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1.5">DEC 2018 — APR 2021</div>
-                                <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-2 text-[15px]">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 flex justify-center pt-3">
-                            <div class="timeline-dot rounded-full"></div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                                <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">User Experience Designer for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-[14.5px] text-[#334155]">
-                                    <li>• Data gathering from client base for research</li>
-                                    <li>• Mindmapping, Flowcharts & Card Sorting for IA</li>
-                                    <li>• Wireframes, Prototypes & User Testing using UCD process</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="timeline-item grid md:grid-cols-12 gap-x-8 gap-y-6 items-start" data-index="3">
-                        <div class="md:col-span-3 md:text-right pt-1">
-                            <div class="sticky top-28">
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1.5">APR 2018 — DEC 2018</div>
-                                <h3 class="text-[26px] leading-none font-semibold section-heading">UI/UX Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-2 text-[15px]">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 flex justify-center pt-3">
-                            <div class="timeline-dot rounded-full"></div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                                <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Conducting user research and testing. Developing wireframes and task flows based on user needs. Understanding product specifications and user psychology.</p>
-                                <ul class="space-y-1.5 text-[14.5px] text-[#334155]">
-                                    <li>• Conduct concept and usability testing</li>
-                                    <li>• Find creative ways to solve UX problems</li>
-                                    <li>• Pitching Design to Potential Clients</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 5 -->
-                    <div class="timeline-item grid md:grid-cols-12 gap-x-8 gap-y-6 items-start" data-index="4">
-                        <div class="md:col-span-3 md:text-right pt-1">
-                            <div class="sticky top-28">
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1.5">FEB 2016 — APR 2018</div>
-                                <h3 class="text-[26px] leading-none font-semibold section-heading">Freelance Graphic Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-2 text-[15px]">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 flex justify-center pt-3">
-                            <div class="timeline-dot rounded-full"></div>
-                        </div>
-                        <div class="md:col-span-7">
-                            <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
-                                <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Creating and helping small local businesses with their design needs. Making creative menu cards, coasters, posters, social media posts, brochures and other marketing collateral.</p>
-                                <div class="text-[14.5px]"><span class="font-medium text-[#2C5EAD]">Focus:</span> Visual identity, marketing collateral & creative design solutions for local businesses.</div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Item 2 -->
+                <div class="timeline-item">
+                    <div class="mb-3">
+                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">MAY 2021 — DEC 2022</div>
+                        <h3 class="text-[26px] leading-none font-semibold section-heading">Senior Product Designer & Researcher</h3>
+                        <p class="text-[#2C5EAD] font-medium mt-1.5">Cybage Softwares</p>
+                    </div>
+                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
+                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Responsible for performing user interviews & research, gathering segmented data, and delivering data-driven designs and design annotations. Working closely with users for better and enhanced usability experience.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 text-[14.5px]">
+                            <div>
+                                <div class="font-semibold text-xs tracking-wider text-[#2C5EAD] mb-2.5">RESEARCH & STRATEGY</div>
+                                <ul class="space-y-1.5 text-[#334155]">
+                                    <li>• Data gathering from client base</li>
+                                    <li>• Mindmapping, Flowchart & Card Sorting for IA</li>
+                                    <li>• Personas, Wireframes & Prototypes using UCD</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-xs tracking-wider text-[#2C5EAD] mb-2.5">EXECUTION</div>
+                                <ul class="space-y-1.5 text-[#334155]">
+                                    <li>• User Testing sessions per personas</li>
+                                    <li>• Collaboration with PM, Designers, Developers & Client</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="timeline-item">
+                    <div class="mb-3">
+                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2018 — APR 2021</div>
+                        <h3 class="text-[26px] leading-none font-semibold section-heading">User Experience Designer</h3>
+                        <p class="text-[#2C5EAD] font-medium mt-1.5">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
+                    </div>
+                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
+                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">User Experience Designer for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-[14.5px] text-[#334155]">
+                            <li>• Data gathering from client base for research</li>
+                            <li>• Mindmapping, Flowcharts & Card Sorting for IA</li>
+                            <li>• Wireframes, Prototypes & User Testing using UCD process</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="timeline-item">
+                    <div class="mb-3">
+                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">APR 2018 — DEC 2018</div>
+                        <h3 class="text-[26px] leading-none font-semibold section-heading">UI/UX Designer</h3>
+                        <p class="text-[#2C5EAD] font-medium mt-1.5">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
+                    </div>
+                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
+                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Conducting user research and testing. Developing wireframes and task flows based on user needs. Understanding product specifications and user psychology.</p>
+                        <ul class="space-y-1.5 text-[14.5px] text-[#334155]">
+                            <li>• Conduct concept and usability testing</li>
+                            <li>• Find creative ways to solve UX problems</li>
+                            <li>• Pitching Design to Potential Clients</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="timeline-item">
+                    <div class="mb-3">
+                        <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">FEB 2016 — APR 2018</div>
+                        <h3 class="text-[26px] leading-none font-semibold section-heading">Freelance Graphic Designer</h3>
+                        <p class="text-[#2C5EAD] font-medium mt-1.5">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
+                    </div>
+                    <div class="experience-card bg-white border border-slate-200 rounded-3xl p-8 md:p-9">
+                        <p class="text-[#475569] leading-relaxed mb-6 text-[15px]">Creating and helping small local businesses with their design needs. Making creative menu cards, coasters, posters, social media posts, brochures and other marketing collateral.</p>
+                        <div class="text-[14.5px]"><span class="font-medium text-[#2C5EAD]">Focus:</span> Visual identity, marketing collateral & creative design solutions for local businesses.</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -276,56 +206,25 @@
         gsap.registerPlugin(ScrollTrigger);
 
         const progressLine = document.getElementById('timeline-progress');
-        const items = document.querySelectorAll('.timeline-item');
 
-        // Timeline progress line
         if (progressLine) {
             gsap.set(progressLine, { height: 0 });
 
             ScrollTrigger.create({
                 trigger: '#journey-section',
-                start: 'top 18%',
-                end: 'bottom 82%',
+                start: 'top 20%',
+                end: 'bottom 80%',
                 scrub: 1.2,
                 onUpdate: function(self) {
                     gsap.to(progressLine, {
                         height: `${self.progress * 100}%`,
-                        duration: 0.08,
+                        duration: 0.1,
                         ease: 'none',
                         overwrite: 'auto'
                     });
                 }
             });
         }
-
-        // Active dot + subtle card highlight
-        items.forEach((item) => {
-            ScrollTrigger.create({
-                trigger: item,
-                start: 'top 52%',
-                end: 'bottom 48%',
-                onEnter: () => {
-                    items.forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                },
-                onEnterBack: () => {
-                    items.forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Gentle dot scale pop
-        gsap.from('.timeline-dot', {
-            scrollTrigger: {
-                trigger: '#journey-section',
-                start: 'top 45%',
-            },
-            scale: 0,
-            duration: 0.7,
-            stagger: 0.18,
-            ease: 'back.out(2.2)'
-        });
     </script>
 </body>
 </html>
