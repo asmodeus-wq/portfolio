@@ -70,7 +70,7 @@
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             
             <!-- Orca Video Background (no sound) -->
-            <video id="hero-video"
+            <video 
                 class="absolute inset-0 w-full h-full object-cover z-0 hero-video"
                 autoplay 
                 loop 
@@ -84,13 +84,6 @@
             <!-- Subtle gradient overlay for text readability over video -->
             <div class="absolute inset-0 z-10" 
                  style="background: linear-gradient(rgba(248,250,252,0.45), rgba(248,250,252,0.65));"></div>
-            
-            <!-- Play/Pause Button -->
-            <button id="video-toggle" 
-                    class="absolute bottom-8 right-8 z-30 bg-white/90 hover:bg-white backdrop-blur-md text-[#0F172A] px-5 py-3 rounded-2xl flex items-center gap-x-3 shadow-lg transition-all hover:scale-105 active:scale-95">
-                <i id="play-icon" class="fa-solid fa-pause text-lg"></i>
-                <span id="toggle-text" class="font-medium text-sm tracking-wide">PAUSE</span>
-            </button>
             
             <!-- Content -->
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
@@ -277,4 +270,165 @@
                         <i class="fa-solid fa-stream text-3xl text-[#2C5EAD]"></i>
                         <span class="font-medium text-[#0F172A]">Overflow</span>
                     </div>
+                    <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-pencil-ruler text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A]">Balsamiq</span>
+                    </div>
+                    <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-project-diagram text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A]">Axure RP</span>
+                    </div>
+                    <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-vial text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A]">Optimal Workshop</span>
+                    </div>
+                    <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-video text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A]">Lookback</span>
+                    </div>
+                    <div class="group bg-white border border-slate-200 hover:border-[#2C5EAD]/30 transition-all p-5 rounded-2xl flex items-center gap-x-4 h-full">
+                        <i class="fa-solid fa-comments text-3xl text-[#2C5EAD]"></i>
+                        <span class="font-medium text-[#0F172A]">Dovetail</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY WORK PANEL - Darker blue -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #A8D4FF 0%, #7FB8FF 100%)">
+            <div class="max-w-6xl w-full">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">04 — WORK</span>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">Selected Work</h2>
+                    </div>
+                    <a href="work.html" class="hidden md:inline-flex items-center gap-x-2 text-sm font-medium group text-[#334155]">
+                        VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="work.html" class="group block bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/30 transition-all">
+                        <div class="aspect-video bg-slate-100"><img src="https://picsum.photos/id/251/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold tracking-tight mb-2 text-[#0F172A]">Raintree 2021</h3>
+                            <p class="text-[#475569]">Comprehensive design system and component library with interactive prototypes.</p>
+                        </div>
+                    </a>
+                    <a href="work.html" class="group block bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-[#2C5EAD]/30 transition-all">
+                        <div class="aspect-video bg-slate-100"><img src="https://picsum.photos/id/133/1200/630" class="w-full h-full object-cover group-hover:scale-105 transition-transform"></div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold tracking-tight mb-2 text-[#0F172A]">AI/ML Interfaces</h3>
+                            <p class="text-[#475569]">Exploration of intelligent interfaces and high-fidelity AI-driven prototypes.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-8 text-center md:hidden">
+                    <a href="work.html" class="inline-flex items-center gap-x-2 text-sm font-medium group text-[#334155]">
+                        VIEW ALL PROJECTS <i class="fa-solid fa-arrow-right-long transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS PANEL - Dark blue -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #7FB8FF 0%, #5A9EFF 100%)">
+            <div class="max-w-5xl w-full">
+                <div class="mb-10">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">05 — PROCESS</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">How I work</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white border border-slate-200 p-8 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">01</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Discover</h4>
+                        <p class="text-[#475569] text-sm">Deep research, stakeholder mapping, and understanding user needs.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-8 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">02</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Define</h4>
+                        <p class="text-[#475569] text-sm">Synthesizing insights into clear problems and opportunities.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-8 rounded-3xl">
+                        <div class="text-[#2C5EAD] text-4xl font-semibold mb-4">03</div>
+                        <h4 class="font-semibold text-xl mb-2 text-[#0F172A]">Design</h4>
+                        <p class="text-[#475569] text-sm">Wireframing, prototyping, and iterative design solutions.</p>
+                    </div>
+                </div>
+
+                <a href="process.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                    See the full process <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CAREER PANEL - Darker blue -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-12" 
+                 style="background: linear-gradient(135deg, #5A9EFF 0%, #3B82F6 100%)">
+            <div class="max-w-5xl w-full">
+                <div class="mb-10">
+                    <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">06 — CAREER</span>
+                    <h2 class="text-6xl font-semibold tracking-tighter mt-1 section-heading text-[#0F172A]">Experience</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-10">
+                    <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2022 — Present</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">HCL Software (Commerce)</div>
+                        <div class="text-[#475569] text-sm mt-1">User Experience Analyst — Leading B2B usability improvements on enterprise commerce platform.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2021 — 2022</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">Cybage Softwares</div>
+                        <div class="text-[#475569] text-sm mt-1">Senior Product Designer & Researcher — End-to-end UX for complex SaaS products.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2018 — 2021</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">HCL Software (Unica)</div>
+                        <div class="text-[#475569] text-sm mt-1">User Experience Designer — Marketing automation workflows and design systems.</div>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-6 rounded-2xl">
+                        <div class="text-[#2C5EAD] text-sm font-medium mb-1">2016 — 2018</div>
+                        <div class="font-semibold text-lg text-[#0F172A]">BrightBrain Technologies + Freelance</div>
+                        <div class="text-[#475569] text-sm mt-1">UI/UX Designer — Research, wireframing, and client-facing design work.</div>
+                    </div>
+                </div>
+
+                <a href="experience.html" class="inline-flex items-center gap-x-3 px-8 py-4 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                    View full career journey <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- CONTACT PANEL - With Pune map -->
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 relative overflow-hidden p-8 md:p-12"
+                 style="background-image: linear-gradient(rgba(248,250,252,0.32), rgba(248,250,252,0.48)), url('images/pune.png');
+                          background-size: cover;
+                          background-position: center;">
+            
+            <div class="max-w-3xl w-full text-center relative z-10">
+                <span class="text-[#2C5EAD] text-sm font-semibold tracking-widest">07 — CONTACT</span>
+                <h2 class="text-6xl font-semibold tracking-tighter mt-3 mb-6 section-heading text-[#0F172A]">Let's build something<br>meaningful together.</h2>
                 
+                <p class="text-[#475569] mb-10 max-w-md mx-auto">Based in Pune, India. Always open to exciting projects and conversations.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl hover:bg-[#1591DC] transition-all">
+                        Get in touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-10 py-5 border border-[#CBD5E1] rounded-3xl font-medium hover:bg-white transition-all text-[#334155]">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
