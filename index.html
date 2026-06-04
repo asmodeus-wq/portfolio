@@ -70,7 +70,7 @@
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             
             <!-- Orca Video Background (no sound) -->
-            <video 
+            <video id="hero-video"
                 class="absolute inset-0 w-full h-full object-cover z-0 hero-video"
                 autoplay 
                 loop 
@@ -84,6 +84,13 @@
             <!-- Subtle gradient overlay for text readability over video -->
             <div class="absolute inset-0 z-10" 
                  style="background: linear-gradient(rgba(248,250,252,0.45), rgba(248,250,252,0.65));"></div>
+            
+            <!-- Play/Pause Button -->
+            <button id="video-toggle" 
+                    class="absolute bottom-8 right-8 z-30 bg-white/90 hover:bg-white backdrop-blur-md text-[#0F172A] px-5 py-3 rounded-2xl flex items-center gap-x-3 shadow-lg transition-all hover:scale-105 active:scale-95">
+                <i id="play-icon" class="fa-solid fa-pause text-lg"></i>
+                <span id="toggle-text" class="font-medium text-sm tracking-wide">PAUSE</span>
+            </button>
             
             <!-- Content -->
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
@@ -430,5 +437,42 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Video Play/Pause Control
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            const toggleBtn = document.getElementById('video-toggle');
+            const playIcon = document.getElementById('play-icon');
+            const toggleText = document.getElementById('toggle-text');
+
+            let isPlaying = true;
+
+            toggleBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    video.pause();
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    toggleText.textContent = 'PLAY';
+                } else {
+                    video.play();
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    toggleText.textContent = 'PAUSE';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Optional: Pause video when tab is not active
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden && video) {
+                    video.pause();
+                    if (playIcon) playIcon.classList.remove('fa-pause');
+                    if (playIcon) playIcon.classList.add('fa-play');
+                    if (toggleText) toggleText.textContent = 'PLAY';
+                    isPlaying = false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
