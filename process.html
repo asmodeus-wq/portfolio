@@ -29,9 +29,9 @@
 
         .timeline-line {
             position: absolute;
-            left: 42px;
-            top: 60px;
-            bottom: 60px;
+            left: 48px;
+            top: 78px;
+            bottom: 78px;
             width: 3px;
             background: #e2e8f0;
             z-index: 1;
@@ -40,24 +40,24 @@
 
         .timeline-progress {
             position: absolute;
-            left: 42px;
-            top: 60px;
+            left: 48px;
+            top: 78px;
             width: 4px;
             background: linear-gradient(#2C5EAD, #60A5FA);
-            z-index: 2;
+            z-index: 5;
             box-shadow: 0 0 12px rgba(44, 94, 173, 0.4);
             border-radius: 9999px;
         }
 
         .phase-dot {
+            background: white;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 10;
+            z-index: 20;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .phase-dot.active {
-            background: #2C5EAD;
-            border-color: #2C5EAD;
-            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
-            transform: scale(1.1);
+            box-shadow: 0 0 0 5px rgba(44, 94, 173, 0.15);
+            transform: scale(1.08);
         }
 
         .phase-content {
@@ -223,7 +223,7 @@
                 <!-- PHASE 01: UNDERSTAND -->
                 <div id="understand" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12 mb-20 md:mb-24">
                     <!-- Timeline Dot -->
-                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-[#2C5EAD] rounded-full z-10 text-2xl font-bold text-[#2C5EAD] phase-dot">
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center border-[5px] border-[#2C5EAD] rounded-full z-20 text-2xl font-bold text-[#2C5EAD] phase-dot">
                         01
                     </div>
                     
@@ -260,7 +260,7 @@
                 <!-- PHASE 02: EXPLORE -->
                 <div id="explore" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12 mb-20 md:mb-24">
                     <!-- Timeline Dot -->
-                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-amber-600 rounded-full z-10 text-2xl font-bold text-amber-600 phase-dot">
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center border-[5px] border-amber-600 rounded-full z-20 text-2xl font-bold text-amber-600 phase-dot">
                         02
                     </div>
                     
@@ -294,7 +294,7 @@
                 <!-- PHASE 03: MATERIALIZE -->
                 <div id="materialize" class="phase-section relative flex flex-col md:flex-row gap-8 md:gap-12">
                     <!-- Timeline Dot -->
-                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center bg-white border-[5px] border-emerald-600 rounded-full z-10 text-2xl font-bold text-emerald-600 phase-dot">
+                    <div class="hidden md:flex w-14 h-14 flex-shrink-0 items-center justify-center border-[5px] border-emerald-600 rounded-full z-20 text-2xl font-bold text-emerald-600 phase-dot">
                         03
                     </div>
                     
