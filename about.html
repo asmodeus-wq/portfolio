@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
         
@@ -15,11 +17,14 @@
         }
         .timeline-dot {
             transition: all 0.3s ease;
+            background-color: white;
+            border: 2px solid #CBD5E1;
         }
-        .education-item:hover .timeline-dot {
+        .timeline-dot.active {
             background-color: #2C5EAD;
             border-color: #2C5EAD;
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.15);
         }
     </style>
 </head>
@@ -80,7 +85,7 @@
         </div>
     </section>
 
-    <!-- Education with hover animation -->
+    <!-- Education with scroll-triggered dot animation -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="mb-20">
@@ -89,11 +94,14 @@
             </div>
 
             <div class="relative">
+                <!-- Timeline line -->
                 <div class="absolute left-[90px] md:left-[150px] top-0 bottom-0 w-[2px] bg-slate-200"></div>
 
                 <div class="education-item relative flex gap-8 pb-20">
                     <div class="w-[80px] md:w-[130px] shrink-0 text-right"><span class="text-[#2C5EAD] font-mono text-sm">2023</span></div>
-                    <div class="absolute left-[81px] md:left-[141px] top-1"><div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#2C5EAD] bg-white transition-all duration-300"></div></div>
+                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                        <div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#CBD5E1] bg-white transition-all duration-300"></div>
+                    </div>
                     <div class="pl-10">
                         <h3 class="text-2xl font-semibold text-[#0F172A]">Bachelor of Arts</h3>
                         <p class="text-[#475569]">Pune University</p>
@@ -102,7 +110,9 @@
 
                 <div class="education-item relative flex gap-8 pb-20">
                     <div class="w-[80px] md:w-[130px] shrink-0 text-right"><span class="text-[#2C5EAD] font-mono text-sm">2017</span></div>
-                    <div class="absolute left-[81px] md:left-[141px] top-1"><div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#2C5EAD] bg-white transition-all duration-300"></div></div>
+                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                        <div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#CBD5E1] bg-white transition-all duration-300"></div>
+                    </div>
                     <div class="pl-10">
                         <h3 class="text-2xl font-semibold text-[#0F172A]">UX Certificate</h3>
                         <p class="text-[#475569]">Felix Institute</p>
@@ -111,7 +121,9 @@
 
                 <div class="education-item relative flex gap-8 pb-20">
                     <div class="w-[80px] md:w-[130px] shrink-0 text-right"><span class="text-[#2C5EAD] font-mono text-sm">2016</span></div>
-                    <div class="absolute left-[81px] md:left-[141px] top-1"><div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#2C5EAD] bg-white transition-all duration-300"></div></div>
+                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                        <div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#CBD5E1] bg-white transition-all duration-300"></div>
+                    </div>
                     <div class="pl-10">
                         <h3 class="text-2xl font-semibold text-[#0F172A]">Diploma in Journalism & Mass Media</h3>
                         <p class="text-[#475569]">Vishwakarma Institute</p>
@@ -120,7 +132,9 @@
 
                 <div class="education-item relative flex gap-8">
                     <div class="w-[80px] md:w-[130px] shrink-0 text-right"><span class="text-[#2C5EAD] font-mono text-sm">2015</span></div>
-                    <div class="absolute left-[81px] md:left-[141px] top-1"><div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#2C5EAD] bg-white transition-all duration-300"></div></div>
+                    <div class="absolute left-[81px] md:left-[141px] top-1">
+                        <div class="timeline-dot w-5 h-5 rounded-full border-2 border-[#CBD5E1] bg-white transition-all duration-300"></div>
+                    </div>
                     <div class="pl-10">
                         <h3 class="text-2xl font-semibold text-[#0F172A]">Industrial Training Institute Certification</h3>
                         <p class="text-[#475569]">Govt. Technical Course</p>
@@ -140,5 +154,46 @@
             <p class="mt-8 text-[#64748B] text-xs">© 2026 Faizan Quazi</p>
         </div>
     </footer>
+
+    <script>
+        // Load GSAP + ScrollTrigger for timeline dot animation
+        function initTimelineAnimation() {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                // Fallback: simple hover if GSAP not loaded
+                document.querySelectorAll('.education-item .timeline-dot').forEach(dot => {
+                    dot.parentElement.addEventListener('mouseenter', () => {
+                        dot.classList.add('active');
+                    });
+                    dot.parentElement.addEventListener('mouseleave', () => {
+                        dot.classList.remove('active');
+                    });
+                });
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.education-item').forEach((item, index) => {
+                const dot = item.querySelector('.timeline-dot');
+                if (!dot) return;
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play reverse play reverse', // Works both down and up
+                    onEnter: () => dot.classList.add('active'),
+                    onLeave: () => dot.classList.remove('active'),
+                    onEnterBack: () => dot.classList.add('active'),
+                    onLeaveBack: () => dot.classList.remove('active'),
+                });
+            });
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            initTimelineAnimation();
+        });
+    </script>
 </body>
 </html>
