@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 0.5,
+                    scrub: 0.4,
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
                     invalidateOnRefresh: true,
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         snapTo: (progress) => {
                             if (panels.length <= 1) return progress;
                             
-                            // Calculate snap points (0, 0.25, 0.5, 0.75, 1 for 5 panels)
+                            // Calculate snap points
                             const snapPoints = panels.map((_, i) => i / (panels.length - 1));
                             
                             // Find closest snap point
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             
                             return closest;
                         },
-                        duration: { min: 0.2, max: 0.4 },
+                        duration: { min: 0.08, max: 0.2 },   // Faster snap
                         ease: "power2.out"
                     }
                 }
@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     onToggle: self => {
                         if (self.isActive) {
                             navLinks.forEach(l => l.classList.remove('active'));
-                            // Simple active state based on panel order
                             if (navLinks[index]) {
                                 navLinks.forEach(l => l.classList.remove('active'));
                                 navLinks[index].classList.add('active');
