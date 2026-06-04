@@ -1,5 +1,5 @@
 // ============================================
-// Horizontal Full-Page Scroll - Optimized
+// Horizontal Full-Page Scroll - Snappier Version
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,16 +24,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const scrollDistance = totalWidth - window.innerWidth + 150;
 
+            // Create labels for each panel (for snapping)
+            panels.forEach((panel, i) => {
+                ScrollTrigger.create({
+                    trigger: panel,
+                    start: 'left center',
+                    end: 'right center',
+                    id: `panel-${i}`
+                });
+            });
+
             gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrapper,
                     pin: true,
-                    scrub: 1.7,
+                    scrub: 0.6,                    // Tighter response (was 1.7)
                     start: 'top top',
                     end: () => '+=' + scrollDistance,
-                    invalidateOnRefresh: true
+                    invalidateOnRefresh: true,
+                    snap: {
+                        snapTo: (progress) => {
+                            // Snap to nearest panel after ~35% scrolled into it
+                            const panelCount = panels.length;
+                            if (panelCount <= 1) return progress;
+                            
+                            const panelWidth = 1 / (panelCount - 1);
+                            const currentPanel = Math.floor(progress / panelWidth);
+                            const panelProgress = (progress % panelWidth) / panelWidth;
+                            
+                            // If scrolled more than 35% into the next panel, commit to it
+                            if (panelProgress > 0.35) {
+                                return Math.min((currentPanel + 1) * panelWidth, 1);
+                            } 
+                            // If scrolled back past 35% of current panel, go back
+                            else if (panelProgress < 0.65 && currentPanel > 0) {
+                                return currentPanel * panelWidth;
+                            }
+                            
+                            return currentPanel * panelWidth;
+                        },
+                        duration: { min: 0.25, max: 0.45 },
+                        ease: "power2.out"
+                    }
                 }
             });
 
@@ -70,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             toggleActions: 'play none none reverse'
                         }
                     }
-                );
+                });
             });
         }, 400);
     }
@@ -120,5 +154,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    console.log('%c[Portfolio] Horizontal scroll initialized', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal scroll initialized (snappier)', 'color:#10b981');
 });
