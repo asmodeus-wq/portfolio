@@ -70,92 +70,66 @@
             pointer-events: none;
         }
 
-        /* UNIFORM MOBILE SPACING + DENSITY */
+        /* Base mobile tightening */
         @media (max-width: 767px) {
             .panel {
-                padding: 52px 0.6rem 0.4rem !important;
+                padding: 2.2rem 0.5rem 1.8rem !important;
             }
 
             .section-heading {
-                font-size: 1.18rem !important;
+                font-size: 1.15rem !important;
                 line-height: 1.05 !important;
-                margin-bottom: 0.2rem !important;
+                margin-bottom: 0.15rem !important;
             }
 
             .panel h3, .panel h4 {
-                font-size: 0.9rem !important;
+                font-size: 0.92rem !important;
             }
 
             .panel p, .panel .text-sm, .panel .text-base {
-                font-size: 0.7rem !important;
-                line-height: 1.25 !important;
-            }
-
-            .panel > div > div.mb-8,
-            .panel > div > div.mb-10,
-            .panel > div > div.mb-12 {
-                margin-bottom: 0.5rem !important;
-            }
-
-            .skill-card, .tool-card, .panel .bg-white.border.border-slate-200.rounded-3xl,
-            .panel .bg-white.border.border-slate-200.rounded-2xl {
-                padding: 0.55rem !important;
-            }
-
-            .panel .grid {
-                gap: 0.3rem !important;
-            }
-
-            .panel .grid-cols-3 {
-                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-            }
-
-            .panel .aspect-video {
-                max-height: 88px !important;
-            }
-
-            .panel .mb-8, .panel .mb-10, .panel .mb-12 {
-                margin-bottom: 0.35rem !important;
-            }
-        }
-
-        /* Additional mobile fixes for text cutoff in cards */
-        @media (max-width: 767px) {
-            .skill-card {
-                padding: 0.9rem !important;
-            }
-            
-            .skill-card h4 {
-                font-size: 0.95rem !important;
-            }
-            
-            .skill-card p {
                 font-size: 0.72rem !important;
-                line-height: 1.3 !important;
+                line-height: 1.28 !important;
             }
-            
+
+            .skill-card, .tool-card {
+                padding: 0.85rem !important;
+            }
+
             .tool-card {
                 flex-direction: column !important;
                 align-items: center !important;
                 text-align: center !important;
-                padding: 0.5rem 0.35rem !important;
-                gap: 0.15rem !important;
+                padding: 0.55rem 0.4rem !important;
+                gap: 0.2rem !important;
             }
-            
+
             .tool-card i {
-                font-size: 1rem !important;
+                font-size: 1.05rem !important;
             }
-            
+
             .tool-card span {
-                font-size: 0.58rem !important;
-                line-height: 1.05 !important;
+                font-size: 0.6rem !important;
+                line-height: 1.1 !important;
                 word-break: break-word;
             }
-            
-            /* 3 columns on mobile for tools to give more width per card */
+
             .grid-cols-4.sm\:grid-cols-5 {
                 grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-                gap: 0.35rem !important;
+                gap: 0.4rem !important;
+            }
+        }
+
+        /* Extra tightening for Experience, Process, Work to reduce empty blue space */
+        @media (max-width: 767px) {
+            .panel .bg-white.border.border-slate-200.rounded-2xl,
+            .panel .bg-white.border.border-slate-200.rounded-3xl {
+                margin-bottom: 0.65rem !important;
+                padding: 0.95rem 1rem !important;
+            }
+
+            /* Process cards */
+            .panel .bg-white.border.border-slate-200.p-5.md\:p-6.rounded-3xl {
+                padding: 0.9rem 1rem !important;
             }
         }
     </style>
