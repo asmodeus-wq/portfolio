@@ -6,14 +6,26 @@
     <title>Career | Faizan Quazi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 700;
+            color: #0EA5E9;
+            text-transform: uppercase;
         }
 
         .exp-card {
@@ -21,8 +33,8 @@
         }
         .exp-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-            border-color: #2C5EAD;
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.18);
+            border-color: #0EA5E9;
         }
 
         .floating-period {
@@ -46,20 +58,20 @@
             transition: all 0.2s ease;
         }
         .exp-card:hover .tag {
-            background-color: #e0e7ff;
+            background-color: #e0f2fe;
         }
 
         .step {
             transition: all 0.3s ease;
         }
         .step.active {
-            color: #2C5EAD;
+            color: #0EA5E9;
             font-weight: 600;
         }
         .step.active .step-number {
-            background: #2C5EAD;
+            background: #0EA5E9;
             color: white;
-            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
         }
 
         .connector {
@@ -69,7 +81,7 @@
             transition: background 0.4s ease;
         }
         .connector.filled {
-            background: linear-gradient(to right, #2C5EAD, #60A5FA);
+            background: linear-gradient(to right, #0EA5E9, #38BDF8);
         }
     </style>
 </head>
@@ -79,7 +91,7 @@
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-lg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3 no-underline">
-                <div class="w-9 h-9 bg-[#2C5EAD] rounded-full flex items-center justify-center">
+                <div class="w-9 h-9 bg-[#0EA5E9] rounded-full flex items-center justify-center">
                     <span class="text-white font-bold text-xl">FQ</span>
                 </div>
                 <h1 class="font-semibold text-xl tracking-tight text-[#0F172A]">Faizan Quazi</h1>
@@ -87,7 +99,7 @@
             
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
                 <a href="about.html" class="nav-link text-[#334155]">About</a>
-                <a href="experience.html" class="nav-link active text-[#2C5EAD]">Career</a>
+                <a href="experience.html" class="nav-link active text-[#0EA5E9]">Career</a>
                 <a href="process.html" class="nav-link text-[#334155]">Process</a>
                 <a href="work.html" class="nav-link text-[#334155]">Work</a>
                 <a href="contact.html" class="nav-link text-[#334155]">Contact</a>
@@ -102,18 +114,18 @@
     <!-- Hero -->
     <section class="pt-24 pb-16 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="inline-block px-5 py-1.5 bg-[#2C5EAD]/10 text-[#2C5EAD] text-xs font-semibold tracking-[2px] rounded-full mb-6">CHAPTER 02 • JOURNEY</span>
+            <div class="section-label mb-6">CHAPTER 02 • JOURNEY</div>
             <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter section-heading mb-4">My Career Story</h1>
             <p class="max-w-xl mx-auto text-xl text-[#475569]">10 years of turning complex problems into intuitive, delightful experiences.</p>
         </div>
     </section>
 
-    <!-- CAREER JOURNEY - Premium Redesign -->
+    <!-- CAREER JOURNEY -->
     <section class="py-16">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-12">
-                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">THE JOURNEY</span>
+                <div class="section-label mb-4">THE JOURNEY</div>
                 <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Career Journey</h2>
             </div>
 
@@ -122,31 +134,31 @@
                 <div class="flex items-center justify-center gap-x-1.5 text-sm">
                     
                     <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="freelance">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">16</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">16</div>
                         <span class="font-medium tracking-tight">Freelance</span>
                     </div>
                     <div class="connector"></div>
 
                     <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="brightbrain">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">18</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">18</div>
                         <span class="font-medium tracking-tight">BrightBrain</span>
                     </div>
                     <div class="connector"></div>
 
                     <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="unica">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">18</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">18</div>
                         <span class="font-medium tracking-tight">HCL Unica</span>
                     </div>
                     <div class="connector"></div>
 
                     <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="cybage">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">21</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">21</div>
                         <span class="font-medium tracking-tight">Cybage</span>
                     </div>
                     <div class="connector"></div>
 
                     <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="hcl">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">22</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">22</div>
                         <span class="font-medium tracking-tight">HCL Commerce</span>
                     </div>
 
@@ -158,13 +170,13 @@
 
                 <!-- HCL Commerce (Current) -->
                 <div id="hcl" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="hcl">
-                    <div class="floating-period text-[#2C5EAD]">22</div>
+                    <div class="floating-period text-[#0EA5E9]">22</div>
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
                             <div>
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2022 — PRESENT</div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#0EA5E9] mb-1">DEC 2022 — PRESENT</div>
                                 <h3 class="text-4xl font-semibold tracking-tighter section-heading">User Experience Analyst</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-1">HCL Software • Commerce Platform</p>
+                                <p class="text-[#0EA5E9] font-medium mt-1">HCL Software • Commerce Platform</p>
                             </div>
                             <div class="text-sm text-[#64748B] md:text-right">Current Role</div>
                         </div>
@@ -179,13 +191,13 @@
 
                 <!-- Cybage -->
                 <div id="cybage" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="cybage">
-                    <div class="floating-period text-[#2C5EAD]">21</div>
+                    <div class="floating-period text-[#0EA5E9]">21</div>
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
                             <div>
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">MAY 2021 — DEC 2022</div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#0EA5E9] mb-1">MAY 2021 — DEC 2022</div>
                                 <h3 class="text-4xl font-semibold tracking-tighter section-heading">Senior Product Designer & Researcher</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-1">Cybage Softwares</p>
+                                <p class="text-[#0EA5E9] font-medium mt-1">Cybage Softwares</p>
                             </div>
                         </div>
                         <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Responsible for performing user interviews & research, gathering segmented data, and delivering data-driven designs and design annotations. Working closely with users for better and enhanced usability experience.</p>
@@ -199,13 +211,13 @@
 
                 <!-- HCL Unica -->
                 <div id="unica" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="unica">
-                    <div class="floating-period text-[#2C5EAD]">18</div>
+                    <div class="floating-period text-[#0EA5E9]">18</div>
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
                             <div>
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">DEC 2018 — APR 2021</div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#0EA5E9] mb-1">DEC 2018 — APR 2021</div>
                                 <h3 class="text-4xl font-semibold tracking-tighter section-heading">User Experience Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-1">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
+                                <p class="text-[#0EA5E9] font-medium mt-1">HCL Software • UNICA Marketing Automation <span class="text-xs opacity-70">(3.5 Years)</span></p>
                             </div>
                         </div>
                         <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">User Experience Designer for Unica Marketing Automation platform. Focused on improving workflows, information architecture, and overall usability for marketing teams.</p>
@@ -219,13 +231,13 @@
 
                 <!-- BrightBrain -->
                 <div id="brightbrain" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="brightbrain">
-                    <div class="floating-period text-[#2C5EAD]">18</div>
+                    <div class="floating-period text-[#0EA5E9]">18</div>
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
                             <div>
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">APR 2018 — DEC 2018</div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#0EA5E9] mb-1">APR 2018 — DEC 2018</div>
                                 <h3 class="text-4xl font-semibold tracking-tighter section-heading">UI/UX Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-1">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
+                                <p class="text-[#0EA5E9] font-medium mt-1">BrightBrain Technologies <span class="text-xs opacity-70">(9 months)</span></p>
                             </div>
                         </div>
                         <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Conducting user research and testing. Developing wireframes and task flows based on user needs. Understanding product specifications and user psychology.</p>
@@ -239,13 +251,13 @@
 
                 <!-- Freelance -->
                 <div id="freelance" class="exp-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-exp="freelance">
-                    <div class="floating-period text-[#2C5EAD]">16</div>
+                    <div class="floating-period text-[#0EA5E9]">16</div>
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 mb-4">
                             <div>
-                                <div class="font-mono text-xs tracking-[2.5px] text-[#2C5EAD] mb-1">FEB 2016 — APR 2018</div>
+                                <div class="font-mono text-xs tracking-[2.5px] text-[#0EA5E9] mb-1">FEB 2016 — APR 2018</div>
                                 <h3 class="text-4xl font-semibold tracking-tighter section-heading">Freelance Graphic Designer</h3>
-                                <p class="text-[#2C5EAD] font-medium mt-1">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
+                                <p class="text-[#0EA5E9] font-medium mt-1">Self-employed <span class="text-xs opacity-70">(2.2 Years)</span></p>
                             </div>
                         </div>
                         <p class="text-[#475569] leading-relaxed text-[15px] max-w-3xl mb-6">Creating and helping small local businesses with their design needs. Making creative menu cards, coasters, posters, social media posts, brochures and other marketing collateral.</p>
@@ -266,15 +278,15 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[#475569]">
-                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-solid fa-envelope"></i> 
                         <span>faizanquazi123@gmail.com</span>
                     </a>
-                    <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="tel:+918446556866" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-solid fa-phone"></i> 
                         <span>+91 84465 56866</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-brands fa-linkedin"></i> 
                         <span>LinkedIn</span>
                     </a>
