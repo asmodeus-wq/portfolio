@@ -533,6 +533,26 @@
         window.addEventListener("load", () => {
             ScrollTrigger.refresh();
         });
+
+        // Phase 4: Hero Video Full-Bleed Optimization
+        function resizeHeroVideo() {
+            const container = document.querySelector('.hero-video-container');
+            const iframe = container ? container.querySelector('iframe') : null;
+            if (!iframe) return;
+
+            const isMobile = window.innerWidth < 768;
+
+            if (isMobile) {
+                // More aggressive scaling on mobile for true full-bleed
+                iframe.style.transform = 'translate(-50%, -50%) scale(1.68)';
+            } else {
+                iframe.style.transform = 'translate(-50%, -50%) scale(1.18)';
+            }
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', resizeHeroVideo);
+        window.addEventListener('resize', resizeHeroVideo);
     </script>
 </body>
 </html>
