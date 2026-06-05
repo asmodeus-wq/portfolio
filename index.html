@@ -80,8 +80,8 @@
         /* Mobile video fix only */
         @media (max-width: 640px) {
             .hero-video-container iframe {
-                min-width: 160%;
-                min-height: 160%;
+                min-width: 155%;
+                min-height: 155%;
             }
         }
 
@@ -92,8 +92,8 @@
             background: radial-gradient(
                 circle at center,
                 transparent 5%,
-                rgba(0,0,0,0.35) 52%,
-                rgba(0,0,0,0.82) 100%
+                rgba(0,0,0,0.32) 52%,
+                rgba(0,0,0,0.78) 100%
             );
             pointer-events: none;
         }
@@ -142,35 +142,35 @@
             }
 
             .panel h1 {
-                font-size: 2.7rem !important;
+                font-size: 2.65rem !important;
             }
 
             .section-heading {
-                font-size: 2.15rem !important;
+                font-size: 2.1rem !important;
             }
 
             .panel p {
-                font-size: 0.95rem !important;
-                line-height: 1.5;
+                font-size: 0.92rem !important;
+                line-height: 1.48;
             }
 
             .btn {
-                font-size: 0.95rem !important;
-                padding: 0.85rem 1.6rem !important;
+                font-size: 0.92rem !important;
+                padding: 0.8rem 1.5rem !important;
             }
 
             .premium-card, .skill-card {
-                padding: 1.1rem !important;
+                padding: 1rem !important;
             }
 
             .tool-item {
-                padding: 0.75rem 0.9rem !important;
-                font-size: 0.88rem;
+                padding: 0.7rem 0.85rem !important;
+                font-size: 0.85rem;
             }
 
             .skill-card i {
-                font-size: 1.65rem !important;
-                margin-bottom: 0.6rem !important;
+                font-size: 1.55rem !important;
+                margin-bottom: 0.5rem !important;
             }
         }
 
@@ -231,7 +231,7 @@
                 </iframe>
             </div>
             <div class="hero-vignette"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/80 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/38 to-black/75 z-10"></div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
                 <h1 class="font-semibold tracking-tighter leading-none mb-5 text-white drop-shadow-2xl">
@@ -508,7 +508,7 @@
         const wrapper = document.getElementById("horizontal-wrapper");
         const panels = gsap.utils.toArray(".panel");
 
-        // Phase 2: Optimized for desktop + mobile smoothness
+        // Phase 2 (refined): Much gentler on mobile to prevent skipping
         const isMobile = window.innerWidth < 768;
 
         let scrollTween = gsap.to(panels, {
@@ -518,13 +518,13 @@
                 trigger: "#horizontal-wrapper",
                 pin: true,
                 pinType: "transform",
-                scrub: isMobile ? 0.75 : 1.2,           // Gentler scrub on mobile
+                scrub: isMobile ? 1.1 : 1.3,
                 snap: {
                     snapTo: 1 / (panels.length - 1),
                     duration: isMobile 
-                        ? { min: 0.35, max: 0.7 } 
-                        : { min: 0.55, max: 1.0 },
-                    delay: 0.04,
+                        ? { min: 0.6, max: 1.1 } 
+                        : { min: 0.5, max: 0.9 },
+                    delay: 0.08,
                     ease: "power2.out"
                 },
                 end: () => "+=" + (wrapper.offsetWidth * 0.95),
@@ -559,14 +559,12 @@
             const isMobile = window.innerWidth < 768;
 
             if (isMobile) {
-                // More aggressive scaling on mobile for true full-bleed
-                iframe.style.transform = 'translate(-50%, -50%) scale(1.68)';
+                iframe.style.transform = 'translate(-50%, -50%) scale(1.65)';
             } else {
-                iframe.style.transform = 'translate(-50%, -50%) scale(1.18)';
+                iframe.style.transform = 'translate(-50%, -50%) scale(1.2)';
             }
         }
 
-        // Run on load and resize
         window.addEventListener('load', resizeHeroVideo);
         window.addEventListener('resize', resizeHeroVideo);
 
@@ -584,7 +582,6 @@
                 rootMargin: '0px 0px -50px 0px'
             });
 
-            // Apply to cards and interactive elements
             document.querySelectorAll('.premium-card, .skill-card, .tool-item').forEach(el => {
                 observer.observe(el);
             });
