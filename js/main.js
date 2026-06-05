@@ -1,6 +1,6 @@
 // ============================================
-// HORIZONTAL SNAP v3 - Robust Trackpad + Touch Fix
-// Better momentum handling, passive listeners, and thresholds
+// HORIZONTAL SNAP v4 - Fixed single-finger swipe on mobile
+// Always prevent native scroll on single touch; better gesture capture
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const COOLDOWN_MS = 380;
     const WHEEL_THRESHOLD = 40;
-    const TOUCH_THRESHOLD = 35;
+    const TOUCH_THRESHOLD = 30;  // Slightly more sensitive
 
     // Setup
     wrapper.style.width = `${panels.length * 100}vw`;
@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // WHEEL / TRACKPAD - Improved
+    // WHEEL / TRACKPAD
     let wheelTimeout;
     wrapper.addEventListener('wheel', function(e) {
         if (isLocked) return;
 
         e.preventDefault();
-        wheelAccumulator += e.deltaY * 1.2;  // Slight boost for trackpad sensitivity
+        wheelAccumulator += e.deltaY * 1.2;
 
         clearTimeout(wheelTimeout);
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 wheelAccumulator = 0;
             }
-        }, 40); // Short delay to accumulate momentum
+        }, 35);
 
     }, { passive: false });
 
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // TOUCH - More reliable
+    // TOUCH - v4: Force preventDefault on single-finger to capture swipe reliably
     wrapper.addEventListener('touchstart', function(e) {
         if (isLocked) return;
         touchStartY = e.changedTouches[0].screenY;
@@ -117,25 +117,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const deltaY = touchEndY - touchStartY;
         const deltaTime = Date.now() - touchStartTime;
 
-        if (Math.abs(deltaY) > TOUCH_THRESHOLD && deltaTime < 700) {
+        if (Math.abs(deltaY) > TOUCH_THRESHOLD && deltaTime < 800) {
             const now = Date.now();
             if (now - lastActionTime < 150) return;
             lastActionTime = now;
 
-            if (deltaY < -25) { // swipe up -> next
+            if (deltaY < -20) { // swipe up -> next panel
                 goToPanel(currentIndex + 1);
-            } else if (deltaY > 25) { // swipe down -> prev
+            } else if (deltaY > 20) { // swipe down -> prev panel
                 goToPanel(currentIndex - 1);
             }
         }
     }, { passive: true });
 
+    // Always prevent native scrolling on single touch move (this fixes single-finger swipe not triggering)
     wrapper.addEventListener('touchmove', function(e) {
         if (isLocked) return;
-        const currentY = e.changedTouches[0].screenY;
-        const dY = currentY - touchStartY;
-        if (Math.abs(dY) > 25) {
-            e.preventDefault();
+        if (e.touches.length === 1) {
+            e.preventDefault();  // Force custom behavior for single finger
         }
     }, { passive: false });
 
@@ -152,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', forceStartAtHero);
     window.addEventListener('pageshow', forceStartAtHero);
 
-    // Mobile menu (kept as-is)
+    // Mobile menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', function() {
@@ -201,5 +200,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('%c[Portfolio] Horizontal snap v3 — robust trackpad + touch', 'color:#10b981; font-weight:bold');
+    console.log('%c[Portfolio] Horizontal snap v4 — single-finger mobile swipe fixed', 'color:#10b981; font-weight:bold');
 });
