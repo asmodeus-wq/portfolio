@@ -40,6 +40,13 @@
         .distort:hover {
             transform: scale(1.03) skew(1deg);
         }
+        .tool-logo {
+            font-size: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+        .tool-item:hover .tool-logo {
+            transform: scale(1.15) rotate(5deg);
+        }
     </style>
 </head>
 <body class="bg-[#0F172A] text-white overflow-x-hidden">
@@ -61,7 +68,8 @@
                 <a href="work.html" class="hover:text-[#0EA5E9] transition-colors">Work</a>
                 <a href="contact.html" class="px-6 py-2 border border-white/40 rounded-2xl hover:bg-white hover:text-[#0F172A] transition-all">Contact</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <!-- HERO -->
     <section class="min-h-[100dvh] flex items-center justify-center relative pt-20">
@@ -95,7 +103,27 @@
         <div class="absolute bottom-12 text-xs tracking-[4px] text-white/50">SCROLL TO BEND</div>
     </section>
 
-    <!-- SKILLSET - Experimental -->
+    <!-- ABOUT ME PREVIEW -->
+    <section class="max-w-7xl mx-auto px-6 py-24 border-b border-white/10">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5">
+                <div class="section-label mb-4">01 — ORIGIN</div>
+                <h2 class="text-6xl font-semibold tracking-tighter leading-none mb-8">Faizan Quazi</h2>
+                <p class="text-2xl text-white/80 leading-tight">UX Analyst who turns complex problems into experiences that feel alive.</p>
+                <a href="about.html" class="inline-flex items-center gap-3 mt-10 text-[#0EA5E9] hover:text-white group">
+                    Read the full story <span class="group-hover:translate-x-2 transition">→</span>
+                </a>
+            </div>
+            <div class="md:col-span-7">
+                <div class="prose prose-invert max-w-none text-lg text-white/70">
+                    <p>With a background in behavioral psychology and years shaping digital products, I specialize in creating interfaces that don't just look good — they respond, adapt, and anticipate user needs. My approach combines rigorous research with bold creative direction.</p>
+                    <p class="mt-6">Currently bending interfaces at the intersection of fintech, AI, and enterprise tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLSET -->
     <section class="max-w-7xl mx-auto px-6 py-24">
         <div class="flex justify-between items-end mb-12">
             <div>
@@ -129,7 +157,7 @@
         </div>
     </section>
 
-    <!-- TOOLS - Experimental -->
+    <!-- EXPERTISE / TOOLS -->
     <section class="bg-white text-[#0F172A] py-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-12">
@@ -137,20 +165,57 @@
                 <h2 class="text-6xl font-semibold tracking-tighter">Weapons of choice.</h2>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-lg">
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Figma</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Framer</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">ProtoPie</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Webflow</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Miro</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Maze</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Hotjar</div>
-                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Amplitude</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">🎨</div>
+                    <h3 class="text-2xl font-semibold mb-1">Figma</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Prototyping &amp; Design</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">📐</div>
+                    <h3 class="text-2xl font-semibold mb-1">Framer</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Interactive Prototypes</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">📊</div>
+                    <h3 class="text-2xl font-semibold mb-1">Miro</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Research &amp; Workshops</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">📈</div>
+                    <h3 class="text-2xl font-semibold mb-1">Amplitude</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Analytics</p>
+                </div>
+                <!-- More tools -->
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">🔍</div>
+                    <h3 class="text-2xl font-semibold mb-1">Maze</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Usability Testing</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">📹</div>
+                    <h3 class="text-2xl font-semibold mb-1">Hotjar</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Heatmaps &amp; Feedback</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">🧪</div>
+                    <h3 class="text-2xl font-semibold mb-1">ProtoPie</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">Advanced Interactions</p>
+                </div>
+                <div class="tool-item group bg-white/90 border border-[#0F172A]/10 p-8 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all flex flex-col items-center text-center">
+                    <div class="tool-logo mb-6 text-6xl">🌐</div>
+                    <h3 class="text-2xl font-semibold mb-1">Webflow</h3>
+                    <p class="text-sm text-[#0F172A]/60 group-hover:text-white/70">No-code Development</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="about.html#tools" class="text-[#0EA5E9] font-medium">Explore full toolkit →</a>
             </div>
         </div>
     </section>
 
-    <!-- PROCESS PREVIEW - Bold -->
+    <!-- PROCESS PREVIEW -->
     <section class="max-w-6xl mx-auto px-6 py-24">
         <div class="mb-12">
             <div class="section-label mb-3">04 — PROCESS</div>
@@ -179,6 +244,9 @@
                     <p class="max-w-md text-white/70">I build things that feel inevitable. Then I make them better.</p>
                 </div>
             </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="process.html" class="inline-flex items-center gap-3 text-[#0EA5E9] hover:text-white">Full process breakdown →</a>
         </div>
     </section>
 
@@ -223,12 +291,38 @@
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="min-h-[70dvh] flex items-center justify-center text-center px-6">
+    <!-- CAREER TEASER -->
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <div class="section-label mb-3">06 — JOURNEY</div>
+                <h2 class="text-6xl font-semibold tracking-tighter">Where I’ve bent reality.</h2>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="premium-card bg-white/5 border border-white/10 p-10 rounded-3xl">
+                <div class="text-[#0EA5E9] mb-6">2023 — Present</div>
+                <h3 class="text-3xl font-semibold mb-4">Senior UX Analyst</h3>
+                <p class="text-white/70">Leading experience strategy for enterprise SaaS products.</p>
+            </div>
+            <div class="premium-card bg-white/5 border border-white/10 p-10 rounded-3xl">
+                <div class="text-[#0EA5E9] mb-6">2021 — 2023</div>
+                <h3 class="text-3xl font-semibold mb-4">Product Designer</h3>
+                <p class="text-white/70">Designed fintech platforms used by 500k+ users.</p>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="experience.html" class="text-[#0EA5E9] font-medium">View full career timeline →</a>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="min-h-[70dvh] flex items-center justify-center text-center px-6 bg-gradient-to-b from-transparent via-[#0F172A] to-black">
         <div>
             <h2 class="text-7xl font-semibold tracking-tighter mb-6">Ready to break<br>something together?</h2>
+            <p class="text-xl text-white/60 mb-10 max-w-md mx-auto">Let’s create experiences that users can’t stop talking about.</p>
             <a href="contact.html" 
-               class="inline-block mt-4 px-10 py-4 bg-white text-[#0F172A] font-semibold rounded-3xl text-lg hover:bg-[#0EA5E9] hover:text-white transition-all">
+               class="inline-block px-10 py-4 bg-white text-[#0F172A] font-semibold rounded-3xl text-lg hover:bg-[#0EA5E9] hover:text-white transition-all">
                 Let’s talk
             </a>
         </div>
@@ -237,8 +331,7 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Bold scroll-tied animations
-        gsap.utils.toArray('.distort').forEach((el, i) => {
+        gsap.utils.toArray('.distort, .tool-item, .premium-card').forEach((el, i) => {
             gsap.fromTo(el, 
                 { opacity: 0, y: 60, scale: 0.96 },
                 {
@@ -252,18 +345,17 @@
                         start: "top 80%",
                         toggleActions: "play none none reverse"
                     },
-                    delay: i * 0.08
+                    delay: i * 0.05
                 }
             );
         });
 
-        // Hero text animation
         gsap.fromTo(".fluid-text", 
             { opacity: 0, y: 40 },
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
         );
 
-        console.log("%c[Portfolio] Bold experimental version loaded", "color:#64748b");
+        console.log("%c[Portfolio] Updated rich preview version loaded", "color:#64748b");
     </script>
 </body>
 </html>
