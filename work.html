@@ -6,14 +6,26 @@
     <title>Work | Faizan Quazi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 700;
+            color: #0EA5E9;
+            text-transform: uppercase;
         }
 
         .project-panel {
@@ -24,7 +36,7 @@
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.3);
+            box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.25);
             border: 1px solid #e2e8f0;
         }
 
@@ -33,7 +45,7 @@
         }
         .figma-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px -8px rgb(44 94 173 / 0.35);
+            box-shadow: 0 15px 25px -8px rgb(14 165 233 / 0.35);
         }
     </style>
 </head>
@@ -43,7 +55,7 @@
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-lg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3 no-underline">
-                <div class="w-9 h-9 bg-[#2C5EAD] rounded-full flex items-center justify-center">
+                <div class="w-9 h-9 bg-[#0EA5E9] rounded-full flex items-center justify-center">
                     <span class="text-white font-bold text-xl">FQ</span>
                 </div>
                 <h1 class="font-semibold text-xl tracking-tight text-[#0F172A]">Faizan Quazi</h1>
@@ -53,7 +65,7 @@
                 <a href="about.html" class="nav-link text-[#334155]">About</a>
                 <a href="experience.html" class="nav-link text-[#334155]">Career</a>
                 <a href="process.html" class="nav-link text-[#334155]">Process</a>
-                <a href="work.html" class="nav-link active text-[#2C5EAD]">Work</a>
+                <a href="work.html" class="nav-link active text-[#0EA5E9]">Work</a>
                 <a href="contact.html" class="nav-link text-[#334155]">Contact</a>
             </div>
 
@@ -69,9 +81,7 @@
         <!-- Hero Panel -->
         <section class="panel min-w-[100vw] h-screen flex items-center justify-center relative pt-20 bg-white">
             <div class="max-w-5xl mx-auto px-6 text-center">
-                <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-sm mb-8 tracking-[2px] font-medium">
-                    SELECTED WORK
-                </div>
+                <div class="section-label mb-8">SELECTED WORK</div>
                 <h1 class="text-7xl md:text-[92px] font-semibold tracking-tighter leading-none mb-6 section-heading">Featured<br>Projects</h1>
                 <p class="max-w-2xl mx-auto text-2xl text-[#475569] tracking-tight">A collection of design systems, prototypes, and interactive experiences I’ve crafted.</p>
             </div>
@@ -82,13 +92,13 @@
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-14 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#2C5EAD]/20 text-[#2C5EAD] text-xs font-semibold tracking-[2.5px] mb-4">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#0EA5E9]/20 text-[#0EA5E9] text-xs font-semibold tracking-[2.5px] mb-4">
                             2021 • DESIGN SYSTEM
                         </div>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">Raintree 2021</h2>
                         <p class="mt-5 text-lg text-[#334155] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences across platforms.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&p=f&t=rVy9U0pPvG4s9bYT-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&fuid=1503179720234026897" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#2C5EAD] text-white font-semibold rounded-2xl hover:bg-[#1591DC] transition-all figma-btn">
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2&p=f&t=rVy9U0pPvG4s9bYT-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&fuid=1503179720234026897" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0EA5E9] text-white font-semibold rounded-2xl hover:bg-[#38BDF8] transition-all figma-btn">
                             Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -104,25 +114,25 @@
             </div>
         </section>
 
-        <!-- Project 2: AI/ML Interfaces -->
-        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-14" style="background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%)">
+        <!-- Project 2: AI/ML Interfaces (Lightened for icy theme) -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-14" style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%)">
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-14 items-center">
-                    <div class="md:col-span-5 mb-10 md:mb-0 text-white">
-                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                    <div class="md:col-span-5 mb-10 md:mb-0">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#0EA5E9]/20 text-[#0EA5E9] text-xs font-semibold tracking-[2.5px] mb-4">
                             EXPLORATION • 2022
                         </div>
-                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading text-white">AI/ML Interfaces</h2>
-                        <p class="mt-5 text-lg text-white/80 leading-relaxed">Speculative exploration of intelligent interfaces, predictive interactions, and AI-driven user experiences.</p>
+                        <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">AI/ML Interfaces</h2>
+                        <p class="mt-5 text-lg text-[#334155] leading-relaxed">Speculative exploration of intelligent interfaces, predictive interactions, and AI-driven user experiences.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&p=f&t=pv5930EcTwCjE5Jp-0&scaling=min-zoom&content-scaling=fixed&page-id=108%3A19" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-[#0F172A] font-semibold rounded-2xl hover:bg-white/90 transition-all figma-btn">
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212&p=f&t=pv5930EcTwCjE5Jp-0&scaling=min-zoom&content-scaling=fixed&page-id=108%3A19" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0EA5E9] text-white font-semibold rounded-2xl hover:bg-[#38BDF8] transition-all figma-btn">
                             Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="carousel-container bg-white/5 border-white/10">
+                        <div class="carousel-container">
                             <img id="aiml-image" src="images/am (1).png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="AI/ML Interfaces" onclick="nextAIMLScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-white/20 flex items-center gap-x-1.5">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-slate-200 flex items-center gap-x-1.5">
                                 <span id="aiml-counter">1 / 12</span>
                             </div>
                         </div>
@@ -136,13 +146,13 @@
             <div class="max-w-6xl w-full">
                 <div class="grid md:grid-cols-12 gap-x-14 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#0EA5E9]/20 text-[#0EA5E9] text-xs font-semibold tracking-[2.5px] mb-4">
                             SECURITY • 2023
                         </div>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">Identity Service</h2>
                         <p class="mt-5 text-lg text-[#334155] leading-relaxed">Enterprise-grade identity management, authentication flows, and secure user experiences for complex B2B platforms.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&p=f&t=mOLmMthXovFAXrPE-0&scaling=min-zoom&content-scaling=fixed&page-id=2139%3A19516" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0F172A] text-white font-semibold rounded-2xl hover:bg-slate-900 transition-all figma-btn">
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832&p=f&t=mOLmMthXovFAXrPE-0&scaling=min-zoom&content-scaling=fixed&page-id=2139%3A19516" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0EA5E9] text-white font-semibold rounded-2xl hover:bg-[#38BDF8] transition-all figma-btn">
                             Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -158,25 +168,25 @@
             </div>
         </section>
 
-        <!-- Project 4: HCL Commerce -->
-        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-14" style="background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%)">
+        <!-- Project 4: HCL Commerce (Lightened) -->
+        <section class="panel min-w-[100vw] h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-14" style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%)">
             <div class="max-w-6xl w-full">
-                <div class="grid md:grid-cols-12 gap-x-14 items-center text-white">
+                <div class="grid md:grid-cols-12 gap-x-14 items-center">
                     <div class="md:col-span-5 mb-10 md:mb-0">
-                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-[2.5px] mb-4">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white border border-[#0EA5E9]/20 text-[#0EA5E9] text-xs font-semibold tracking-[2.5px] mb-4">
                             HCL SOFTWARE • 2024
                         </div>
                         <h2 class="text-6xl font-semibold tracking-tighter mt-2 section-heading">HCL Commerce<br>UI Shell &amp; Navigation</h2>
-                        <p class="mt-5 text-lg text-white/80 leading-relaxed">Improving B2B usability on the HCL Commerce platform through better UI shell architecture and navigation systems.</p>
+                        <p class="mt-5 text-lg text-[#334155] leading-relaxed">Improving B2B usability on the HCL Commerce platform through better UI shell architecture and navigation systems.</p>
                         
-                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&p=f&t=lUbli3rnDd8lVOdU-0&scaling=min-zoom&content-scaling=fixed&page-id=2103%3A130728" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-white text-[#0F172A] font-semibold rounded-2xl hover:bg-white/90 transition-all figma-btn">
+                        <a href="https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2133-87687&p=f&t=lUbli3rnDd8lVOdU-0&scaling=min-zoom&content-scaling=fixed&page-id=2103%3A130728" target="_blank" class="mt-8 inline-flex items-center gap-x-3 px-8 py-4 bg-[#0EA5E9] text-white font-semibold rounded-2xl hover:bg-[#38BDF8] transition-all figma-btn">
                             Open full prototype in Figma <i class="fa-solid fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
                     <div class="md:col-span-7">
-                        <div class="carousel-container bg-white/5 border-white/10">
+                        <div class="carousel-container">
                             <img id="hcl-image" src="images/hs (1).png" class="w-full h-auto cursor-pointer transition-all duration-300" alt="HCL Commerce" onclick="nextHCLScreen()">
-                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-white/20 flex items-center gap-x-1.5">
+                            <div class="absolute bottom-4 right-4 bg-white/95 text-[#0F172A] text-xs px-3.5 py-1.5 rounded-2xl font-mono border border-slate-200 flex items-center gap-x-1.5">
                                 <span id="hcl-counter">1 / 10</span>
                             </div>
                         </div>
