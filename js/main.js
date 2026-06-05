@@ -1,10 +1,9 @@
 // ============================================
-// IMPROVED Horizontal Snap - Better Trackpad + Mobile
-// Enhanced wheel/trackpad support with momentum detection
+// HORIZONTAL SNAP v3 - Robust Trackpad + Touch Fix
+// Better momentum handling, passive listeners, and thresholds
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    
     const wrapper = document.getElementById('horizontal-wrapper');
     if (!wrapper) return;
 
@@ -15,10 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let isLocked = false;
     let lastActionTime = 0;
     let wheelAccumulator = 0;
-    const COOLDOWN_MS = 420;
-    const WHEEL_THRESHOLD = 35;
-    const TOUCH_THRESHOLD = 28;
+    let touchStartY = 0;
+    let touchStartTime = 0;
 
+    const COOLDOWN_MS = 380;
+    const WHEEL_THRESHOLD = 40;
+    const TOUCH_THRESHOLD = 35;
+
+    // Setup
     wrapper.style.width = `${panels.length * 100}vw`;
     wrapper.style.display = 'flex';
     wrapper.style.flexWrap = 'nowrap';
@@ -27,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         document.body.style.height = '100dvh';
+        document.body.style.overscrollBehavior = 'none';
     }
     lockBodyScroll();
 
@@ -41,59 +45,64 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLocked || index < 0 || index >= panels.length) return;
 
         isLocked = true;
-        currentIndex = index;
+        currentIndex = Math.max(0, Math.min(index, panels.length - 1));
 
-        const targetX = -panels[index].offsetLeft;
+        const targetX = -panels[currentIndex].offsetLeft;
 
         gsap.to(wrapper, {
             x: targetX,
-            duration: 0.45,
+            duration: 0.5,
             ease: "power3.out",
             onComplete: () => {
-                setTimeout(() => { isLocked = false; wheelAccumulator = 0; }, COOLDOWN_MS);
+                setTimeout(() => {
+                    isLocked = false;
+                    wheelAccumulator = 0;
+                }, COOLDOWN_MS);
             }
         });
     }
 
-    // =============== IMPROVED WHEEL / TRACKPAD ===============
+    // WHEEL / TRACKPAD - Improved
+    let wheelTimeout;
     wrapper.addEventListener('wheel', function(e) {
         if (isLocked) return;
 
         e.preventDefault();
+        wheelAccumulator += e.deltaY * 1.2;  // Slight boost for trackpad sensitivity
 
-        wheelAccumulator += e.deltaY;
+        clearTimeout(wheelTimeout);
 
-        const now = Date.now();
-        if (now - lastActionTime < 80) return;
+        wheelTimeout = setTimeout(() => {
+            const now = Date.now();
+            if (now - lastActionTime < 100) return;
 
-        if (Math.abs(wheelAccumulator) > WHEEL_THRESHOLD) {
-            lastActionTime = now;
-            if (wheelAccumulator > 0) {
-                goToPanel(currentIndex + 1);
-            } else {
-                goToPanel(currentIndex - 1);
+            if (Math.abs(wheelAccumulator) > WHEEL_THRESHOLD) {
+                lastActionTime = now;
+                if (wheelAccumulator > 0) {
+                    goToPanel(currentIndex + 1);
+                } else {
+                    goToPanel(currentIndex - 1);
+                }
+                wheelAccumulator = 0;
             }
-            wheelAccumulator = 0;
-        }
+        }, 40); // Short delay to accumulate momentum
+
     }, { passive: false });
 
-    // =============== KEYBOARD ===============
+    // KEYBOARD
     document.addEventListener('keydown', function(e) {
         if (isLocked) return;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        if (['ArrowRight', 'ArrowDown'].includes(e.key)) {
             e.preventDefault();
             goToPanel(currentIndex + 1);
         }
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        if (['ArrowLeft', 'ArrowUp'].includes(e.key)) {
             e.preventDefault();
             goToPanel(currentIndex - 1);
         }
     });
 
-    // =============== MOBILE TOUCH ===============
-    let touchStartY = 0;
-    let touchStartTime = 0;
-
+    // TOUCH - More reliable
     wrapper.addEventListener('touchstart', function(e) {
         if (isLocked) return;
         touchStartY = e.changedTouches[0].screenY;
@@ -108,16 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const deltaY = touchEndY - touchStartY;
         const deltaTime = Date.now() - touchStartTime;
 
-        const absDelta = Math.abs(deltaY);
-
-        if (absDelta > TOUCH_THRESHOLD && deltaTime < 650) {
+        if (Math.abs(deltaY) > TOUCH_THRESHOLD && deltaTime < 700) {
             const now = Date.now();
-            if (now - lastActionTime < 120) return;
+            if (now - lastActionTime < 150) return;
             lastActionTime = now;
 
-            if (deltaY < -18) { // swipe up
+            if (deltaY < -25) { // swipe up -> next
                 goToPanel(currentIndex + 1);
-            } else if (deltaY > 18) { // swipe down
+            } else if (deltaY > 25) { // swipe down -> prev
                 goToPanel(currentIndex - 1);
             }
         }
@@ -127,25 +134,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isLocked) return;
         const currentY = e.changedTouches[0].screenY;
         const dY = currentY - touchStartY;
-        if (Math.abs(dY) > 20) {
+        if (Math.abs(dY) > 25) {
             e.preventDefault();
         }
     }, { passive: false });
 
-    // Resize handler
+    // Resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             gsap.set(wrapper, { x: -panels[currentIndex].offsetLeft });
             lockBodyScroll();
-        }, 150);
+        }, 120);
     });
 
     window.addEventListener('load', forceStartAtHero);
     window.addEventListener('pageshow', forceStartAtHero);
 
-    // Mobile menu (unchanged)
+    // Mobile menu (kept as-is)
     const mobileBtn = document.getElementById('mobile-menu-btn');
     if (mobileBtn) {
         mobileBtn.addEventListener('click', function() {
@@ -194,5 +201,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('%c[Portfolio] Horizontal snap v2 — improved trackpad + touch', 'color:#10b981');
+    console.log('%c[Portfolio] Horizontal snap v3 — robust trackpad + touch', 'color:#10b981; font-weight:bold');
 });
