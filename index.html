@@ -57,7 +57,7 @@
             box-shadow: 0 15px 25px -8px rgb(0 0 0 / 0.1);
         }
 
-        /* Hero Video - Kept simple for now */
+        /* Hero Video */
         .hero-video-container {
             position: absolute;
             inset: 0;
@@ -106,43 +106,43 @@
         }
 
         /* ===========================================
-           MOBILE SCALING + ALIGNMENT FIXES
-           Desktop stays 100% unchanged
+           SAFE MOBILE SCALING (Desktop untouched)
+           Only fixes alignment, cutoff, and overflow on phones
         =========================================== */
         @media (max-width: 640px) {
             .panel {
-                padding-left: 1rem;
-                padding-right: 1rem;
+                padding-left: 1.1rem;
+                padding-right: 1.1rem;
             }
 
-            /* Better text scaling on mobile */
+            /* Only slightly smaller text on mobile - not aggressive */
             .section-heading {
-                font-size: 2.1rem !important;
+                font-size: 2.35rem !important;
                 line-height: 1.1;
             }
 
             .panel p {
-                font-size: 0.92rem !important;
-                line-height: 1.45;
+                font-size: 0.95rem !important;
+                line-height: 1.5;
             }
 
-            /* Cards & content stay inside boundaries */
+            /* Keep cards readable but prevent overflow */
             .premium-card,
             .skill-card {
-                padding: 1.1rem !important;
+                padding: 1.25rem !important;
             }
 
             .tool-item {
-                padding: 0.7rem 0.85rem !important;
-                font-size: 0.85rem;
+                padding: 0.75rem 0.9rem !important;
+                font-size: 0.88rem;
             }
 
             .skill-card i {
-                font-size: 1.7rem !important;
-                margin-bottom: 0.6rem !important;
+                font-size: 1.85rem !important;
+                margin-bottom: 0.7rem !important;
             }
 
-            /* Prevent any content from overflowing */
+            /* Safety boundary - prevent content from escaping */
             .panel > div {
                 max-width: 100%;
                 overflow: hidden;
@@ -193,18 +193,18 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/78 z-10"></div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[2.85rem] md:text-[5.5rem]">
+                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[2.95rem] md:text-[5.8rem]">
                     Faizan Quazi
                 </h1>
-                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[0.95rem] md:text-[1.3rem]">
+                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[1rem] md:text-[1.35rem]">
                     Crafting intuitive digital experiences<br>through research-driven design.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-zinc-950 rounded-3xl font-semibold text-base hover:bg-white/90 transition-all shadow-2xl">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-white text-zinc-950 rounded-3xl font-semibold text-base hover:bg-white/90 transition-all shadow-2xl">
                         View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </a>
-                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 rounded-3xl font-medium text-base hover:bg-white/10 transition-all text-white">
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 border border-white/40 rounded-3xl font-medium text-base hover:bg-white/10 transition-all text-white">
                         Learn more about me
                     </a>
                 </div>
@@ -212,19 +212,19 @@
         </section>
 
         <!-- ABOUT PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: #F8FAFC">
             <div class="max-w-5xl w-full">
                 <div class="max-w-2xl">
                     <div class="section-label mb-3">01 — THE STORY</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none mb-6">Who I am</h2>
                     
-                    <div class="leading-relaxed text-[#334155] space-y-5 mb-8 text-[15px]">
+                    <div class="leading-relaxed text-[#334155] space-y-5 mb-8 text-[15.5px]">
                         <p>I'm a User Experience Analyst with over 10 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-[#0F172A] font-medium">HCL Software (Commerce)</span>, I lead B2B usability improvements across complex enterprise platforms.</p>
                         <p>My approach combines deep user research, strategic thinking, and pixel-perfect execution. I believe the best experiences emerge when we truly understand the people we design for.</p>
                     </div>
 
-                    <a href="about.html" class="inline-flex items-center gap-x-3 px-7 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                    <a href="about.html" class="inline-flex items-center gap-x-3 px-8 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
                         Read the full story <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -232,7 +232,7 @@
         </section>
 
         <!-- SKILLSET PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: linear-gradient(135deg, #F8FAFC 0%, #F0F9FF 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-10">
@@ -241,44 +241,44 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-search text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">User Research</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-search text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">User Research</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-sitemap text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Information Architecture</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-sitemap text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Information Architecture</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-palette text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Interaction Design</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-palette text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Interaction Design</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-layer-group text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Design Systems</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-layer-group text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Design Systems</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-vial text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Usability Testing</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-vial text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Usability Testing</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-users-cog text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Stakeholder Management</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-users-cog text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Stakeholder Management</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-chart-line text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Data-Driven Design</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-chart-line text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Data-Driven Design</h4>
                     </div>
-                    <div class="skill-card premium-card bg-white border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-universal-access text-3xl text-[#0EA5E9] mb-4"></i>
-                        <h4 class="font-semibold text-xl">Accessibility &amp; Inclusive Design</h4>
+                    <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
+                        <i class="fa-solid fa-universal-access text-3xl text-[#0EA5E9] mb-5"></i>
+                        <h4 class="font-semibold text-2xl">Accessibility &amp; Inclusive Design</h4>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- EXPERTISE / TOOLS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%)">
             <div class="max-w-7xl w-full">
                 <div class="mb-10">
@@ -287,30 +287,30 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-figma text-2xl text-[#0EA5E9]"></i><span class="font-medium">Figma</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-adobe text-2xl text-[#0EA5E9]"></i><span class="font-medium">Adobe XD</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-palette text-2xl text-[#0EA5E9]"></i><span class="font-medium">Sketch</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i><span class="font-medium">Framer</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-globe text-2xl text-[#0EA5E9]"></i><span class="font-medium">Webflow</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-play text-2xl text-[#0EA5E9]"></i><span class="font-medium">ProtoPie</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-users text-2xl text-[#0EA5E9]"></i><span class="font-medium">Miro</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-sticky-note text-2xl text-[#0EA5E9]"></i><span class="font-medium">FigJam</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-book text-2xl text-[#0EA5E9]"></i><span class="font-medium">Notion</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-vial text-2xl text-[#0EA5E9]"></i><span class="font-medium">Maze</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-line text-2xl text-[#0EA5E9]"></i><span class="font-medium">Hotjar</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-bar text-2xl text-[#0EA5E9]"></i><span class="font-medium">Amplitude</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-google text-2xl text-[#0EA5E9]"></i><span class="font-medium">Google Analytics</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i><span class="font-medium">Zeplin</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-project-diagram text-2xl text-[#0EA5E9]"></i><span class="font-medium">Principle</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-stream text-2xl text-[#0EA5E9]"></i><span class="font-medium">Overflow</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-pencil-ruler text-2xl text-[#0EA5E9]"></i><span class="font-medium">Balsamiq</span></div>
-                    <div class="tool-item bg-white border border-slate-200 p-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-project-diagram text-2xl text-[#0EA5E9]"></i><span class="font-medium">Axure RP</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-figma text-2xl text-[#0EA5E9]"></i><span class="font-medium">Figma</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-adobe text-2xl text-[#0EA5E9]"></i><span class="font-medium">Adobe XD</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-palette text-2xl text-[#0EA5E9]"></i><span class="font-medium">Sketch</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i><span class="font-medium">Framer</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-globe text-2xl text-[#0EA5E9]"></i><span class="font-medium">Webflow</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-play text-2xl text-[#0EA5E9]"></i><span class="font-medium">ProtoPie</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-users text-2xl text-[#0EA5E9]"></i><span class="font-medium">Miro</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-sticky-note text-2xl text-[#0EA5E9]"></i><span class="font-medium">FigJam</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-book text-2xl text-[#0EA5E9]"></i><span class="font-medium">Notion</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-vial text-2xl text-[#0EA5E9]"></i><span class="font-medium">Maze</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-line text-2xl text-[#0EA5E9]"></i><span class="font-medium">Hotjar</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-bar text-2xl text-[#0EA5E9]"></i><span class="font-medium">Amplitude</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-google text-2xl text-[#0EA5E9]"></i><span class="font-medium">Google Analytics</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i><span class="font-medium">Zeplin</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-project-diagram text-2xl text-[#0EA5E9]"></i><span class="font-medium">Principle</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-stream text-2xl text-[#0EA5E9]"></i><span class="font-medium">Overflow</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-pencil-ruler text-2xl text-[#0EA5E9]"></i><span class="font-medium">Balsamiq</span></div>
+                    <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-project-diagram text-2xl text-[#0EA5E9]"></i><span class="font-medium">Axure RP</span></div>
                 </div>
             </div>
         </section>
 
         <!-- SELECTED WORK PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-10">
@@ -324,12 +324,12 @@
                             <img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent"></div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-7">
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-2xl font-semibold tracking-tight">Raintree 2021</h3>
                                 <span class="text-xs px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">Design System</span>
                             </div>
-                            <p class="text-[#475569] text-[14.5px] leading-relaxed">A comprehensive design system and component library with interactive prototypes.</p>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes.</p>
                         </div>
                     </a>
 
@@ -338,12 +338,12 @@
                             <img src="images/aiml.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-transparent"></div>
                         </div>
-                        <div class="p-6">
+                        <div class="p-7">
                             <div class="flex items-center justify-between mb-2">
                                 <h3 class="text-2xl font-semibold tracking-tight">AI/ML Interfaces</h3>
                                 <span class="text-xs px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">Exploration</span>
                             </div>
-                            <p class="text-[#475569] text-[14.5px] leading-relaxed">Speculative exploration of intelligent interfaces and AI-driven experiences.</p>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">Speculative exploration of intelligent interfaces and AI-driven experiences.</p>
                         </div>
                     </a>
                 </div>
@@ -351,88 +351,88 @@
         </section>
 
         <!-- PROCESS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: linear-gradient(135deg, #BAE6FD 0%, #7DD3FC 100%)">
             <div class="max-w-5xl w-full">
-                <div class="mb-8">
+                <div class="mb-9">
                     <div class="section-label mb-3">05 — PROCESS</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">How I work</h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-4 mb-8">
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                <div class="grid md:grid-cols-3 gap-4 mb-9">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">01</div>
                         <h4 class="font-semibold text-2xl mb-2">Understand</h4>
-                        <p class="text-[#475569] text-[14.5px] leading-relaxed">Deep research, stakeholder mapping, and uncovering real user needs and business context.</p>
+                        <p class="text-[#475569] text-[15px] leading-relaxed">Deep research, stakeholder mapping, and uncovering real user needs and business context.</p>
                     </div>
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">02</div>
                         <h4 class="font-semibold text-2xl mb-2">Explore</h4>
-                        <p class="text-[#475569] text-[14.5px] leading-relaxed">Ideation, user scenarios, and creative exploration of solution directions.</p>
+                        <p class="text-[#475569] text-[15px] leading-relaxed">Ideation, user scenarios, and creative exploration of solution directions.</p>
                     </div>
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">03</div>
                         <h4 class="font-semibold text-2xl mb-2">Materialize</h4>
-                        <p class="text-[#475569] text-[14.5px] leading-relaxed">Wireframes, high-fidelity prototypes, usability testing, and polished handoff.</p>
+                        <p class="text-[#475569] text-[15px] leading-relaxed">Wireframes, high-fidelity prototypes, usability testing, and polished handoff.</p>
                     </div>
                 </div>
 
-                <a href="process.html" class="inline-flex items-center gap-x-3 px-7 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                <a href="process.html" class="inline-flex items-center gap-x-3 px-8 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
                     Explore the full process <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </section>
 
         <!-- EXPERIENCE PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-8 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
                  style="background: linear-gradient(135deg, #7DD3FC 0%, #67E8F9 100%)">
             <div class="max-w-5xl w-full">
-                <div class="mb-8">
+                <div class="mb-9">
                     <div class="section-label mb-3">06 — CAREER</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">Experience</h2>
                 </div>
 
-                <div class="space-y-4 mb-8">
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                <div class="space-y-4 mb-9">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">DEC 2022 — PRESENT</div>
                         <div class="font-semibold text-xl mb-1.5">User Experience Analyst</div>
-                        <div class="text-[#475569] text-[14.5px]">HCL Software (Commerce) — Leading B2B usability improvements on the enterprise commerce platform.</div>
+                        <div class="text-[#475569] text-[15px]">HCL Software (Commerce) — Leading B2B usability improvements on the enterprise commerce platform.</div>
                     </div>
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">MAY 2021 — DEC 2022</div>
                         <div class="font-semibold text-xl mb-1.5">Senior Product Designer &amp; Researcher</div>
-                        <div class="text-[#475569] text-[14.5px]">Cybage Softwares — End-to-end UX research, strategy, and design for complex SaaS products.</div>
+                        <div class="text-[#475569] text-[15px]">Cybage Softwares — End-to-end UX research, strategy, and design for complex SaaS products.</div>
                     </div>
-                    <div class="premium-card bg-white border border-slate-200 p-6 rounded-3xl">
+                    <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">DEC 2018 — APR 2021</div>
                         <div class="font-semibold text-xl mb-1.5">User Experience Designer</div>
-                        <div class="text-[#475569] text-[14.5px]">HCL Software (Unica) — Marketing automation workflows and design systems.</div>
+                        <div class="text-[#475569] text-[15px]">HCL Software (Unica) — Marketing automation workflows and design systems.</div>
                     </div>
                 </div>
 
-                <a href="experience.html" class="inline-flex items-center gap-x-3 px-7 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
+                <a href="experience.html" class="inline-flex items-center gap-x-3 px-8 py-3.5 border border-[#CBD5E1] rounded-2xl font-medium hover:bg-white transition-all text-[#334155]">
                     View full career journey <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </section>
 
         <!-- CONTACT PANEL -->
-        <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-8 md:p-16">
-            <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-6 relative z-10">
+        <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-9 md:p-16">
+            <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-8 relative z-10">
                 <div class="section-label mb-3 text-white/80">07 — CONTACT</div>
-                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg text-[2.7rem] md:text-[3.7rem]">
+                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg text-[2.85rem] md:text-[3.9rem]">
                     Let's create<br>something meaningful together.
                 </h2>
                 
-                <p class="max-w-md tracking-tight mb-8 text-white/90">
+                <p class="max-w-md tracking-tight mb-9 text-white/90">
                     Based in Pune. Always open to meaningful projects and good conversations about design.
                 </p>
 
-                <div class="flex flex-col gap-3 mb-9">
-                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-[#0EA5E9] text-white font-semibold rounded-3xl active:scale-[0.985]">
+                <div class="flex flex-col gap-3 mb-10">
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-[#0EA5E9] text-white font-semibold rounded-3xl active:scale-[0.985]">
                         Get in touch
                     </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/40 text-white font-medium rounded-3xl">
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 border border-white/40 text-white font-medium rounded-3xl">
                         LinkedIn
                     </a>
                 </div>
