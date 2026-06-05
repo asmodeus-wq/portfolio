@@ -57,7 +57,7 @@
             box-shadow: 0 15px 25px -8px rgb(0 0 0 / 0.1);
         }
 
-        /* Hero Video - True full bleed top to bottom */
+        /* Hero Video Container */
         .hero-video-container {
             position: absolute;
             inset: 0;
@@ -65,6 +65,7 @@
             z-index: 0;
         }
 
+        /* Default (desktop) */
         .hero-video-container iframe {
             position: absolute;
             top: 50%;
@@ -78,15 +79,24 @@
             border: none;
         }
 
+        /* Aggressive full-bleed fix for mobile */
+        @media (max-width: 640px) {
+            .hero-video-container iframe {
+                min-width: 140%;
+                min-height: 140%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
         .hero-vignette {
             position: absolute;
             inset: 0;
             z-index: 11;
             background: radial-gradient(
                 circle at center,
-                transparent 6%,
-                rgba(0,0,0,0.38) 55%,
-                rgba(0,0,0,0.85) 100%
+                transparent 5%,
+                rgba(0,0,0,0.35) 52%,
+                rgba(0,0,0,0.82) 100%
             );
             pointer-events: none;
         }
@@ -114,27 +124,27 @@
             }
 
             .section-heading {
-                font-size: 2rem !important;
+                font-size: 1.95rem !important;
                 line-height: 1.08;
             }
 
             .panel p {
-                font-size: 0.87rem !important;
+                font-size: 0.85rem !important;
                 line-height: 1.38;
             }
 
             .premium-card, .skill-card {
-                padding: 0.9rem !important;
+                padding: 0.85rem !important;
             }
 
             .tool-item {
-                padding: 0.6rem 0.75rem !important;
-                font-size: 0.78rem;
+                padding: 0.55rem 0.7rem !important;
+                font-size: 0.76rem;
             }
 
             .skill-card i {
-                font-size: 1.45rem !important;
-                margin-bottom: 0.45rem !important;
+                font-size: 1.4rem !important;
+                margin-bottom: 0.4rem !important;
             }
         }
     </style>
@@ -179,21 +189,21 @@
                 </iframe>
             </div>
             <div class="hero-vignette"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/78 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/18 via-black/38 to-black/75 z-10"></div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[2.75rem] md:text-[5.3rem]">
+                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[2.7rem] md:text-[5.2rem]">
                     Faizan Quazi
                 </h1>
-                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[0.9rem] md:text-[1.15rem]">
+                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[0.88rem] md:text-[1.1rem]">
                     Crafting intuitive digital experiences<br>through research-driven design.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-7 py-3.5 bg-white text-zinc-950 rounded-3xl font-semibold text-[0.88rem] hover:bg-white/90 transition-all shadow-2xl">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-7 py-3.5 bg-white text-zinc-950 rounded-3xl font-semibold text-[0.86rem] hover:bg-white/90 transition-all shadow-2xl">
                         View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </a>
-                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-7 py-3.5 border border-white/40 rounded-3xl font-medium text-[0.88rem] hover:bg-white/10 transition-all text-white">
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-7 py-3.5 border border-white/40 rounded-3xl font-medium text-[0.86rem] hover:bg-white/10 transition-all text-white">
                         Learn more about me
                     </a>
                 </div>
@@ -409,7 +419,7 @@
         <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-7 md:p-16">
             <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-4 relative z-10">
                 <div class="section-label mb-2 text-white/80">07 — CONTACT</div>
-                <h2 class="font-semibold tracking-tighter leading-none mb-5 section-heading text-white drop-shadow-lg text-[2.35rem] md:text-[3.1rem]">
+                <h2 class="font-semibold tracking-tighter leading-none mb-5 section-heading text-white drop-shadow-lg text-[2.3rem] md:text-[3rem]">
                     Let's create<br>something meaningful together.
                 </h2>
                 
