@@ -20,7 +20,7 @@
             letter-spacing: -0.04em;
         }
         .premium-card {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
         }
         .section-label {
             font-size: 0.75rem;
@@ -28,6 +28,9 @@
             font-weight: 700;
             color: #0EA5E9;
             text-transform: uppercase;
+        }
+        .distort {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
         #horizontal-wrapper {
             display: flex;
@@ -48,24 +51,24 @@
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#0F172A]">
+<body class="bg-[#0F172A] text-white">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-[200] bg-white/90 backdrop-blur-lg border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="fixed top-0 left-0 right-0 z-[200] mix-blend-difference">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between text-sm">
             <a href="index.html" class="flex items-center gap-x-3">
-                <div class="w-9 h-9 bg-[#0EA5E9] rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold">FQ</span>
+                <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-[#0F172A] font-bold">FQ</span>
                 </div>
-                <span class="font-semibold text-xl tracking-tight">Faizan Quazi</span>
+                <span class="font-semibold tracking-tight">Faizan Quazi</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+            <div class="flex items-center gap-x-8">
                 <a href="about.html" class="hover:text-[#0EA5E9] transition-colors">About</a>
                 <a href="experience.html" class="hover:text-[#0EA5E9] transition-colors">Career</a>
                 <a href="process.html" class="hover:text-[#0EA5E9] transition-colors">Process</a>
                 <a href="work.html" class="hover:text-[#0EA5E9] transition-colors">Work</a>
-                <a href="contact.html" class="hover:text-[#0EA5E9] transition-colors">Contact</a>
+                <a href="contact.html" class="px-6 py-2 border border-white/40 rounded-2xl hover:bg-white hover:text-[#0F172A] transition-all">Contact</a>
             </div>
         </nav>
 
@@ -95,7 +98,7 @@
         </section>
 
         <!-- ABOUT ME -->
-        <section class="panel bg-[#F8FAFC] border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-[#F8FAFC] text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-4xl w-full">
                 <div class="section-label mb-4">01 — THE STORY</div>
                 <h2 class="text-5xl font-semibold tracking-tighter mb-8">Who I am</h2>
@@ -110,61 +113,65 @@
         </section>
 
         <!-- SKILLSET -->
-        <section class="panel bg-white border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-white text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-6xl w-full">
                 <div class="mb-12">
                     <div class="section-label mb-3">02 — CRAFT</div>
                     <h2 class="text-5xl font-semibold tracking-tighter">My Skillset</h2>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                    <div class="premium-card bg-[#F8FAFC] border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-search text-3xl text-[#0EA5E9] mb-5"></i>
-                        <h4 class="font-semibold text-2xl">User Research</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="distort premium-card bg-[#F8FAFC] border border-slate-200 p-9 rounded-3xl">
+                        <i class="fa-solid fa-search text-3xl text-[#0EA5E9] mb-6"></i>
+                        <h3 class="text-3xl font-semibold mb-3">User Research</h3>
+                        <p class="text-[#475569]">Deep qualitative and quantitative research to uncover real user needs.</p>
                     </div>
-                    <div class="premium-card bg-[#F8FAFC] border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-sitemap text-3xl text-[#0EA5E9] mb-5"></i>
-                        <h4 class="font-semibold text-2xl">Information Architecture</h4>
+                    <div class="distort premium-card bg-[#F8FAFC] border border-slate-200 p-9 rounded-3xl">
+                        <i class="fa-solid fa-sitemap text-3xl text-[#0EA5E9] mb-6"></i>
+                        <h3 class="text-3xl font-semibold mb-3">Information Architecture</h3>
+                        <p class="text-[#475569]">Structuring complex systems into clear, intuitive experiences.</p>
                     </div>
-                    <div class="premium-card bg-[#F8FAFC] border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-palette text-3xl text-[#0EA5E9] mb-5"></i>
-                        <h4 class="font-semibold text-2xl">Interaction Design</h4>
+                    <div class="distort premium-card bg-[#F8FAFC] border border-slate-200 p-9 rounded-3xl">
+                        <i class="fa-solid fa-palette text-3xl text-[#0EA5E9] mb-6"></i>
+                        <h3 class="text-3xl font-semibold mb-3">Interaction Design</h3>
+                        <p class="text-[#475569]">Crafting meaningful micro-interactions and intuitive flows.</p>
                     </div>
-                    <div class="premium-card bg-[#F8FAFC] border border-slate-200 p-7 rounded-3xl">
-                        <i class="fa-solid fa-layer-group text-3xl text-[#0EA5E9] mb-5"></i>
-                        <h4 class="font-semibold text-2xl">Design Systems</h4>
+                    <div class="distort premium-card bg-[#F8FAFC] border border-slate-200 p-9 rounded-3xl">
+                        <i class="fa-solid fa-layer-group text-3xl text-[#0EA5E9] mb-6"></i>
+                        <h3 class="text-3xl font-semibold mb-3">Design Systems</h3>
+                        <p class="text-[#475569]">Building scalable, consistent, and maintainable component libraries.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- EXPERTISE / TOOLS -->
-        <section class="panel bg-[#F8FAFC] border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-[#F8FAFC] text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-7xl w-full">
                 <div class="mb-10">
                     <div class="section-label mb-3">03 — EXPERTISE</div>
                     <h2 class="text-5xl font-semibold tracking-tighter">Tools I work with</h2>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-figma text-2xl text-[#0EA5E9]"></i> <span>Figma</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-adobe text-2xl text-[#0EA5E9]"></i> <span>Adobe XD</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-palette text-2xl text-[#0EA5E9]"></i> <span>Sketch</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i> <span>Framer</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-globe text-2xl text-[#0EA5E9]"></i> <span>Webflow</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-play text-2xl text-[#0EA5E9]"></i> <span>ProtoPie</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-users text-2xl text-[#0EA5E9]"></i> <span>Miro</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-sticky-note text-2xl text-[#0EA5E9]"></i> <span>FigJam</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-book text-2xl text-[#0EA5E9]"></i> <span>Notion</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-vial text-2xl text-[#0EA5E9]"></i> <span>Maze</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-line text-2xl text-[#0EA5E9]"></i> <span>Hotjar</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-bar text-2xl text-[#0EA5E9]"></i> <span>Amplitude</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-google text-2xl text-[#0EA5E9]"></i> <span>Google Analytics</span></div>
-                    <div class="tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i> <span>Zeplin</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-figma text-2xl text-[#0EA5E9]"></i> <span>Figma</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-adobe text-2xl text-[#0EA5E9]"></i> <span>Adobe XD</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-palette text-2xl text-[#0EA5E9]"></i> <span>Sketch</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i> <span>Framer</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-globe text-2xl text-[#0EA5E9]"></i> <span>Webflow</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-play text-2xl text-[#0EA5E9]"></i> <span>ProtoPie</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-users text-2xl text-[#0EA5E9]"></i> <span>Miro</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-sticky-note text-2xl text-[#0EA5E9]"></i> <span>FigJam</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-book text-2xl text-[#0EA5E9]"></i> <span>Notion</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-vial text-2xl text-[#0EA5E9]"></i> <span>Maze</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-line text-2xl text-[#0EA5E9]"></i> <span>Hotjar</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-chart-bar text-2xl text-[#0EA5E9]"></i> <span>Amplitude</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-google text-2xl text-[#0EA5E9]"></i> <span>Google Analytics</span></div>
+                    <div class="distort tool-item bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-layer-group text-2xl text-[#0EA5E9]"></i> <span>Zeplin</span></div>
                 </div>
             </div>
         </section>
 
         <!-- PROCESS -->
-        <section class="panel bg-white border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-white text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-5xl w-full">
                 <div class="mb-10">
                     <div class="section-label mb-3">04 — PROCESS</div>
@@ -191,7 +198,7 @@
         </section>
 
         <!-- MY WORK -->
-        <section class="panel bg-[#F8FAFC] border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-[#F8FAFC] text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-6xl w-full">
                 <div class="mb-10">
                     <div class="section-label mb-3">05 — WORK</div>
@@ -217,7 +224,7 @@
         </section>
 
         <!-- CAREER -->
-        <section class="panel bg-white border-l border-slate-200 p-10 md:p-16 flex items-center">
+        <section class="panel bg-white text-[#0F172A] border-l border-slate-200 p-10 md:p-16 flex items-center">
             <div class="max-w-5xl w-full">
                 <div class="mb-10">
                     <div class="section-label mb-3">06 — CAREER</div>
@@ -246,7 +253,7 @@
         const wrapper = document.getElementById("horizontal-wrapper");
         const panels = gsap.utils.toArray(".panel");
 
-        // Clean horizontal scroll with better trackpad support
+        // Horizontal scroll with normalizeScroll for better trackpad support
         gsap.to(panels, {
             xPercent: -100 * (panels.length - 1),
             ease: "none",
@@ -254,10 +261,10 @@
                 trigger: wrapper,
                 pin: true,
                 pinType: "transform",
-                scrub: 1.4,
+                scrub: 1.3,
                 snap: {
                     snapTo: 1 / (panels.length - 1),
-                    duration: 0.7,
+                    duration: 0.65,
                     ease: "power2.out"
                 },
                 end: () => "+=" + wrapper.offsetWidth,
@@ -266,7 +273,20 @@
             }
         });
 
-        console.log("%c[Portfolio] Scroll fixed version loaded", "color:#64748b");
+        // Distort hover effect
+        document.querySelectorAll('.distort').forEach(el => {
+            el.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 4;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * 3;
+                this.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            el.addEventListener('mouseleave', function() {
+                this.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        console.log("%c[Portfolio] Bold design + fixed scroll loaded", "color:#64748b");
     </script>
 </body>
 </html>
