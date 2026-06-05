@@ -106,47 +106,45 @@
         }
 
         /* ===========================================
-           SAFE MOBILE SCALING (Desktop untouched)
-           Only fixes alignment, cutoff, and overflow on phones
+           DYNAMIC DEVICE DETECTION CSS
+           These rules ONLY apply when JS adds the class
         =========================================== */
-        @media (max-width: 640px) {
-            .panel {
-                padding-left: 1.1rem;
-                padding-right: 1.1rem;
-            }
 
-            /* Only slightly smaller text on mobile - not aggressive */
-            .section-heading {
-                font-size: 2.35rem !important;
-                line-height: 1.1;
-            }
+        /* Mobile specific rules (only when body.has class 'is-mobile') */
+        body.is-mobile .panel {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
-            .panel p {
-                font-size: 0.95rem !important;
-                line-height: 1.5;
-            }
+        body.is-mobile .section-heading {
+            font-size: 2.25rem !important;
+            line-height: 1.1;
+        }
 
-            /* Keep cards readable but prevent overflow */
-            .premium-card,
-            .skill-card {
-                padding: 1.25rem !important;
-            }
+        body.is-mobile .panel p {
+            font-size: 0.93rem !important;
+            line-height: 1.48;
+        }
 
-            .tool-item {
-                padding: 0.75rem 0.9rem !important;
-                font-size: 0.88rem;
-            }
+        body.is-mobile .premium-card,
+        body.is-mobile .skill-card {
+            padding: 1.15rem !important;
+        }
 
-            .skill-card i {
-                font-size: 1.85rem !important;
-                margin-bottom: 0.7rem !important;
-            }
+        body.is-mobile .tool-item {
+            padding: 0.7rem 0.85rem !important;
+            font-size: 0.86rem;
+        }
 
-            /* Safety boundary - prevent content from escaping */
-            .panel > div {
-                max-width: 100%;
-                overflow: hidden;
-            }
+        body.is-mobile .skill-card i {
+            font-size: 1.75rem !important;
+            margin-bottom: 0.65rem !important;
+        }
+
+        /* Safety boundary on mobile */
+        body.is-mobile .panel > div {
+            max-width: 100%;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -193,10 +191,10 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/78 z-10"></div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[2.95rem] md:text-[5.8rem]">
+                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[3rem] md:text-[5.9rem]">
                     Faizan Quazi
                 </h1>
-                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[1rem] md:text-[1.35rem]">
+                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[1.05rem] md:text-[1.4rem]">
                     Crafting intuitive digital experiences<br>through research-driven design.
                 </p>
                 
@@ -219,7 +217,7 @@
                     <div class="section-label mb-3">01 — THE STORY</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none mb-6">Who I am</h2>
                     
-                    <div class="leading-relaxed text-[#334155] space-y-5 mb-8 text-[15.5px]">
+                    <div class="leading-relaxed text-[#334155] space-y-5 mb-8 text-[16px]">
                         <p>I'm a User Experience Analyst with over 10 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-[#0F172A] font-medium">HCL Software (Commerce)</span>, I lead B2B usability improvements across complex enterprise platforms.</p>
                         <p>My approach combines deep user research, strategic thinking, and pixel-perfect execution. I believe the best experiences emerge when we truly understand the people we design for.</p>
                     </div>
@@ -420,7 +418,7 @@
         <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-9 md:p-16">
             <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-8 relative z-10">
                 <div class="section-label mb-3 text-white/80">07 — CONTACT</div>
-                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg text-[2.85rem] md:text-[3.9rem]">
+                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg text-[2.9rem] md:text-[4rem]">
                     Let's create<br>something meaningful together.
                 </h2>
                 
@@ -456,8 +454,33 @@
 
     </div>
 
-    <!-- Horizontal Scroll Script -->
+    <!-- Dynamic Device Detection + Horizontal Scroll Script -->
     <script>
+        // ===========================================
+        // DYNAMIC SCREEN SIZE DETECTION
+        // ===========================================
+        function updateDeviceClass() {
+            const body = document.body;
+            body.classList.remove('is-mobile', 'is-tablet', 'is-desktop');
+
+            const width = window.innerWidth;
+
+            if (width < 640) {
+                body.classList.add('is-mobile');
+            } else if (width < 1024) {
+                body.classList.add('is-tablet');
+            } else {
+                body.classList.add('is-desktop');
+            }
+        }
+
+        // Run on load and on resize
+        window.addEventListener('load', updateDeviceClass);
+        window.addEventListener('resize', updateDeviceClass);
+
+        // ===========================================
+        // HORIZONTAL SCROLL (GSAP)
+        // ===========================================
         gsap.registerPlugin(ScrollTrigger);
 
         ScrollTrigger.normalizeScroll(true);
