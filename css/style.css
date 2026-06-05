@@ -1,11 +1,9 @@
 /* ============================================
    Faizan Quazi Portfolio - Centralized Styles
-   Easy theming via CSS Variables
-   Fully responsive horizontal scroll experience
+   Consistent experience across all screen sizes
    ============================================ */
 
 :root {
-  /* === THEME VARIABLES === */
   --accent: #0EA5E9;
   --accent-hover: #38BDF8;
   
@@ -19,6 +17,7 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
 }
 
 body {
@@ -157,7 +156,8 @@ body {
 }
 
 /* ============================================
-   HORIZONTAL SCROLL SYSTEM (Same experience on all devices)
+   HORIZONTAL SCROLL - Optimized for all devices
+   Same experience on desktop, tablet, and phone
    ============================================ */
 
 #horizontal-wrapper {
@@ -167,12 +167,14 @@ body {
   height: 100dvh;
   overflow: hidden;
   touch-action: pan-x;
+  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
 }
 
 .panel {
   flex-shrink: 0;
   width: 100vw;
+  min-height: 100dvh;
   height: 100dvh;
   display: flex;
   align-items: center;
@@ -184,18 +186,23 @@ body {
   padding: 0;
 }
 
-/* Ensure content inside panels can scroll vertically on very tall content if needed */
+/* Allow internal vertical scrolling only when content is very tall */
 .panel .max-w-5xl,
 .panel .max-w-6xl,
 .panel .max-w-7xl {
-  max-height: 90dvh;
+  max-height: 92dvh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-/* ============================================
-   Work page internal horizontal scroll
-   ============================================ */
+.panel .max-w-5xl::-webkit-scrollbar,
+.panel .max-w-6xl::-webkit-scrollbar,
+.panel .max-w-7xl::-webkit-scrollbar {
+  display: none;
+}
+
+/* Work page internal horizontal scroll */
 .horizontal-scroll-container {
   overflow: hidden;
   cursor: grab;
