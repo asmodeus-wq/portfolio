@@ -6,33 +6,41 @@
     <title>About | Faizan Quazi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 700;
+            color: #0EA5E9;
+            text-transform: uppercase;
         }
 
         .stat-number {
             font-variant-numeric: tabular-nums;
         }
 
-        .skill-ring {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         .journey-card {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                         border-color 0.3s ease;
         }
         .journey-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-            border-color: #2C5EAD;
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.18);
+            border-color: #0EA5E9;
         }
 
         .edu-card {
@@ -49,7 +57,7 @@
         .craft-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
-            border-color: #2C5EAD;
+            border-color: #0EA5E9;
         }
 
         .floating-number {
@@ -69,13 +77,13 @@
             transition: all 0.3s ease;
         }
         .step.active {
-            color: #2C5EAD;
+            color: #0EA5E9;
             font-weight: 600;
         }
         .step.active .step-number {
-            background: #2C5EAD;
+            background: #0EA5E9;
             color: white;
-            box-shadow: 0 0 0 4px rgba(44, 94, 173, 0.2);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
         }
 
         .connector {
@@ -85,10 +93,9 @@
             transition: background 0.4s ease;
         }
         .connector.filled {
-            background: linear-gradient(to right, #2C5EAD, #60A5FA);
+            background: linear-gradient(to right, #0EA5E9, #38BDF8);
         }
 
-        /* Premium Skill Ring Cards */
         .skill-ring-card {
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
         }
@@ -104,14 +111,14 @@
     <nav class="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-lg border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-x-3 no-underline">
-                <div class="w-9 h-9 bg-[#2C5EAD] rounded-full flex items-center justify-center">
+                <div class="w-9 h-9 bg-[#0EA5E9] rounded-full flex items-center justify-center">
                     <span class="text-white font-bold text-xl">FQ</span>
                 </div>
                 <h1 class="font-semibold text-xl tracking-tight text-[#0F172A]">Faizan Quazi</h1>
             </a>
             
             <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="about.html" class="nav-link active text-[#2C5EAD]">About</a>
+                <a href="about.html" class="nav-link active text-[#0EA5E9]">About</a>
                 <a href="experience.html" class="nav-link text-[#334155]">Career</a>
                 <a href="process.html" class="nav-link text-[#334155]">Process</a>
                 <a href="work.html" class="nav-link text-[#334155]">Work</a>
@@ -126,7 +133,7 @@
 
     <!-- Hero -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.85)), url('https://picsum.photos/id/1015/2000/1200');"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(15,23,42,0.65), rgba(15,23,42,0.78)), url('https://picsum.photos/id/1015/2000/1200');"></div>
         
         <div class="relative z-10 text-center px-6 max-w-4xl">
             <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur rounded-full mb-8 border border-white/20">
@@ -148,7 +155,7 @@
     <section class="max-w-5xl mx-auto px-6 py-24">
         <div class="grid md:grid-cols-12 gap-16 items-center">
             <div class="md:col-span-7">
-                <span class="text-[#2C5EAD] font-semibold tracking-widest text-sm">CHAPTER 01 • THE STORY</span>
+                <div class="section-label mb-4">CHAPTER 01 • THE STORY</div>
                 <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter mt-4 mb-8 section-heading">Hi, I'm Faizan Quazi.</h2>
                 
                 <div class="prose prose-lg text-[#334155] space-y-6">
@@ -169,85 +176,79 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="text-center">
-                    <div id="years" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">10</div>
+                    <div id="years" class="stat-number text-7xl font-semibold text-[#0EA5E9] mb-2">10</div>
                     <div class="text-sm uppercase tracking-widest text-[#475569]">Years Experience</div>
                 </div>
                 <div class="text-center">
-                    <div id="projects" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">60</div>
+                    <div id="projects" class="stat-number text-7xl font-semibold text-[#0EA5E9] mb-2">60</div>
                     <div class="text-sm uppercase tracking-widest text-[#475569]">Projects Delivered</div>
                 </div>
                 <div class="text-center">
-                    <div id="clients" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">25</div>
+                    <div id="clients" class="stat-number text-7xl font-semibold text-[#0EA5E9] mb-2">25</div>
                     <div class="text-sm uppercase tracking-widest text-[#475569]">Clients & Teams</div>
                 </div>
                 <div class="text-center">
-                    <div id="industries" class="stat-number text-7xl font-semibold text-[#2C5EAD] mb-2">6</div>
+                    <div id="industries" class="stat-number text-7xl font-semibold text-[#0EA5E9] mb-2">6</div>
                     <div class="text-sm uppercase tracking-widest text-[#475569]">Industries</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REDESIGNED CORE CRAFT (2x3 Grid) -->
+    <!-- CORE CRAFT (2x3 Grid) -->
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
-                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 02 • CRAFT</span>
+                <div class="section-label mb-4">CHAPTER 02 • CRAFT</div>
                 <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Core Craft</h2>
                 <p class="mt-3 text-[#475569] max-w-md mx-auto">The foundational skills I bring to every project.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Research Mastery -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-magnifying-glass text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-magnifying-glass text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Research Mastery</h3>
                     <p class="text-[#475569] leading-relaxed">User interviews, usability testing, journey mapping, and data-driven insights that uncover hidden user needs.</p>
                 </div>
 
-                <!-- Interaction Design -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-pen-ruler text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-pen-ruler text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Interaction Design</h3>
                     <p class="text-[#475569] leading-relaxed">Crafting intuitive micro-interactions, smooth transitions, and delightful user flows across platforms.</p>
                 </div>
 
-                <!-- Stakeholder Alignment -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-users text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Stakeholder Alignment</h3>
                     <p class="text-[#475569] leading-relaxed">Facilitating workshops, presenting insights, and driving consensus between business, tech, and design teams.</p>
                 </div>
 
-                <!-- Design Systems -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-chart-line text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-chart-line text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Design Systems</h3>
                     <p class="text-[#475569] leading-relaxed">Building scalable, accessible component libraries and design tokens that accelerate team velocity.</p>
                 </div>
 
-                <!-- Strategic Thinking -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-lightbulb text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-lightbulb text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Strategic Thinking</h3>
                     <p class="text-[#475569] leading-relaxed">Translating business goals into user-centered design strategies that deliver measurable impact and long-term value.</p>
                 </div>
 
-                <!-- NEW: Design Leadership -->
-                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#2C5EAD]/40">
-                    <div class="w-14 h-14 bg-[#2C5EAD]/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-users-cog text-3xl text-[#2C5EAD]"></i>
+                <div class="craft-card bg-white border border-slate-200 rounded-3xl p-9 hover:border-[#0EA5E9]/40">
+                    <div class="w-14 h-14 bg-[#0EA5E9]/10 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users-cog text-3xl text-[#0EA5E9]"></i>
                     </div>
                     <h3 class="font-semibold text-2xl mb-3">Design Leadership</h3>
                     <p class="text-[#475569] leading-relaxed">Guiding teams, mentoring designers, and establishing design culture and processes that scale across organizations.</p>
@@ -257,26 +258,26 @@
         </div>
     </section>
 
-    <!-- EXPERTISE - SKILL RINGS (Premium clean design matching reference) -->
+    <!-- EXPERTISE - SKILL RINGS -->
     <section class="py-20 bg-white border-y border-slate-200">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-12">
-                <span class="text-[#2C5EAD] text-xs font-semibold tracking-[3px] uppercase">EXPERTISE</span>
+                <div class="section-label mb-4">EXPERTISE</div>
                 <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Skill Rings</h2>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="skill-rings">
-                <!-- Populated dynamically by JS to match the clean card style -->
+                <!-- Populated dynamically by JS -->
             </div>
         </div>
     </section>
 
-    <!-- EDUCATION JOURNEY (Last main section) -->
+    <!-- EDUCATION JOURNEY -->
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-12">
-                <span class="text-[#2C5EAD] text-sm font-semibold tracking-[3px]">CHAPTER 03 • GROWTH</span>
+                <div class="section-label mb-4">CHAPTER 03 • GROWTH</div>
                 <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">My Learning Journey</h2>
                 <p class="mt-3 text-[#475569] max-w-md mx-auto">From foundational learning to specialized UX expertise — every step shaped my approach to design.</p>
             </div>
@@ -285,32 +286,32 @@
             <div id="edu-stepper" class="sticky top-20 z-[90] hidden lg:block bg-white/95 backdrop-blur-lg border border-slate-200 rounded-3xl px-8 py-5 mb-12 shadow-sm">
                 <div class="flex items-center justify-center gap-x-2 text-sm">
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="school">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">07</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">07</div>
                         <span class="font-medium tracking-tight">School</span>
                     </div>
                     <div class="connector"></div>
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="jr">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">09</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">09</div>
                         <span class="font-medium tracking-tight">Jr. College</span>
                     </div>
                     <div class="connector"></div>
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="engg">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">11</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">11</div>
                         <span class="font-medium tracking-tight">Engineering</span>
                     </div>
                     <div class="connector"></div>
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="diploma">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">16</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">16</div>
                         <span class="font-medium tracking-tight">Diploma</span>
                     </div>
                     <div class="connector"></div>
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="ux">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">17</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">17</div>
                         <span class="font-medium tracking-tight">UX Cert</span>
                     </div>
                     <div class="connector"></div>
                     <div class="step flex items-center gap-x-2.5 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-edu="bachelors">
-                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#2C5EAD] font-mono text-xs font-bold transition-all">23</div>
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">23</div>
                         <span class="font-medium tracking-tight">Bachelors</span>
                     </div>
                 </div>
@@ -319,13 +320,12 @@
             <!-- Education Cards -->
             <div class="space-y-8">
                 
-                <!-- St. Aloysius -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="school">
-                    <div class="floating-number text-[#2C5EAD]">07</div>
+                    <div class="floating-number text-[#0EA5E9]">07</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
-                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2007</span>
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F2FE] text-[#0EA5E9] text-xs font-semibold tracking-[2.5px]">2007</span>
                             </div>
                             <h3 class="text-4xl font-semibold tracking-tight mb-2">St. Aloysius Convent School</h3>
                             <p class="text-[#475569] text-lg">Jalgaon District • Foundational education that sparked curiosity and discipline.</p>
@@ -336,13 +336,12 @@
                     </div>
                 </div>
 
-                <!-- Poona College -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="jr">
-                    <div class="floating-number text-[#2C5EAD]">09</div>
+                    <div class="floating-number text-[#0EA5E9]">09</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
-                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2007 — 2009</span>
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F2FE] text-[#0EA5E9] text-xs font-semibold tracking-[2.5px]">2007 — 2009</span>
                             </div>
                             <h3 class="text-4xl font-semibold tracking-tight mb-2">Poona College of Science</h3>
                             <p class="text-[#475569] text-lg">Jr. College, Pune University • Built strong analytical and communication foundations.</p>
@@ -353,13 +352,12 @@
                     </div>
                 </div>
 
-                <!-- Sinhgad -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="engg">
-                    <div class="floating-number text-[#2C5EAD]">11</div>
+                    <div class="floating-number text-[#0EA5E9]">11</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
-                                <span class="px-5 py-1.5 rounded-full bg-[#E0F0FF] text-[#2C5EAD] text-xs font-semibold tracking-[2.5px]">2009 — 2011</span>
+                                <span class="px-5 py-1.5 rounded-full bg-[#E0F2FE] text-[#0EA5E9] text-xs font-semibold tracking-[2.5px]">2009 — 2011</span>
                             </div>
                             <h3 class="text-4xl font-semibold tracking-tight mb-2">Sinhgad Academy of Engineering</h3>
                             <p class="text-[#475569] text-lg">Technical foundation in engineering principles and problem-solving.</p>
@@ -370,9 +368,8 @@
                     </div>
                 </div>
 
-                <!-- ITI -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="diploma">
-                    <div class="floating-number text-[#2C5EAD]">15</div>
+                    <div class="floating-number text-[#0EA5E9]">15</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
@@ -387,9 +384,8 @@
                     </div>
                 </div>
 
-                <!-- Vishwakarma Diploma -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="diploma">
-                    <div class="floating-number text-[#2C5EAD]">16</div>
+                    <div class="floating-number text-[#0EA5E9]">16</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
@@ -404,9 +400,8 @@
                     </div>
                 </div>
 
-                <!-- UX Certificate -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="ux">
-                    <div class="floating-number text-[#2C5EAD]">17</div>
+                    <div class="floating-number text-[#0EA5E9]">17</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
@@ -421,9 +416,8 @@
                     </div>
                 </div>
 
-                <!-- Bachelors -->
                 <div class="edu-card bg-white border border-slate-200 rounded-3xl p-9 md:p-12 relative overflow-hidden" data-edu="bachelors">
-                    <div class="floating-number text-[#2C5EAD]">23</div>
+                    <div class="floating-number text-[#0EA5E9]">23</div>
                     <div class="relative z-10 grid md:grid-cols-12 gap-x-10 items-center">
                         <div class="md:col-span-8">
                             <div class="flex items-center gap-x-4 mb-3">
@@ -447,15 +441,15 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[#475569]">
-                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-solid fa-envelope"></i> 
                         <span>faizanquazi123@gmail.com</span>
                     </a>
-                    <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="tel:+918446556866" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-solid fa-phone"></i> 
                         <span>+91 84465 56866</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#0EA5E9] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
                         <i class="fa-brands fa-linkedin"></i> 
                         <span>LinkedIn</span>
                     </a>
@@ -483,7 +477,6 @@
             window.requestAnimationFrame(step);
         }
 
-        // Trigger stats animation
         ScrollTrigger.create({
             trigger: ".bg-white",
             start: "top 70%",
@@ -495,7 +488,7 @@
             }
         });
 
-        // Premium Skill Rings - Matching the clean reference design
+        // Skill Rings
         const skills = [
             {name: "User Research", percent: 92},
             {name: "Wireframing", percent: 95},
@@ -513,16 +506,14 @@
             card.innerHTML = `
                 <div class="relative w-32 h-32 mb-6">
                     <svg class="w-full h-full" viewBox="0 0 120 120">
-                        <!-- Background ring -->
                         <circle cx="60" cy="60" r="52" fill="none" stroke="#e2e8f0" stroke-width="10"/>
-                        <!-- Progress ring -->
-                        <circle cx="60" cy="60" r="52" fill="none" stroke="#1e40af" stroke-width="10" 
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#0EA5E9" stroke-width="10" 
                                 stroke-dasharray="326" stroke-dashoffset="${326 - (326 * (skill.percent / 100))}" 
                                 stroke-linecap="round" transform="rotate(-90 60 60)"/>
                     </svg>
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div>
-                            <div class="text-4xl font-semibold text-[#1e40af]">${skill.percent}</div>
+                            <div class="text-4xl font-semibold text-[#0EA5E9]">${skill.percent}</div>
                             <div class="text-xs text-[#64748B] -mt-1">%</div>
                         </div>
                     </div>
@@ -561,7 +552,6 @@
         window.addEventListener('scroll', updateEduStepper);
         window.addEventListener('load', updateEduStepper);
 
-        // Entrance animations
         function initAnimations() {
             gsap.utils.toArray('.edu-card, .craft-card, .skill-ring-card').forEach((card, i) => {
                 gsap.fromTo(card,
