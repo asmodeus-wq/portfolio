@@ -1,7 +1,6 @@
 /* ============================================
    Faizan Quazi Portfolio - Centralized Styles
-   Phase 1: Foundation & Performance
-   GPU-accelerated, smooth, cross-device ready
+   Phase 1 + Phase 2: Foundation + Horizontal Scroll Stability
    ============================================ */
 
 :root {
@@ -172,7 +171,8 @@ video {
 }
 
 /* ============================================
-   HORIZONTAL SCROLL - Optimized for all devices
+   HORIZONTAL SCROLL - Highly Optimized (Phase 2)
+   Smooth on desktop + mobile
    ============================================ */
 
 #horizontal-wrapper {
