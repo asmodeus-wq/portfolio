@@ -1,6 +1,6 @@
 /* ============================================
-   Faizan Quazi Portfolio - Centralized Styles
-   Phase 1 + 2 + 3: Foundation + Scroll + Fluid Scaling
+   Faizan Quazi Portfolio - Clean Styles
+   Normal scrolling restored everywhere
    ============================================ */
 
 :root {
@@ -11,13 +11,12 @@
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Base - Performance First */
+/* Base - Normal scrolling */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -28,23 +27,14 @@ body {
   background-color: #F8FAFC;
 }
 
-/* GPU Acceleration Base */
-.panel,
+/* GPU Acceleration for cards & images */
 .premium-card,
-.skill-card,
+.distort,
 .tool-item,
-img,
-iframe,
-video {
+img {
   will-change: transform, opacity;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
 }
-
-/* ============================================
-   Phase 3: Fluid Sizing & Dynamic Scaling
-   Better adaptation across all screen ratios
-   ============================================ */
 
 /* Fluid Typography */
 .fluid-h1 {
@@ -60,17 +50,6 @@ video {
 .fluid-body {
   font-size: clamp(0.95rem, 1.8vmin, 1.2rem);
   line-height: 1.55;
-}
-
-/* Fluid Spacing */
-.fluid-padding {
-  padding-top: clamp(2rem, 6vmin, 4rem);
-  padding-bottom: clamp(2rem, 6vmin, 4rem);
-}
-
-.fluid-padding-lg {
-  padding-top: clamp(3rem, 8vmin, 5rem);
-  padding-bottom: clamp(3rem, 8vmin, 5rem);
 }
 
 /* Headings */
@@ -202,82 +181,13 @@ video {
   box-shadow: 0 15px 25px -8px rgb(14 165 233 / 0.35);
 }
 
-/* ============================================
-   HORIZONTAL SCROLL - Highly Optimized
-   ============================================ */
-
-#horizontal-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: 100dvh;
-  overflow: hidden;
-  touch-action: pan-x;
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.panel {
-  flex-shrink: 0;
-  width: 100vw;
-  min-height: 100dvh;
-  height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Carousel container (used in work.html) */
+.carousel-container {
   position: relative;
+  border-radius: 24px;
   overflow: hidden;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Allow internal vertical scrolling only when content is very tall */
-.panel .max-w-5xl,
-.panel .max-w-6xl,
-.panel .max-w-7xl {
-  max-height: 92dvh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.panel .max-w-5xl::-webkit-scrollbar,
-.panel .max-w-6xl::-webkit-scrollbar,
-.panel .max-w-7xl::-webkit-scrollbar {
-  display: none;
-}
-
-/* Work page internal horizontal scroll */
-.horizontal-scroll-container {
-  overflow: hidden;
-  cursor: grab;
-}
-
-.horizontal-scroll-container:active {
-  cursor: grabbing;
-}
-
-.horizontal-scroll-inner {
-  display: flex;
-  gap: 24px;
-  will-change: transform;
-}
-
-.horizontal-card {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.4s ease;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.horizontal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
-              0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-.panel img {
-  will-change: transform;
+  box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.25);
+  border: 1px solid #e2e8f0;
 }
 
 /* Print styles */
