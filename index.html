@@ -2,231 +2,268 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Faizan Quazi | User Experience Analyst</title>
-    <meta name="description" content="Faizan Quazi — Crafting intuitive, research-driven enterprise experiences.">
-    
+    <meta name="description" content="Faizan Quazi — User Experience Analyst crafting meaningful digital experiences through research-driven design.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
     <style>
-        :root {
-            --accent: #0EA5E9;
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
         }
-        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
-        .heading { font-family: 'Space Grotesk', sans-serif; }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.05em;
         }
-        
-        .glass {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
+        .fluid-text {
+            font-size: clamp(2.8rem, 7vw, 5.8rem);
+            line-height: 0.95;
+        }
+        .premium-card {
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                        box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #0EA5E9;
+            text-transform: uppercase;
+        }
+        .distort {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .distort:hover {
+            transform: scale(1.03) skew(1deg);
         }
     </style>
 </head>
 <body class="bg-[#0F172A] text-white overflow-x-hidden">
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center">
-                    <span class="text-[#0F172A] font-bold text-xl">FQ</span>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-[200] mix-blend-difference">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-sm">
+            <a href="index.html" class="flex items-center gap-x-3">
+                <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-[#0F172A] font-bold text-lg">FQ</span>
                 </div>
-                <span class="font-semibold tracking-tight text-lg">Faizan Quazi</span>
+                <span class="font-semibold tracking-tight">Faizan Quazi</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-8 text-sm">
+            <div class="flex items-center gap-x-8">
                 <a href="about.html" class="hover:text-[#0EA5E9] transition-colors">About</a>
                 <a href="experience.html" class="hover:text-[#0EA5E9] transition-colors">Career</a>
                 <a href="process.html" class="hover:text-[#0EA5E9] transition-colors">Process</a>
                 <a href="work.html" class="hover:text-[#0EA5E9] transition-colors">Work</a>
-                <a href="contact.html" class="px-6 py-3 border border-white/30 rounded-3xl hover:bg-white hover:text-[#0F172A] transition-all">Let's Talk</a>
+                <a href="contact.html" class="px-6 py-2 border border-white/40 rounded-2xl hover:bg-white hover:text-[#0F172A] transition-all">Contact</a>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <!-- HERO -->
-    <section class="hero-bg min-h-screen flex items-center relative pt-20">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-5 py-2 border border-[#0EA5E9]/30 rounded-full text-sm tracking-widest mb-8">
-                <span class="w-2 h-2 bg-[#0EA5E9] rounded-full animate-pulse"></span>
+    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="mb-6 inline-block px-4 py-1 border border-white/20 rounded-full text-xs tracking-[3px]">
                 USER EXPERIENCE ANALYST
             </div>
             
-            <h1 class="heading text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none mb-8">
-                I design experiences<br>that feel <span class="text-[#0EA5E9]">inevitable</span>.
+            <h1 class="fluid-text font-semibold tracking-[-0.04em] leading-none mb-8">
+                I don’t just design<br>interfaces.<br>
+                <span class="text-[#0EA5E9]">I bend them.</span>
             </h1>
-            
-            <p class="max-w-lg mx-auto text-xl text-white/70 mb-12">
-                10+ years crafting intuitive B2B platforms. Currently shaping enterprise commerce at HCL Software.
+
+            <p class="max-w-md mx-auto text-lg text-white/70 mb-12">
+                Research-driven experiences that feel alive, 
+                intuitive, and slightly dangerous.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="work.html" class="px-10 py-5 bg-white text-black rounded-3xl font-semibold text-lg hover:bg-[#0EA5E9] hover:text-white transition-all flex items-center justify-center gap-3 group">
-                    Explore Selected Work
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-                </a>
-                <a href="about.html" class="px-10 py-5 border border-white/40 rounded-3xl font-medium text-lg hover:bg-white/10 transition-all">
-                    My Story
-                </a>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
-            <span>SCROLL TO EXPLORE</span>
-            <i class="fa-solid fa-chevron-down animate-bounce"></i>
-        </div>
-    </section>
 
-    <!-- ABOUT PREVIEW -->
-    <section class="max-w-6xl mx-auto px-6 py-28">
-        <div class="grid md:grid-cols-12 gap-16 items-center">
-            <div class="md:col-span-5">
-                <div class="uppercase tracking-[3px] text-[#0EA5E9] text-sm mb-4">01 — THE STORY</div>
-                <h2 class="heading text-5xl md:text-6xl font-semibold tracking-tighter leading-none mb-8">Human-first. Enterprise scale.</h2>
-                <a href="about.html" class="inline-flex items-center gap-3 text-[#0EA5E9] font-medium group">
-                    Read full story <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition"></i>
+            <div class="flex justify-center gap-4">
+                <a href="work.html" 
+                   class="px-9 py-4 bg-white text-[#0F172A] rounded-3xl font-semibold text-lg hover:bg-[#0EA5E9] hover:text-white transition-all">
+                    See the work
+                </a>
+                <a href="about.html" 
+                   class="px-9 py-4 border border-white/40 rounded-3xl font-medium text-lg hover:bg-white/10 transition-all">
+                    The story
                 </a>
             </div>
-            <div class="md:col-span-7 glass rounded-3xl p-10 md:p-14">
-                <p class="text-lg leading-relaxed text-white/80">
-                    I'm a User Experience Analyst with deep expertise in complex B2B platforms. 
-                    Currently at HCL Software, I lead usability initiatives that bridge user needs with business impact.
-                </p>
-            </div>
         </div>
+
+        <div class="absolute bottom-12 text-xs tracking-[4px] text-white/50">SCROLL TO BEND</div>
     </section>
 
-    <!-- SKILLS + PROCESS TEASER -->
-    <section class="bg-[#0A0F1C] py-28">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-20">
-                <!-- Skills -->
-                <div>
-                    <div class="uppercase tracking-[3px] text-[#0EA5E9] text-sm mb-4">02 — CRAFT</div>
-                    <h2 class="heading text-5xl font-semibold tracking-tighter mb-12">Core Disciplines</h2>
-                    <div class="space-y-8">
-                        <div class="flex gap-6">
-                            <i class="fa-solid fa-magnifying-glass text-4xl text-[#0EA5E9] mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-2">User Research</h3>
-                                <p class="text-white/70">Qualitative & quantitative insights that drive strategy.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6">
-                            <i class="fa-solid fa-sitemap text-4xl text-[#0EA5E9] mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-2">Information Architecture</h3>
-                                <p class="text-white/70">Making complexity feel simple.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-6">
-                            <i class="fa-solid fa-hand-pointer text-4xl text-[#0EA5E9] mt-1"></i>
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-2">Interaction Design</h3>
-                                <p class="text-white/70">Delightful micro-interactions at enterprise scale.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Process -->
-                <div>
-                    <div class="uppercase tracking-[3px] text-[#0EA5E9] text-sm mb-4">03 — PROCESS</div>
-                    <h2 class="heading text-5xl font-semibold tracking-tighter mb-12">How I Work</h2>
-                    <div class="space-y-6">
-                        <a href="process.html" class="block glass p-8 rounded-3xl hover:border-[#0EA5E9]/50 transition-all group">
-                            <span class="text-[#0EA5E9] font-mono">01</span>
-                            <h3 class="text-2xl font-semibold mt-3 group-hover:text-[#0EA5E9] transition">Understand</h3>
-                            <p class="text-white/70 mt-2">Deep research & stakeholder alignment</p>
-                        </a>
-                        <a href="process.html" class="block glass p-8 rounded-3xl hover:border-[#0EA5E9]/50 transition-all group">
-                            <span class="text-[#0EA5E9] font-mono">02</span>
-                            <h3 class="text-2xl font-semibold mt-3 group-hover:text-[#0EA5E9] transition">Explore</h3>
-                            <p class="text-white/70 mt-2">Ideation & rapid prototyping</p>
-                        </a>
-                        <a href="process.html" class="block glass p-8 rounded-3xl hover:border-[#0EA5E9]/50 transition-all group">
-                            <span class="text-[#0EA5E9] font-mono">03</span>
-                            <h3 class="text-2xl font-semibold mt-3 group-hover:text-[#0EA5E9] transition">Materialize</h3>
-                            <p class="text-white/70 mt-2">High-fidelity design & handoff</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SELECTED WORK -->
-    <section class="max-w-6xl mx-auto px-6 py-28">
+    <!-- SKILLSET - Experimental -->
+    <section class="max-w-7xl mx-auto px-6 py-24">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <div class="uppercase tracking-[3px] text-[#0EA5E9] text-sm">04 — WORK</div>
-                <h2 class="heading text-5xl font-semibold tracking-tighter">Selected Projects</h2>
+                <div class="section-label mb-3">02 — CRAFT</div>
+                <h2 class="text-6xl font-semibold tracking-tighter">I bend these.</h2>
             </div>
-            <a href="work.html" class="text-[#0EA5E9] hover:underline flex items-center gap-2">
-                View all work <span class="text-xl">→</span>
-            </a>
+            <p class="max-w-xs text-white/60">Core muscles I train on every project.</p>
         </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Add your real project cards here -->
-            <a href="work.html" class="group">
-                <div class="aspect-video bg-zinc-900 rounded-3xl overflow-hidden mb-6">
-                    <img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                </div>
-                <h3 class="text-3xl font-semibold">Raintree Design System</h3>
-                <p class="text-white/60">Enterprise design system • 2021</p>
-            </a>
-            <!-- Repeat for more projects -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="distort group bg-white/5 border border-white/10 p-9 rounded-3xl hover:bg-white/10 transition-all">
+                <div class="text-[#0EA5E9] text-5xl mb-8 group-hover:rotate-12 transition-transform">01</div>
+                <h3 class="text-3xl font-semibold mb-3">User Research</h3>
+                <p class="text-white/70">I don’t ask what users want. I watch what they do.</p>
+            </div>
+            <div class="distort group bg-white/5 border border-white/10 p-9 rounded-3xl hover:bg-white/10 transition-all">
+                <div class="text-[#0EA5E9] text-5xl mb-8 group-hover:rotate-12 transition-transform">02</div>
+                <h3 class="text-3xl font-semibold mb-3">Information Architecture</h3>
+                <p class="text-white/70">I turn chaos into intuitive flows that feel inevitable.</p>
+            </div>
+            <div class="distort group bg-white/5 border border-white/10 p-9 rounded-3xl hover:bg-white/10 transition-all">
+                <div class="text-[#0EA5E9] text-5xl mb-8 group-hover:rotate-12 transition-transform">03</div>
+                <h3 class="text-3xl font-semibold mb-3">Interaction Design</h3>
+                <p class="text-white/70">Every micro-interaction should feel like it was waiting for you.</p>
+            </div>
+            <div class="distort group bg-white/5 border border-white/10 p-9 rounded-3xl hover:bg-white/10 transition-all">
+                <div class="text-[#0EA5E9] text-5xl mb-8 group-hover:rotate-12 transition-transform">04</div>
+                <h3 class="text-3xl font-semibold mb-3">Design Systems</h3>
+                <p class="text-white/70">I build systems that scale without losing soul.</p>
+            </div>
         </div>
     </section>
 
-    <!-- CAREER TEASER -->
-    <section class="max-w-6xl mx-auto px-6 py-28 border-t border-white/10">
-        <div class="uppercase tracking-[3px] text-[#0EA5E9] text-sm mb-4">05 — JOURNEY</div>
-        <h2 class="heading text-5xl font-semibold tracking-tighter mb-12">Experience</h2>
-        
-        <div class="glass rounded-3xl p-10 md:p-16">
-            <div class="space-y-12">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-48 flex-shrink-0">
-                        <span class="text-[#0EA5E9] font-mono">2022 — Present</span>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold">User Experience Analyst</h3>
-                        <p class="text-white/70">HCL Software (Commerce)</p>
-                        <p class="mt-4 text-white/80">Leading B2B usability improvements across complex enterprise commerce platforms.</p>
-                    </div>
-                </div>
-                <!-- Add more roles -->
+    <!-- TOOLS - Experimental -->
+    <section class="bg-white text-[#0F172A] py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <div class="section-label text-[#0EA5E9] mb-3">03 — EXPERTISE</div>
+                <h2 class="text-6xl font-semibold tracking-tighter">Weapons of choice.</h2>
             </div>
-            <a href="experience.html" class="mt-12 inline-block text-[#0EA5E9] font-medium">Full Career Timeline →</a>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-lg">
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Figma</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Framer</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">ProtoPie</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Webflow</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Miro</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Maze</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Hotjar</div>
+                <div class="distort px-8 py-6 border border-[#0F172A]/10 rounded-3xl hover:bg-[#0F172A] hover:text-white transition-all">Amplitude</div>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER / CTA -->
-    <footer class="bg-black py-20">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="heading text-5xl font-semibold tracking-tighter mb-8">Ready to build something meaningful?</h2>
-            <a href="contact.html" class="inline-block px-12 py-6 bg-[#0EA5E9] text-black rounded-3xl text-xl font-semibold hover:bg-white transition-all">
-                Get in Touch
-            </a>
-            <p class="mt-12 text-white/40 text-sm">Pune, India • © 2026 Faizan Quazi</p>
+    <!-- PROCESS PREVIEW - Bold -->
+    <section class="max-w-6xl mx-auto px-6 py-24">
+        <div class="mb-12">
+            <div class="section-label mb-3">04 — PROCESS</div>
+            <h2 class="text-6xl font-semibold tracking-tighter">The ritual.</h2>
         </div>
-    </footer>
+
+        <div class="space-y-6">
+            <div class="group flex flex-col md:flex-row gap-8 items-start border-b border-white/10 pb-8">
+                <div class="text-8xl font-bold text-white/10 group-hover:text-[#0EA5E9] transition-colors w-24">01</div>
+                <div class="flex-1">
+                    <h3 class="text-4xl font-semibold mb-3">Understand</h3>
+                    <p class="max-w-md text-white/70">I go deep. I listen to what’s not being said. I map the invisible.</p>
+                </div>
+            </div>
+            <div class="group flex flex-col md:flex-row gap-8 items-start border-b border-white/10 pb-8">
+                <div class="text-8xl font-bold text-white/10 group-hover:text-[#0EA5E9] transition-colors w-24">02</div>
+                <div class="flex-1">
+                    <h3 class="text-4xl font-semibold mb-3">Break</h3>
+                    <p class="max-w-md text-white/70">I challenge assumptions. I break the obvious to find the better.</p>
+                </div>
+            </div>
+            <div class="group flex flex-col md:flex-row gap-8 items-start">
+                <div class="text-8xl font-bold text-white/10 group-hover:text-[#0EA5E9] transition-colors w-24">03</div>
+                <div class="flex-1">
+                    <h3 class="text-4xl font-semibold mb-3">Materialize</h3>
+                    <p class="max-w-md text-white/70">I build things that feel inevitable. Then I make them better.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK PREVIEW -->
+    <section class="bg-white text-[#0F172A] py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <div class="section-label text-[#0EA5E9] mb-3">05 — WORK</div>
+                    <h2 class="text-6xl font-semibold tracking-tighter">Things I’ve bent.</h2>
+                </div>
+                <a href="work.html" class="text-[#0EA5E9] font-medium hidden md:block">All projects →</a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="work.html" class="group block">
+                    <div class="aspect-video bg-slate-100 rounded-3xl overflow-hidden mb-5">
+                        <img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-3xl font-semibold">Raintree</h3>
+                            <p class="text-[#475569]">Design System • 2021</p>
+                        </div>
+                        <div class="text-[#0EA5E9] group-hover:translate-x-1 transition-transform">→</div>
+                    </div>
+                </a>
+
+                <a href="work.html" class="group block">
+                    <div class="aspect-video bg-slate-100 rounded-3xl overflow-hidden mb-5">
+                        <img src="images/aiml.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-3xl font-semibold">AI/ML Interfaces</h3>
+                            <p class="text-[#475569]">Exploration • 2024</p>
+                        </div>
+                        <div class="text-[#0EA5E9] group-hover:translate-x-1 transition-transform">→</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="min-h-[70dvh] flex items-center justify-center text-center px-6">
+        <div>
+            <h2 class="text-7xl font-semibold tracking-tighter mb-6">Ready to break<br>something together?</h2>
+            <a href="contact.html" 
+               class="inline-block mt-4 px-10 py-4 bg-white text-[#0F172A] font-semibold rounded-3xl text-lg hover:bg-[#0EA5E9] hover:text-white transition-all">
+                Let’s talk
+            </a>
+        </div>
+    </section>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        // Add subtle entrance animations here if desired
+
+        // Bold scroll-tied animations
+        gsap.utils.toArray('.distort').forEach((el, i) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 60, scale: 0.96 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    },
+                    delay: i * 0.08
+                }
+            );
+        });
+
+        // Hero text animation
+        gsap.fromTo(".fluid-text", 
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
+        );
+
+        console.log("%c[Portfolio] Bold experimental version loaded", "color:#64748b");
     </script>
 </body>
 </html>
