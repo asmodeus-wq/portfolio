@@ -421,42 +421,55 @@
 
     </div>
 
-    <!-- Horizontal Scroll Script -->
+    <!-- Horizontal Scroll Script - Improved for mobile consistency -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
         const wrapper = document.getElementById("horizontal-wrapper");
         const panels = gsap.utils.toArray(".panel");
 
+        // More robust horizontal scroll configuration for all devices
         let scrollTween = gsap.to(panels, {
             xPercent: -100 * (panels.length - 1),
             ease: "none",
             scrollTrigger: {
                 trigger: "#horizontal-wrapper",
                 pin: true,
-                scrub: 0.9,
+                scrub: 0.85,
                 snap: {
                     snapTo: 1 / (panels.length - 1),
-                    duration: { min: 0.5, max: 0.9 },
-                    delay: 0.08,
-                    ease: "power2.out",
-                    inertia: true
+                    duration: { min: 0.4, max: 0.8 },
+                    delay: 0.05,
+                    ease: "power2.out"
                 },
-                end: () => "+=" + (wrapper.offsetWidth * 0.98),
+                end: () => "+=" + (wrapper.offsetWidth * 0.95),
                 invalidateOnRefresh: true,
                 anticipatePin: 1,
                 fastScrollEnd: true
             }
         });
 
+        // Keyboard navigation (works on all devices)
         document.addEventListener("keydown", (e) => {
             const st = ScrollTrigger.getById(scrollTween.scrollTrigger.id);
             if (!st) return;
-            if (e.key === "ArrowRight" || e.key === "ArrowDown") st.scroll("+=" + window.innerWidth * 0.9);
-            if (e.key === "ArrowLeft" || e.key === "ArrowUp") st.scroll("-=" + window.innerWidth * 0.9);
+            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                st.scroll("+=" + window.innerWidth * 0.85);
+            }
+            if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                st.scroll("-=" + window.innerWidth * 0.85);
+            }
         });
 
-        window.addEventListener("resize", () => ScrollTrigger.refresh());
+        // Refresh on resize for better consistency
+        window.addEventListener("resize", () => {
+            ScrollTrigger.refresh();
+        });
+
+        // Initial refresh
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+        });
     </script>
 </body>
 </html>
