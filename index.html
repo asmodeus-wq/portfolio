@@ -77,14 +77,22 @@
             border: none;
         }
 
+        /* Mobile video fix only */
+        @media (max-width: 640px) {
+            .hero-video-container iframe {
+                min-width: 160%;
+                min-height: 160%;
+            }
+        }
+
         .hero-vignette {
             position: absolute;
             inset: 0;
             z-index: 11;
             background: radial-gradient(
                 circle at center,
-                transparent 8%,
-                rgba(0,0,0,0.4) 60%,
+                transparent 5%,
+                rgba(0,0,0,0.35) 52%,
                 rgba(0,0,0,0.82) 100%
             );
             pointer-events: none;
@@ -105,46 +113,65 @@
             background-repeat: no-repeat;
         }
 
-        /* ===========================================
-           DYNAMIC DEVICE DETECTION CSS
-           These rules ONLY apply when JS adds the class
-        =========================================== */
-
-        /* Mobile specific rules (only when body.has class 'is-mobile') */
-        body.is-mobile .panel {
-            padding-left: 1rem;
-            padding-right: 1rem;
+        /* DESKTOP - Big and premium (default) */
+        .panel h1 {
+            font-size: 5.6rem;
+            line-height: 1.04;
         }
 
-        body.is-mobile .section-heading {
-            font-size: 2.25rem !important;
-            line-height: 1.1;
+        .section-heading {
+            font-size: 4.9rem;
+            line-height: 1.04;
         }
 
-        body.is-mobile .panel p {
-            font-size: 0.93rem !important;
-            line-height: 1.48;
+        .panel p {
+            font-size: 1.18rem;
+            line-height: 1.6;
         }
 
-        body.is-mobile .premium-card,
-        body.is-mobile .skill-card {
-            padding: 1.15rem !important;
+        .btn {
+            font-size: 1.05rem;
+            padding: 1rem 2.25rem;
         }
 
-        body.is-mobile .tool-item {
-            padding: 0.7rem 0.85rem !important;
-            font-size: 0.86rem;
-        }
+        /* MOBILE ONLY - Everything reduced here */
+        @media (max-width: 640px) {
+            .panel {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
 
-        body.is-mobile .skill-card i {
-            font-size: 1.75rem !important;
-            margin-bottom: 0.65rem !important;
-        }
+            .panel h1 {
+                font-size: 2.7rem !important;
+            }
 
-        /* Safety boundary on mobile */
-        body.is-mobile .panel > div {
-            max-width: 100%;
-            overflow: hidden;
+            .section-heading {
+                font-size: 2.15rem !important;
+            }
+
+            .panel p {
+                font-size: 0.95rem !important;
+                line-height: 1.5;
+            }
+
+            .btn {
+                font-size: 0.95rem !important;
+                padding: 0.85rem 1.6rem !important;
+            }
+
+            .premium-card, .skill-card {
+                padding: 1.1rem !important;
+            }
+
+            .tool-item {
+                padding: 0.75rem 0.9rem !important;
+                font-size: 0.88rem;
+            }
+
+            .skill-card i {
+                font-size: 1.65rem !important;
+                margin-bottom: 0.6rem !important;
+            }
         }
     </style>
 </head>
@@ -188,21 +215,21 @@
                 </iframe>
             </div>
             <div class="hero-vignette"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/78 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/80 z-10"></div>
             
             <div class="max-w-5xl mx-auto px-6 text-center relative z-20">
-                <h1 class="font-semibold tracking-tighter leading-none mb-4 text-white drop-shadow-2xl text-[3rem] md:text-[5.9rem]">
+                <h1 class="font-semibold tracking-tighter leading-none mb-5 text-white drop-shadow-2xl">
                     Faizan Quazi
                 </h1>
-                <p class="max-w-2xl mx-auto tracking-tight mb-6 text-white/90 text-[1.05rem] md:text-[1.4rem]">
+                <p class="max-w-2xl mx-auto tracking-tight mb-8 text-white/90">
                     Crafting intuitive digital experiences<br>through research-driven design.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-white text-zinc-950 rounded-3xl font-semibold text-base hover:bg-white/90 transition-all shadow-2xl">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="work.html" class="group inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-white text-zinc-950 rounded-3xl font-semibold text-lg hover:bg-white/90 transition-all shadow-2xl btn">
                         View Selected Work <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </a>
-                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 border border-white/40 rounded-3xl font-medium text-base hover:bg-white/10 transition-all text-white">
+                    <a href="about.html" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 border border-white/40 rounded-3xl font-medium text-lg hover:bg-white/10 transition-all text-white btn">
                         Learn more about me
                     </a>
                 </div>
@@ -210,14 +237,14 @@
         </section>
 
         <!-- ABOUT PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: #F8FAFC">
             <div class="max-w-5xl w-full">
                 <div class="max-w-2xl">
-                    <div class="section-label mb-3">01 — THE STORY</div>
-                    <h2 class="font-semibold tracking-tighter section-heading leading-none mb-6">Who I am</h2>
+                    <div class="section-label mb-4">01 — THE STORY</div>
+                    <h2 class="font-semibold tracking-tighter section-heading leading-none mb-7">Who I am</h2>
                     
-                    <div class="leading-relaxed text-[#334155] space-y-5 mb-8 text-[16px]">
+                    <div class="leading-relaxed text-[#334155] space-y-6 mb-9">
                         <p>I'm a User Experience Analyst with over 10 years of experience crafting intuitive, research-driven digital products. Currently at <span class="text-[#0F172A] font-medium">HCL Software (Commerce)</span>, I lead B2B usability improvements across complex enterprise platforms.</p>
                         <p>My approach combines deep user research, strategic thinking, and pixel-perfect execution. I believe the best experiences emerge when we truly understand the people we design for.</p>
                     </div>
@@ -230,15 +257,15 @@
         </section>
 
         <!-- SKILLSET PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #F8FAFC 0%, #F0F9FF 100%)">
             <div class="max-w-6xl w-full">
-                <div class="mb-10">
-                    <div class="section-label mb-3">02 — CRAFT</div>
+                <div class="mb-12">
+                    <div class="section-label mb-4">02 — CRAFT</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">My Skillset</h2>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
                     <div class="skill-card premium-card bg-white border border-slate-200 p-8 rounded-3xl">
                         <i class="fa-solid fa-search text-3xl text-[#0EA5E9] mb-5"></i>
                         <h4 class="font-semibold text-2xl">User Research</h4>
@@ -276,15 +303,15 @@
         </section>
 
         <!-- EXPERTISE / TOOLS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%)">
             <div class="max-w-7xl w-full">
-                <div class="mb-10">
-                    <div class="section-label mb-3">03 — EXPERTISE</div>
+                <div class="mb-12">
+                    <div class="section-label mb-4">03 — EXPERTISE</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">Tools I work with</h2>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-figma text-2xl text-[#0EA5E9]"></i><span class="font-medium">Figma</span></div>
                     <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-brands fa-adobe text-2xl text-[#0EA5E9]"></i><span class="font-medium">Adobe XD</span></div>
                     <div class="tool-item bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-x-3"><i class="fa-solid fa-palette text-2xl text-[#0EA5E9]"></i><span class="font-medium">Sketch</span></div>
@@ -308,15 +335,15 @@
         </section>
 
         <!-- SELECTED WORK PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)">
             <div class="max-w-6xl w-full">
                 <div class="mb-10">
-                    <div class="section-label mb-3">04 — WORK</div>
+                    <div class="section-label mb-4">04 — WORK</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">Selected Work</h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-5">
+                <div class="grid md:grid-cols-2 gap-6">
                     <a href="work.html" class="group block premium-card bg-white border border-slate-200 rounded-3xl overflow-hidden">
                         <div class="aspect-video bg-slate-100 relative">
                             <img src="images/raintree.png" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform">
@@ -327,7 +354,7 @@
                                 <h3 class="text-2xl font-semibold tracking-tight">Raintree 2021</h3>
                                 <span class="text-xs px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">Design System</span>
                             </div>
-                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes.</p>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">A comprehensive design system and component library with interactive prototypes for consistent product experiences across platforms.</p>
                         </div>
                     </a>
 
@@ -341,7 +368,7 @@
                                 <h3 class="text-2xl font-semibold tracking-tight">AI/ML Interfaces</h3>
                                 <span class="text-xs px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">Exploration</span>
                             </div>
-                            <p class="text-[#475569] text-[15px] leading-relaxed">Speculative exploration of intelligent interfaces and AI-driven experiences.</p>
+                            <p class="text-[#475569] text-[15px] leading-relaxed">Speculative exploration of intelligent interfaces and AI-driven user experiences.</p>
                         </div>
                     </a>
                 </div>
@@ -349,28 +376,28 @@
         </section>
 
         <!-- PROCESS PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #BAE6FD 0%, #7DD3FC 100%)">
             <div class="max-w-5xl w-full">
-                <div class="mb-9">
-                    <div class="section-label mb-3">05 — PROCESS</div>
+                <div class="mb-10">
+                    <div class="section-label mb-4">05 — PROCESS</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">How I work</h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-4 mb-9">
+                <div class="grid md:grid-cols-3 gap-5 mb-10">
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">01</div>
-                        <h4 class="font-semibold text-2xl mb-2">Understand</h4>
+                        <h4 class="font-semibold text-2xl mb-3">Understand</h4>
                         <p class="text-[#475569] text-[15px] leading-relaxed">Deep research, stakeholder mapping, and uncovering real user needs and business context.</p>
                     </div>
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">02</div>
-                        <h4 class="font-semibold text-2xl mb-2">Explore</h4>
+                        <h4 class="font-semibold text-2xl mb-3">Explore</h4>
                         <p class="text-[#475569] text-[15px] leading-relaxed">Ideation, user scenarios, and creative exploration of solution directions.</p>
                     </div>
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-sm font-semibold tracking-widest mb-1">03</div>
-                        <h4 class="font-semibold text-2xl mb-2">Materialize</h4>
+                        <h4 class="font-semibold text-2xl mb-3">Materialize</h4>
                         <p class="text-[#475569] text-[15px] leading-relaxed">Wireframes, high-fidelity prototypes, usability testing, and polished handoff.</p>
                     </div>
                 </div>
@@ -382,19 +409,19 @@
         </section>
 
         <!-- EXPERIENCE PANEL -->
-        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-9 md:p-16" 
+        <section class="panel min-w-[100vw] min-h-screen flex items-center justify-center border-l border-slate-200 p-10 md:p-16" 
                  style="background: linear-gradient(135deg, #7DD3FC 0%, #67E8F9 100%)">
             <div class="max-w-5xl w-full">
-                <div class="mb-9">
-                    <div class="section-label mb-3">06 — CAREER</div>
+                <div class="mb-10">
+                    <div class="section-label mb-4">06 — CAREER</div>
                     <h2 class="font-semibold tracking-tighter section-heading leading-none">Experience</h2>
                 </div>
 
-                <div class="space-y-4 mb-9">
+                <div class="space-y-5 mb-10">
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">DEC 2022 — PRESENT</div>
                         <div class="font-semibold text-xl mb-1.5">User Experience Analyst</div>
-                        <div class="text-[#475569] text-[15px]">HCL Software (Commerce) — Leading B2B usability improvements on the enterprise commerce platform.</div>
+                        <div class="text-[#475569] text-[15px]">HCL Software (Commerce) — Leading comprehensive B2B usability improvements on the enterprise commerce platform.</div>
                     </div>
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">MAY 2021 — DEC 2022</div>
@@ -404,7 +431,7 @@
                     <div class="premium-card bg-white border border-slate-200 p-7 rounded-3xl">
                         <div class="text-[#0EA5E9] text-xs font-semibold tracking-[1.5px] mb-1">DEC 2018 — APR 2021</div>
                         <div class="font-semibold text-xl mb-1.5">User Experience Designer</div>
-                        <div class="text-[#475569] text-[15px]">HCL Software (Unica) — Marketing automation workflows and design systems.</div>
+                        <div class="text-[#475569] text-[15px]">HCL Software (Unica) — Marketing automation workflows, information architecture, and design systems.</div>
                     </div>
                 </div>
 
@@ -415,10 +442,10 @@
         </section>
 
         <!-- CONTACT PANEL -->
-        <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-9 md:p-16">
+        <section class="panel contact-panel min-w-[100vw] min-h-screen flex items-center justify-start border-l border-slate-200 relative overflow-hidden p-10 md:p-16">
             <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 md:pl-8 relative z-10">
-                <div class="section-label mb-3 text-white/80">07 — CONTACT</div>
-                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg text-[2.9rem] md:text-[4rem]">
+                <div class="section-label mb-4 text-white/80">07 — CONTACT</div>
+                <h2 class="font-semibold tracking-tighter leading-none mb-6 section-heading text-white drop-shadow-lg">
                     Let's create<br>something meaningful together.
                 </h2>
                 
@@ -426,25 +453,27 @@
                     Based in Pune. Always open to meaningful projects and good conversations about design.
                 </p>
 
-                <div class="flex flex-col gap-3 mb-10">
-                    <a href="contact.html" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-[#0EA5E9] text-white font-semibold rounded-3xl active:scale-[0.985]">
+                <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                    <a href="contact.html" class="group inline-flex items-center justify-center gap-x-4 px-9 py-4 bg-[#0EA5E9] text-white font-semibold text-lg rounded-3xl hover:bg-[#38BDF8] transition-all active:scale-[0.985] shadow-2xl btn">
                         Get in touch
                     </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-3 px-9 py-4 border border-white/40 text-white font-medium rounded-3xl">
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="inline-flex items-center justify-center gap-x-4 px-9 py-4 border border-white/40 text-white font-medium text-lg rounded-3xl hover:bg-white/10 transition-all btn">
                         LinkedIn
                     </a>
                 </div>
 
-                <div class="space-y-2 text-sm text-white/90">
-                    <div class="flex items-center gap-x-2">
+                <div class="flex flex-col sm:flex-row items-center gap-x-8 gap-y-3 text-base text-white/90">
+                    <a href="mailto:faizanquazi123@gmail.com" class="flex items-center gap-x-2.5 hover:text-white transition-colors">
                         <i class="fa-solid fa-envelope text-[#0EA5E9]"></i>
                         <span>faizanquazi123@gmail.com</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
+                    </a>
+                    <div class="hidden sm:block w-px h-4 bg-white/40"></div>
+                    <a href="tel:+918446556866" class="flex items-center gap-x-2.5 hover:text-white transition-colors">
                         <i class="fa-solid fa-phone text-[#0EA5E9]"></i>
                         <span>+91 84465 56866</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
+                    </a>
+                    <div class="hidden sm:block w-px h-4 bg-white/40"></div>
+                    <div class="flex items-center gap-x-2.5">
                         <i class="fa-solid fa-map-marker-alt text-[#0EA5E9]"></i>
                         <span>Pune, Maharashtra</span>
                     </div>
@@ -454,33 +483,8 @@
 
     </div>
 
-    <!-- Dynamic Device Detection + Horizontal Scroll Script -->
+    <!-- Horizontal Scroll Script -->
     <script>
-        // ===========================================
-        // DYNAMIC SCREEN SIZE DETECTION
-        // ===========================================
-        function updateDeviceClass() {
-            const body = document.body;
-            body.classList.remove('is-mobile', 'is-tablet', 'is-desktop');
-
-            const width = window.innerWidth;
-
-            if (width < 640) {
-                body.classList.add('is-mobile');
-            } else if (width < 1024) {
-                body.classList.add('is-tablet');
-            } else {
-                body.classList.add('is-desktop');
-            }
-        }
-
-        // Run on load and on resize
-        window.addEventListener('load', updateDeviceClass);
-        window.addEventListener('resize', updateDeviceClass);
-
-        // ===========================================
-        // HORIZONTAL SCROLL (GSAP)
-        // ===========================================
         gsap.registerPlugin(ScrollTrigger);
 
         ScrollTrigger.normalizeScroll(true);
