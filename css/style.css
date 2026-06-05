@@ -1,6 +1,6 @@
 /* ============================================
    Faizan Quazi Portfolio - Centralized Styles
-   Phase 1 + Phase 2: Foundation + Horizontal Scroll Stability
+   Phase 1 + 2 + 3: Foundation + Scroll + Fluid Scaling
    ============================================ */
 
 :root {
@@ -39,6 +39,38 @@ video {
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+}
+
+/* ============================================
+   Phase 3: Fluid Sizing & Dynamic Scaling
+   Better adaptation across all screen ratios
+   ============================================ */
+
+/* Fluid Typography */
+.fluid-h1 {
+  font-size: clamp(2.4rem, 5.8vmin, 5.8rem);
+  line-height: 1.05;
+}
+
+.fluid-section-heading {
+  font-size: clamp(2.1rem, 4.8vmin, 4.9rem);
+  line-height: 1.05;
+}
+
+.fluid-body {
+  font-size: clamp(0.95rem, 1.8vmin, 1.2rem);
+  line-height: 1.55;
+}
+
+/* Fluid Spacing */
+.fluid-padding {
+  padding-top: clamp(2rem, 6vmin, 4rem);
+  padding-bottom: clamp(2rem, 6vmin, 4rem);
+}
+
+.fluid-padding-lg {
+  padding-top: clamp(3rem, 8vmin, 5rem);
+  padding-bottom: clamp(3rem, 8vmin, 5rem);
 }
 
 /* Headings */
@@ -171,8 +203,7 @@ video {
 }
 
 /* ============================================
-   HORIZONTAL SCROLL - Highly Optimized (Phase 2)
-   Smooth on desktop + mobile
+   HORIZONTAL SCROLL - Highly Optimized
    ============================================ */
 
 #horizontal-wrapper {
