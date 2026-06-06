@@ -190,6 +190,46 @@ img {
   border: 1px solid #e2e8f0;
 }
 
+/* ============================================
+   Hero Video Background (Full-bleed)
+   ============================================ */
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #0F172A; /* solid dark fallback */
+}
+
+/* Dark gradient overlay - keeps text readable while showing video */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.25) 0%,
+    rgba(15, 23, 42, 0.45) 35%,
+    rgba(15, 23, 42, 0.65) 70%,
+    rgba(15, 23, 42, 0.82) 100%
+  );
+  z-index: 1;
+}
+
+/* Subtle vignette for cinematic depth */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(15, 23, 42, 0.35) 65%,
+    rgba(15, 23, 42, 0.65) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* Print styles */
 @media print {
   nav, footer, .fixed {
