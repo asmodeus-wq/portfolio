@@ -83,6 +83,29 @@
         .connector.filled {
             background: linear-gradient(to right, #0EA5E9, #38BDF8);
         }
+
+        /* Highlight animation when clicking timeline step */
+        .exp-card.exp-highlight {
+            animation: expPopHighlight 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-color: #0EA5E9;
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.12);
+        }
+
+        @keyframes expPopHighlight {
+            0% {
+                transform: scale(0.97);
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+            }
+            25% {
+                transform: scale(1.02);
+            }
+            60% {
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.0);
+            }
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
@@ -92,7 +115,10 @@
     <!-- Hero -->
     <section class="pt-24 pb-16 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <div class="section-label mb-6">CHAPTER 02 • JOURNEY</div>
+            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-slate-100 border border-slate-200 mb-6">
+                <i class="fa-solid fa-briefcase text-[#0EA5E9]"></i>
+                <span class="text-slate-600 text-sm font-medium tracking-[2px]">CHAPTER 02 • MY JOURNEY</span>
+            </div>
             <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter section-heading mb-4">My Career Story</h1>
             <p class="max-w-xl mx-auto text-xl text-[#475569]">10 years of turning complex problems into intuitive, delightful experiences.</p>
         </div>
@@ -328,6 +354,31 @@
                 );
             });
         }
+
+        // Click on timeline steps → smooth scroll + highlight target card
+        careerSteps.forEach(step => {
+            step.addEventListener('click', () => {
+                const targetId = step.getAttribute('data-exp');
+                const targetCard = document.getElementById(targetId);
+                
+                if (targetCard) {
+                    targetCard.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+
+                    // Trigger highlight animation
+                    targetCard.classList.remove('exp-highlight');
+                    void targetCard.offsetWidth; // force reflow to restart animation
+                    targetCard.classList.add('exp-highlight');
+
+                    // Clean up after animation
+                    setTimeout(() => {
+                        targetCard.classList.remove('exp-highlight');
+                    }, 1600);
+                }
+            });
+        });
 
         window.addEventListener('load', () => {
             initAnimations();
