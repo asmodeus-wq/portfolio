@@ -1,4 +1,10 @@
 /* ============================================
+   FAIZAN QUAZI — 2026 Premium Typography System
+   Universal import (single source of truth)
+   ============================================ */
+@import url('./typography.css');
+
+/* ============================================
    Faizan Quazi Portfolio - Clean Styles
    Normal scrolling restored everywhere
    ============================================ */
@@ -7,8 +13,9 @@
   --accent: #0EA5E9;
   --accent-hover: #38BDF8;
   
+  /* Fonts now come from typography.css — keeping for backward compatibility with existing classes */
   --font-heading: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Base - Normal scrolling */
