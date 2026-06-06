@@ -47,6 +47,55 @@
         .tool-item:hover .tool-logo {
             transform: scale(1.15) rotate(5deg);
         }
+
+        /* Hero Video Background */
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 23, 42, 0.4),
+                rgba(15, 23, 42, 0.75) 50%,
+                rgba(15, 23, 42, 0.9)
+            );
+            z-index: -1;
+        }
+
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+            z-index: -1;
+        }
     </style>
 </head>
 <body class="bg-[#0F172A] text-white overflow-x-hidden">
@@ -55,8 +104,18 @@
     <div id="navbar"></div>
 
     <!-- HERO -->
-    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20">
-        <div class="max-w-6xl mx-auto px-6 text-center">
+    <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
+        <!-- Video Background -->
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/herovid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="vignette"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
             <div class="mb-6 inline-block px-4 py-1 border border-white/20 rounded-full text-xs tracking-[3px]">
                 USER EXPERIENCE ANALYST
             </div>
@@ -82,7 +141,7 @@
             </div>
         </div>
 
-        <div class="absolute bottom-12 text-xs tracking-[4px] text-white/50">SCROLL TO EXPLORE</div>
+        <div class="absolute bottom-12 text-xs tracking-[4px] text-white/50 z-10">SCROLL TO EXPLORE</div>
     </section>
 
     <!-- ABOUT ME PREVIEW -->
