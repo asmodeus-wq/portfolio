@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact | Faizan Quazi</title>
-    <meta name="description" content="Get in touch with Faizan Quazi — UX Analyst based in Pune, India. Open to collaborations, projects, and conversations about meaningful digital experiences.">
+    <meta name="description" content="Get in touch with Faizan Quazi — UX Analyst based in Pune, India. Let's connect over meaningful conversations about design, technology, and opportunities.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
@@ -25,50 +25,18 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgb(14 165 233 / 0.3), 0 4px 6px -4px rgb(14 165 233 / 0.3);
         }
-        .contact-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .contact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .map-container {
-            position: relative;
+        .map-card {
             border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
             border: 1px solid #e2e8f0;
+            background: white;
         }
-        .map-container::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(15, 23, 42, 0.06) 0%,
-                transparent 35%,
-                transparent 65%,
-                rgba(15, 23, 42, 0.08) 100%
-            );
-            pointer-events: none;
-            z-index: 1;
-        }
-        .map-label {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            z-index: 2;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(12px);
-            padding: 8px 18px;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #0F172A;
-            box-shadow: 0 10px 10px rgb(0 0 0 / 0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .contact-panel {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
         }
     </style>
 </head>
@@ -78,24 +46,23 @@
     <div id="navbar"></div>
 
     <!-- Hero / Intro -->
-    <section class="pt-24 pb-16 md:pt-28 md:pb-20">
+    <section class="pt-24 pb-12 md:pt-28 md:pb-16">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <!-- Eyebrow -->
-                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-8">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-6">
                     CHAPTER 07 — LET'S CONNECT
                 </div>
 
                 <h1 class="section-heading text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-none mb-6">
-                    Let's create<br>something meaningful<br>together.
+                    Let's connect.
                 </h1>
 
-                <p class="max-w-lg text-xl text-[#475569] mb-10">
-                    Based in Pune, India. I'm always excited to discuss new projects, collaborations, or just have a good conversation about design and user experience.
+                <p class="max-w-lg text-xl text-[#475569] mb-8">
+                    Based in Pune, India. I'm always happy to have thoughtful conversations about design, technology, and opportunities.
                 </p>
 
-                <!-- Primary CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                <!-- Primary CTAs in hero -->
+                <div class="flex flex-col sm:flex-row gap-4">
                     <a href="mailto:faizanquazi123@gmail.com" 
                        class="premium-btn group inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-[#0EA5E9] hover:bg-[#0284C8] text-white font-semibold text-lg rounded-3xl shadow-xl active:scale-[0.985]">
                         <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform"></i>
@@ -108,65 +75,97 @@
                         <span>Connect on LinkedIn</span>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Quick contact row -->
-                <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-[#475569]">
-                    <a href="tel:+918446556866" class="flex items-center gap-x-2.5 hover:text-[#0EA5E9] transition-colors group">
-                        <i class="fa-solid fa-phone text-[#0EA5E9] group-hover:scale-110 transition-transform"></i>
-                        <span class="font-medium">+91 84465 56866</span>
-                    </a>
-                    <div class="hidden sm:block w-px h-4 bg-slate-300"></div>
-                    <div class="flex items-center gap-x-2.5">
-                        <i class="fa-solid fa-map-marker-alt text-[#0EA5E9]"></i>
-                        <span class="font-medium">Pune, Maharashtra, India</span>
+    <!-- Main Content: Side-by-side Map + CTA Panel -->
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            
+            <!-- Pune Map Card (Left) -->
+            <div class="map-card">
+                <div class="relative">
+                    <img 
+                        src="images/pune.png" 
+                        alt="Map of Pune, Maharashtra — Faizan Quazi is based in Pune, India" 
+                        class="w-full h-full object-cover"
+                        style="aspect-ratio: 16 / 11; object-position: center 42%;"
+                    >
+                    
+                    <!-- Subtle elegant overlay for readability -->
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10"></div>
+                    
+                    <!-- Location badge -->
+                    <div class="absolute bottom-6 left-6 z-10">
+                        <div class="inline-flex items-center gap-x-2.5 bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-lg border border-white/60">
+                            <i class="fa-solid fa-location-dot text-[#0EA5E9] text-lg"></i>
+                            <div>
+                                <div class="font-semibold text-[#0F172A]">Pune, India</div>
+                                <div class="text-xs text-[#64748B] -mt-0.5">Maharashtra</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- CTA Panel (Right) -->
+            <div class="contact-panel p-10 flex flex-col justify-center">
+                <div>
+                    <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-3">BASED IN PUNE</div>
+                    
+                    <h2 class="section-heading text-4xl md:text-5xl font-semibold tracking-[-0.03em] leading-none mb-6">
+                        Rooted here.<br>
+                        Open to conversation.
+                    </h2>
+
+                    <p class="text-[#475569] text-[17px] leading-relaxed mb-8">
+                        I'm currently working full-time as a UX Analyst. I enjoy connecting with people who are passionate about creating thoughtful digital experiences — whether it's to exchange ideas, explore opportunities, or simply have a good chat.
+                    </p>
+
+                    <!-- Secondary quick links -->
+                    <div class="space-y-4 mb-8">
+                        <a href="mailto:faizanquazi123@gmail.com" 
+                           class="group flex items-center justify-between w-full px-6 py-4 bg-[#F8FAFC] hover:bg-white border border-slate-200 hover:border-[#0EA5E9] rounded-2xl transition-all active:scale-[0.985]">
+                            <div class="flex items-center gap-x-4">
+                                <i class="fa-solid fa-envelope text-[#0EA5E9] text-xl w-5"></i>
+                                <div>
+                                    <div class="font-semibold text-[#0F172A]">Email</div>
+                                    <div class="text-sm text-[#64748B]">faizanquazi123@gmail.com</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-[#0EA5E9] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <a href="tel:+918446556866" 
+                           class="group flex items-center justify-between w-full px-6 py-4 bg-[#F8FAFC] hover:bg-white border border-slate-200 hover:border-[#0EA5E9] rounded-2xl transition-all active:scale-[0.985]">
+                            <div class="flex items-center gap-x-4">
+                                <i class="fa-solid fa-phone text-[#0EA5E9] text-xl w-5"></i>
+                                <div>
+                                    <div class="font-semibold text-[#0F172A]">Phone</div>
+                                    <div class="text-sm text-[#64748B]">+91 84465 56866</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-[#0EA5E9] group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- LinkedIn as prominent secondary -->
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 w-full px-8 py-4 border-2 border-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white text-[#0EA5E9] font-semibold text-lg rounded-3xl transition-all active:scale-[0.985]">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Pune Map Section - Beautiful CTA visual -->
-    <section class="max-w-5xl mx-auto px-6 pb-20">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-8">
-            <div>
-                <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-2">LOCATION</div>
-                <h2 class="section-heading text-5xl font-semibold tracking-[-0.03em]">Rooted in Pune</h2>
-            </div>
-            <p class="max-w-xs text-[#475569] text-lg">Whether you're local or joining remotely, I'm always up for a thoughtful conversation.</p>
-        </div>
-
-        <!-- Premium Map Card -->
-        <div class="map-container bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-            <img 
-                src="images/pune.png" 
-                alt="Map of Pune, Maharashtra - Faizan Quazi is based here" 
-                class="w-full h-auto object-cover"
-                style="max-height: 520px; object-position: center 45%;"
-            >
-            
-            <!-- Elegant location badge -->
-            <div class="map-label">
-                <i class="fa-solid fa-location-dot text-[#0EA5E9]"></i>
-                <span>Pune, India</span>
-            </div>
-        </div>
-
-        <p class="text-center text-sm text-[#64748B] mt-5 tracking-tight">
-            Currently open to select collaborations, freelance projects &amp; meaningful opportunities.
-        </p>
-    </section>
-
-    <!-- Simple closing CTA -->
-    <section class="bg-white border-t border-slate-100 py-16">
+    <!-- Minimal closing -->
+    <section class="border-t border-slate-100 py-12 bg-white">
         <div class="max-w-xl mx-auto px-6 text-center">
-            <h3 class="text-3xl font-semibold tracking-tight mb-3">Ready when you are.</h3>
-            <p class="text-[#475569] mb-8">Drop me a message and let's explore how we can work together.</p>
-            
-            <a href="mailto:faizanquazi123@gmail.com" 
-               class="inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-[#0F172A] hover:bg-black text-white font-semibold rounded-3xl text-lg transition-all active:scale-[0.985]">
-                <span>Start the conversation</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <p class="text-[#475569] text-lg">Looking forward to hearing from you.</p>
         </div>
     </section>
 
@@ -191,25 +190,13 @@
         // Subtle entrance animation
         document.addEventListener('DOMContentLoaded', () => {
             gsap.fromTo('section', 
-                { opacity: 0, y: 40 },
+                { opacity: 0, y: 30 },
                 { 
                     opacity: 1, 
                     y: 0, 
-                    duration: 0.9, 
+                    duration: 0.8, 
                     ease: 'power3.out',
-                    stagger: 0.15
-                }
-            );
-
-            // Gentle scale on map for premium feel
-            gsap.fromTo('.map-container', 
-                { scale: 0.985, opacity: 0.8 },
-                { 
-                    scale: 1, 
-                    opacity: 1, 
-                    duration: 1.1, 
-                    ease: 'power2.out',
-                    delay: 0.4
+                    stagger: 0.12
                 }
             );
         });
