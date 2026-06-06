@@ -2,29 +2,281 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career | Faizan Quazi</title>
-    <meta name="description" content="Career journey of Faizan Quazi - UX Analyst.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-</head>
-<body class="bg-[#F8FAFC] text-[#0F172A]">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
 
-    <!-- Universal Navbar -->
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 3.5px;
+            font-weight: 700;
+            color: #0EA5E9;
+            text-transform: uppercase;
+        }
+
+        .exp-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease;
+        }
+        .exp-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.18);
+            border-color: #0EA5E9;
+        }
+
+        .floating-period {
+            font-size: 90px;
+            line-height: 1;
+            font-weight: 800;
+            opacity: 0.06;
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            z-index: 0;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .exp-card:hover .tag {
+            background-color: #e0f2fe;
+        }
+
+        .step {
+            transition: all 0.3s ease;
+        }
+        .step.active {
+            color: #0EA5E9;
+            font-weight: 600;
+        }
+        .step.active .step-number {
+            background: #0EA5E9;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+        }
+
+        .connector {
+            width: 40px;
+            height: 2px;
+            background: #e2e8f0;
+            transition: background 0.4s ease;
+        }
+        .connector.filled {
+            background: linear-gradient(to right, #0EA5E9, #38BDF8);
+        }
+
+        /* Highlight animation when clicking timeline step */
+        .exp-card.exp-highlight {
+            animation: expPopHighlight 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-color: #0EA5E9;
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.12);
+        }
+
+        @keyframes expPopHighlight {
+            0% {
+                transform: scale(0.97);
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
+            }
+            25% {
+                transform: scale(1.02);
+            }
+            60% {
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
+
     <div id="navbar"></div>
 
-    <!-- Chapter Header -->
-    <div class="max-w-5xl mx-auto px-6 pt-24">
-        <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white border border-slate-200 mb-6">
-            <i class="fa-solid fa-briefcase text-[#0EA5E9]"></i>
-            <span class="text-slate-600 text-sm font-medium tracking-[2px]">CHAPTER 02 • MY JOURNEY</span>
+    <!-- Hero -->
+    <section class="pt-24 pb-16 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-slate-100 border border-slate-200 mb-6">
+                <i class="fa-solid fa-briefcase text-[#0EA5E9]"></i>
+                <span class="text-slate-600 text-sm font-medium tracking-[2px]">CHAPTER 02 • MY JOURNEY</span>
+            </div>
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter section-heading mb-4">My Career Story</h1>
+            <p class="max-w-xl mx-auto text-xl text-[#475569]">10 years of turning complex problems into intuitive, delightful experiences.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Rest of experience page... -->
+    <!-- CAREER JOURNEY -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="text-center mb-12">
+                <div class="section-label mb-4">THE JOURNEY</div>
+                <h2 class="text-5xl font-semibold tracking-tighter section-heading mt-2">Career Journey</h2>
+            </div>
+
+            <!-- Sticky Horizontal Career Stepper -->
+            <div id="career-stepper" class="sticky top-20 z-[90] hidden lg:block bg-white/95 backdrop-blur-lg border border-slate-200 rounded-3xl px-8 py-5 mb-12 shadow-sm">
+                <div class="flex items-center justify-center gap-x-1.5 text-sm">
+                    
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="freelance">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">16</div>
+                        <span class="font-medium tracking-tight">Freelance</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="brightbrain">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">18</div>
+                        <span class="font-medium tracking-tight">BrightBrain</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="unica">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">18</div>
+                        <span class="font-medium tracking-tight">HCL Unica</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="cybage">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">21</div>
+                        <span class="font-medium tracking-tight">Cybage</span>
+                    </div>
+                    <div class="connector"></div>
+
+                    <div class="step flex items-center gap-x-2 cursor-pointer px-4 py-2 rounded-2xl hover:bg-slate-50" data-exp="hcl">
+                        <div class="step-number w-8 h-8 flex items-center justify-center rounded-2xl bg-slate-100 text-[#0EA5E9] font-mono text-xs font-bold transition-all">24</div>
+                        <span class="font-medium tracking-tight">HCL Commerce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Cards -->
+            <div class="space-y-8 max-w-5xl mx-auto">
+                <!-- Freelance -->
+                <div id="freelance" class="exp-card bg-white border border-slate-200 rounded-3xl p-10">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4">
+                        <div>
+                            <div class="flex items-center gap-x-4">
+                                <div class="text-2xl font-semibold tracking-tight">Freelance UX Designer</div>
+                                <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">2016 — 2018</div>
+                            </div>
+                            <div class="text-[#0EA5E9] font-medium mt-1">Independent Practice</div>
+                        </div>
+                        <div class="text-sm text-[#64748B]">Pune, India</div>
+                    </div>
+                    <div class="mt-6 text-[#475569] leading-relaxed">
+                        Started my journey as a freelance designer, working with early-stage startups and local businesses on branding, web design, and basic UX. This phase taught me how to wear multiple hats and deliver end-to-end experiences with limited resources.
+                    </div>
+                </div>
+
+                <!-- BrightBrain -->
+                <div id="brightbrain" class="exp-card bg-white border border-slate-200 rounded-3xl p-10">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4">
+                        <div>
+                            <div class="flex items-center gap-x-4">
+                                <div class="text-2xl font-semibold tracking-tight">UX Designer</div>
+                                <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">2018 — 2021</div>
+                            </div>
+                            <div class="text-[#0EA5E9] font-medium mt-1">BrightBrain Technologies</div>
+                        </div>
+                        <div class="text-sm text-[#64748B]">Pune, India</div>
+                    </div>
+                    <div class="mt-6 text-[#475569] leading-relaxed">
+                        Joined as a junior designer and grew into a full UX role. Worked on fintech products, internal tools, and client projects. Gained strong foundation in user research, wireframing, and high-fidelity design.
+                    </div>
+                </div>
+
+                <!-- HCL Unica -->
+                <div id="unica" class="exp-card bg-white border border-slate-200 rounded-3xl p-10">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4">
+                        <div>
+                            <div class="flex items-center gap-x-4">
+                                <div class="text-2xl font-semibold tracking-tight">UX Designer</div>
+                                <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">2021 — 2023</div>
+                            </div>
+                            <div class="text-[#0EA5E9] font-medium mt-1">HCL Unica</div>
+                        </div>
+                        <div class="text-sm text-[#64748B]">Pune, India</div>
+                    </div>
+                    <div class="mt-6 text-[#475569] leading-relaxed">
+                        Worked on enterprise marketing automation platform. Focused on complex B2B workflows, dashboard design, and improving usability for marketing teams.
+                    </div>
+                </div>
+
+                <!-- Cybage -->
+                <div id="cybage" class="exp-card bg-white border border-slate-200 rounded-3xl p-10">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4">
+                        <div>
+                            <div class="flex items-center gap-x-4">
+                                <div class="text-2xl font-semibold tracking-tight">Senior UX Designer</div>
+                                <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">2023 — 2024</div>
+                            </div>
+                            <div class="text-[#0EA5E9] font-medium mt-1">Cybage Software</div>
+                        </div>
+                        <div class="text-sm text-[#64748B]">Pune, India</div>
+                    </div>
+                    <div class="mt-6 text-[#475569] leading-relaxed">
+                        Led design for multiple enterprise clients. Specialized in complex data-heavy interfaces and design systems for large-scale products.
+                    </div>
+                </div>
+
+                <!-- HCL Commerce -->
+                <div id="hcl" class="exp-card bg-white border border-slate-200 rounded-3xl p-10">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4">
+                        <div>
+                            <div class="flex items-center gap-x-4">
+                                <div class="text-2xl font-semibold tracking-tight">UX Analyst</div>
+                                <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">2024 — Present</div>
+                            </div>
+                            <div class="text-[#0EA5E9] font-medium mt-1">HCL Commerce</div>
+                        </div>
+                        <div class="text-sm text-[#64748B]">Pune, India</div>
+                    </div>
+                    <div class="mt-6 text-[#475569] leading-relaxed">
+                        Currently working as a UX Analyst at HCL Software. Focusing on enterprise commerce platforms, design systems, and improving the overall user experience for large B2B products.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="js/nav.js"></script>
+    <script>
+        // Timeline to card connection
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => {
+                step.addEventListener('click', () => {
+                    const targetId = step.getAttribute('data-exp');
+                    const targetCard = document.getElementById(targetId);
+                    if (targetCard) {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetCard.classList.add('exp-highlight');
+                        setTimeout(() => {
+                            targetCard.classList.remove('exp-highlight');
+                        }, 1400);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

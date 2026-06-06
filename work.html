@@ -2,29 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work | Faizan Quazi</title>
-    <meta name="description" content="Selected work by Faizan Quazi - UX Analyst & Designer.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-</head>
-<body class="bg-[#F8FAFC] text-[#0F172A]">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
 
-    <!-- Universal Navbar -->
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 70px -20px rgb(14 165 233 / 0.25);
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.25);
+            border: 1px solid #e2e8f0;
+        }
+
+        .filter-tab {
+            transition: all 0.3s ease;
+        }
+        .filter-tab.active {
+            background-color: #0EA5E9;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgb(14 165 233 / 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
+
+    <!-- Universal Navbar Placeholder -->
     <div id="navbar"></div>
 
-    <!-- Chapter Header -->
-    <div class="max-w-5xl mx-auto px-6 pt-24">
-        <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white border border-slate-200 mb-6">
-            <i class="fa-solid fa-palette text-[#0EA5E9]"></i>
-            <span class="text-slate-600 text-sm font-medium tracking-[2px]">CHAPTER 04 • SELECTED WORK</span>
+    <!-- CINEMATIC HERO -->
+    <section class="min-h-screen flex items-center relative overflow-hidden bg-[#0F172A]">
+        <div class="absolute inset-0 bg-[radial-gradient(#0EA5E9_0.5px,transparent_1px)] [background-size:40px_40px] opacity-10"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <!-- New Chapter Header -->
+            <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+                <i class="fa-solid fa-palette text-[#93C5FD] text-xl"></i>
+                <span class="uppercase tracking-[3px] text-xs font-mono text-white/90">CHAPTER 04 • SELECTED WORK</span>
+            </div>
+            <h1 class="text-7xl md:text-[120px] font-semibold tracking-tighter leading-[0.9] text-white section-heading mb-6">Crafting<br>digital<br>experiences</h1>
+            <p class="max-w-xl mx-auto text-xl md:text-2xl text-white/70">A curated selection of design systems, AI interfaces, and enterprise platforms that push boundaries.</p>
+            <div class="mt-12 flex justify-center gap-4">
+                <a href="#projects" class="px-10 py-4 bg-white text-[#0F172A] font-semibold rounded-2xl hover:bg-[#0EA5E9] hover:text-white transition-all">Explore Projects</a>
+            </div>
         </div>
-    </div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-white/60 text-3xl"></i>
+        </div>
+    </section>
 
-    <!-- Rest of work page... -->
+    <!-- FILTERS -->
+    <section class="sticky top-20 z-50 bg-white/95 backdrop-blur-lg border-b border-slate-200 py-6">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 justify-center" id="filter-tabs">
+                <button onclick="filterProjects('all')" class="filter-tab active px-8 py-3 rounded-3xl text-sm font-medium border border-slate-200">All Projects</button>
+                <button onclick="filterProjects('design')" class="filter-tab px-8 py-3 rounded-3xl text-sm font-medium border border-slate-200">Design Systems</button>
+                <button onclick="filterProjects('ai')" class="filter-tab px-8 py-3 rounded-3xl text-sm font-medium border border-slate-200">AI & Interfaces</button>
+                <button onclick="filterProjects('enterprise')" class="filter-tab px-8 py-3 rounded-3xl text-sm font-medium border border-slate-200">Enterprise</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section id="projects" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
 
     <script src="js/nav.js"></script>
-</body>
-</html>
+    <script src="js/main.js"></script>
+
+    <!-- PROJECT DATA & CAROUSELS -->
+    <script>
+        // Project data for grid
+        const projects = [
+            {
+                id: 'raintree',
+                category: 'design',
+                title: 'Raintree 2021',
+                subtitle: 'Comprehensive Design System',
+                year: '2021',
+                description: 'Scalable component library with interactive prototypes for consistent product experiences.',
+                image: 'images/rt1.png',
+                figma: 'https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=1-2',
+                images: ['images/rt1.png','images/rt2.png','images/rt3.png','images/rt4.png','images/rt5.png','images/rt6.png','images/rt7.png','images/rt8.png','images/rt9.png','images/rt10.png','images/rt11.png']
+            },
+            {
+                id: 'aiml',
+                category: 'ai',
+                title: 'AI/ML Interfaces',
+                subtitle: 'Speculative UI Explorations',
+                year: '2022',
+                description: 'Intelligent interfaces, predictive interactions, and futuristic AI-driven experiences.',
+                image: 'images/am (1).png',
+                figma: 'https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=113-27212',
+                images: ['images/am (1).png','images/am (2).png','images/am (3).png','images/am (4).png','images/am (5).png','images/am (6).png','images/am (7).png','images/am (8).png','images/am (9).png','images/am (10).png','images/am (11).png','images/am (12).png']
+            },
+            {
+                id: 'identity',
+                category: 'enterprise',
+                title: 'Identity Service',
+                subtitle: 'Enterprise Authentication',
+                year: '2023',
+                description: 'Secure identity management and complex B2B authentication flows.',
+                image: 'images/is1.png',
+                figma: 'https://www.figma.com/proto/pQ0XxN8DD7jAUaBbt39JAY/Design-portfolio?node-id=2139-203832',
+                images: ['images/is1.png','images/is2.png','images/is3.png','images/is4...

@@ -2,28 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Process | Faizan Quazi</title>
-    <meta name="description" content="Design process of Faizan Quazi.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-</head>
-<body class="bg-[#F8FAFC] text-[#0F172A]">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
 
-    <!-- Universal Navbar -->
+        .section-heading {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
+        }
+
+        .phase-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.18);
+        }
+
+        .floating-number {
+            font-size: 110px;
+            line-height: 1;
+            font-weight: 800;
+            opacity: 0.06;
+            user-select: none;
+            pointer-events: none;
+            position: absolute;
+            top: -15px;
+            left: -8px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
+
     <div id="navbar"></div>
 
-    <!-- Chapter Header -->
-    <div class="max-w-5xl mx-auto px-6 pt-24">
-        <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white border border-slate-200 mb-6">
-            <i class="fa-solid fa-compass text-[#0EA5E9]"></i>
-            <span class="text-slate-600 text-sm font-medium tracking-[2px]">CHAPTER 03 • MY PROCESS</span>
+    <!-- Hero -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(15,23,42,0.65), rgba(15,23,42,0.78)), url('https://picsum.photos/id/1015/2000/1200');"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
+                <i class="fa-solid fa-compass text-[#93C5FD]"></i>
+                <span class="text-white/90 text-sm font-medium tracking-[2px]">CHAPTER 03 • MY PROCESS</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none text-white mb-6 section-heading">How I work.</h1>
+            <p class="text-xl md:text-2xl text-white/80 max-w-xl mx-auto">A simple, research-first approach that turns complex problems into clear, usable solutions.</p>
         </div>
-    </div>
 
-    <!-- Rest of process page... -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <div class="text-white/60 text-sm mb-2">SCROLL TO EXPLORE</div>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/40 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Process Phases -->
+    <section class="max-w-5xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Phase 1 -->
+            <div class="phase-card bg-white border border-slate-200 rounded-3xl p-10">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#0EA5E9] text-white rounded-2xl text-2xl font-bold">01</div>
+                    <div>
+                        <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9]">PHASE 01</div>
+                        <div class="text-3xl font-semibold tracking-tighter">Understand</div>
+                    </div>
+                </div>
+                <div class="text-[#475569] leading-relaxed">
+                    Deep research, stakeholder interviews, and understanding the business goals and user pain points.
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card bg-white border border-slate-200 rounded-3xl p-10">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#0EA5E9] text-white rounded-2xl text-2xl font-bold">02</div>
+                    <div>
+                        <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9]">PHASE 02</div>
+                        <div class="text-3xl font-semibold tracking-tighter">Define</div>
+                    </div>
+                </div>
+                <div class="text-[#475569] leading-relaxed">
+                    Synthesizing research into clear problem statements and opportunity areas.
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card bg-white border border-slate-200 rounded-3xl p-10">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#0EA5E9] text-white rounded-2xl text-2xl font-bold">03</div>
+                    <div>
+                        <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9]">PHASE 03</div>
+                        <div class="text-3xl font-semibold tracking-tighter">Ideate</div>
+                    </div>
+                </div>
+                <div class="text-[#475569] leading-relaxed">
+                    Sketching, wireframing, and exploring multiple directions before committing to one.
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="phase-card bg-white border border-slate-200 rounded-3xl p-10">
+                <div class="flex items-center gap-x-4 mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#0EA5E9] text-white rounded-2xl text-2xl font-bold">04</div>
+                    <div>
+                        <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9]">PHASE 04</div>
+                        <div class="text-3xl font-semibold tracking-tighter">Design</div>
+                    </div>
+                </div>
+                <div class="text-[#475569] leading-relaxed">
+                    High-fidelity designs, prototypes, and design system components.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="js/nav.js"></script>
 </body>
