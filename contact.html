@@ -2,149 +2,214 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact | Faizan Quazi</title>
+    <meta name="description" content="Get in touch with Faizan Quazi — UX Analyst based in Pune, India. Open to collaborations, projects, and conversations about meaningful digital experiences.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
         .section-heading {
             font-family: 'Space Grotesk', system-ui, sans-serif;
+            letter-spacing: -0.04em;
         }
-
-        .contact-hero {
-            background-image: 
-                linear-gradient(to right, 
-                    rgba(15, 23, 42, 0.78) 0%, 
-                    rgba(15, 23, 42, 0.62) 25%, 
-                    rgba(15, 23, 42, 0.35) 48%, 
-                    rgba(15, 23, 42, 0.12) 68%, 
-                    transparent 82%
-                ),
-                url('images/pune.png');
-            background-size: cover;
-            background-position: 68% center;
-            background-repeat: no-repeat;
-            filter: brightness(0.88) contrast(1.1) saturate(1.08);
+        .premium-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .premium-cta {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .premium-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(14 165 233 / 0.3), 0 4px 6px -4px rgb(14 165 233 / 0.3);
         }
-        .premium-cta:hover {
-            transform: translateY(-3px) scale(1.015);
-            box-shadow: 0 20px 25px -5px rgb(44 94 173 / 0.35), 0 8px 10px -6px rgb(44 94 173 / 0.3);
+        .contact-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .contact-detail {
-            transition: all 0.3s ease;
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-        .contact-detail:hover {
-            color: #fff;
-            transform: translateX(4px);
+        .map-container {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            border: 1px solid #e2e8f0;
+        }
+        .map-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 23, 42, 0.06) 0%,
+                transparent 35%,
+                transparent 65%,
+                rgba(15, 23, 42, 0.08) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        .map-label {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            z-index: 2;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #0F172A;
+            box-shadow: 0 10px 10px rgb(0 0 0 / 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#0F172A] font-sans">
+<body class="bg-[#F8FAFC] text-[#0F172A]">
 
-    <!-- Universal Navbar Placeholder -->
+    <!-- Universal Navbar -->
     <div id="navbar"></div>
 
-    <!-- Immersive Hero with Pune Map -->
-    <section class="contact-hero min-h-[100dvh] flex items-center justify-start relative pt-20 overflow-hidden">
-        
-        <div class="max-w-xl lg:max-w-2xl mx-auto md:mx-0 px-6 md:pl-12 lg:pl-20 relative z-10">
-            
-            <div class="inline-flex items-center gap-x-2 px-5 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur">
-                <span class="text-white/90 text-sm font-medium tracking-[2.5px]">CHAPTER 07 • LET'S CONNECT</span>
-            </div>
-
-            <h1 class="text-6xl md:text-[72px] font-semibold tracking-tighter leading-none mt-2 mb-7 section-heading text-white drop-shadow-xl">
-                Let's create<br>something meaningful<br>together.
-            </h1>
-            
-            <p class="max-w-lg text-xl text-white/90 tracking-tight mb-10 drop-shadow">
-                Based in Pune, India. I’m always excited to discuss new projects, collaborations, or just have a good conversation about design.
-            </p>
-
-            <!-- Primary CTAs -->
-            <div class="flex flex-col sm:flex-row gap-4 mb-14">
-                <a href="mailto:faizanquazi123@gmail.com" 
-                   class="premium-cta group inline-flex items-center justify-center gap-x-4 px-10 py-5 bg-[#2C5EAD] text-white font-semibold text-lg rounded-3xl active:scale-[0.985] shadow-2xl">
-                    <i class="fa-solid fa-envelope text-2xl group-hover:scale-110 transition"></i>
-                    <span>Email Me</span>
-                </a>
-
-                <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" 
-                   class="inline-flex items-center justify-center gap-x-4 px-10 py-5 border-2 border-white/40 hover:bg-white/10 font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] text-white backdrop-blur-sm">
-                    <i class="fa-brands fa-linkedin text-2xl"></i>
-                    <span>Connect on LinkedIn</span>
-                </a>
-            </div>
-
-            <!-- Contact Details -->
-            <div class="flex flex-col sm:flex-row items-center gap-x-8 gap-y-4 text-lg">
-                <a href="tel:+918446556866" class="contact-detail flex items-center gap-x-3 text-white/90 hover:text-white transition-colors">
-                    <i class="fa-solid fa-phone text-[#93C5FD]"></i>
-                    <span>+91 84465 56866</span>
-                </a>
-
-                <div class="hidden sm:block w-px h-5 bg-white/40"></div>
-
-                <div class="flex items-center gap-x-3 text-white/90">
-                    <i class="fa-solid fa-map-marker-alt text-[#93C5FD]"></i>
-                    <span>Pune, Maharashtra, India</span>
+    <!-- Hero / Intro -->
+    <section class="pt-24 pb-16 md:pt-28 md:pb-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <!-- Eyebrow -->
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-8">
+                    CHAPTER 07 — LET'S CONNECT
                 </div>
-            </div>
-        </div>
 
-        <!-- Subtle scroll hint -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
-            <div class="flex flex-col items-center text-white/60 text-xs tracking-[2px]">
-                <div>SCROLL TO EXPLORE</div>
-                <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent mt-2"></div>
+                <h1 class="section-heading text-6xl md:text-7xl font-semibold tracking-[-0.04em] leading-none mb-6">
+                    Let's create<br>something meaningful<br>together.
+                </h1>
+
+                <p class="max-w-lg text-xl text-[#475569] mb-10">
+                    Based in Pune, India. I'm always excited to discuss new projects, collaborations, or just have a good conversation about design and user experience.
+                </p>
+
+                <!-- Primary CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="mailto:faizanquazi123@gmail.com" 
+                       class="premium-btn group inline-flex items-center justify-center gap-x-3 px-10 py-5 bg-[#0EA5E9] hover:bg-[#0284C8] text-white font-semibold text-lg rounded-3xl shadow-xl active:scale-[0.985]">
+                        <i class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>Email Me</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank"
+                       class="inline-flex items-center justify-center gap-x-3 px-9 py-5 border-2 border-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white text-[#0EA5E9] font-semibold text-lg rounded-3xl transition-all active:scale-[0.985]">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
+
+                <!-- Quick contact row -->
+                <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-[#475569]">
+                    <a href="tel:+918446556866" class="flex items-center gap-x-2.5 hover:text-[#0EA5E9] transition-colors group">
+                        <i class="fa-solid fa-phone text-[#0EA5E9] group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium">+91 84465 56866</span>
+                    </a>
+                    <div class="hidden sm:block w-px h-4 bg-slate-300"></div>
+                    <div class="flex items-center gap-x-2.5">
+                        <i class="fa-solid fa-map-marker-alt text-[#0EA5E9]"></i>
+                        <span class="font-medium">Pune, Maharashtra, India</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Compact Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6">
+    <!-- Pune Map Section - Beautiful CTA visual -->
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-4 mb-8">
+            <div>
+                <div class="text-xs tracking-[3px] font-semibold text-[#0EA5E9] mb-2">LOCATION</div>
+                <h2 class="section-heading text-5xl font-semibold tracking-[-0.03em]">Rooted in Pune</h2>
+            </div>
+            <p class="max-w-xs text-[#475569] text-lg">Whether you're local or joining remotely, I'm always up for a thoughtful conversation.</p>
+        </div>
+
+        <!-- Premium Map Card -->
+        <div class="map-container bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
+            <img 
+                src="images/pune.png" 
+                alt="Map of Pune, Maharashtra - Faizan Quazi is based here" 
+                class="w-full h-auto object-cover"
+                style="max-height: 520px; object-position: center 45%;"
+            >
+            
+            <!-- Elegant location badge -->
+            <div class="map-label">
+                <i class="fa-solid fa-location-dot text-[#0EA5E9]"></i>
+                <span>Pune, India</span>
+            </div>
+        </div>
+
+        <p class="text-center text-sm text-[#64748B] mt-5 tracking-tight">
+            Currently open to select collaborations, freelance projects &amp; meaningful opportunities.
+        </p>
+    </section>
+
+    <!-- Simple closing CTA -->
+    <section class="bg-white border-t border-slate-100 py-16">
+        <div class="max-w-xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-semibold tracking-tight mb-3">Ready when you are.</h3>
+            <p class="text-[#475569] mb-8">Drop me a message and let's explore how we can work together.</p>
+            
+            <a href="mailto:faizanquazi123@gmail.com" 
+               class="inline-flex items-center justify-center gap-x-3 px-9 py-4 bg-[#0F172A] hover:bg-black text-white font-semibold rounded-3xl text-lg transition-all active:scale-[0.985]">
+                <span>Start the conversation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer class="bg-[#F8FAFC] border-t border-slate-200 py-8">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 gap-x-6 text-sm">
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-[#475569]">
-                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
-                        <i class="fa-solid fa-envelope"></i> 
-                        <span>faizanquazi123@gmail.com</span>
-                    </a>
-                    <a href="tel:+918446556866" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
-                        <i class="fa-solid fa-phone"></i> 
-                        <span>+91 84465 56866</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#2C5EAD] flex items-center gap-x-2 transition-colors text-xs md:text-sm">
-                        <i class="fa-brands fa-linkedin"></i> 
-                        <span>LinkedIn</span>
-                    </a>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 text-sm text-[#64748B]">
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+                    <a href="mailto:faizanquazi123@gmail.com" class="hover:text-[#0EA5E9] transition-colors">faizanquazi123@gmail.com</a>
+                    <span class="hidden md:inline text-slate-300">•</span>
+                    <a href="tel:+918446556866" class="hover:text-[#0EA5E9] transition-colors">+91 84465 56866</a>
+                    <span class="hidden md:inline text-slate-300">•</span>
+                    <a href="https://www.linkedin.com/in/faizanquazi/" target="_blank" class="hover:text-[#0EA5E9] transition-colors">LinkedIn</a>
                 </div>
-                <p class="text-xs text-[#64748B] text-center md:text-right">© 2026 Faizan Quazi • UX Analyst</p>
+                <p class="text-xs">© 2026 Faizan Quazi • UX Analyst</p>
             </div>
         </div>
     </footer>
 
     <script src="js/nav.js"></script>
     <script>
-        // Subtle entrance animation for hero content
+        // Subtle entrance animation
         document.addEventListener('DOMContentLoaded', () => {
-            gsap.fromTo('.contact-hero > div', 
-                { opacity: 0, y: 30 },
+            gsap.fromTo('section', 
+                { opacity: 0, y: 40 },
                 { 
                     opacity: 1, 
                     y: 0, 
-                    duration: 1.1, 
+                    duration: 0.9, 
                     ease: 'power3.out',
-                    delay: 0.2
+                    stagger: 0.15
+                }
+            );
+
+            // Gentle scale on map for premium feel
+            gsap.fromTo('.map-container', 
+                { scale: 0.985, opacity: 0.8 },
+                { 
+                    scale: 1, 
+                    opacity: 1, 
+                    duration: 1.1, 
+                    ease: 'power2.out',
+                    delay: 0.4
                 }
             );
         });
