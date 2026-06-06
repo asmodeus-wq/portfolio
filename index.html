@@ -48,7 +48,7 @@
             transform: scale(1.15) rotate(5deg);
         }
 
-        /* Clean Vimeo Hero Background - True full-bleed cover, consistent across all browsers */
+        /* Clean Local Video Hero Background - True full-bleed cover using object-fit, consistent across ALL browsers */
         .hero-video-bg {
             position: absolute;
             inset: 0;
@@ -84,17 +84,20 @@
     <!-- Universal Navbar Placeholder -->
     <div id="navbar"></div>
 
-    <!-- HERO with Vimeo Background -->
+    <!-- HERO with Local Video Background -->
     <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
-        <!-- Vimeo Video Background - Hardcoded 16:9 cover technique for consistent full-bleed -->
+        <!-- Local Video Background - Native <video> with object-fit: cover for perfect full-bleed, no bars, consistent everywhere -->
         <div class="hero-video-bg">
-            <iframe 
-                src="https://player.vimeo.com/video/1198928461?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                frameborder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-width:177.78vh; min-height:100vh; border:0;"
-                title="Faizan Quazi Hero Video">
-            </iframe>
+            <video 
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                class="absolute inset-0 w-full h-full object-cover"
+            >
+                <source src="videos/herovid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="hero-overlay"></div>
@@ -382,7 +385,7 @@
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
         );
 
-        console.log("%c[Portfolio] Vimeo hero background FIXED - full consistent cover (16:9 hardcoded)", "color:#10b981");
+        console.log("%c[Portfolio] Local video hero background ACTIVE - full consistent cover with object-fit (no bars, works everywhere)", "color:#10b981");
     </script>
 </body>
 </html>
