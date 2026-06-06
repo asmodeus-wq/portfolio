@@ -51,8 +51,29 @@
 </head>
 <body class="bg-[#0F172A] text-white overflow-x-hidden">
 
-    <!-- Universal Navbar Placeholder -->
-    <div id="navbar"></div>
+    <!-- Navigation (uniform across all pages) -->
+    <nav class="fixed top-0 left-0 right-0 z-[200] bg-white/90 backdrop-blur-lg border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-x-3 no-underline">
+                <div class="w-9 h-9 bg-[#0EA5E9] rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">FQ</span>
+                </div>
+                <h1 class="font-semibold text-xl tracking-tight text-[#0F172A]">Faizan Quazi</h1>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="about.html" class="nav-link text-[#334155]">About</a>
+                <a href="experience.html" class="nav-link text-[#334155]">Career</a>
+                <a href="process.html" class="nav-link text-[#334155]">Process</a>
+                <a href="work.html" class="nav-link text-[#334155]">Work</a>
+                <a href="contact.html" class="nav-link text-[#334155]">Contact</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-[#334155]">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
     <!-- HERO -->
     <section class="min-h-[100dvh] flex items-center justify-center relative pt-20">
@@ -309,7 +330,7 @@
         </div>
     </section>
 
-    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -337,7 +358,7 @@
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
         );
 
-        console.log("%c[Portfolio] Index restored with universal navbar", "color:#64748b");
+        console.log("%c[Portfolio] Semi-formal preview version loaded", "color:#64748b");
     </script>
 </body>
 </html>
