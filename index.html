@@ -79,9 +79,9 @@
             height: 100%;
             background: linear-gradient(
                 to bottom,
-                rgba(15, 23, 42, 0.4),
-                rgba(15, 23, 42, 0.75) 50%,
-                rgba(15, 23, 42, 0.9)
+                rgba(15, 23, 42, 0.45),
+                rgba(15, 23, 42, 0.8) 60%,
+                rgba(15, 23, 42, 0.95)
             );
             z-index: -1;
         }
@@ -92,7 +92,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.75);
             pointer-events: none;
             z-index: -1;
         }
@@ -107,7 +107,7 @@
     <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
         <!-- Video Background -->
         <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
+            <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata">
                 <source src="videos/herovid.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -373,6 +373,30 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
+        // Enhanced Hero Video Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('hero-video');
+            if (video) {
+                // Ensure autoplay
+                video.play().catch(e => {
+                    console.log('Autoplay prevented:', e);
+                    // Try again after user interaction
+                    document.addEventListener('click', () => {
+                        video.play();
+                    }, { once: true });
+                });
+
+                // Fallback if video fails to load
+                video.addEventListener('error', () => {
+                    console.error('Video failed to load');
+                    const container = document.querySelector('.hero-video-container');
+                    if (container) {
+                        container.style.background = 'linear-gradient(135deg, #0F172A, #1E2937)';
+                    }
+                });
+            }
+        });
+
         gsap.utils.toArray('.distort, .tool-item, .premium-card').forEach((el, i) => {
             gsap.fromTo(el, 
                 { opacity: 0, y: 60, scale: 0.96 },
@@ -397,7 +421,7 @@
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
         );
 
-        console.log("%c[Portfolio] Semi-formal preview version loaded", "color:#64748b");
+        console.log("%c[Portfolio] Hero video background active", "color:#64748b");
     </script>
 </body>
 </html>
