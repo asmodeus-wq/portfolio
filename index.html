@@ -48,37 +48,13 @@
             transform: scale(1.15) rotate(5deg);
         }
 
-        /* Hero Video Background - Vimeo */
-        .hero-video-container {
+        /* Clean Vimeo Hero Background - True full-bleed cover, consistent across all browsers */
+        .hero-video-bg {
             position: absolute;
             inset: 0;
             overflow: hidden;
             z-index: 0;
             background: #0F172A;
-        }
-
-        .vimeo-wrapper {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-        }
-
-        .vimeo-wrapper iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            min-width: 177.77%;   /* Hardcoded to maintain ~16:9 ratio while covering */
-            min-height: 100%;
-            transform: translate(-50%, -50%);
-            border: 0;
         }
 
         .hero-overlay {
@@ -110,22 +86,19 @@
 
     <!-- HERO with Vimeo Background -->
     <section class="min-h-[100dvh] flex items-center justify-center relative pt-20 overflow-hidden">
-        <!-- Vimeo Video Background -->
-        <div class="hero-video-container">
-            <div class="vimeo-wrapper">
-                <div style="padding:56.25% 0 0 0; position: relative; height: 0; overflow: hidden;">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1198928461?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        style="position:absolute; top:0; left:0; width:100%; height:100%;" 
-                        title="Faizan Quazi Hero Video">
-                    </iframe>
-                </div>
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="vignette"></div>
+        <!-- Vimeo Video Background - Hardcoded 16:9 cover technique for consistent full-bleed -->
+        <div class="hero-video-bg">
+            <iframe 
+                src="https://player.vimeo.com/video/1198928461?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-width:177.78vh; min-height:100vh; border:0;"
+                title="Faizan Quazi Hero Video">
+            </iframe>
         </div>
+
+        <div class="hero-overlay"></div>
+        <div class="vignette"></div>
 
         <!-- Hero Content -->
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
@@ -409,7 +382,7 @@
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
         );
 
-        console.log("%c[Portfolio] Vimeo hero background active (16:9 hardcoded + cover)", "color:#10b981");
+        console.log("%c[Portfolio] Vimeo hero background FIXED - full consistent cover (16:9 hardcoded)", "color:#10b981");
     </script>
 </body>
 </html>
